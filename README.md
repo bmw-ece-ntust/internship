@@ -1,9 +1,20 @@
-# BMW Lab Internship Guidelines
+#Profile
 
-## 1. Introduction
-To facilitate organization and collaboration among interns at BMW Lab, please follow these steps:
+Name: Muhammad Taqiyuddin Al Ghazi
 
-1. Create a branch using the template [year]-[Name]. For example: `2019-ian-joseph`.
-2. Edit the README.md on your branch with the profile information you provided in your Trello card.
-3. Organize your study notes by creating folders.
-4. Create `.md` files for your study notes.
+Email: ghozi6024@gmail.com
+
+University: Universitas Indonesia
+
+Department: Department of Electrical Engineering
+
+GPA: 3.76
+
+Intern:
+
+Topic: 5G Optimization
+
+Duration:
+
+Mentor: Winnie, Bimo, Nino
+
