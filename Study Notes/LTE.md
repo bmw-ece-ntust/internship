@@ -1,6 +1,11 @@
 # LTE Study Notes
 
-[x] Gain understanding about LTE from [This channel](https://www.youtube.com/@LTE4G/videos)
+- [x] Gain understanding about LTE from [This channel](https://www.youtube.com/@LTE4G/videos)
+- [x] Gain understanding about how Duplexing is managed in LTE
+- [] Gain understanding about how Multiplexing is managed in LTE
+- [] Gain understanding about the fundamentals of OFDMA.
+
+
 
 ## Communication Evolution
 
@@ -50,8 +55,43 @@ Within this period more features are added to LTE such as:
 
 ## Duplexing
 There are serveral method to acheive full duplex connectivity
-### FDD (Frequency Division Multiplexing)
- ![image](https://imgur.com/a/Q0grdGC)
- 
+    
+- **FDD - Paired Spectrum (Frequency Division Multiplexing)**
+
+    <img src="https://i.imgur.com/gBw5bPG.png"/>
+
+    In FDD, the UL and DL is using the different frequency channel with a guard band between them to prevent interference and crosstalk between those two channel.
+
+- **TDD - Unpaired Spectrum (Time Division Multiplexing)**
+    <img src="https://i.imgur.com/ej73h0B.png"/>
+    In TDD, the UL and DL is transmitted alternatingly within the same channel but at different time slot using a synchronized interval. Between the time slots there will be a guard period (delay).
+
+While generally FDD offers more performance since there is no delay needed. It consumes much more resource both power and cost. In FDD, we cannot allocate resource individually on the UL/DL traffic while in TDD we can easily adjust the time slot to give more resource either to UL or DL according to the traffic. TDD also have much more cheaper equipment cost because it only uses one radio, comare to FDD that uses at least two radio which a multiplexer to process those frequencies. While TDD is cheaper to deploy, it is more complex from MAC perspective due to it needing an accurate timing requirement.
+
+## Multiple Access
+Multiple access allows multiple users to communicate using a single common channel. It is one of the application of multiplexing, which is the process of combining multiple signal and combining them to be transmitted over a single channel.
+
+### Serveral types of multiplexing
+
+- **FDMA (Frequency Division)**
+ <img src="https://i.imgur.com/LB4KDXf.png"/>
+
+    FDMA allocates a different subband for each user. Between each subband there will be a guard band to prevent interfering and crosstalk
+- **TDMA (Time Division)**
+    <img src="https://i.imgur.com/IsyDYzK.png">
+    TDMA uses common frequency band to multiple users. Transmission for each users will be differentiated using time slots
+- **CDMA (Code Division)**
+    <img src="https://imgur.com/2GHUWuU.png">
+
+    The basic principal of CDMA is that code is used to distinguish different users. The code is used to encode and decode each user's signals. 
+- **SDMA (Space Division)**
+    The basic idea of SDMA is by distributin the cells into broader area, the same frequency can be used in mutiple areas as long as they are not overlap each other.
+- **OFDMA (Orthogonal FDMA)**
+    OFDMA is similar with FDMA. The key difference is that OFDMA uses orthogonality for its subcarriers. This allows the subcarriers to occupy the same bandwidth without any interference. OFDMA negates the needs of guard band thus the spectrum needed is less that regular FDMA.
+
+
+
+
+
 
 
