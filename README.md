@@ -1,9 +1,13 @@
-# BMW Lab Internship Guidelines
+# Profile
 
-## 1. Introduction
-To facilitate organization and collaboration among interns at BMW Lab, please follow these steps:
-
-1. Create a branch using the template [year]-[Name]. For example: `2019-ian-joseph`.
-2. Edit the README.md on your branch with the profile information you provided in your Trello card.
-3. Organize your study notes by creating folders.
-4. Create `.md` files for your study notes.
+- Name: Ibrahim Rijal
+- Email: [ibrahim.rijal@ui.ac.id](mailto:ibrahim.rijal@ui.ac.id "‌")
+- University: Universitas Indonesia
+- Department: Departement of Electrical Engineering
+- GPA: 3.78
+- Intern:
+  - Topic: RACH
+  - Duration:
+- Mentor: @timlin66
+- Portofolio: [Linkedin](https://www.linkedin.com/in/irphotoarts/ "‌"), [GitHub](http://github.com/irbirojodoh "‌"), [CV](https://univindonesia-my.sharepoint.com/:b:/g/personal/ibrahim_rijal_office_ui_ac_id/EabmC2kuMyxHn8MwisobWFYBxVPXUwhMowG-0GQc63u-cg?e=2Oerx6 "‌")
+- [HackMD Root Page](https://hackmd.io/wf4DP7jXRqeIGS2GfkwMig "‌")
