@@ -428,7 +428,7 @@ If the UE is in a handover mechanism, the scrambling of the CRC will use the C-R
 
 
 
- 
+
  
  
  

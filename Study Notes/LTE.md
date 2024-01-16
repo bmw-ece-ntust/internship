@@ -33,3 +33,25 @@ In 3G, UMTS is replacing EDGE that is used in 2G. UMTS uses wideband CDMA to car
 
 Later in this period in relase 4, the core network component will be based on IP. This is the foundation for HSDPA which came out in relase 5. HSDPA reduces delay and increase the data rate to 14Mbps for downlink. In relase 6, HSUPA is introduced and reduce delay and increase data rate to 5.74Mbps in uplink. In realse 7 this  MIMO and higher order modulation such as 64-QAM is implemented, both can be used simultaneously.
 
+### Fourth Generation (LTE - )
+In 4G, a new architecture is developed which consisted of System Architecture Evolution and Radio PArt.
+
+In addition from MIMO, 4G also implements Multi Carrier and Packet Switching on the Radio Interface
+
+Within this period more features are added to LTE such as:
+- Multi Cell HSDPA
+- HetNet
+- Coordinate Multipoint
+- Carrier Aggregation
+- Massive MIMO
+- etc
+
+>Need to explore more about 4G
+
+## Duplexing
+There are serveral method to acheive full duplex connectivity
+### FDD (Frequency Division Multiplexing)
+ ![image](https://imgur.com/a/Q0grdGC)
+ 
+
+
