@@ -18,6 +18,6 @@ Duration:
 
 Mentor: Winnie, Bimo, Nino
 
-Portofolio: Linkedin, Resume, Github
+Portofolio: [Linkedin](https://www.linkedin.com/in/satwika-bintang-bahana-0b3780220/)https://www.linkedin.com/in/satwika-bintang-bahana-0b3780220/, Resume, Github
 
 Hackmd : Hackmd Satwika
