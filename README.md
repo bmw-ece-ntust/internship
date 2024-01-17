@@ -16,7 +16,7 @@ Topic: 5G Optimization
 
 Duration:
 
-Mentor:   
+Mentor: Winnie, Bimo, Nino
 
 Portofolio: Linkedin, Resume, Github
 
