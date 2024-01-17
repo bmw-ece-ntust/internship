@@ -1,11 +1,10 @@
 # Satwika Learning Roadmap
 ## Step 1: Understand the background knowledge of 5G
-:::success
 - Goal: 
     - [x] To know the characteristic of 5G
     - [x] To know the overall architecture of 5G
     - [x] To know the difference between 4G and 5G
-:::
+
 
 ### I. Intro 5G
 The fifth generation, known as 5G, represents the most recent stride in mobile cellular networks, succeeding the fourth-generation (4G) LTE networks. 5G was introduced in 2019.5G aims to revolutionize the way we connect and communicate by delivering significantly enhanced speed and latency compared to previous generations.
