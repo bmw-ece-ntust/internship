@@ -1,9 +1,12 @@
-# BMW Lab Internship Guidelines
+# Profile
 
-## 1. Introduction
-To facilitate organization and collaboration among interns at BMW Lab, please follow these steps:
-
-1. Create a branch using the template [year]-[Name]. For example: `2019-ian-joseph`.
-2. Edit the README.md on your branch with the profile information you provided in your Trello card.
-3. Organize your study notes by creating folders.
-4. Create `.md` files for your study notes.
+- Name: Eriqo Arief Wicaksono
+- Email: [eriqo.arief1@gmail.com](mailto:eriqo.arief1@gmail.com "‌")
+- University: University of Indonesia
+- Department: Electrical Engineering
+- GPA: 3,91
+- Intern:
+  - Topic: C/U/S Plane Security
+  - Duration:
+- Mentor: @heidi149314 @sylvia_ch
+- Portofolio: [Linkedin](https://www.linkedin.com/in/eriqoarief/ "‌"), [Resume](https://drive.google.com/file/d/1lfRNoNmB956ARm9llUHR_RxM3ot9nVhq/view?usp=drive_link "‌"), [Github](https://github.com/Eriqo90AW "‌")
