@@ -56,16 +56,16 @@ Open your web browser and navigate to http://localhost:3000. The default usernam
     3. Choose "InfluxDB" from the list.
     4. Configure the InfluxDB settings as below:
         - Set query language to Flux
-          ![image](https://github.com/NTUST-BMW-Lab/internship/assets/87703952/52f5f28d-4e20-4b9b-ad5b-0fd65148f6ac)
+       ![image](https://github.com/NTUST-BMW-Lab/internship/assets/87703952/52f5f28d-4e20-4b9b-ad5b-0fd65148f6ac)
         - Enter username and password for InfluxDB and the bucket details
-          ![image](https://github.com/NTUST-BMW-Lab/internship/assets/87703952/c3a3385c-eb70-40ca-8d81-7505925cfd02)
+       ![image](https://github.com/NTUST-BMW-Lab/internship/assets/87703952/c3a3385c-eb70-40ca-8d81-7505925cfd02)
         - Set HTTP URL with http://localhost:8086
-          ![image](https://github.com/NTUST-BMW-Lab/internship/assets/87703952/195aca0a-a55f-4761-8304-998bdeb06b3d)
+       ![image](https://github.com/NTUST-BMW-Lab/internship/assets/87703952/195aca0a-a55f-4761-8304-998bdeb06b3d)
         - Click "Save & Test" to verify the connection.
     5. Create a Dashboard and Visualize Data
         - In the Grafana UI, go to the "+" menu on the left sidebar and select "Dashboard."
-          ![image](https://github.com/NTUST-BMW-Lab/internship/assets/87703952/3add2440-4dc9-4f11-bf7f-fde8fb3479b1)
+       ![image](https://github.com/NTUST-BMW-Lab/internship/assets/87703952/3add2440-4dc9-4f11-bf7f-fde8fb3479b1)
         - Click on "Add new panel."
-          ![image](https://github.com/NTUST-BMW-Lab/internship/assets/87703952/9206d39c-8670-4b6f-a1a3-7a98011e17fd)
+       ![image](https://github.com/NTUST-BMW-Lab/internship/assets/87703952/9206d39c-8670-4b6f-a1a3-7a98011e17fd)
         - In the "Query" section, select your InfluxDB data source and enter your Flux or InfluxQL query to retrieve data.
         - Customize the visualization as needed and click "Apply."
