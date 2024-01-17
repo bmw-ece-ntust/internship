@@ -9,8 +9,7 @@
 
 **Main Reference：**
 
-* [User Guide of InfluxDB v2 - BMW Lab NTUST](https://hackmd.io/@Min-xiang/rkEyzDdkT#User-Guide-of-InfluxDB-v2)
-* [InfluxDB installation on windows - BRR Knowledge Center](https://www.youtube.com/watch?v=mgxa-g2Wc-Q)
+* [Linking Grafana to InfluxDB V2.0](https://www.youtube.com/watch?v=Jszd7zrl-_U)
 :::
 
 ## :rocket: Introduction
