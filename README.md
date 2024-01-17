@@ -1,9 +1,12 @@
-# BMW Lab Internship Guidelines
+# Profile
 
-## 1. Introduction
-To facilitate organization and collaboration among interns at BMW Lab, please follow these steps:
-
-1. Create a branch using the template [year]-[Name]. For example: `2019-ian-joseph`.
-2. Edit the README.md on your branch with the profile information you provided in your Trello card.
-3. Organize your study notes by creating folders.
-4. Create `.md` files for your study notes.
+- Name: Alifya Zhafira Ananda
+- Email: alifya.zhafira29@gmail.com
+- University: Universitas Indonesia
+- Department: Department of Electrical Engineering (Computer Engineering)
+- GPA: 3.64
+- Intern:
+  - Topic: WiFI
+  - Duration:
+- Mentor: Ian Joseph Chandra
+- Portofolio: [LinkedIn](https://www.linkedin.com/in/alifya-zhafira-ananda/), [Github](https://github.com/alifyaza)
