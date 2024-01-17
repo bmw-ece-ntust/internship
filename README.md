@@ -12,7 +12,7 @@ GPA: 3.74
 
 Intern:
 
-Topic: 5G Optimization
+Topic: 5G Optimization-Energy Saving
 
 Duration:
 
