@@ -1,12 +1,5 @@
 # Taqi Additional Part 1
 ###### tags: `RIC-Team` `TEEP` 
-:::success
-**Intro:**
-Give new member a direction to learn.
-
-**Goal:**
-- [ ] To list the steps for new members to learn
-
 :::
 [TOC]
 # Additional Part 1 (Interface & AI/ML Module)
