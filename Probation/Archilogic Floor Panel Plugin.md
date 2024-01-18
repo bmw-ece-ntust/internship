@@ -1,5 +1,4 @@
-# 
-Archilogic Floor Panel Plugin Documentation
+# Archilogic Floor Panel Plugin Documentation
 
 
 :::info
