@@ -1,7 +1,6 @@
 # Taqi Additional Part 1
 ###### tags: `RIC-Team` `TEEP` 
-:::
-[TOC]
+
 # Additional Part 1 (Interface & AI/ML Module)
 
 ## Learning E2 Interface related in Near-RT RIC Platform
