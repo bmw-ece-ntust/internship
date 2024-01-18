@@ -101,6 +101,26 @@ In this case, Subframe number is set to 1. It means that UE can transmit PRACH a
 In this case, x = 1 and y = 0. It means UE is allowed to transmit PRACH in radio frame (i.e, the radio frame meeting n_SFN mod 1 = 0). UE is allowed to transmit at every SFN.
 In this case, Subframe number is set to 0,1,2,3,4,5,6,7,8,9. It means that UE can transmit PRACH at any subframe within the radio frame determined as above.
 
+---
+**Exercise: Draw timing diagram for PRACH config index = 40 and 100 (FR1 Unpaired spectrum)**
+>**Key details:**
+>
+>- PRACH Length is determined by the preamble format, sum of $T_{CP}$ and $T_{SEQ}$. [Details](https://www.sharetechnote.com/html/5G/5G_RACH.html#TimeDomainStructure_of_Preamble_Format)
+>- PRACH Slots location is determined by the starting symbol. [Details](https://www.sharetechnote.com/html/5G/5G_RACH.html#TimeDomain_RO_Ex)
+
+| PRACH Config Index | Preamble Format | $n_{sfn}$, mod x = y | SF Number | Starting Symbol | Number of PRACH Slots within SF | Number of Time-Domain ROs within PRACH Slot | PRACH Duration |
+|:------------------:|:--------:|:-------:|:----:|:---------------:|:--------------------------:|:--------------------------------------:|:--------------:|
+| 40 | 3 | x = 16, y = 1 | 9 | 0 |- | - | 0 |
+
+- Preamble format = 0, PRACH length = $T_{CP} + T_{SEQ} \approx 0.9038$ ms
+
+    $28 \cdot 0.9038 = 25.3  \text{ Slot} $
+![Preamble 0](https://imgur.com/DYFYlcw.png)
+- Starting Symbol = 0, the frame starts from 0
+
+    ![40](https://imgur.com/L2c1J0b.png)
+
+---
 
 #### Frequency Domain Allocation
 For PRACH, allocation for frequency domain is handled by `msg1-FDM` and `msg1-FrequencyStart`
