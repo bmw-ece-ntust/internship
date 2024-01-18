@@ -1,11 +1,14 @@
 # Part 1: E2 Interface related in Near-RT RIC Platform
-
 - Goal : 
-    - [ ] Learning E2 Interface
-    - [ ] Learning E2 Service Model
+    - [x] Learning E2 Interface
+    - [x] Learning E2 Service Model
+- Useful Links:
+    - [O-RAN.WG3.E2AP-v02.01](https://www.o-ran.org/specifications)
+    - [ORAN-WG3.E2SM-v02.01](https://www.o-ran.org/specifications)
 
 - Outcome (Study Note) : 
     - Learn about E2 Interface
+    - Learn about E2 Application Procedure
     - Learn about E2 Service Model
 
 ***
@@ -94,4 +97,254 @@ Near-RT RIC Services (**REPORT**, **INSERT**, **CONTROL**, **POLICY** and **QUER
   <figcaption>Near-RT RIC initiated</figcaption>
 </figure>
 
-## II. E2 Service Model
+## II. E2 Application Protocol (E2AP)
+**Relationship between E2AP and RIC Service**
+![image](https://hackmd.io/_uploads/Hy6zvzIt6.png)
+
+### RIC Subscription Procedure
+This procedure is used to establish RIC Subscriptions on E2 Node consisting of an event trigger and a sequence of RIC Service Actions.
+> Initiated by Near-RT RIC; uses RIC Service signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/SJhKOM8Y6.png"/>
+  <figcaption>RIC Subscription procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/S1jp_zUFT.png"/>
+  <figcaption>RIC Subscription procedure, unsuccessful operation</figcaption>
+</figure>
+
+### RIC Subscription Delete Procedure
+This procedure is used to delete RIC Subscriptions on E2 Node.
+> Initiated by Near-RT RIC; uses RIC Service signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/r1qfKGUYT.png"/>
+  <figcaption>RIC Subscription Delete procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/B1JVKz8Ya.png"/>
+  <figcaption>RIC Subscription Delete procedure, unsuccessful operation</figcaption>
+</figure>
+
+### RIC Subscription Delete Required Procedure
+This procedure is used to enable the E2 Node to request deletion of the existing RIC Subscriptions in the E2 Node previously created for the Near-RT RIC.
+> Initiated by E2 Node; uses RIC Service signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/H17KYGIKa.png"/>
+  <figcaption>RIC Subscription Delete Required procedure, successful operation</figcaption>
+</figure>
+
+### RIC Indication Procedure
+The purpose of the RIC Indication procedure is to transfer Report and/or Insert RIC Service Action associated with a RIC Subscription procedure.
+> Initiated by E2 Node; uses RIC Service signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/SkE6YzIFa.png"/>
+  <figcaption>RIC Indication procedure, successful operation</figcaption>
+</figure>
+
+### RIC Control Procedure
+The purpose of the RIC Control procedure is to initiate or resume a specific functionality in the E2 Node.
+> Initiated by Near-RT RIC; uses RIC Service signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:50%;" src="https://hackmd.io/_uploads/Sk3Mqz8F6.png"/>
+  <figcaption>RIC Control procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:50%;" src="https://hackmd.io/_uploads/r1-P5f8t6.png"/>
+  <figcaption>RIC Control procedure, unsuccessful operation</figcaption>
+</figure>
+
+### RIC Subscription Modification Procedure
+The purpose of the RIC Subscription Modification procedure is to modify an existing RIC subscription on an E2 node, in terms of its event trigger definition and/or the sequence of actions.
+> Initiated by Near-RT RIC; uses RIC Service signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/S1ZDjMLta.png"/>
+  <figcaption>RIC Subscription Modification procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/SyTjsfUYa.png"/>
+  <figcaption>RIC Subscription Modification procedure, unsuccessful operation</figcaption>
+</figure>
+
+### RIC Subscription Modification Required Procedure
+This procedure is used by the E2 Node to request the Near-RT RIC for modifying an existing RIC Subscription in the E2 Node.
+> Initiated by E2 Node; uses RIC Service signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/ByRInf8Ya.png"/>
+  <figcaption>RIC Subscription Modification Required procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/ByV53MUKp.png"/>
+  <figcaption>RIC Subscription Modification Required procedure, unsuccessful operation</figcaption>
+</figure>
+
+### RIC Subscription Modification Procedure
+The purpose of the RIC Subscription Modification procedure is to modify an existing RIC subscription on an E2 node, in terms of its event trigger definition and/or the sequence of actions.
+> Initiated by Near-RT RIC; uses RIC Service signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/S1ZDjMLta.png"/>
+  <figcaption>RIC Subscription Modification procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/SyTjsfUYa.png"/>
+  <figcaption>RIC Subscription Modification procedure, unsuccessful operation</figcaption>
+</figure>
+
+### RIC Query Procedure
+This procedure is initiated by Near-RT RIC to request RAN and/or UE related information from E2 Node.
+> Initiated by Near-RT RIC; uses RIC Service signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/Hyup3G8Kp.png"/>
+  <figcaption>RIC Query procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/Hkw0hfIKa.png"/>
+  <figcaption>RIC Query procedure, unsuccessful operation</figcaption>
+</figure>
+
+### E2 Setup Procedure
+This procedure erases any existing application level configuration data in the two nodes and replace it by the one received. 
+> Initiated by E2 Node; uses E2 Support Function signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/ByMIL78FT.png"/>
+  <figcaption>E2 Setup procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/ByVPUmIK6.png"/>
+  <figcaption>E2 Setup procedure, unsuccessful operation</figcaption>
+</figure>
+
+### Reset Procedure
+The purpose of the Reset procedure is to initialize or re-initialise the E2 Node in the event of Near-RT RIC failure or vice-versa. 
+> Initiated by E2 Node or the Near-RT RIC; uses E2 Support Function signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:50%;" src="https://hackmd.io/_uploads/Byd0UQIYp.png"/>
+  <figcaption>Reset procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:50%;" src="https://hackmd.io/_uploads/BkElPQUKa.png"/>
+  <figcaption>Reset procedure, unsuccessful operation</figcaption>
+</figure>
+
+### Error Indication 
+The purpose of the Reset procedure is to report detected errors in one incoming message, provided they cannot be reported by an appropriate failure message.
+> Initiated by E2 Node or the Near-RT RIC; uses E2 Support Function signaling or RIC Service signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:50%;" src="https://hackmd.io/_uploads/BJUcwXIYa.png"/>
+  <figcaption>Error Indication, (E2 Node initiated) successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:50%;" src="https://hackmd.io/_uploads/Bye6vmIta.png"/>
+  <figcaption>Error Indication, (Near-RT RIC initiated) successful operation</figcaption>
+</figure>
+
+### RIC Service Update Procedure
+The purpose of the Reset procedure is to update application level RIC Service related data needed for E2 Node and Near-RT RIC to interoperate correctly over the E2 interface.
+> Initiated by E2 Node; uses E2 Support Function signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/Sy9mOQ8Yp.png"/>
+  <figcaption>RIC Service Update procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/B194u7IFa.png"/>
+  <figcaption>RIC Service Update procedure, unsuccessful operation</figcaption>
+</figure>
+
+### E2 Node Configuration Update Procedure
+The purpose of the Reset procedure is to update application level E2 Node configuration data needed for E2 Node and Near-RT RIC to interoperate correctly over the E2 interface and to support E2 Node initiated TNL association removal.
+> Initiated by E2 Node; uses E2 Support Function signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:70%;" src="https://hackmd.io/_uploads/B1fuOXIta.png"/>
+  <figcaption>E2 Node Configuration Update procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:70%;" src="https://hackmd.io/_uploads/BJTYumUtp.png"/>
+  <figcaption>E2 Node Configuration Update procedure, unsuccessful operation</figcaption>
+</figure>
+
+### E2 Connection Update Procedure
+The purpose of the Reset procedure is to allow the Near-RT RIC to update the TNL information associated with the E2 interface connection between the E2 Node and Near-RT RIC.
+> Initiated by Near-RT RIC; uses E2 Support Function signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/SyvnO7IKT.png"/>
+  <figcaption>E2 Connection Update procedure, successful operation</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:60%;" src="https://hackmd.io/_uploads/rJwTOXLFp.png"/>
+  <figcaption>E2 Connection Update procedure, unsuccessful operation</figcaption>
+</figure>
+
+### E2 Removal Procedure
+The purpose of the Reset procedure is to remove the E2 signaling connection between the Near-RT RIC and the E2 node in a controlled manner. 
+> Initiated by E2 Node or Near-RT RIC; uses E2 Support Function signaling
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:50%;" src="https://hackmd.io/_uploads/SyWetQUYa.png"/>
+  <figcaption>E2 Removal procedure, successful operation (E2 Node Initiated)</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:50%;" src="https://hackmd.io/_uploads/SycZtQItp.png"/>
+  <figcaption>E2 Removal procedure, successful operation (Near-RT RIC Initiated)</figcaption>
+</figure>
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:50%;" src="https://hackmd.io/_uploads/S15EK7IY6.png"/>
+  <figcaption>E2 Removal procedure, unsuccessful operation (E2 Node Initiated)</figcaption>
+</figure>]
+
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:50%;" src="https://hackmd.io/_uploads/SJKStQLFp.png"/>
+  <figcaption>E2 Removal procedure, unsuccessful operation (Near-RT RIC Initiated)</figcaption>
+</figure>
+
+## III. E2 Service Model (E2SM)
+**E2AP Protocol** establish the logical connection between to E2AP end-points (Near RT RIC and Open RAN CU/DU) provides services to implement an **E2 Service Model – E2SM**. These procedures are then combined to create a service model. The service model message is inserted as payload in one of the E2AP messages, as shown in Figure below.
+<figure style="text-align:center;">
+  <img style="display:block;margin:20px auto;padding:1px;border:1px #eee;width:70%;" src="https://hackmd.io/_uploads/H1edtrUK6.png"/>
+</figure>
+
+Three services models that are implementes as xApps in Near-RT RIC : 
+* **E2SM Key Performance Matrix (KPM)**: reports performance metrics from the RAN, using E2 report messages.
+* **E2SM Network Interfaces (NI)**: used to take the messages received by the E2 node on specific network interfaces and forward them to the Near-RT RIC domain via E2 report messages over the E2 interface.
+* **E2SM RAN Control (RC)**: implements control functionalities through E2 control procedures.
+
+### E2SM Services
+![Screen Shot 2024-01-18 at 13.53.22](https://hackmd.io/_uploads/rkyxirLtT.png)
+
+![Screen Shot 2024-01-18 at 13.54.12](https://hackmd.io/_uploads/Hk-XsS8K6.png)
+
+### E2SM Common Elements
+* **Information Element** : When specifying information elements which are to be represented by bit strings, if not otherwise specifically stated in the semantics description of the concerned IE or elsewhere, the following principle applies with regards to the ordering of bits:
+	- The first bit (leftmost bit) contains the most significant bit (MSB);
+	- The last bit (rightmost bit) contains the least significant bit (LSB);
+	- When importing bit strings from other specifications, the first bit of the bit string contains the first bit of the concerned information.
+
+* **Information Element Abstract Syntax (with ASN.1)** : In case there is **contradiction** between the ASN.1 definition and the tabular format in Information Element, the ASN.1 shall take precedence, except for the definition of conditions for the presence of conditional elements, in which the tabular format shall take precedence.
