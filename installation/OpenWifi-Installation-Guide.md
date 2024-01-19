@@ -76,26 +76,30 @@ export UCENTRALSEC="openwifi.wlan.local:16001"
 export FLAGS="-s --cacert <your-wlan-cloud-ucentral-deploy-location>/docker-compose/certs/restapi-ca.pem"
 ```
 
-## Troubleshooting Methods
+## Troubleshooting Docker Permissions
 
-Condition: Docker installed via `sudo apt-get`, and installed `docker-compose`.
+Permission denied exceptions occured when calling ```docker``` and ```docker-compose```:
+```
+raise DockerException( docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')))
+```
 
-### Trial 1, Update
-1. `sudo apt-get update`
-2. Close and reopen terminal
+It is possible because the docker is not permitted yet to read files, follow these steps:
+1. `sudo groupadd docker`
+2. `sudo usermod -aG docker $USER`
+3. `newgrp docker`
 
-### Trial 2, Add current user to docker group, enabling it to run without `sudo` 
-1. `sudo usermod -aG docker $USER`
-2. Close and reopen terminal
+Then try to run `docker run hello-world`, it should shows:
+```
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+```
+If the output is same as the above, `docker-compose up -d` should not have any problem anymore.
 
-### Checking methods
-1. `sudo docker pull ubuntu:latest`
-2. `sudo docker images`
-3. `sudo docker run -i -t --name test ubuntu:latest`
-4. Exit by typing 'exit'
-5. `sudo docker ps -a`
+## Renaming IP
+The docker deployment steps 7 shows that the use of ```https://openwifi.wlan.local```, these needed to be manually assigned using static host name in both remote computer (if want to be accessed via internet) or local. Follow this steps:
+1. `sudo nano /etc/hosts`, or other text editor available on the computer.
+2. Add new entry for the host:
+   * For local: `127.0.0.1 openwifi.wlan local`
+   * For remote: `[OpenWiFi SDK Host IP] openwifi.wlan local`
 
-### Renaming IP
-1. `sudo nano /etc/hosts`
-2. Add
-   `127.0.0.1 openwifi.wlan local`
+Check if the host properly assigned by accessing a web browser open `https://openwifi.wlan.local`. It should shown the OpenWiFi UI.
