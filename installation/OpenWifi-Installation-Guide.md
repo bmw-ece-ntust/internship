@@ -3,13 +3,13 @@
 Reference : https://github.com/Telecominfraproject/wlan-cloud-ucentral-deploy/blob/main/docker-compose/README.md 
 
 ## Table of Contents
-- [Installation](https://github.com/NTUST-BMW-Lab/internship/blob/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#openwifi-installation)
-   - [Deploy using Docker Compose](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#deploy-using-docker-compose)
-- [Troubleshooting Methods](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#troubleshooting-methods)
-  - [Trial 1, Update](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#trial-1,-update)
-  - [Trial 2, Enabling user to run commands without `sudo`](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#trial-2,-add-current-user-to-docker-group,-enabling-it-to-run-without-`sudo`)
-  - [Checking methods](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#checking-methods)
-  - [Renaming IP](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#renaming-ip)
+- [Installation](https://github.com/NTUST-BMW-Lab/internship/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#openwifi-installation)
+   - [Deploy using Docker Compose](https://github.com/NTUST-BMW-Lab/internship/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#deploy-using-docker-compose)
+- [Troubleshooting Methods](https://github.com/NTUST-BMW-Lab/internship/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#troubleshooting-methods)
+  - [Trial 1, Update](https://github.com/NTUST-BMW-Lab/internship/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#trial-1,-update)
+  - [Trial 2, Enabling user to run commands without `sudo`](https://github.com/NTUST-BMW-Lab/internship/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#trial-2,-add-current-user-to-docker-group,-enabling-it-to-run-without-`sudo`)
+  - [Checking methods](https://github.com/NTUST-BMW-Lab/internship/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#checking-methods)
+  - [Renaming IP](https://github.com/NTUST-BMW-Lab/internship/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#renaming-ip)
 
 The [wlan-cloud-ucentral-deploy](https://github.com/Telecominfraproject/wlan-cloud-ucentral-deploy) repository contaions two packaging options:
 - Docker Compose - used for local deployments
