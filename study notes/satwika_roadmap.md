@@ -85,3 +85,25 @@ reference: https://stl.tech/blog/understanding-o-ran-from-the-basics/
 
 ### Difference between O-RAN and 5G
 O-RAN is an approach to designing open and interoperable radio access networks, while 5G is the next-generation technology focused on enhancing network speed and performance.O-RAN can be implemented in 5G networks to bring flexibility.
+
+## Step 3: Understand the background knowledge of Near-RT RIC
+:::success
+- Goal: 
+    - [x] To know the characteristic of Near-RT RIC
+    - [ ] To know the overall architecture of Near-RT RIC
+    - [ ] To know the definition of Near-RT RIC Platform and xApp
+- Key Words:
+    - Near-RT RIC
+    - O-RAN.WG3.RICARCH-R003-v05.00
+- Useful Links:
+    - [O-RAN.WG3.RICARCH-R003-v05.00](https://www.o-ran.org/specifications)
+:::
+### RIC (RAN intelligent Controller)
+Intelligent RIC equipped with closed-loop control mechanisms, have been implemented to enhance the optimization and orchestration of Radio Access Network (RAN) operations. These controllers, called RAN Intelligent Controllers (RICs), use AI and ML to look at Key Performance Measurements (KPMs) data. They then use this information to decide and control the RAN, making sure it runs as efficiently as possible.
+
+- The RAN Intelligent Controller (RIC) is cloud-native and serves as a central component in an open and virtualized RAN network.
+- Virtualization for RAN components and O-RAN elements aims to optimize power consumption.
+- Open interfaces in the RAN prevent vendor lock-in. For instance, a near-real-time RIC from one company can seamlessly collaborate with base stations from another vendor, and various components such as CUs, DUs, and RUs from different manufacturers can work together efficiently.
+
+### Characteristic of Near-RT RIC
+The Near-Real-Time RIC (near-RT RIC) is based in a regional cloud and operates on a timescale ranging from 10 milliseconds to 1 second. It consists of various applications  supporting custom logic called xApps. These xApps use standard interfaces and service models to control the RAN infrastructure.
