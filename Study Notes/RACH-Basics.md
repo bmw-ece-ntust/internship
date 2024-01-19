@@ -120,6 +120,34 @@ In this case, Subframe number is set to 0,1,2,3,4,5,6,7,8,9. It means that UE ca
 
     ![40](https://imgur.com/L2c1J0b.png)
 
+
+| PRACH Config Index | Preamble Format | $n_{sfn}$, mod x = y | SF Number | Starting Symbol | Number of PRACH Slots within SF | Number of Time-Domain ROs within PRACH Slot | PRACH Duration |
+|:------------------:|:--------:|:-------:|:----:|:---------------:|:--------------------------:|:--------------------------------------:|:--------------:|
+| 100 | A2 | x = 1, y = 0 | 9 | 9 |1 | 1 | 4 |
+
+- **PRACH Length**
+    Preamble format = A2, PRACH length = $T_{CP} + 4 \cdot T_{SEQ} \approx 0.2856$ ms
+
+     $28 \cdot 0.2856 = 7.9968  \text{ Slot} $
+     >Seeing examples from this [example](https://www.sharetechnote.com/html/5G/5G_RACH.html#TimeDomain_RO_Ex), the slot is somehow divided by two. so it will be 3,9984
+
+    ![Preamble A2](https://imgur.com/iKIArzj.png)
+
+- **PRACH Slots**
+
+    Using this equation
+    > $$ l = l_0 + n^{RA}_{t} N^{RA}_{dur} + 14 \cdot n^{RA}_{slot}  $$
+    > $$ l = 9 + 0 \cdot 4 + 14 \cdot 1 = 23 $$
+    > ---
+    > $$l_0 = \text{Starting Symbol = 9}$$
+    > $$ n^{RA}_{t} = \text{0 to (Number of Time-Domain ROs within PRACH Slot - 1) = [0]}$$
+    > $$N^{RA}_{dur} = \text{PRACH Duration} = 4$$
+    > $$n^{RA}_{slot} = [1]$$
+    > ![N RA Slot](https://imgur.com/qqDxl2B.png)
+
+    ![100](https://imgur.com/gAVspSY.png)
+
+
 ---
 
 #### Frequency Domain Allocation
@@ -151,35 +179,41 @@ Mapping for RACH Occasion is determined by
 
 **Visualisation for RACH Occasion**
 
-:::warning
+
 `msg1-FDM`= 1
 `ssb-perRACH-OccasionAndCB-PreamblesPerSSB`: 2:16
 ![image](https://hackmd.io/_uploads/ry0V8_Cu6.png)
 :::
 
-:::warning
+
 `msg1-FDM`= 2
 `ssb-perRACH-OccasionAndCB-PreamblesPerSSB`: 1/2:4
 ![image](https://hackmd.io/_uploads/rJjvpd0u6.png)
 
+`msg1-FDM`= 4
+`ssb-perRACH-OccasionAndCB-PreamblesPerSSB`: 1/2:8
 
-:::
+**SSB 2 SHOULD BE SSB 1**
+![image](https://imgur.com/YuknR6k.png)
 
-
-::: success
-Visualization for these parameters can be shown in this [website](https://www.nrexplained.com/ra_msg1)
-:::
-
-
-
-
+`msg1-FDM`= 1
+`ssb-perRACH-OccasionAndCB-PreamblesPerSSB`: 4:8
+![image](https://imgur.com/ZD1lg2F.png)
 
 
 
 
+> Visualization for these parameters can be shown in this [website](https://www.nrexplained.com/ra_msg1)
 
-::: info
-:::    spoiler Specification for RACH-ConfigCommon based on **3GPP TS 38.331**
+
+
+
+
+
+
+---
+
+Specification for RACH-ConfigCommon based on **3GPP TS 38.331**
 ```
 RACH-ConfigCommon ::= SEQUENCE {
     rach-ConfigGeneric                      RACH-ConfigGeneric,
