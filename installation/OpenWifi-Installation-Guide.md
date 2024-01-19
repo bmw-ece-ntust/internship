@@ -1,4 +1,16 @@
 # OpenWifi Installation
+
+Reference : https://github.com/Telecominfraproject/wlan-cloud-ucentral-deploy/blob/main/docker-compose/README.md 
+
+## Table of Contents
+- [Installation](https://github.com/NTUST-BMW-Lab/internship/blob/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#openwifi-installation)
+   - [Deploy using Docker Compose](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#deploy-using-docker-compose)
+- [Troubleshooting Methods](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#troubleshooting-methods)
+  - [Trial 1, Update](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#trial-1,-update)
+  - [Trial 2, Enabling user to run commands without `sudo`](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#trial-2,-add-current-user-to-docker-group,-enabling-it-to-run-without-`sudo`)
+  - [Checking methods](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#checking-methods)
+  - [Renaming IP](https://github.com/NTUST-BMW-Lab/internship/edit/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#renaming-ip)
+
 The [wlan-cloud-ucentral-deploy](https://github.com/Telecominfraproject/wlan-cloud-ucentral-deploy) repository contaions two packaging options:
 - Docker Compose - used for local deployments
 - Helm - used for deployment to Kubernetes clusters
@@ -63,3 +75,27 @@ openwifi_rttys_1       /rttys/rttys                     Up      0.0.0.0:5912->59
 export UCENTRALSEC="openwifi.wlan.local:16001"
 export FLAGS="-s --cacert <your-wlan-cloud-ucentral-deploy-location>/docker-compose/certs/restapi-ca.pem"
 ```
+
+## Troubleshooting Methods
+
+Condition: Docker installed via `sudo apt-get`, and installed `docker-compose`.
+
+### Trial 1, Update
+1. `sudo apt-get update`
+2. Close and reopen terminal
+
+### Trial 2, Add current user to docker group, enabling it to run without `sudo` 
+1. `sudo usermod -aG docker $USER`
+2. Close and reopen terminal
+
+### Checking methods
+1. `sudo docker pull ubuntu:latest`
+2. `sudo docker images`
+3. `sudo docker run -i -t --name test ubuntu:latest`
+4. Exit by typing 'exit'
+5. `sudo docker ps -a`
+
+### Renaming IP
+1. `sudo nano /etc/hosts`
+2. Add
+   `127.0.0.1 openwifi.wlan local`
