@@ -85,13 +85,12 @@ reference: https://stl.tech/blog/understanding-o-ran-from-the-basics/
 
 ### Difference between O-RAN and 5G
 O-RAN is an approach to designing open and interoperable radio access networks, while 5G is the next-generation technology focused on enhancing network speed and performance.O-RAN can be implemented in 5G networks to bring flexibility.
-
 ## Step 3: Understand the background knowledge of Near-RT RIC
 :::success
 - Goal: 
     - [x] To know the characteristic of Near-RT RIC
-    - [ ] To know the overall architecture of Near-RT RIC
-    - [ ] To know the definition of Near-RT RIC Platform and xApp
+    - [x] To know the overall architecture of Near-RT RIC
+    - [x] To know the definition of Near-RT RIC Platform and xApp
 - Key Words:
     - Near-RT RIC
     - O-RAN.WG3.RICARCH-R003-v05.00
@@ -107,3 +106,14 @@ Intelligent RIC equipped with closed-loop control mechanisms, have been implemen
 
 ### Characteristic of Near-RT RIC
 The Near-Real-Time RIC (near-RT RIC) is based in a regional cloud and operates on a timescale ranging from 10 milliseconds to 1 second. It consists of various applications  supporting custom logic called xApps. These xApps use standard interfaces and service models to control the RAN infrastructure.
+
+### Architecture Near-RT RIC
+![image](https://hackmd.io/_uploads/By8OpHvYa.png)
+source: https://arxiv.org/pdf/2202.01032.pdf 
+
+1. The internal messaging infrastructure connects xApps, platform services, and interface terminations with each other. It offers APIs for sending and receiving messages and ensures robust routing to prevent internal data loss.
+2. Conflict Mitigation addresses possible conflicts emerging among different xApps.
+3. The subscription manager helps xApps connect to functions available through the E2 interface. It also manages how each xApp can access E2 messages and can combine several identical subscription requests to the same E2 node into a single request.
+4. Security sub-system prevent malicious xApps from leaking sensitive RAN data or from affecting the RAN performance
+5. Network Information Base (NIB) Database and Shared Data Layer API:  The RAN NIB (R-NIB) database stores information on E2 nodes. The UE-NIB is used to track and correlate the identity of the same user across different E2 nodes.
+6. xApp management  involves overseeing the entire life cycle of specialized applications called xApps within a network. This includes bringing them into the system (onboarding), ensuring they are correctly placed and ready for operation (deployment), and stopping or removing them when needed (termination).
