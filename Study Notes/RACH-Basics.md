@@ -206,6 +206,17 @@ Mapping for RACH Occasion is determined by
 > Visualization for these parameters can be shown in this [website](https://www.nrexplained.com/ra_msg1)
 
 
+>**Association Period:**
+>
+>Timeframe during which the mapping of SS/PBCH block indexes to PRACH occasions is performed. The association period starts from frame 0 and is determined based on the smallest value in a set determined by the PRACH configuration period according to Table 8.1-1. This mapping ensures that SS/PBCH block Tx indexes are associated with PRACH occasions.
+> 
+>**Association Pattern Period:**
+>
+>Asociation pattern period includes one or more association periods and is designed to repeat the pattern between PRACH occasions and SS/PBCH block indexes at most every 160 milliseconds. If, after an integer number of association periods, there are PRACH occasions or preambles not mapped to SS/PBCH block indexes, those PRACH occasions or preambles are not used for PRACH transmissions.
+>
+>**Summary:** 
+>
+>the association period and association pattern period are defined to establish a mapping pattern between SS/PBCH block indexes and PRACH occasions in a 5G or beyond cellular network, ensuring efficient and systematic utilization of resources for Random Access procedures.
 
 
 
