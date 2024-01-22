@@ -65,7 +65,7 @@ openwifi_rttys_1       /rttys/rttys                     Up      0.0.0.0:5912->59
    
 12. Service enforces a password change on first login to something more secured
 
-    <img width="428" alt="image" src="https://github.com/laurenchristyt/open-wifi/assets/113244831/c36fc813-a805-4344-ad56-0e0bd5834f9f">
+    <img width="428" alt="image" src="https://github.com/NTUST-BMW-Lab/internship/blob/2024-TEEP-11-Lauren/images/OpenWifiLoginPage.png">
     
 14. To use the curl test scripts which are included in the microservice repositories make sure to set the following environment variables before issuing a request:
 ```
