@@ -3,10 +3,10 @@
 Reference : [OpenWifi](https://github.com/Telecominfraproject/wlan-cloud-ucentral-deploy/blob/main/docker-compose/README.md)
 
 ## Table of Contents
-- [Installation](https://github.com/NTUST-BMW-Lab/internship/blob/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#openwifi-installation)
-   - [Deploy using Docker Compose](https://github.com/NTUST-BMW-Lab/internship/blob/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#deploy-using-docker-compose)
-- [Troubleshooting Methods](https://github.com/NTUST-BMW-Lab/internship/blob/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#troubleshooting-docker-permissions)
-- [Renaming IP](https://github.com/NTUST-BMW-Lab/internship/blob/2024-TEEP-Lauren/installation/OpenWifi-Installation-Guide.md#renaming-ip)
+- [Installation](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/installation/OpenWifi-Installation-Guide.md#openwifi-installation)
+   - [Deploy using Docker Compose](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/installation/OpenWifi-Installation-Guide.md#deploy-using-docker-compose)
+- [Troubleshooting Methods](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/installation/OpenWifi-Installation-Guide.md#troubleshooting-docker-permissions)
+- [Renaming IP](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/installation/OpenWifi-Installation-Guide.md#renaming-ip)
 
 The [wlan-cloud-ucentral-deploy](https://github.com/Telecominfraproject/wlan-cloud-ucentral-deploy) repository contaions two packaging options:
 - Docker Compose - used for local deployments
@@ -65,7 +65,7 @@ openwifi_rttys_1       /rttys/rttys                     Up      0.0.0.0:5912->59
    
 12. Service enforces a password change on first login to something more secured
 
-    <img width="428" alt="image" src="https://github.com/NTUST-BMW-Lab/internship/blob/2024-TEEP-11-Lauren/images/OpenWifiLoginPage.png">
+    <img width="428" alt="image" src="https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/images/OpenWifiLoginPage.png">
     
 14. To use the curl test scripts which are included in the microservice repositories make sure to set the following environment variables before issuing a request:
 ```
