@@ -7,5 +7,5 @@
 - Intern:
   - Topic: Wifi
   - Duration:
-- Mentor: @ijosh_ch
-- Portofolio: Linkedin, Resume, Github
+- Mentor: Ian Joseph Chandra
+- Portofolio: [Linkedin](https://www.linkedin.com/in/laurentanudjaja/), [Resume](https://drive.google.com/file/d/1XY-amstVxAwfyUjXvY9hhaVxz10Ak60O/view?usp=sharing), [Github](https://github.com/laurenchristyt)
