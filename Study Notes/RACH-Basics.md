@@ -8,7 +8,7 @@
 :::success
 **Goals**
 - [x] Learn about the background RACH
-- [x] Learn about the detailed mechanism for 4-Step RACH
+- [x] Learn about the detasiled mechanism for 4-Step RACH
 - [x] Learn about the frequency and time domain allocation for each RACH Channel
 
 \
@@ -360,6 +360,8 @@ The configuration for time and frequencyt domain allocation is within `MsgA-PUSC
      
 * UE sends MSG1
 * gNB Allocates Temp C-RNTI
+
+
 * gNB sends PDCCH for corresponding RA-RNTI
 * UE assign Random UE ID
 * UE extract UL Grant from RAR
