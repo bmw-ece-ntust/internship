@@ -350,7 +350,7 @@ The configuration for time and frequencyt domain allocation is within `MsgA-PUSC
     UE->gNB: MSG3: Connection request
     gNB-->UE: PDCCH: Temporary C-RNTI 
     gNB->UE: MSG4: Contention Resolution
-    Note left of UE: State: \n RRC Connected
+    Note left of UE: State: \n RRC Connectedd
 ```
 
 :::success
