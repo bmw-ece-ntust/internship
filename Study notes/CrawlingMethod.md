@@ -10,6 +10,23 @@ Meeting Summary with Rafie Amandio
 ## **Action Items**
 - Try the crawling method
 
+## **Table of Contents**
+- [**Crawling Method (Counting Method)**](#crawling-method-counting-method)
+  - [**Point of Discussion**](#point-of-discussion)
+  - [**Action Items**](#action-items)
+  - [**Table of Contents**](#table-of-contents)
+  - [**Overview**](#overview)
+  - [**Data Collection Process**](#data-collection-process)
+    - [**Controller-AP Connection**](#controller-ap-connection)
+    - [**Wi-Fi Signal Strength Measurement (RSSI)**](#wi-fi-signal-strength-measurement-rssi)
+    - [**AI Integration for Location Prediction**](#ai-integration-for-location-prediction)
+    - [**Counting Method**](#counting-method)
+    - [**Raw Retrieved Data**](#raw-retrieved-data)
+    - [**EIRP Impact**](#eirp-impact)
+    - [**ARM (Adaptive Radio Management)**](#arm-adaptive-radio-management)
+    - [**Crawling Method for AI Training**](#crawling-method-for-ai-training)
+
+
 ## **Overview**
 In OpenWifi, each Access Point (AP) is connected to a dedicated controller, typically one controller per building, making a API-driven communication system. The goal is to develop an indoor positioning system utilizing Wi-Fi data, enabling hotspot location determination based on Wi-Fi signal strength.
 

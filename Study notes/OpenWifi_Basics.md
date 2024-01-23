@@ -1,18 +1,34 @@
-# **OpenWifi**
+# **OpenWiFi**
 
-**Point of Discussion**
+### **Point of Discussion**
 - Learning OpenWifi's role in system architecture
--  Learning how to integrate OpenWifi to middleware
--  Learning OpenWifi's provisioning functionality
+-  Learning how to integrate OpenWiFi to middleware
+-  Learning OpenWiFi's provisioning functionality
 
-## **Action Items**
+### **Action Items**
 - Develop a script for translation that converts OpenWiFi commands (C) into Aruba commands (Python).
 - Try [OpenWiFi WLAN Testing](https://github.com/Telecominfraproject/wlan-testing) into the OpenWiFi Controller
 
-**Main Reference**:
+### **Main Reference**:
 - [OpenWiFi - Telecom Infra Project Website](https://openwifi.tip.build/)
 - [Telecom Infra Project's Youtube channel](https://www.youtube.com/@telecominfraproject)
 - Meeting with mas Nino
+
+### **Table of Contents**
+- [**OpenWiFi**](#openwifi)
+    - [**Point of Discussion**](#point-of-discussion)
+    - [**Action Items**](#action-items)
+    - [**Main Reference**:](#main-reference)
+    - [**Table of Contents**](#table-of-contents)
+  - [**Introduction**](#introduction)
+  - [**Architecture Flow**](#architecture-flow)
+  - [**Key Repositories for OpenWifi**](#key-repositories-for-openwifi)
+  - [**Vendor Integration and Middleware**](#vendor-integration-and-middleware)
+  - [**Ports**](#ports)
+    - [**Provisioning-UI (Port 8443)**](#provisioning-ui-port-8443)
+      - [**General**](#general)
+      - [**Entities and Configuration**](#entities-and-configuration)
+
 
 ## **Introduction**
 OpenWifi, a free and open-source disaggregated Wi-Fi system, provides service providers and to overcome the limitations of proprietary Wi-Fi infrastructure.
