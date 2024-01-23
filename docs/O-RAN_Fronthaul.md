@@ -11,6 +11,7 @@ Goals:
   - [I. O-RAN](#i-o-ran)
   - [II. O-RAN Architecture](#ii-o-ran-architecture)
   - [III. O-RAN Fronthaul](#iii-o-ran-fronthaul)
+  - [IV. Split Option 7-2x](#iv-split-option-7-2x)
 
 ## I. O-RAN
 
@@ -49,6 +50,7 @@ O-RAN fronthaul enables these separated components to communicate efficiently an
 - Split Option 7-2x is a new functional splitting approach to solve fronthaul bandwidth issues.
 
 ![Split Option 7-2x](../assets/Split%20Option%207-2x.png)
+
 ref: [Overview of O-RAN Fronthaul Specification](https://hackmd.io/nJy4F1CRQjyvr0hD6n7vVg)
 
 - The PHY layer is split into two parts:
