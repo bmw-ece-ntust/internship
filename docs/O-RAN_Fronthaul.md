@@ -69,6 +69,7 @@ ref: [Overview of O-RAN Fronthaul Specification](https://hackmd.io/nJy4F1CRQjyvr
 ## V. O-RAN Fronthaul Security Threats
 
 ![O-FH Threat](../assets/O-FH%20Threat.png)
+
 ref: [Transport Security Considerations for the Open-RAN Fronthaul](https://ieeexplore.ieee.org/document/9604996)
 
 The potential threats encountered by each of the four planes in the O-RAN Fronthaul architecture:
