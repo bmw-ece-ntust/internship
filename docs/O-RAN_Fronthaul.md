@@ -12,6 +12,7 @@ Goals:
   - [II. O-RAN Architecture](#ii-o-ran-architecture)
   - [III. O-RAN Fronthaul](#iii-o-ran-fronthaul)
   - [IV. Split Option 7-2x](#iv-split-option-7-2x)
+  - [V. O-RAN Fronthaul Security Threats](#v-o-ran-fronthaul-security-threats)
 
 ## I. O-RAN
 
@@ -27,6 +28,7 @@ ref: [What is Open-RAN?](https://www.vodafone.com/about-vodafone/what-we-do/tech
 ![O-RAN Architecture](../assets/O-RAN%20Architecture.png)
 ref: [Design of a Network Management System for 5G Open RAN](https://ieeexplore.ieee.org/document/9562627)
 
+- **Near-RT-RIC:** The brain of the near-real-time control plane. Resides at the network edge near O-DUs for fast response (10ms - 1s). Optimizes RAN elements dynamically based on network conditions and user demands. Focuses on radio resource management, beamforming, and power control.
 - **O-RU:** The O-RAN Radio Unit serves as the physical interface between mobile devices and the network. It transmits and receives radio signals to and from user devices such as smartphones and tablets. The unit then converts radio signals into digital data and vice versa for communication with the rest of the Open RAN system. O-RUs can be deployed across different frequency bands to cater to specific use cases and coverage needs.
 - **O-DU:** The O-RAN Distributed Unit is a logical node in the O-RAN architecture that hosts a set of protocols, which include the radio link control (RLC) protocol, medium access control (MAC) protocol, and the physical interface (PHY). It’s responsible for real-time L1 and L2 scheduling functions and modulation.
 - **O-CU:** The O-CU (O-RAN Central Unit) is a logical node in the O-RAN architecture that hosts the RRC, SDAP, and PDCP protocols. It’s responsible for non-real time, higher L2 and L3.
@@ -54,6 +56,7 @@ O-RAN fronthaul enables these separated components to communicate efficiently an
 ref: [Overview of O-RAN Fronthaul Specification](https://hackmd.io/nJy4F1CRQjyvr0hD6n7vVg)
 
 - The PHY layer is split into two parts:
+
   - **High-PHY:** Located in the O-DU (O-Distributed Unit), it handles complex operations like precoding and channel estimation.
   - **Low-PHY:** Located in the O-RU (O-Radio Unit), it performs basic tasks like RF signal processing and analog-to-digital conversion.
 
@@ -63,6 +66,22 @@ ref: [Overview of O-RAN Fronthaul Specification](https://hackmd.io/nJy4F1CRQjyvr
   - **Category B:** Precoding in addition to Category A functionalities (more complex, future advancements).
   - **UL:** Resource element mapping and higher functions in O-DU, digital beamforming and lower functions in O-RU.
 
+## V. O-RAN Fronthaul Security Threats
+
+![O-FH Threat](../assets/O-FH%20Threat.png)
+ref: [Transport Security Considerations for the Open-RAN Fronthaul](https://ieeexplore.ieee.org/document/9604996)
+
+The potential threats encountered by each of the four planes in the O-RAN Fronthaul architecture:
+
+- **C-Plane**
+  - Attackers can manipulate the communication between O-DU and O-RU by injecting fake messages or modifying real ones. To prevent this, O-DU and O-RU communication needs to be secure, ensuring authenticity, integrity, confidentiality, and replay protection.
+- **U-Plane**
+  - Attackers can disrupt or eavesdrop on user data in the U-Plane through various methods, similar to the C-Plane. To counter these threats, securing the U-Plane requires the same security features as the C-Plane: authenticity, integrity, confidentiality, and replay protection. This ensures legitimate data exchange and protects user privacy.
+- **S-Plane**
+  - The fronthaul link in O-RAN networks requires strict time synchronization between components. Attacks on this link can disrupt timing by impersonating legitimate clocks, injecting fake packets, delaying messages, or dropping packets.
+- **M-Plane**
+  - The M-Plane itself uses TLS or SSH for security, it relies on the other planes like Layer-2 to be secure as well. If those other planes are compromised, attackers can corrupt M-Plane messages or inject false ones, harming network performance. Therefore, all four pillars of security are crucial for a secure O-RAN, as threats on any level can significantly impact performance and user experience.
+
 ---
 
 References:
@@ -71,3 +90,4 @@ References:
 - [2] [Overview of O-RAN Fronthaul Specification](https://hackmd.io/nJy4F1CRQjyvr0hD6n7vVg)
 - [3] [What is Open-RAN?](https://www.vodafone.com/about-vodafone/what-we-do/technology/open-ran)
 - [4] [Design of a Network Management System for 5G Open RAN](https://ieeexplore.ieee.org/document/9562627)
+- [5] [Transport Security Considerations for the Open-RAN Fronthaul](https://ieeexplore.ieee.org/document/9604996)
