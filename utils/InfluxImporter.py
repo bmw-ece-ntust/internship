@@ -7,12 +7,11 @@ class InfluxDBCSVImporter:
     """ Move csv data into InfluxDB database sequentially.
 
     Args:
-        host (str): InfluxDB hostname, or ip address
-        port (int): InfluxDB port number (default is 8086)
-        dbname (str): InfluxDB database name to save the imported data
+        url (str): InfluxDB hostname, or ip address with the port
+        org (str): InfluxDB organization name to save the imported data
     
     Methods:
-        import_csv(csvfile): Import CSV file with the filename defined by the csvfile argument into InfluxDB
+        import_csv(csvfile,bucket): Import CSV file with the filename defined by the csvfile argument into InfluxDB bucket
 
     """
     def __init__(self, url, org):
@@ -21,7 +20,7 @@ class InfluxDBCSVImporter:
         
 
 
-    def import_csv(self,csvfile='full_rssi_d1.csv',bucket="init_bucket"):
+    def import_csv(self,csvfile="default.csv",bucket="target_bucket"):
         token = os.environ.get("INFLUXDB_TOKEN")
         client = influxdb_client.InfluxDBClient(url=self.url, token=token, org=self.org)
 
