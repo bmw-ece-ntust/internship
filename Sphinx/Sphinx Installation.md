@@ -6,7 +6,7 @@
 
 **Main Reference：**
 
-* [Sphinx Installation](https://www.sphinx-doc.org/en/master/tutorial/getting-started.html))
+* [Sphinx Installation](https://www.sphinx-doc.org/en/master/tutorial/getting-started.html)
 
 
 ## **Table of Contents**
