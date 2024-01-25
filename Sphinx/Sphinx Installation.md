@@ -14,7 +14,14 @@
   - [**Table of Contents**](#table-of-contents)
   - [**Overview**](#overview)
   - [**Installation (Ubuntu 22.04)**](#installation-ubuntu-2204)
+    - [**Step 1: Install Python and pip**](#step-1-install-python-and-pip)
+    - [**Step 2: Install Sphinx**](#step-2-install-sphinx)
+    - [**Step 3: Verify Installation**](#step-3-verify-installation)
   - [**Get Started**](#get-started)
+    - [**Step 1: Project Setup**](#step-1-project-setup)
+    - [**Step 2: Virtual Environment and Sphinx Installation**](#step-2-virtual-environment-and-sphinx-installation)
+    - [**Step 3: Creating Documentation Layout**](#step-3-creating-documentation-layout)
+    - [**Step 4: Rendering Documentation**](#step-4-rendering-documentation)
 
 ## **Overview**
 
@@ -98,7 +105,7 @@ Answer the presented questions as follows:
 - Project release []: Type "0.1" and press Enter.
 - Project language [en]: Leave it empty (default, English) and press Enter.
 
-### Step 4: Rendering Documentation
+### **Step 4: Rendering Documentation**
 
 Now, you have everything needed to render the documentation as HTML for the first time. Execute the following command:
 
@@ -114,5 +121,6 @@ xdg-open docs/build/html/index.html
 ```
 
 Congratulations, you've successfully set up your Lumache project and generated its documentation!
+
 ![image](https://github.com/bmw-ece-ntust/internship/assets/87703952/7dfa6427-0880-4c7b-966d-a655373b1605)
 
