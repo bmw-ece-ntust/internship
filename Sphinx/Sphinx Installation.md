@@ -2,7 +2,7 @@
 
 **Goal：**
 * Successfully install Sphinx
-* Set up a monitoring environment.
+* Setting up the first project and development environment
 
 **Main Reference：**
 
