@@ -90,40 +90,6 @@ Now, let's set up the basic directory and configuration layout for your document
 sphinx-quickstart docs
 ```
 
-## **Get Started**
-
-Let's kickstart your Lumache project by setting up the development environment and creating documentation using Sphinx.
-
-### **Step 1: Project Setup**
-
-In a new directory, initialize your project by creating a file called `README.rst` with the following content:
-
-```rst
-Lumache
-=======
-
-**Lumache** (/lu'make/) is a Python library designed for cooks and food enthusiasts, allowing them to craft recipes by blending random ingredients.
-
-### **Step 2: Virtual Environment and Sphinx Installation**
-
-Now, let's create a Python virtual environment and install the necessary tools. Open a command line terminal, navigate to your project directory, and execute the following commands:
-
-```
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install sphinx
-```
-
-Note: The installation method is detailed in Installation from PyPI. For the remainder of this guide, instructions will assume a Python virtual environment.
-
-Step 3: Creating Documentation Layout
-
-Now, let's set up the basic directory and configuration layout for your documentation inside the docs folder. Run the following command:
-
-```
-sphinx-quickstart docs
-```
-
 Answer the presented questions as follows:
 
 - Separate source and build directories (y/n) [n]: Type "y" and press Enter.
@@ -148,4 +114,5 @@ xdg-open docs/build/html/index.html
 ```
 
 Congratulations, you've successfully set up your Lumache project and generated its documentation!
+![image](https://github.com/bmw-ece-ntust/internship/assets/87703952/7dfa6427-0880-4c7b-966d-a655373b1605)
 
