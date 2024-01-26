@@ -13,6 +13,7 @@ Goals:
   - [III. O-RAN Fronthaul](#iii-o-ran-fronthaul)
   - [IV. Split Option 7-2x](#iv-split-option-7-2x)
   - [V. O-RAN Fronthaul Security Threats](#v-o-ran-fronthaul-security-threats)
+  - [VI. O-RAN Interfaces](#vi-o-ran-interfaces)
 
 ## I. O-RAN
 
@@ -83,6 +84,15 @@ The potential threats encountered by each of the four planes in the O-RAN Fronth
 - **M-Plane**
   - The M-Plane itself uses TLS or SSH for security, it relies on the other planes like Layer-2 to be secure as well. If those other planes are compromised, attackers can corrupt M-Plane messages or inject false ones, harming network performance. Therefore, all four pillars of security are crucial for a secure O-RAN, as threats on any level can significantly impact performance and user experience.
 
+
+## VI. O-RAN Interfaces
+
+- **O1 Interface:** The O1 interface is a vital component in Open RAN (O-RAN) networks, defined by the O-RAN Alliance's WG10. It serves as a communication channel between the Service Management and Orchestration (SMO) framework and managed elements (MEs) for various management operations. These include configuring, monitoring, troubleshooting, and updating O-RAN network components.
+- **O2 Interface:** The O2 interface is a communication channel between the Service Management and Orchestration (SMO) framework and the O-Cloud. It allows the SMO to manage the deployment and lifecycle of O-RAN Virtual Network Functions (VNFs) running within the O-Cloud infrastructure.
+- **A1 Interface:** The A1 interface connects the Non-Real-Time RAN Intelligent Controller (Non-RT RIC) with the Near-RT RIC. It allows the Non-RT RIC to provide policy management, enrichment information, and ML model management services to the Near-RT RIC.
+- **E2 Interface:** The E2 interface connects the Near-RT RIC with E2 Nodes, which represent various network elements at the edge of the network. This interface enables two-way communication:
+  - **Near-RT RIC Services:** The Near-RT RIC can send REPORT, INSERT, CONTROL, and POLICY requests to E2 Nodes to influence real-time network behavior.
+  - **Near-RT RIC Support and Updates:** E2 Nodes can report general error situations, manage E2 interface setup and reset, and exchange capabilities regarding exposed services.
 ---
 
 References:
@@ -92,3 +102,4 @@ References:
 - [3] [What is Open-RAN?](https://www.vodafone.com/about-vodafone/what-we-do/technology/open-ran)
 - [4] [Design of a Network Management System for 5G Open RAN](https://ieeexplore.ieee.org/document/9562627)
 - [5] [Transport Security Considerations for the Open-RAN Fronthaul](https://ieeexplore.ieee.org/document/9604996)
+- [6] [O-RAN Alliance Specifications](https://orandownloadsweb.azurewebsites.net/download?id=499)
