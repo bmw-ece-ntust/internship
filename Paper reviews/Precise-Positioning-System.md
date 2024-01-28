@@ -5,8 +5,8 @@ This journal introduces a Wi-Fi connection engine using an analysis and location
 
 To evaluate the user experience, **latency** is used as a metric to **measures the delay** in data transmission.
 
-
-# Triangulation Concept & Cellular Network-based Positioning Systems
+# Concept
+## Triangulation Concept & Cellular Network-based Positioning Systems
 Positioning systems are used to determine the **real-world positions of users**. The proposed method (cellular network-based positioning systems) uses 3 base stations (BSs) to calculate the position of a user through **triangulation**. For example, there are 3 target users with the position $(x_a,y_a)$ , $(x_b,y_b)$ , and$(x_c,y_c)$ . Then the distances from the target user to all BSs can be found with these formulas:
 
 $d_a = \sqrt{(x_a - x_t)^2 + (y_a - y_t)^2}$
@@ -17,7 +17,7 @@ $d_c = \sqrt{(x_c - x_t)^2 + (y_c - y_t)^2}$
 
 The **challenges** associated with these systems include issues related to convenience, scalability, and accuracy.
 
-#  Wi-Fi-based Positioning Systems and Bluetooth Beacons
+##  Wi-Fi-based Positioning Systems and Bluetooth Beacons
 The primary focus of proposing a positioning system is to **enhance the accuracy** of the derived **position**. One of the things that can enhance accuracy is **hardware enhancements**, and according to the 5G white paper, there's potential for further expansion of position accuracy using **Wi-Fi APs**.
 
 The experiment compares **Bluetooth beacons**, known for their **precise** positioning accuracy in small-scale scenarios, with **Wi-Fi-based positioning systems**. Wi-Fi-based systems provides accuracy of about 1 or 2 m with enough APs, but still **lacks in user location tracking**. Then Aruba Networks introduces the** Analysis and Location Engine (ALE)** for precise positioning through Wi-Fi 6, for accurate **visual representation** of APs and their signal strength. This is the scenario:
@@ -29,7 +29,7 @@ This is a network case in that end devices connect to the Wi-Fi APs. All end dev
    <img width="428" alt="image" src="https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/images/VisualRF.png">
 
 
-# Analysis and Location Engine
+## Analysis and Location Engine (IEEE 802.11ax)
 
 ALE (Analysis and Location Engine) uses two systems to figure out where a user is: the **"Estimated" system** and the **"Calibration" system.**
 
@@ -66,3 +66,50 @@ The fingerprinting process for locating the APs involves two main steps: the lea
 After setting up the APs, the geofences service is activated during the Estimated process to pinpoint the actual position. When a device **enters the route path**, the geofences service **notes the entry and computes the precise location**. The Estimated process then adjusts the user's coordinates accordingly. 
 
 Once the APs are deployed, their **information is saved in the positioning database (PDB)**. Now, the system can switch from learning mode to demo mode. The PDB continuously stores the positions of each device. 
+
+# System Design Implementation
+The system includes Wi-Fi Data, the Web Server, and the 3D building model. Each AP captures the device’s information, and the data is saved in the Web server. The Web server combines and visualizes the user’s information with the 3D building models.
+
+   <img width="428" alt="image" src="https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/images/structure.png">
+   
+## Device Information Acquisition
+The primary task of each AP is to capture device information. This involves utilizing the ALE API, which provides two main types: the **Publish/subscribe API** and the Polling API. The Polling API communicates with APs, and major services include the Station API (providing AP information) and the **Location API** (capturing end device information). The raw data obtained from the Location API, including details like MAC address and coordinates, requires transformation for visualization.
+
+## Position Visualization
+ The ALE provides a device visualization service, but for a more clear visualization, a Web-based 3D building visualization tool like Cesium is used. **Cesium creates 3D buildings on maps**. The system also uses SketchUP to build building models for testing environments.
+
+## Vertical Position Detection
+Traditional maps present information in 2D, but Wi-Fi users may move vertically. Detecting vertical positions involves considering RSSI values of all APs. The AP with the highest RSSI values is chosen to specify the vertical position, correlating with the corresponding floor. This method allows for deriving and visualizing users' vertical positions.
+
+## Assistant Service Implementation
+Though information on all devices can be illustrated in the 3D building model, readability can be improved with user-friendly services. These include:
+
+- **View Scope Setting** to enable quick jumping to specific areas on the map, improving navigation efficiency.
+
+- **Device Search** to search services (device search and timestamp search) help quickly target specific devices within a specified time interval.
+
+- **Building Model Transparency** Setting so users can control building model transparency to balance visibility and readability.
+
+- **Display/Hide Device Information** that allows users to toggle device information visibility for better map readability.
+
+- **Heat Map** that visualizes user density, crucial for managing Wi-Fi usage and improving user experience.
+
+- **History Location** that plots historical locations of a specific user based on collected records.
+
+- **Building Information** points on building models link to building information, providing details like name and coordinates. Future plans involve integrating air quality information into the system.
+
+# Analysis and Evaluation
+
+## System Response Evaluation
+In the system response evaluation, the experiment utilized a MacBook Air as the testing device and considered parameters such as system response time and screen frame rate. The results indicated that **network communication time** (influenced by network quality and data transmission) **is improtant in system responsiveness**. The proposed system exhibited **low network latency** (around 16 ms for TANet and 20 ms for 4G) for quick data reception. Also the **FPS were consistently high** (around 59 FPS).
+
+   <img width="428" alt="image" src="https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/images/result.png">
+
+## Data Transmission
+In data transmission between producer and consumer, four key parameters were considered in evaluation scenarios: data amount, partition, acks mode, and batch size. The evaluation focused on assessing data transmission latency between the data producer and process broker or process broker and data consumer. The results highlighted that **the latency increased with data amount** but remained acceptable for data sizes **below 100 MB**. This indicated that the system maintained low latency for regular Wi-Fi usage scenarios.
+
+## System Latency Evaluation
+In the system latency evaluation, the experiment explored the relationship between the number of partitions and system performance. The best outcome was achieved with four partitions for both Windows and Ubuntu platforms. So that **optimized number of partitions** provides a balance between work distribution and system performance.
+
+# Conclusion
+Before, Wi-Fi struggled with pinpointing end device locations. IEEE 802.11ax (ALE) changed that by offering precise positioning with low computational cost. The proposed visualization platform proved that Wi-Fi with IEEE 802.11ax enhanced capabilities without sacrifing speed.
