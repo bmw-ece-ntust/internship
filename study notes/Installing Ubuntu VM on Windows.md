@@ -4,9 +4,11 @@
 # My Specs for Ubuntu Virtual Box
 | spec | Size|
 | --- | --- |
-| Base Memory | 4096 mb|
+| Base Memory | 4096 MB|
 | processors | 13 cores |
 | Video Memory | 70MB |
 | Virtual Size | 50 Gb |
 #
 ![alt text](https://github.com/bmw-ece-ntust/internship/blob/99de7b8f5253da07c4931edeb1a268bd39e5d611/images/Oracle_VM.png)
+
+
