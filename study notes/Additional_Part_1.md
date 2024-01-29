@@ -25,7 +25,7 @@
     - Supports two protocols: E2 Application Protocol (E2AP) and E2 Service Model (E2SM).
     - E2AP messages can seamlessly integrate various E2 Service Models, facilitating functionalities related to RAN metrics and RAN Control.
     - Its applications extend to Key Performance Matrix (KPM), Network Interfaces (NIs), and RAN Control (RC).
-
+![alt text](https://github.com/bmw-ece-ntust/internship/blob/e4b29e5bf8b9795aac690a41acedfc02a2b3ca23/images/E2AP.png)
 3.  E2AP (E2 Application Protocol) provides four services:
     1. **E2 Report**   Involves E2 RIC Indication messages containing data and telemetry from an E2 node. The E2 Report service is activated upon subscription from an xApp to a function offered by the E2 node.
     2. **E2 Insert**  Notifies the xApp about a specific event in the E2 and is activated upon subscription from an xApp.
