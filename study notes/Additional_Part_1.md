@@ -19,6 +19,7 @@
 1. Definition E2 Interface 
 - The E2 interface is an open interface connecting the near-RT RIC and the E2 nodes (CUs, DUs). It facilitates communication that allows the RIC to control radio resource management and other functionalities within the E2 nodes
 - Each E2 node contains data pertaining to RAN functions, which can be published by the E2 nodes. Subsequently, the xApps on the near-RT RIC can subscribe to one or more of these RAN functions through the E2 interface.
+![alt text](https://github.com/bmw-ece-ntust/internship/blob/9a0b4de834b9b78be08a912f975ae46b6c0c6fda/images/E2%20Interface.png)
 2. E2 Interface Characteristics:
     - The E2 interface, an open connection, links near-RT RIC to DUs and CUs in the 5G landscape.
     - Operational on the SCTP protocol over IP.
@@ -31,3 +32,23 @@
     2. **E2 Insert**  Notifies the xApp about a specific event in the E2 and is activated upon subscription from an xApp.
     3. **E2 Control** : Autonomously initiated by the RIC or triggered by an insert message at the near-RT RIC, it involves a two-message procedure: RIC Control Request from RIC to E2 node, and RIC Control Acknowledge in the opposite direction.
     4. **E2 Policy**: Subscription specifies event trigger and autonomous policy for E2 node resource management.
+
+## Learning A1 Interface related in Near-RT RIC Platform
+:::success
+- Goal:
+    - [ ] Learning A1 Interface
+- Useful Links:
+    - [O-RAN.WG3.A1AP-v03.02](https://www.o-ran.org/specifications)
+    - [O-RAN.WG3.A1GAP-v03.00](https://www.o-ran.org/specifications)
+:::
+:::info
+- Outcome(Study Note):
+    - [Note Title](Link)
+:::
+
+The A1 interface connects non-RT RIC and near-RT RIC. It enables the non-RT RIC to provide guidance based on policies for the near-RT RIC, managing ML models used in applications like xApps, and facilitating the negotiation,  and coordination of transferring enrichment information for the near-RT RIC.
+![alt text](https://github.com/bmw-ece-ntust/internship/blob/a9b3fac1e51b03e4f026395e16aa69ea42be4fb9/images/A1%20interface.png)
+- The A1 interface provides three services:
+    1. **A1 policy management** is used by the non-RT RIC to guide the near-RT RIC in achieving Quality of Service (QoS) and Key Performance Indicator (KPI) goals for the RAN. This helps ensure that the network performs well and meets specific quality and performance standards.
+    2. **A1 Machine Learning (ML) model management**
+    3. **A1 Enrichment information**  is responsible to enhance RAN performance by offering information that the RAN doesn't usually have access to, like capacity predictions, details from sources outside the RAN, and overall analytics.
