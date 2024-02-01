@@ -25,7 +25,7 @@ Give new member a direction to learn.
 - Outcome(Study Note):
     - [Note Title](Link)
 :::
-### 1. Definition 
+### 1. Definition
 ![image](https://hackmd.io/_uploads/SyF4uPrta.png =350x300)
 E2 interface is one of the O-RAN interface that connects **Near-RT RIC** to the O-RAN Network function such as **O-DU**, **CU-CP**, and **CU-UP**. E2 interface is responsible for **carrying event**s, **control**, and **policy information** to the Open RAN network functions.
 
@@ -100,10 +100,25 @@ These  function is supported by A1 policy feedback from the near-RT RIC to the n
 - Outcome(Study Note):
     - [Note Title](Link)
 :::
+### 1. Definition
+The O1 Interface is a logical connection between all “O-RAN Managed Elements (MEs)” and the “management entities” within the SMO framework. O1 interface enables the management of all O-RAN components that need to be orchestrated and the associated O-RAN network functions. The components managed via O1 include the near-RT RIC, the O-CU, the O-DU in 5G NR. The O-CU corresponds to a predefined combination of O-CU-CP and O-CU-UP.
+![image](https://hackmd.io/_uploads/rk7BHo_5a.png =300x)
+Thus, the O1 interface plays a central role in the overall O-RAN architecture and network operation. O1 supports typical FCAPS and other management functions, including the following functions.
+
+* Discovery/registration
+* Configuration of addressing
+* Versioning
+* Monitoring
+
 
 ## AI/ML Module
 
 ### Isoforest & Random Forest
+#### Isoforest
+##### 1. Definition
+solation Forest is an unsupervised decision-tree-based algorithm originally developed for outlier detection in tabular data, which consists in splitting sub-samples of the data according to some attribute/feature/column at random. 
+
+Isolation Forest is an ensemble method (similar to random forest). In other words, it use the average of the predictions by several decision trees when assigning the final anomaly score to a given data point. Unlike other anomaly detection algorithms, which first define what’s “normal” and then report anything else as anomalous, Isolation Forest attempts to isolate anomalous data points from the get go.
 
 ### VAR Module
 
