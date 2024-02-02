@@ -115,7 +115,8 @@ ref: [Overview of O-RAN Fronthaul Specifications](https://www.docomo.ne.jp/engli
     - Details of this eCPRI payload are specific to O-RAN fronthaul specifications and not part of eCPRI itself.
   - **C-Plane:**
   - extended Antenna-Carrier (eAxC)
-  ![eAxC](../assets/extended%20Antenna-Carrier%20(eAxC).png)
+  
+    ![eAxC](../assets/extended%20Antenna-Carrier%20(eAxC).png)
 
     ![C-Plane Message](../assets/C-Plane%20Message.png)
 
@@ -128,6 +129,7 @@ ref: [Overview of O-RAN Fronthaul Specifications](https://www.docomo.ne.jp/engli
     - O-RAN specifications mandate support for an interface using a beam identifier (beamId).
     - This option can be applied to digital BF, analog BF, or hybrid BF.
   - **Delay Management**
+  
     ![Delay Management](../assets/Delay%20Management.png)
 
     - Aligning C/U-Plane message transmission on the fronthaul with transmit/receive timing on the radio interface, as well as HARQ retransmission timing.
