@@ -14,6 +14,7 @@ Goals:
   - [IV. Split Option 7-2x](#iv-split-option-7-2x)
   - [V. O-RAN Fronthaul Security Threats](#v-o-ran-fronthaul-security-threats)
   - [VI. O-RAN Interfaces](#vi-o-ran-interfaces)
+  - [VII. O-FH Protocol Stacks](#vii-o-fh-protocol-stacks)
 
 ## I. O-RAN
 
@@ -93,13 +94,59 @@ The potential threats encountered by each of the four planes in the O-RAN Fronth
 - **E2 Interface:** The E2 interface connects the Near-RT RIC with E2 Nodes, which represent various network elements at the edge of the network. This interface enables two-way communication:
   - **Near-RT RIC Services:** The Near-RT RIC can send REPORT, INSERT, CONTROL, and POLICY requests to E2 Nodes to influence real-time network behavior.
   - **Near-RT RIC Support and Updates:** E2 Nodes can report general error situations, manage E2 interface setup and reset, and exchange capabilities regarding exposed services.
+
+## VII. O-FH Protocol Stacks
+
+![O-FH Protocols](../assets/O-FH%20Protocol%20Stacks.png)
+
+ref: [Overview of O-RAN Fronthaul Specifications](https://www.docomo.ne.jp/english/binary/pdf/corporate/technology/rd/technical_journal/bn/vol21_1/vol21_1_007en.pdf)
+
+- C/U-Plane:
+  - Transmits signals using eCPRI or RoE.
+  - Two protocol stack options: Direct transmission over Ethernet Transmission over UDP/IP
+  - **U-Plane:**
+  ![U-Plane Message](../assets/U-Plane%20Message.png)
+
+    - The eCPRI payload of the U-Plane message can carry compressed IQ samples of the OFDM signal in the frequency domain, along with accompanying information.
+    - This information includes:
+      - Time resource information: radio frame, subframe, slot, and OFDM symbol identification
+      - Frequency resource information: PRB start position and number of PRBs
+      - IQ compression information: compression scheme used and number of bits in the compressed IQ sample
+    - Details of this eCPRI payload are specific to O-RAN fronthaul specifications and not part of eCPRI itself.
+  - **C-Plane:**
+  - extended Antenna-Carrier (eAxC)
+  ![eAxC](../assets/extended%20Antenna-Carrier%20(eAxC).png)
+
+    ![C-Plane Message](../assets/C-Plane%20Message.png)
+
+    - The eCPRI header is the same as in the U-Plane message.accompanying information.
+    - Source and destination identifiers are called ecpriRtcid (compared to ecpriPcid in U-Plane).
+    - O-RAN specifications use extended Antenna-Carrier (eAxC) as identifiers for both C-Plane and U-Plane messages.
+    - C-Plane message payload carries information about beamforming (BF) weights to be applied when transmitting and receiving IQ samples in the U-Plane message.
+    - Includes time resource information (same as U-Plane message) and frequency resource information (startPRBc, numPRBc).
+    - O-RU uses this information to generate beams for radio interface transmission and reception.
+    - O-RAN specifications mandate support for an interface using a beam identifier (beamId).
+    - This option can be applied to digital BF, analog BF, or hybrid BF.
+  - **Delay Management**
+    ![Delay Management](../assets/Delay%20Management.png)
+
+    - Aligning C/U-Plane message transmission on the fronthaul with transmit/receive timing on the radio interface, as well as HARQ retransmission timing.
+    - Guaranteeing that the O-RU has adequate time to process received IQ sample sequences (including IFFT, analog conversion, and beamforming) before transmitting signals on the radio interface within designated time slots.
+- S-Plane:
+  - Transmits signals used in PTP and SyncE.
+  - Protocol stack: Transmission over Ethernet
+- M-Plane:
+  - Transmits signals using NETCONF.
+  - Protocol stack: Transmission over Ethernet/IP/TCP/SSH
+
 ---
 
 References:
 
 - [1] [Background of Open-RAN Fronthaul](https://hackmd.io/mVizujCxRgGHZkDOek9z-w)
-- [2] [Overview of O-RAN Fronthaul Specification](https://hackmd.io/nJy4F1CRQjyvr0hD6n7vVg)
+- [2] [Overview of O-RAN Fronthaul Specification Notes](https://hackmd.io/nJy4F1CRQjyvr0hD6n7vVg)
 - [3] [What is Open-RAN?](https://www.vodafone.com/about-vodafone/what-we-do/technology/open-ran)
 - [4] [Design of a Network Management System for 5G Open RAN](https://ieeexplore.ieee.org/document/9562627)
 - [5] [Transport Security Considerations for the Open-RAN Fronthaul](https://ieeexplore.ieee.org/document/9604996)
 - [6] [O-RAN Alliance Specifications](https://orandownloadsweb.azurewebsites.net/download?id=499)
+- [7] [Overview of O-RAN Fronthaul Specifications](https://www.docomo.ne.jp/english/binary/pdf/corporate/technology/rd/technical_journal/bn/vol21_1/vol21_1_007en.pdf)
