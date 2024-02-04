@@ -1,9 +1,11 @@
-# BMW Lab Internship Guidelines
-
-## 1. Introduction
-To facilitate organization and collaboration among interns at BMW Lab, please follow these steps:
-
-1. Create a branch using the template `[year]-[Program Name]-[Intern ID]-[Name]`. For example: `2019-TEEP-22-Ian`.
-2. Edit the README.md on your branch with the profile information you provided in your Trello card.
-3. Organize your study notes by creating folders.
-4. Create `.md` files for your study notes.
+# Profile
+- Name: Gisela Aurora Gitapoetri
+- Email: 13221002@std.stei.itb.ac.id
+- University: Institut Teknologi Bandung
+- Department: Department of Electrical Engineering
+- GPA: 3.55
+- Intern:
+  - Topic: O-RAN
+  - Duration:
+- Mentor: 
+- Portofolio: [Linkedin](https://www.linkedin.com/in/gisela-aurora-g-757973217/), [Resume](), [Github](https://github.com/giselaaurora)
