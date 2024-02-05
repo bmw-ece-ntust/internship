@@ -204,31 +204,29 @@ As shown from the image above NG-RAn is composed of gNBs (5G Base Stations) and 
 ### Technical Information
 1. Install [Go](https://go.dev/doc/install)
 
-![image](https://hackmd.io/_uploads/BJdPPrz5a.png)
+    ![image](https://hackmd.io/_uploads/BJdPPrz5a.png)
 
+    ![image](https://hackmd.io/_uploads/Skg9wrfca.png)
 
-
-![image](https://hackmd.io/_uploads/Skg9wrfca.png)
-
-![image](https://hackmd.io/_uploads/Skb0DBf9p.png)
+    ![image](https://hackmd.io/_uploads/Skb0DBf9p.png)
 
 2. Install [MongoDB](https://www.cherryservers.com/blog/install-mongodb-ubuntu-22-04)
 
-![image](https://hackmd.io/_uploads/Sk6XcBz9T.png)
+    ![image](https://hackmd.io/_uploads/Sk6XcBz9T.png)
 
-![image](https://hackmd.io/_uploads/HkId9BfqT.png)
+    ![image](https://hackmd.io/_uploads/HkId9BfqT.png)
 
-![image](https://hackmd.io/_uploads/Hkx29Hfqp.png)
+    ![image](https://hackmd.io/_uploads/Hkx29Hfqp.png)
 
 3. Install Userplane Support Package
 
-![image](https://hackmd.io/_uploads/Syrzsrfca.png)
+    ![image](https://hackmd.io/_uploads/Syrzsrfca.png)
 
 4. Config Network on Host
 
-![image](https://hackmd.io/_uploads/rJb7AHz9p.png)
+    ![image](https://hackmd.io/_uploads/rJb7AHz9p.png)
 
-![image](https://hackmd.io/_uploads/rkSSASMqp.png)
+    ![image](https://hackmd.io/_uploads/rkSSASMqp.png)
 
 
 5. Install Free5Gc
@@ -247,15 +245,15 @@ As shown from the image above NG-RAn is composed of gNBs (5G Base Stations) and 
 
 6. Install web console
 
-![image](https://hackmd.io/_uploads/S1pr1UM9p.png)
+    ![image](https://hackmd.io/_uploads/S1pr1UM9p.png)
 
-![image](https://hackmd.io/_uploads/H1EI1Lfca.png)
+    ![image](https://hackmd.io/_uploads/H1EI1Lfca.png)
 
-![image](https://hackmd.io/_uploads/rkNtyLz56.png)
+    ![image](https://hackmd.io/_uploads/rkNtyLz56.png)
 
-![image](https://hackmd.io/_uploads/HJzo1Lfcp.png)
+    ![image](https://hackmd.io/_uploads/HJzo1Lfcp.png)
 
-![image](https://hackmd.io/_uploads/By9zgLzcT.png)
+    ![image](https://hackmd.io/_uploads/By9zgLzcT.png)
 
 **Accessing GUI**
     ![image](https://hackmd.io/_uploads/S1tvBIGq6.png)
@@ -264,13 +262,13 @@ As shown from the image above NG-RAn is composed of gNBs (5G Base Stations) and 
 
 7. Install UERANSIM
 
-![image](https://hackmd.io/_uploads/HJQ64Iz5a.png)
+    ![image](https://hackmd.io/_uploads/HJQ64Iz5a.png)
 
-![image](https://hackmd.io/_uploads/r141rIfcT.png)
+    ![image](https://hackmd.io/_uploads/r141rIfcT.png)
 
-![image](https://hackmd.io/_uploads/BJ9gLLzca.png)
+    ![image](https://hackmd.io/_uploads/BJ9gLLzca.png)
 
-![image](https://hackmd.io/_uploads/HkN8wUf9p.png)
+    ![image](https://hackmd.io/_uploads/HkN8wUf9p.png)
 
 ## Testing of 5G Core (E2E test)
 
@@ -280,14 +278,14 @@ As shown from the image above NG-RAn is composed of gNBs (5G Base Stations) and 
 
 ### Definition
 
-O-RAN stands for Open Radio Access Network, which is a new paradigm for designing, deploying, and operating cellular networks. O-RAN networks are built with disaggregated components that are connected via open interfaces and optimized by intelligent controllers. This allows for multi-vendor, interoperable components and programmatically optimized networks through a centralized abstraction layer and data-driven closed-loop control. The O-RAN Alliance is defining a virtualization platform for the RAN and extending the definition of 3GPP and eCPRI interfaces to connect RAN nodes
-Architecture
+    O-RAN stands for Open Radio Access Network, which is a new paradigm for designing, deploying, and operating cellular networks. O-RAN networks are built with disaggregated components that are connected via open interfaces and optimized by intelligent controllers. This allows for multi-vendor, interoperable components and programmatically optimized networks through a centralized abstraction layer and data-driven closed-loop control. The O-RAN Alliance is defining a virtualization platform for the RAN and extending the definition of 3GPP and eCPRI interfaces to connect RAN nodes
+    Architecture
 
 ### Architecture
 
-![images](https://hackmd.io/_uploads/r182-xBK3.png)
+    ![images](https://hackmd.io/_uploads/r182-xBK3.png)
 
-The main architecture of O-RAN is based on key principles that have been at the center of the Software-defined Networking (SDN) transformation in wired networks in the past 15 years, and have started moving into the wireless domain more recently . The main architectural building blocks of O-RAN include the near-RT and non-RT RICs and the SMO. The O-RAN interfaces include E2, O1, A1, the fronthaul interface, and O2.
+    The main architecture of O-RAN is based on key principles that have been at the center of the Software-defined Networking (SDN) transformation in wired networks in the past 15 years, and have started moving into the wireless domain more recently . The main architectural building blocks of O-RAN include the near-RT and non-RT RICs and the SMO. The O-RAN interfaces include E2, O1, A1, the fronthaul interface, and O2.
 
 
 ### Building Blocks
