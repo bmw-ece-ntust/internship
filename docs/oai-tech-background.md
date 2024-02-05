@@ -1,6 +1,6 @@
 # TEEP: 5GC & ORAN Docs
 
-[ToC]
+[TOC]
 
 ## 5G Core in Network
 
