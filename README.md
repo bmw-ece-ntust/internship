@@ -1,10 +1,13 @@
-# BMW Lab Internship Guidelines
+#  🇮🇩 TelU - Rafli - Lightweight 5G Core (5G RedCap) | [Thesis Advisor]
 
-test
-## 1. Introduction
-To facilitate organization and collaboration among interns at BMW Lab, please follow these steps:
-
-1. Create a branch using the template `[year]-[Program Name]-[Intern ID]-[Name]`. For example: `2019-TEEP-22-Ian`.
-2. Edit the README.md on your branch with the profile information you provided in your Trello card.
-3. Organize your study notes by creating folders.
-4. Create `.md` files for your study notes.
+## Personal Information
+- Name : Mochamad Rafli Hadiana
+- Email : raflihadian24@gmail.com
+- University : Telkom Univeristy
+- Department : Electrical Engineering
+- GPA : 3.24
+- Intern :
+    - Topic :  5G Digital Twin
+    - Duration :
+- Mentor : 
+- Portofolio : [Linkedin](https://www.linkedin.com/in/raflihadiana/)
