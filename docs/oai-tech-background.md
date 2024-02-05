@@ -1,5 +1,3 @@
-{%hackmd @ninoagus/rkG8Y3Mfp %}
-
 # TEEP: 5GC & ORAN Docs
 
 [ToC]
