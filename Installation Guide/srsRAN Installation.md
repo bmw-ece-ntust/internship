@@ -66,7 +66,7 @@ make -j $(nproc)
 make test -j $(nproc)
 ```
 
-![image](https://hackmd.io/_uploads/Sy9Ow07Kp.png)
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-24-Reyhan/Images/srsRAN_Install/srsRAN%20installation%20Result.png)
 
 After build the codebase by running the code, now gNB can be runned from the address `srsRAN_Project/build/apps/gnb/` or use the following syntax to install the srsRAN Project gNB
 ```
