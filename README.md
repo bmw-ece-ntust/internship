@@ -1,9 +1,12 @@
-# BMW Lab Internship Guidelines
+# Profile
 
-## 1. Introduction
-To facilitate organization and collaboration among interns at BMW Lab, please follow these steps:
-
-1. Create a branch using the template `[year]-[Program Name]-[Intern ID]-[Name]`. For example: `2019-TEEP-22-Ian`.
-2. Edit the README.md on your branch with the profile information you provided in your Trello card.
-3. Organize your study notes by creating folders.
-4. Create `.md` files for your study notes.
+* Name            : Reyhan Ghifari Tanjung
+* Email           : reyhanghifaritanjung@gmail.com
+* University      : Institut Teknologi Bandung
+* Faculty/School  : School of Electrical Engineering and Informatics  
+* GPA             : 3.66 / 4.00
+* Intern          : WaveIn
+*   Topic         : 
+*   Duration      :
+* Mentor          :
+* Portofolio      : [LinkedIn](https://www.linkedin.com/in/reyhan-tanjung/), [Resume](https://drive.google.com/drive/folders/1Y_C-rV9bc60UGcyocL34s6WgakCIQEQN?usp=sharing), [GitHub](https://github.com/ReyhanTanjung)
