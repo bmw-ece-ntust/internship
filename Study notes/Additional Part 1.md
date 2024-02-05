@@ -79,14 +79,59 @@ Thus, the O1 interface plays a central role in the overall O-RAN architecture an
 ### Isoforest & Random Forest
 #### Isoforest
 ##### 1. Definition
-solation Forest is an unsupervised decision-tree-based algorithm originally developed for outlier detection in tabular data, which consists in splitting sub-samples of the data according to some attribute/feature/column at random. 
+Isolation Forest is an unsupervised decision-tree-based algorithm originally developed for outlier detection in tabular data, which consists in splitting sub-samples of the data according to some attribute/feature/column at random. 
 
 Isolation Forest is an ensemble method (similar to random forest). In other words, it use the average of the predictions by several decision trees when assigning the final anomaly score to a given data point. Unlike other anomaly detection algorithms, which first define what’s “normal” and then report anything else as anomalous, Isolation Forest attempts to isolate anomalous data points from the get go.
+##### How Does It Works
+1. When given a dataset, a random sub-sample of the data is selected and assigned to a binary tree.
+2. Branching of the tree starts by selecting a random feature (from the set of all N features) first. And then branching is done on a random threshold
+3. If the value of a data point is less than the selected threshold, it goes to the left branch else to the right. And thus a node is split into left and right branches.
+4. This process from step 2 is continued recursively till each data point is completely isolated or till max depth(if defined) is reached.
+5. The above steps are repeated to construct random binary trees.
+#### Random Forest
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/Bagging.png)
+
+Random Forest is an ensemble learning method used for both classification and regression tasks. It operates by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees. 
+##### How Does It Works
+1. Selection of Subset: Bagging starts by choosing a random sample, or subset, from the entire dataset.
+2. Bootstrap Sampling: Each model is then created from these samples, called Bootstrap Samples, which are taken from the original data with replacement. This process is known as row sampling.
+3. Bootstrapping: The step of row sampling with replacement is referred to as bootstrapping. 
+4. Independent Model Training: Each model is trained independently on its corresponding Bootstrap Sample. This training process generates results for each model.
+5. Majority Voting: The final output is determined by combining the results of all models through majority voting. The most commonly predicted outcome among the models is selected.
+6. Aggregation: This step, which involves combining all the results and generating the final output based on majority voting, is known as aggregation.
 
 ### VAR Module
+The vector autoregressive (VAR) model is a workhouse multivariate time series model that relates current observations of a variable with past observations of itself and past observations of other variables in the system. It is considered as an Autoregressive model because, each variable (Time Series) is modeled as a function of the past values, that is the predictors are nothing but the lags (time delayed value) of the series.
+
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/VAR.png)
 
 ### LSTM
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/LSTM.png)
+
+Long Short-Term Memory (LSTM) networks are a modified version of recurrent neural networks, which makes it easier to remember past data in memory. The vanishing gradient problem of RNN is resolved here.
+* Input gate: discover which value from input should be used to modify the memory. Sigmoid function decides which values to let through 0,1. and tanh function gives weightage to the values which are passed deciding their level of importance ranging from-1 to 1.
+  
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/LSTM%201.png)
+
+* Forget gate: discover what details to be discarded from the block. It is decided by the sigmoid function. it looks at the previous state(ht-1) and the content input(Xt) and outputs a number between 0(omit this)and 1(keep this)for each number in the cell state Ct−1.
+
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/LSTM%202.png)
+
+* Output gate: The input and the memory of the block is used to decide the output. Sigmoid function decides which values to let through 0,1. and tanh function gives weightage to the values which are passed deciding their level of importance ranging from-1 to 1 and multiplied with output of Sigmoid.
+
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/LSTM%203.png)
 
 ### RNN
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/RNN.png)
+
+Recurrent Neural Network is a generalization of feedforward neural network that has an internal memory. RNN is recurrent in nature as it performs the same function for every input of data while the output of the current input depends on the past one computation. Unlike feedforward neural networks, RNNs can use their internal state (memory) to process sequences of inputs. 
+
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/RNN%201.png)
+
+W is weight, h is the single hidden vector, Whh is the weight at previous hidden state, Whx is the weight at current input state, tanh is the Activation funtion
+
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/RNN%202.png)
+
+Yt is the output state. Why is the weight at the output state
 
 ---
