@@ -31,163 +31,80 @@ By definition 5G core is a core network architecture that implements the new 3GP
 
     5G-EIR is an optional network functions that allows to check the Permanent Equipment Identifier (PEI) and check whether the PEI is in the prohibited list or not. This network function helps to prevent the use of stolen or unauthorized devices in the network.
     
-    <details>
-    
-    test
-
-    </details>
 
 * **AF (Application Function)**
 
     AF is a network function that interacts with the 3GPP Core Network in order to provides application-specific services or policies such as traffic routing, QoS or time synchronization.
     
-    <details>
-    
-    test
-
-    </details>
     
 * **AMF (Access and Mobility Management Function)**
 
     AMF is a network function that handles the registration, termination, authentication, mobility, and reachability of the UE. This network function interacts with the session management function (SMF), Unified Data Management (UDM), Authentication Server Function (AUSF), and Network Slice Selection Function (NSSF).
     
-    <details>
-    
-    test
-
-    </details>
     
 * **AUSF (Authentication Server Function)**
 
     AUSF is a network function that performs the authentication and authorization of the UE and the network. When a subscriber attempts to connect to the 5G network, the AUSF plays a key role in verifying their identity and ensuring that they have the proper authorization to access the network.
     
-    <details>
-    
-    test
-
-    </details>
     
 * **CHF (Charging Function)**
 
     CHF is a network functions that monitors charging data, subscriber usage consumption and policy counter, and together with Policy Control Function (PCF), it provides policy and charging control during service delivery.
     
-    <details>
-    
-    test
-
-    </details>
     
 * **GMLC (Gateway Mobile Location Centre)**
 
     GMLC is a network function that provides the location information of the UE to authorzied entities such as emergencys services. GMLC is the first node an external LCS client accesses in a PLMN. GMLC interacts withe the UDM via the Nudm interface to request routing information and/or target UE privacy information. After verifying the target UE privacy, the GMLC can now forward a location request to either a serving AMF using Namf interface or to a GMLC in another PLMN using the Ngmlc interface in the case of a roaming UE. GMLC interacts with the NEF and the LMF.
     
-    <details>
-    
-    test
-
-    </details>
     
 * **LMF (Location Management Function)**
 
     LMF is a network function that provides and calculates the location information of the UE based on network topology and radio measurements. LMF interacts with the GMLC and the AMF.
     
-    <details>
-    
-    test
-
-    </details>
     
 * **DN (Data Network)**
 
     DN is a network function that allows access to the internet or other external networks for the UE. It interacts with the UPF and SMF.
     
-    <details>
-    
-    test
-
-    </details>
 
 * **NEF (Network Exposure Function)**
 
     NEF is a network function that exposes the network services and capabilities to an external application and devices such as third-party service providers. It interacts with the AF, PCF, NRF, UDM, and GMLC.
     
-    <details>
-    
-    test
-
-    </details>
 
 * **NRF (NF Repository Function)**
 
     NRF is network function that maintains the information and status of all the network functions in the 5GC. This network function provides the load balancing function and service discovery. NRF interacts th all network functions.
     
-    <details>
-    
-    test
-
-    </details>
 
 * **NSSF (Network Slice Selection Function)**
 
     NSSF is a network function that select and handles the approriate network slice for each UE. Network slice is a logical network that has customized services and resources for specific user group or use case.
     
-    <details>
-    
-    test
-
-    </details>
 
 * **PCF (Policy Control Function)**
 
     PCF is a network function that handles the policy rules and charging information fo each session and service. This network function controls and monitor the QoS and the subscription usage of the network resources. It interacts with SMF, AF, NEF, UDM, and NSSF.
-    
-    <details>
-    
-    test
-
-    </details>
 
 * **SMF (Session Management Function)**
 
     SMF is a network function that establishes, releases, and modifies sessions between UE and the Data Network (DN). It interacts with the AMF, UPF, PCF, NSSF, and DN.
     
-    <details>
-    
-    test
-
-    </details>
 
 * **UDM (Unified Data Management)**
 
     UDM is a network function that handles the subscriber data such as subscription profiles, authentication credentials, and access authorization information. It interacts with the AMF, AUSF, PCF, NSSF, and NEF.
     
-    <details>
-    
-    test
-
-    </details>
 
 
 * **UDR (User Data Repository)**
 
     UDR is a network function that maintains the subscriber data for the UDM and other network functions. It interacts with the UDM and NEF.
-    
-    <details>
-    
-    test
-
-    </details>
 
 
 * **UPF (User Plane Function)**
 
     UPF is a network function that forwards the user data packets and applies the policies and rules for each session. It interacts with SMF, RAN, and DN.
-    
-    <details>
-    
-    test
-
-    </details>
 
 ### 5G Interfaces
 
@@ -276,9 +193,11 @@ As shown from the image above NG-RAn is composed of gNBs (5G Base Stations) and 
 
 ### General Information
 **VM Core Spesification** 
+
 ![image](https://hackmd.io/_uploads/H1E1dUMc6.png)
 
 **VM UERANSIM Spesification** 
+
 ![image](https://hackmd.io/_uploads/BybbO8GqT.png)
 
 
