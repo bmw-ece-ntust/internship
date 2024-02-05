@@ -1,4 +1,4 @@
-#  🇮🇩 TelU - Rafli - Lightweight 5G Core (5G RedCap) | [Thesis Advisor]
+#  🇮🇩 TelU - Rafli - 5G Digital Twin | Ridha Muldina Negara S.T M.T
 
 ## Personal Information
 - Name : Mochamad Rafli Hadiana
