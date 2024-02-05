@@ -26,7 +26,8 @@ Give new member a direction to learn.
     - [Note Title](Link)
 :::
 ### 1. Definition
-![image](https://hackmd.io/_uploads/SyF4uPrta.png =350x300)
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/definition%20E2.png)
+
 E2 interface is one of the O-RAN interface that connects **Near-RT RIC** to the O-RAN Network function such as **O-DU**, **CU-CP**, and **CU-UP**. E2 interface is responsible for **carrying event**s, **control**, and **policy information** to the Open RAN network functions.
 
 E2 nodes interface also enables the collection of metrics from the RAN to the near-RT RIC, either **periodically** or after **pre-defined trigger** events. Both control and data collection procedures can connect to one or more cells, slices, QoS classes, or specific UEs.
