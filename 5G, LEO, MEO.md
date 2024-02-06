@@ -1,7 +1,5 @@
 # Understanding 5G, LEO, and MEO
 
-
-
 ## :book: 5G
 5G technology represents a significant advancement in wireless communication, offering a theoretical peak speed of 20 Gbps, substantially faster than the 1 Gbps peak speed of 4G. It not only provides improved speed but also promises **lower latency**, enhancing various digital experiences like online gaming, videoconferencing, and autonomous vehicles.
 
