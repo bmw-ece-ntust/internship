@@ -52,3 +52,20 @@ The A1 interface connects non-RT RIC and near-RT RIC. It enables the non-RT RIC 
     1. **A1 policy management** is used by the non-RT RIC to guide the near-RT RIC in achieving Quality of Service (QoS) and Key Performance Indicator (KPI) goals for the RAN. This helps ensure that the network performs well and meets specific quality and performance standards.
     2. **A1 Machine Learning (ML) model management**
     3. **A1 Enrichment information**  is responsible to enhance RAN performance by offering information that the RAN doesn't usually have access to, like capacity predictions, details from sources outside the RAN, and overall analytics.
+
+## Learning O1 Interface related in Near-RT RIC Platform
+:::success
+- Goal:
+    - [ ] Learning O1 Interface
+- Useful Links:
+    - [O-RAN.WG10.O1-Interface.0-v08.00](https://www.o-ran.org/specifications)
+:::
+:::info
+- Outcome(Study Note):
+    - [Note Title](Link)
+:::
+![alt text](https://github.com/bmw-ece-ntust/internship/blob/2a3a854d66e1c2d83b24e6fde5fe00a91ad20416/images/O1-SMO.png)
+- The O1 interface facilitates the connection between the Service Management and Orchestration (SMO) and non-RT RIC with the O-RAN managed elements, including the near-RT RIC and RAN nodes. 
+- O1 is designed as an open interface that both adopts and extends standardized practices for operations and maintenance. 
+- The O1 interface supports Management Services (MnS). These services enable the SMO to push configurations to the managed nodes, receive reports of external configuration updates from managed nodes, and stream or report performance data to the SMO.
+- The O1 interface enables file pushing and downloading on SMO-managed nodes, supporting functions like software updates, deployment of beamforming configurations for Remote Units (RUs), and the implementation of Machine Learning models and security certificates.
