@@ -70,3 +70,44 @@ The A1 interface connects non-RT RIC and near-RT RIC. It enables the non-RT RIC 
 - O1 is designed as an open interface that both adopts and extends standardized practices for operations and maintenance. 
 - The O1 interface supports Management Services (MnS). These services enable the SMO to push configurations to the managed nodes, receive reports of external configuration updates from managed nodes, and stream or report performance data to the SMO.
 - The O1 interface enables file pushing and downloading on SMO-managed nodes, supporting functions like software updates, deployment of beamforming configurations for Remote Units (RUs), and the implementation of Machine Learning models and security certificates.
+
+
+## AI/ML Module
+### RNN
+
+- RNN (Recurrent Neural Network) is a neural network specifically designed to handle sequential data, allowing it to store information from previous time steps and utilize it in computations at subsequent time steps. However, RNNs have a limitation in handling long-range dependencies within sequential data due to the vanishing gradient problem. 
+- The vanishing gradient problem occurs as the gradient of the cost function significantly diminishes with the increasing complexity of layers or the length of the sequence. Therefore, RNNs are often constrained in their ability to capture long-range dependencies in sequential data, particularly as the time span lengthens
+- There are different application areas that are used: Language model, neural machine translation, music generation, time series prediction, and financial prediction.
+
+
+### LSTM
+Long Short-Term Memory (LSTM) is an advancement in Recurrent Neural Networks (RNNs) specifically designed to address issues such as vanishing gradients and maintaining long-term information in sequential data. The architecture of LSTM includes intricate internal structures to manage and retain information through a memory cell mechanism. The structure of LSTM are:
+
+1. Forget Gate
+   ![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/d9c53b1e-f333-42be-97a7-62b8e0c54609)
+- The forget gate combines the current input (xt) with the previous output (ht-1).
+- It utilizes the Sigmoid activation function, ensuring forget gate values range between 0 and 1.
+- A value close to 1 retains information in the memory unit; conversely, a value near 0 discards or forgets information.
+- The forget gate operation involves multiplying the result with the previous cell state.
+- The information persisting in the cell state becomes the foundation for future predictions.
+
+2. Input Gate
+   ![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/2bd8bc2e-4325-494d-a174-82c22b210f0d)
+- Input gate functions to control information in the cell state.
+- The activation functions employed are Sigmoid and TanH.
+- TanH's output ranges from -1 to +1, so the algorithm in learning and retaining information over time.
+- The Sigmoid block's result is multiplied by the TanH block's outcome.
+- The resulting product is then added to the current cell state for the generation of long-term memory.
+
+3. Update cell state
+   ![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/c7143b65-59a0-4cf7-a4df-e4660786b7b3)
+The cell state is crucial for Long-Term Memory in LSTMs. It is updated by combining the result of the Forget Gate with the result of the Input Gate.
+5. Output gate
+   ![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/bf7f4d30-d308-4651-aa0f-3f07fa3b0cf6)
+- The Output gate utilizes activation functions, consisting of the Sigmoid and TanH functions. The input (xt) and the previous hidden state (ht-1) are input into these activation functions. 
+- the long-term memory (cell state) is passed through the TanH function. the result of the TanH function is multiplied by the output of the Sigmoid function to generate the updated short-term memory
+
+
+### Isoforest & Random Forest
+
+### VAR Module
