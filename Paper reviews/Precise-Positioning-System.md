@@ -1,3 +1,42 @@
+# Paper Review
+
+## Table of Contents
+- [Paper Review](#paper-review)
+  - [Table of Contents](#table-of-contents)
+  - [Main Reference](#main-reference)
+- [Key Takeaway](#key-takeaway)
+- [Introduction](#introduction)
+- [Concept](#concept)
+  - [Triangulation Concept \& Cellular Network-based Positioning Systems](#triangulation-concept--cellular-network-based-positioning-systems)
+  - [Wi-Fi-based Positioning Systems and Bluetooth Beacons](#wi-fi-based-positioning-systems-and-bluetooth-beacons)
+  - [Analysis and Location Engine (IEEE 802.11ax)](#analysis-and-location-engine-ieee-80211ax)
+    - [- Estimated System](#--estimated-system)
+    - [- Calibration System](#--calibration-system)
+- [Execution](#execution)
+  - [Bulding Prototype](#bulding-prototype)
+  - [Fingerprinting to Locate the AP](#fingerprinting-to-locate-the-ap)
+  - [Estimated Process (AP Deployment)](#estimated-process-ap-deployment)
+- [System Design Implementation](#system-design-implementation)
+  - [Device Information Acquisition](#device-information-acquisition)
+  - [Position Visualization](#position-visualization)
+  - [Vertical Position Detection](#vertical-position-detection)
+  - [Assistant Service Implementation](#assistant-service-implementation)
+- [Analysis and Evaluation](#analysis-and-evaluation)
+  - [System Response Evaluation](#system-response-evaluation)
+  - [Data Transmission](#data-transmission)
+  - [System Latency Evaluation](#system-latency-evaluation)
+- [Conclusion](#conclusion)
+
+## Main Reference
+- [On Construction of Precise Positioning System via IEEE 802.11ax](https://ieeexplore.ieee.org/document/10071724)
+
+# Key Takeaway
+- Wi-Fi based positioning systems provides better accuracy than celular network-based positioning systems.
+- Wi-Fi connection engine utilizing Analysis and Location Engine (ALE) such as IEEE 802.11ax and Bluetooth Beacon combination offers accurate device positioning with low computational cost. 
+
+- Cesium offers 3D visualization to provide the representation of Wi-Fi networks and device positions.
+
+
 # Introduction
 This journal's goal is to demonstrate fast and high-capacity Wi-Fi to help system administrators track and manage the network infrastructure.
 
@@ -20,7 +59,7 @@ The **challenges** associated with these systems include issues related to conve
 ##  Wi-Fi-based Positioning Systems and Bluetooth Beacons
 The primary focus of proposing a positioning system is to **enhance the accuracy** of the derived **position**. One of the things that can enhance accuracy is **hardware enhancements**, and according to the 5G white paper, there's potential for further expansion of position accuracy using **Wi-Fi APs**.
 
-The experiment compares **Bluetooth beacons**, known for their **precise** positioning accuracy in small-scale scenarios, with **Wi-Fi-based positioning systems**. Wi-Fi-based systems provides accuracy of about 1 or 2 m with enough APs, but still **lacks in user location tracking**. Then Aruba Networks introduces the** Analysis and Location Engine (ALE)** for precise positioning through Wi-Fi 6, for accurate **visual representation** of APs and their signal strength. This is the scenario:
+The experiment compares **Bluetooth beacons**, known for their **precise** positioning accuracy in small-scale scenarios, with **Wi-Fi-based positioning systems**. Wi-Fi-based systems provides accuracy of about 1 or 2 m with enough APs, but still **lacks in user location tracking**. Then Aruba Networks introduces the **Analysis and Location Engine (ALE)** for precise positioning through Wi-Fi 6, for accurate **visual representation** of APs and their signal strength. This is the scenario:
 
    <img width="428" alt="image" src="https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/images/ALE.png">
 

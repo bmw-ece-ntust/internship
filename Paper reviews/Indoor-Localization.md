@@ -12,6 +12,7 @@ Systematic Review](https://www.mdpi.com/1424-8220/22/12/4622)
 - [Optimizing Indoor Localization with Deep Learning on UJIIndoorLoc Dataset](#optimizing-indoor-localization-with-deep-learning-on-ujiindoorloc-dataset)
   - [Main Reference:](#main-reference)
   - [ToC](#toc)
+  - [Key Takeaway](#key-takeaway)
   - [Overview](#overview)
   - [Machine Leaning based Indoor Localization Techniques](#machine-leaning-based-indoor-localization-techniques)
   - [Data Preprocessing and Augmentation](#data-preprocessing-and-augmentation)
@@ -25,6 +26,10 @@ Systematic Review](https://www.mdpi.com/1424-8220/22/12/4622)
     - [Evaluation on UJIIndoorLoc Dataset](#evaluation-on-ujiindoorloc-dataset)
     - [Evaluation with Model Compression:](#evaluation-with-model-compression)
 
+## Key Takeaway
+- Optimizing indoor localization with deep learning techniques, especially with the CHISEL framework on the UJIIndoorLoc dataset, offers promising solutions for enhancing accuracy while minimizing memory footprint and latency.
+
+- Techniques such as data augmentation, model compression, and leveraging a combination of CAE and CNN architectures helps on achieving high accuracy in indoor localization tasks.
 
 ## Overview
 This paper points at the challenges of indoor localization on resource-limited embedded devices. It proposed a deep learning solution called CHISEL, which combines a Convolutional Autoencoder (CAE) and a CNN classifier. 
@@ -32,7 +37,6 @@ This paper points at the challenges of indoor localization on resource-limited e
 The purpose is to minimizing memory footprint and latency on embedded devices. The framework uses the UJIIndoorLoc dataset, normalizes the fingerprinting dataset, and employs data augmentation to improve generalization. 
 
 Model compression techniques such as quantization and pruning are employed to reduce the model's memory footprint and latency for efficient deployment on embedded devices. The paper aims to provide a spectrum of deployment configurations with varying tradeoffs between accuracy, memory footprint, and latency goals, ultimately offering new options for high-accuracy indoor localization while minimizing deployment costs on embedded devices
-
 
 ## Machine Leaning based Indoor Localization Techniques
 There are some other machine learning based indoor localization techniques such as :
