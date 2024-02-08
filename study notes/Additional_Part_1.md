@@ -74,7 +74,7 @@ The A1 interface connects non-RT RIC and near-RT RIC. It enables the non-RT RIC 
 
 ## AI/ML Module
 ### RNN
-
+https://user-images.githubusercontent.com/10358317/44312581-5a33c700-a403-11e8-968d-a38dd0ab4401.png
 - RNN (Recurrent Neural Network) is a neural network specifically designed to handle sequential data, allowing it to store information from previous time steps and utilize it in computations at subsequent time steps. However, RNNs have a limitation in handling long-range dependencies within sequential data due to the vanishing gradient problem. 
 - The vanishing gradient problem occurs as the gradient of the cost function significantly diminishes with the increasing complexity of layers or the length of the sequence. Therefore, RNNs are often constrained in their ability to capture long-range dependencies in sequential data, particularly as the time span lengthens
 - There are different application areas that are used: Language model, neural machine translation, music generation, time series prediction, and financial prediction.
@@ -84,8 +84,7 @@ The A1 interface connects non-RT RIC and near-RT RIC. It enables the non-RT RIC 
 Long Short-Term Memory (LSTM) is an advancement in Recurrent Neural Networks (RNNs) specifically designed to address issues such as vanishing gradients and maintaining long-term information in sequential data. The architecture of LSTM includes intricate internal structures to manage and retain information through a memory cell mechanism. The structure of LSTM are:
 
 1. Forget Gate
-    ![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/4b6ba75a-f7db-4185-b57a-601daa716db6)
-
+![alt text](https://github.com/bmw-ece-ntust/internship/blob/a8da115d2833b7e6618ab0c329cc22481e576990/images/forget_cell.png)
 - The forget gate combines the current input (xt) with the previous output (ht-1).
 - It utilizes the Sigmoid activation function, ensuring forget gate values range between 0 and 1.
 - A value close to 1 retains information in the memory unit; conversely, a value near 0 discards or forgets information.
@@ -93,8 +92,7 @@ Long Short-Term Memory (LSTM) is an advancement in Recurrent Neural Networks (RN
 - The information persisting in the cell state becomes the foundation for future predictions.
 
 2. Input Gate
-![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/7be8d043-d18a-405f-a82a-3ae76d0be954)
-
+![alt text](https://github.com/bmw-ece-ntust/internship/blob/a8da115d2833b7e6618ab0c329cc22481e576990/images/inputcell.png)
 - Input gate functions to control information in the cell state.
 - The activation functions employed are Sigmoid and TanH.
 - TanH's output ranges from -1 to +1, so the algorithm in learning and retaining information over time.
@@ -102,11 +100,10 @@ Long Short-Term Memory (LSTM) is an advancement in Recurrent Neural Networks (RN
 - The resulting product is then added to the current cell state for the generation of long-term memory.
 
 3. Update cell state
-![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/b52f1c82-7c77-4db0-844c-bec7c9a34db6)
-
+![alt text](https://github.com/bmw-ece-ntust/internship/blob/a8da115d2833b7e6618ab0c329cc22481e576990/images/update_cell.png)
 The cell state is crucial for Long-Term Memory in LSTMs. It is updated by combining the result of the Forget Gate with the result of the Input Gate.
-5. Output gate
-![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/e7efae7d-e8ff-4763-9fdc-9e5094724610)
+4. Output gate
+![alt text](https://github.com/bmw-ece-ntust/internship/blob/a8da115d2833b7e6618ab0c329cc22481e576990/images/output_cell.png)
 
 - The Output gate utilizes activation functions, consisting of the Sigmoid and TanH functions. The input (xt) and the previous hidden state (ht-1) are input into these activation functions. 
 - the long-term memory (cell state) is passed through the TanH function. the result of the TanH function is multiplied by the output of the Sigmoid function to generate the updated short-term memory
