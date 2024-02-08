@@ -84,7 +84,8 @@ The A1 interface connects non-RT RIC and near-RT RIC. It enables the non-RT RIC 
 Long Short-Term Memory (LSTM) is an advancement in Recurrent Neural Networks (RNNs) specifically designed to address issues such as vanishing gradients and maintaining long-term information in sequential data. The architecture of LSTM includes intricate internal structures to manage and retain information through a memory cell mechanism. The structure of LSTM are:
 
 1. Forget Gate
-   ![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/d9c53b1e-f333-42be-97a7-62b8e0c54609)
+    ![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/4b6ba75a-f7db-4185-b57a-601daa716db6)
+
 - The forget gate combines the current input (xt) with the previous output (ht-1).
 - It utilizes the Sigmoid activation function, ensuring forget gate values range between 0 and 1.
 - A value close to 1 retains information in the memory unit; conversely, a value near 0 discards or forgets information.
@@ -92,7 +93,8 @@ Long Short-Term Memory (LSTM) is an advancement in Recurrent Neural Networks (RN
 - The information persisting in the cell state becomes the foundation for future predictions.
 
 2. Input Gate
-   ![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/2bd8bc2e-4325-494d-a174-82c22b210f0d)
+![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/7be8d043-d18a-405f-a82a-3ae76d0be954)
+
 - Input gate functions to control information in the cell state.
 - The activation functions employed are Sigmoid and TanH.
 - TanH's output ranges from -1 to +1, so the algorithm in learning and retaining information over time.
@@ -100,10 +102,12 @@ Long Short-Term Memory (LSTM) is an advancement in Recurrent Neural Networks (RN
 - The resulting product is then added to the current cell state for the generation of long-term memory.
 
 3. Update cell state
-   ![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/c7143b65-59a0-4cf7-a4df-e4660786b7b3)
+![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/b52f1c82-7c77-4db0-844c-bec7c9a34db6)
+
 The cell state is crucial for Long-Term Memory in LSTMs. It is updated by combining the result of the Forget Gate with the result of the Input Gate.
 5. Output gate
-   ![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/bf7f4d30-d308-4651-aa0f-3f07fa3b0cf6)
+![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/e7efae7d-e8ff-4763-9fdc-9e5094724610)
+
 - The Output gate utilizes activation functions, consisting of the Sigmoid and TanH functions. The input (xt) and the previous hidden state (ht-1) are input into these activation functions. 
 - the long-term memory (cell state) is passed through the TanH function. the result of the TanH function is multiplied by the output of the Sigmoid function to generate the updated short-term memory
 
