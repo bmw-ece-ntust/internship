@@ -74,7 +74,7 @@ The A1 interface connects non-RT RIC and near-RT RIC. It enables the non-RT RIC 
 
 ## AI/ML Module
 ### RNN
-https://user-images.githubusercontent.com/10358317/44312581-5a33c700-a403-11e8-968d-a38dd0ab4401.png
+![alt text](https://user-images.githubusercontent.com/10358317/44312581-5a33c700-a403-11e8-968d-a38dd0ab4401.png)
 - RNN (Recurrent Neural Network) is a neural network specifically designed to handle sequential data, allowing it to store information from previous time steps and utilize it in computations at subsequent time steps. However, RNNs have a limitation in handling long-range dependencies within sequential data due to the vanishing gradient problem. 
 - The vanishing gradient problem occurs as the gradient of the cost function significantly diminishes with the increasing complexity of layers or the length of the sequence. Therefore, RNNs are often constrained in their ability to capture long-range dependencies in sequential data, particularly as the time span lengthens
 - There are different application areas that are used: Language model, neural machine translation, music generation, time series prediction, and financial prediction.
