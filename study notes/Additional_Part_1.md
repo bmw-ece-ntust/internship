@@ -65,7 +65,7 @@ The A1 interface connects non-RT RIC and near-RT RIC. It enables the non-RT RIC 
     - [Note Title](Link)
 :::
 
-![alt text](https://github.com/bmw-ece-ntust/internship/blob/2a3a854d66e1c2d83b24e6fde5fe00a91ad20416/images/O1-SMO.png)
+- ![alt text](https://github.com/bmw-ece-ntust/internship/blob/2a3a854d66e1c2d83b24e6fde5fe00a91ad20416/images/O1-SMO.png)
 - The O1 interface facilitates the connection between the Service Management and Orchestration (SMO) and non-RT RIC with the O-RAN managed elements, including the near-RT RIC and RAN nodes. 
 - O1 is designed as an open interface that both adopts and extends standardized practices for operations and maintenance. 
 - The O1 interface supports Management Services (MnS). These services enable the SMO to push configurations to the managed nodes, receive reports of external configuration updates from managed nodes, and stream or report performance data to the SMO.
