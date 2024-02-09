@@ -120,7 +120,7 @@ The cell state is crucial for Long-Term Memory in LSTMs. It is updated by combin
     - Random Forest is categorized as a supervised learning algorithm, meaning it requires a labeled dataset during training. In this training process, the algorithm learns from input data associated with corresponding target labels. 
     - The unique characteristic of Random Forest lies in its ability to combine the insights of numerous "trees" or individual models. This ensemble approach not only improves accuracy but also helps prevent overfitting, ensuring the model's effectiveness on new, unseen data 
     - Overfitting occurs when a model learns the training data too well, capturing noise and random fluctuations rather than the underlying patterns.
-    ![altext]([https://hackmd.io/_uploads/BJQf0_Gsa.png](https://github.com/bmw-ece-ntust/internship/blob/65078b5dd7ce15ab76234e8fd598156c1836050d/images/bagging_randomforest.png))
+    - ![altext](https://github.com/bmw-ece-ntust/internship/blob/65078b5dd7ce15ab76234e8fd598156c1836050d/images/bagging_randomforest.png)
     - Random Forest employs a technique called bagging (Bootstrap Aggregating), creating different training subsets by sampling from the training data with replacement. This bagging process is designed to run in parallel, allowing the simultaneous construction of multiple decision trees. The final output is determined through majority voting.  Here are the steps:
         1. In the Random Forest model, each decision tree is constructed using a subset of n random records and m features, selected from a dataset containing a total of k records.
         2. Individual decision trees are constructed for each sample.
