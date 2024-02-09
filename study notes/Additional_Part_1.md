@@ -110,5 +110,21 @@ The cell state is crucial for Long-Term Memory in LSTMs. It is updated by combin
 
 
 ### Isoforest & Random Forest
+1. Isolation forest
+    ![altext](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*y3wXEId0poYUIzCD3HBh4w.png)
+    - Isolation Forest is a machine learning algorithm designed for anomaly detection, where anomalies refer to outliers in the data. 
+    - Isolation Forest uses the Decision Tree algorithm to find outliers. It does this by randomly choosing a feature and a split value within its range. This random process creates shorter paths for unusual data points, making them stand out from the rest of the data.
+    - Isolation Forest, an unsupervised learning algorithm, doesn't need labeled data for training and doesn't output class labels. Instead, it identifies anomalies in input data based on their dissimilarity to the majority of instances.
+2. Random Forest
+     ![altext](https://miro.medium.com/v2/resize:fit:2000/format:webp/1*i69vGs4AfhdhDUOlaPVLSA.png)
+    - Random Forest is categorized as a supervised learning algorithm, meaning it requires a labeled dataset during training. In this training process, the algorithm learns from input data associated with corresponding target labels. 
+    - The unique characteristic of Random Forest lies in its ability to combine the insights of numerous "trees" or individual models. This ensemble approach not only improves accuracy but also helps prevent overfitting, ensuring the model's effectiveness on new, unseen data 
+    - Overfitting occurs when a model learns the training data too well, capturing noise and random fluctuations rather than the underlying patterns.
+    ![altext]([https://hackmd.io/_uploads/BJQf0_Gsa.png](https://github.com/bmw-ece-ntust/internship/blob/65078b5dd7ce15ab76234e8fd598156c1836050d/images/bagging_randomforest.png))
+    - Random Forest employs a technique called bagging (Bootstrap Aggregating), creating different training subsets by sampling from the training data with replacement. This bagging process is designed to run in parallel, allowing the simultaneous construction of multiple decision trees. The final output is determined through majority voting.  Here are the steps:
+        1. In the Random Forest model, each decision tree is constructed using a subset of n random records and m features, selected from a dataset containing a total of k records.
+        2. Individual decision trees are constructed for each sample.
+        3. Each decision tree generates an output.
+        4. The final output is determined through Majority Voting for classification tasks or Averaging for regression tasks, respectively.
 
 ### VAR Module
