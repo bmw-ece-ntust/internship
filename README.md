@@ -1,9 +1,11 @@
-# BMW Lab Internship Guidelines
-
-## 1. Introduction
-To facilitate organization and collaboration among interns at BMW Lab, please follow these steps:
-
-1. Create a branch using the template `[year]-[Program Name]-[Intern ID]-[Name]`. For example: `2019-TEEP-22-Ian`.
-2. Edit the README.md on your branch with the profile information you provided in your Trello card.
-3. Organize your study notes by creating folders.
-4. Create `.md` files for your study notes.
+# Profile
+- Name: Bright Christian Kusuma
+- Email: 13221043@std.stei.itb.ac.id
+- University: Institut Teknologi Bandung
+- Department: Department of Electrical Engineering
+- GPA: 2.98
+- Intern:
+  - Topic: 5G
+  - Duration:
+- Mentor: 
+- Portofolio: [Linkedin](https://www.linkedin.com/in/brightchristian), [Resume](), [Github](https://github.com/brightkusuma)
