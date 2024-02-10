@@ -1,0 +1,14 @@
+## OSC O-DU I VERSION
+
+
+
+1. To Install OSC o-du-l2 we can use either ubuntu or centOS. In this document we are gonna focus on installing using *ubuntu on mac*. First and foremost download files bye clicking this two link below.
+```
+hhttps://cdimage.ubuntu.com/jammy/daily-live/current/
+UTM - https://mac.getutm.app/
+```
+2. Open the UTM file put in the application on mac. Then proceed to install. Put in the file ubuntu when the page is like the picture below 
+
+> Code above is used to install all dependencies and build tool altogether, including:
+-- cmake
+-- gcc
