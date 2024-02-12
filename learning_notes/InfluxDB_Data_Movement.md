@@ -1,13 +1,18 @@
 >Michael Harditya (TEEP)
-# Learning Notes
-### Goals
-- Move .csv data into InfluxDB
-### Run the Docker
+# **InfluxDB Data Movement**
+### **Table of Contents**
+- [**InfluxDB Data Movement**](#influxdb-data-movement)
+  - [**Table of Contents**](#table-of-contents)
+  - [**Run the Docker**](#run-the-docker)
+  - [**Writing Data Using Python**](#writing-data-using-python)
+
+### **Run the Docker**
+> please refer to [InfluxDB Docker Installation Guide](https://docs.influxdata.com/influxdb/v2/install/?t=Docker) for InfluxDB Docker installation guide, or my personal [InfluxDB OpenWiFi Installation Guide](https://github.com/bmw-ece-ntust/internship/blob/05f5030f262ea45898e597b1e4fe48f21cad5350/learning_notes/InfluxDB_OpenWiFi_Installation.md)
 1. Move the active directory to the database directory that is used to save the data.
 2. Run ```docker run -p 8086:8086 -v $PWD:/var/lib/influxdb influxdb```
 3. Open browser and browse ```localhost:8086``` to make sure the InfluxDB is up and running, InfluxDB UI is expected to shown.
 ![image](../images/InfluxDBUI.png)
-### Writing Data using Python
+### **Writing Data Using Python**
 Importing CSV to InfluxDB using Python can be done by installing InfluxDB python client using ```pip install influxdb-client```
 First define the libraries used to send the data.
 ```python
