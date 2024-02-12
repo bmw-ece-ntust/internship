@@ -12,7 +12,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
     
     csv_import = InfluxDBCSVImporter(url=args.url,org=args.org)
-    csv_import.import_csv(csvfile=args.csv,bucket=args.bucket)
     if (csv_import.import_csv(csvfile=args.csv,bucket=args.bucket) == 0):
         print(" CSV successfully transferred! ")
 
