@@ -137,9 +137,25 @@ ref: [Overview of O-RAN Fronthaul Specifications](https://www.docomo.ne.jp/engli
 - S-Plane:
   - Transmits signals used in PTP and SyncE.
   - Protocol stack: Transmission over Ethernet
+  - In C-RAN systems, precise synchronization between O-DU and O-RU is crucial for features like TDD, Carrier Aggregation, MIMO etc. 
+  - The O-RAN fronthaul specs use protocols like PTP and SyncE to ensure this high-accuracy sync by synchronizing O-RUs with the central O-DU's high-performance clock.
 - M-Plane:
   - Transmits signals using NETCONF.
   - Protocol stack: Transmission over Ethernet/IP/TCP/SSH
+  - **M-Plane Architecture**
+  ![M-Plane Functions](../assets/M-Plane%20Functions.png)
+
+    - The M-Plane in C-RAN deals with managing Remote Radio Units (O-RUs) using the NETCONF protocol. There are two key architectures:
+
+      **1. Hierarchical:**
+        - O-DUs act as intermediary managers for O-RUs, reducing workload on the Network Management System (NMS).
+      - Useful if the NMS doesn't support NETCONF, allowing network construction without modifying the existing system.
+      - Each O-RU is managed by one or more O-DUs.
+      
+      **2. Hybrid:**
+      - NMS can directly manage O-RUs besides O-DUs, enabling unified management of all network devices.
+      - Useful for NMS that already support NETCONF and want comprehensive control over all equipment.
+      - Each O-RU can be managed by one or more NMSs and O-DUs.
 
 ---
 
