@@ -28,16 +28,22 @@ class InfluxDBCSVImporter:
         write_api = client.write_api(write_options=SYNCHRONOUS)
         # Open your csv file
         with open(csvfile, 'r') as f:
+            j = 0
             reader = csv.reader(f)
             headers = next(reader)  # Get the headers of the file
-
             for row in reader:
+                #for debugging purpose
+                j += 1
                 #fields = {headers[i]: row[i] for i in range (len(row))}
                 point = Point("measure2") \
                     .tag("tag_test", "tag_1")
                 for i in range(len(row)):
                     point.field(headers[i],row[i])
-                write_api.write(bucket=bucket, org="init_test", record=point)
-                time.sleep(1) # separate points by 1 second
-        #client.close()
+                write_api.write(bucket=bucket, org=self.org, record=point)
+                #for debugging purpose
+                print("sent data:" + str(j))
+                #time.sleep(1) # separate points by 1 second        
+            client.close()
+        return 0
+
 
