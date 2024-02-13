@@ -84,12 +84,18 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 5. Install package
->sudo apt-get install -y libssh (`<br>`),
->sudo apt-get install -y libyang (`<br>`),
->sudo apt-get install -y libnetconf2 (`<br>`),
->sudo apt-get install -y sysrepo (`<br>`),
->sudo apt-get install -y netopeer2 (`<br>`),
->sudo apt install python2-dev python2 python-dev-is-python3(`<br>`),
+>sudo apt-get install -y libssh
+
+>sudo apt-get install -y libyang
+
+>sudo apt-get install -y libnetconf2
+
+>sudo apt-get install -y sysrepo
+
+>sudo apt-get install -y netopeer2
+
+>sudo apt install python2-dev python2 python-dev-is-python3
+
 
 sudo ./install_lib_O1.sh -c
 
