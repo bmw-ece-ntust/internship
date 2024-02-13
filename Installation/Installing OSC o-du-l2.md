@@ -48,7 +48,7 @@ git clone https://github.com/o-ran-sc/o-du-l2.git
 ```
 <img width="868" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/945b3db7-5059-4024-9930-1d709c6dac6c">
 
-5. sh
+4. Add netconf user
 Note : use o-du-l2 instead of l2 from the reference, because it will result an error
 ```
 gisela@giselaaurora:~$ pwd
@@ -83,16 +83,14 @@ The key's randomart image is:
 |   .+.oo. ..     |
 +----[SHA256]-----+
 ```
-7. s
-sudo apt-get install -y libssh
-sudo apt-get install -y libyang
-sudo apt-get install -y libnetconf2
-sudo apt-get install -y sysrepo
-sudo apt-get install -y netopeer2
-sudo apt install python2-dev python2 python-dev-is-python3
+5. Install package
+>sudo apt-get install -y libssh
+>sudo apt-get install -y libyang
+>sudo apt-get install -y libnetconf2
+>sudo apt-get install -y sysrepo
+>sudo apt-get install -y netopeer2
+>sudo apt install python2-dev python2 python-dev-is-python3
 
 sudo ./install_lib_O1.sh -c
-9. 
-> Code above is used to install all dependencies and build tool altogether, including:
--- cmake
--- gcc
+
+#Finish Install
