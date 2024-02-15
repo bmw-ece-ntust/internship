@@ -34,7 +34,9 @@ NS-3 a discrete-event simulator typically run from the command line. It is writt
         ```
 
     - This are the expected output
-        ![](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/ns-3-logo.png)
+
+        ![](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/ns3-build-success.png)
+
     - Once complete, you can run the unit tests to check your build
         ```bash
         ./test.py
