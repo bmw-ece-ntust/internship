@@ -20,14 +20,14 @@ This document outlines the process of importing data into InfluxDB using a Pytho
 
 ## **Step-by-step using Python**
 
-### 1. Start the InfluxDB and Grafana servers using the following commands:
+1. Start the InfluxDB and Grafana servers using the following commands:
 
 ```cmd
 sudo systemctl start influxdb
 sudo systemctl start grafana-server
 ```
 
-### 2. Utilize the code provided by Michael, [InfluxImporter.py](https://github.com/bmw-ece-ntust/internship/blob/4db5f593b386c6a34b0e6fbb189b777c9af8bcf5/utils/InfluxImporter.py) for importing data. This script defines a class InfluxDBCSVImporter that facilitates the sequential movement of CSV data into an InfluxDB database. Ensure the script is saved in the utils folder with the name InfluxImporter.py.
+2. Utilize the code provided by Michael, [InfluxImporter.py](https://github.com/bmw-ece-ntust/internship/blob/4db5f593b386c6a34b0e6fbb189b777c9af8bcf5/utils/InfluxImporter.py) for importing data. This script defines a class InfluxDBCSVImporter that facilitates the sequential movement of CSV data into an InfluxDB database. Ensure the script is saved in the utils folder with the name InfluxImporter.py.
 
 ```python
 import csv
@@ -79,7 +79,7 @@ class InfluxDBCSVImporter:
         return 0
 
 ```
-### 3. Create a main script named [main.py](https://github.com/bmw-ece-ntust/internship/blob/4db5f593b386c6a34b0e6fbb189b777c9af8bcf5/main.py) (originally made by Michael) outside the utils folder. This script will utilize the InfluxImporter.py script to import data into InfluxDB. Replace the host, organization name, CSV filename, and bucket name in the script.
+3. Create a main script named [main.py](https://github.com/bmw-ece-ntust/internship/blob/4db5f593b386c6a34b0e6fbb189b777c9af8bcf5/main.py) (originally made by Michael) outside the utils folder. This script will utilize the InfluxImporter.py script to import data into InfluxDB. Replace the host, organization name, CSV filename, and bucket name in the script.
 
 ```python
 import os
@@ -101,14 +101,16 @@ if __name__ == '__main__':
 
 ```
 
-### 4. Save the file to be imported into the same folder as main.py.
+4. Save the file to be imported into the same folder as main.py.
+![image](../Assets/FolderImporter.jpg)
 
-### 5. Export the API token in the terminal using the following command:
+
+5. Export the API token in the terminal using the following command:
 ```cmd
 export INFLUXDB_TOKEN=[YOUR TOKEN HERE]
 ```
 
-### 6. Execute the main.py code in the command line with the following command (adjust the values of the arguments according to your setup):
+6. Execute the main.py code in the command line with the following command (adjust the values of the arguments according to your setup):
 ```cmd
 python3 ./main.py --url "influxdb-url" --org "organization-name" --csv "filename.csv" --bucket "bucket-name"
 ```
@@ -127,10 +129,4 @@ CSV successfully transferred!
 This will indicate that the data import process was completed successfully.
 
 You can also see the imported data in table as shown below:
-
-
-
-
-
-
-
+![image](../Assets/ImportedData.jpg)
