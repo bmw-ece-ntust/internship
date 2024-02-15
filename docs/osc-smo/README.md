@@ -131,9 +131,8 @@ git clone --recurse-submodules https://gerrit.o-ran-sc.org/r/it/dep.git
 ```
 
 ## Deploy Simulators (DU / RU Simulators)
-:::warning
-:bulb:**NOTE:** When all pods in "onap" and "nonrtric" namespaces are well up & running
-:::
+
+> **NOTE** When all pods in "onap" and "nonrtric" namespaces are well up & running
 
 ### 1. Modify the yaml file. 
 - Modify `smo-install/helm-override/default/network-simulators-override.yaml`. 
@@ -179,4 +178,4 @@ topology-server:
 ```bash=
 sudo kubectl get pods -n network
 ```
-![](https://i.imgur.com/ZrJBzPb.png)
+![](/internship/assets/oru-odu-sim.png)

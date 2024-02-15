@@ -1,7 +1,5 @@
 # TEEP: 5GC & ORAN Docs
 
-[TOC]
-
 ## 5G Core in Network
 
 ### Introduction
@@ -278,14 +276,14 @@ As shown from the image above NG-RAn is composed of gNBs (5G Base Stations) and 
 
 ### Definition
 
-    O-RAN stands for Open Radio Access Network, which is a new paradigm for designing, deploying, and operating cellular networks. O-RAN networks are built with disaggregated components that are connected via open interfaces and optimized by intelligent controllers. This allows for multi-vendor, interoperable components and programmatically optimized networks through a centralized abstraction layer and data-driven closed-loop control. The O-RAN Alliance is defining a virtualization platform for the RAN and extending the definition of 3GPP and eCPRI interfaces to connect RAN nodes
+O-RAN stands for Open Radio Access Network, which is a new paradigm for designing, deploying, and operating cellular networks. O-RAN networks are built with disaggregated components that are connected via open interfaces and optimized by intelligent controllers. This allows for multi-vendor, interoperable components and programmatically optimized networks through a centralized abstraction layer and data-driven closed-loop control. The O-RAN Alliance is defining a virtualization platform for the RAN and extending the definition of 3GPP and eCPRI interfaces to connect RAN nodes
     Architecture
 
 ### Architecture
 
-    ![images](https://hackmd.io/_uploads/r182-xBK3.png)
+![images](https://hackmd.io/_uploads/r182-xBK3.png)
 
-    The main architecture of O-RAN is based on key principles that have been at the center of the Software-defined Networking (SDN) transformation in wired networks in the past 15 years, and have started moving into the wireless domain more recently . The main architectural building blocks of O-RAN include the near-RT and non-RT RICs and the SMO. The O-RAN interfaces include E2, O1, A1, the fronthaul interface, and O2.
+The main architecture of O-RAN is based on key principles that have been at the center of the Software-defined Networking (SDN) transformation in wired networks in the past 15 years, and have started moving into the wireless domain more recently . The main architectural building blocks of O-RAN include the near-RT and non-RT RICs and the SMO. The O-RAN interfaces include E2, O1, A1, the fronthaul interface, and O2.
 
 
 ### Building Blocks
@@ -408,16 +406,6 @@ From that API endpoint we can retrieve the content of a specific tweet from Twit
 ### API Endpoint
 
 API endpoints are the final touchpoint of an API communication. This API endpoint includes server URLS, services, and other specific digital locations from where information is sent and received between systems.
-
-> ON PROGRESS..
-
-## E2E Test Between API and DB
-
-> ON PROGRESS..
-
-## E2E Test Between API and DB
-
-> ON PROGRESS..
 
 ## Wireshark and Tshark
 
