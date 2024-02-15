@@ -178,4 +178,4 @@ topology-server:
 ```bash=
 sudo kubectl get pods -n network
 ```
-![](/internship/assets/oru-odu-sim.png)
+![](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/oru-odu-sim.png)
