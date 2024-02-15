@@ -1,6 +1,6 @@
 # NS-3 : Network Simulator 3
 
-![](/internship/assets/ns-3-logo.png)
+![](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/ns-3-logo.png)
 
 NS-3 a discrete-event simulator typically run from the command line. It is written directly in C++, not in a high-level modeling language; simulation events are simply C++ function calls, organized by a scheduler.
 
