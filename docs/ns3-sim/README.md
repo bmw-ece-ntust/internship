@@ -107,7 +107,7 @@ When writing NS-3 simulation programs using C++, there are four fundamental step
    After the simulation has run and generated trace information, this step involves analyzing the outcomes to derive insights into network performance. Various metrics can be evaluated, such as average link utilization, queue lengths, packet drop rates, and more. NS-3's pcap trace facility can be utilized to visualize and further analyze the simulation data, providing a detailed view of the network's behavior under specified conditions.
 
 
-## NS-3 Installation
+### NS-3 Installation
 
 1. Download NS-3 Latest Release
 
@@ -153,6 +153,119 @@ When writing NS-3 simulation programs using C++, there are four fundamental step
         ```bash
         ./ns3 run 'first --PrintHelp'
         ```
+
+## Point-to-Point Simmulation
+
+### Fundamentals of Point-to-Point Networking
+
+Before delving into simulating Point-to-Point Protocol (PPP) with NS-3, let's first understand what the point-to-point protocol is and how it operates. Point-to-point protocol is an encapsulation protocol designed to channel IP traffic over a point-to-point link. PPP is comprised of three main components:
+
+1. **Link Control Protocol (LCP):**
+   LCP is responsible for establishing, maintaining, and terminating the connection between two points or endpoints. It also tests the channel to determine whether it is active. Before a connection is established, LCP configures certain parameters of the connection such as Frame Check Sequence (FCS) and High-Level Data Link Control (HDLC) framing. By default, PPP uses a 16-bit FCS, but this can be changed to a 32-bit FCS or even 0 bit (no FCS). Alternatively, HDLC encapsulation over a PPP link can be used. Once the connection is established, the hosts on the PPP link generate Echo-Request and Echo-Response packets to maintain the PPP link.
+
+2. **PPP Authentication:**
+   The Authentication Protocol functions to ensure security between two points. The PPP layer's authentication protocol uses protocols to help ensure the validity of endpoints on the PPP link. Authentication protocols include the Password Authentication Protocol (PAP), Extensible Authentication Protocol (EAP), and Challenge Handshake Authentication Protocol (CHAP), with CHAP being the most commonly used at present.
+
+3. **Network Control Protocol (NCP):**
+   NCP facilitates the initiation of the PPP protocol stack to handle multiple Network Layer Protocols such as IPv4, IPv6, and Connectionless Network Protocol (CLNP). After the authentication process is completed, the PPP connection can be considered established. At this stage, higher-level protocols (such as Internet Protocol or IP) can initiate and function as intended.
+
+### Initial Steps with NS-3 Point-to-Point Example
+
+As an initial step, we will try running and modifying the NS-3 point-to-point example provided.
+
+Upon downloading and installing NS-3 as per the instructions, you will find the NS-3 release in the home directory named `repos`. Moving to the releases directory, you will encounter a file structure as shown below (Figure 7.2 File Structure).
+
+Next, try entering the directory named `examples/tutorial`. Here, you will find a file named `first.cc`. This file is a script for creating a simple network configuration, namely a point-to-point network between two nodes, including echo packets between both nodes.
+
+1. Create the script `first.cpp`
+
+    ```cpp=
+    /*
+    * This program is free software; you can redistribute it and/or modify
+    * it under the terms of the GNU General Public License version 2 as
+    * published by the Free Software Foundation;
+    *
+    * This program is distributed in the hope that it will be useful,
+    * but WITHOUT ANY WARRANTY; without even the implied warranty of
+    * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    * GNU General Public License for more details.
+    *
+    * You should have received a copy of the GNU General Public License
+    * along with this program; if not, write to the Free Software
+    * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+    */
+
+    #include "ns3/applications-module.h"
+    #include "ns3/core-module.h"
+    #include "ns3/internet-module.h"
+    #include "ns3/network-module.h"
+    #include "ns3/point-to-point-module.h"
+    #include "ns3/netanim-module.h"
+    // Default Network Topology
+    //
+    //       10.1.1.0
+    // n0 -------------- n1
+    //    point-to-point
+    //
+
+    using namespace ns3;
+
+    NS_LOG_COMPONENT_DEFINE("FirstScriptExample");
+
+    int
+    main(int argc, char* argv[])
+    {
+        CommandLine cmd(__FILE__);
+        cmd.Parse(argc, argv);
+
+        Time::SetResolution(Time::NS);
+        LogComponentEnable("UdpEchoClientApplication", LOG_LEVEL_INFO);
+        LogComponentEnable("UdpEchoServerApplication", LOG_LEVEL_INFO);
+
+        NodeContainer nodes;
+        nodes.Create(2);
+
+        PointToPointHelper pointToPoint;
+        pointToPoint.SetDeviceAttribute("DataRate", StringValue("5Mbps"));
+        pointToPoint.SetChannelAttribute("Delay", StringValue("2ms"));
+
+        NetDeviceContainer devices;
+        devices = pointToPoint.Install(nodes);
+
+        InternetStackHelper stack;
+        stack.Install(nodes);
+
+        Ipv4AddressHelper address;
+        address.SetBase("10.1.1.0", "255.255.255.0");
+
+        Ipv4InterfaceContainer interfaces = address.Assign(devices);
+
+        UdpEchoServerHelper echoServer(9);
+
+        ApplicationContainer serverApps = echoServer.Install(nodes.Get(1));
+        serverApps.Start(Seconds(1.0));
+        serverApps.Stop(Seconds(10.0));
+
+        UdpEchoClientHelper echoClient(interfaces.GetAddress(1), 9);
+        echoClient.SetAttribute("MaxPackets", UintegerValue(1));
+        echoClient.SetAttribute("Interval", TimeValue(Seconds(1.0)));
+        echoClient.SetAttribute("PacketSize", UintegerValue(1024));
+
+        ApplicationContainer clientApps = echoClient.Install(nodes.Get(0));
+        clientApps.Start(Seconds(2.0));
+        clientApps.Stop(Seconds(10.0));
+
+        Simulator::Run();
+        Simulator::Destroy();
+        return 0;
+    }
+    ```
+2. Execute the file
+
+> ON PROGRESS
+
+
 ## Reference
 
 > https://www.nsnam.org/docs/release/3.41/tutorial/singlehtml/index.html
+
