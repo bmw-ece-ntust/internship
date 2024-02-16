@@ -29,9 +29,8 @@ $ sudo add-apt-repository ppa:open5gs/latest
 $ sudo apt update
 $ sudo apt install open5gs
 ```
-output for first command
+output example
 ![image](https://github.com/bmw-ece-ntust/internship/assets/123167913/6bb35f64-306e-47d7-89a0-3eb52e25ecb1)
-output for second command
 ![image](https://github.com/bmw-ece-ntust/internship/assets/123167913/b487d3a0-ed6b-472a-a95d-aac5e05593b7)
 
 
