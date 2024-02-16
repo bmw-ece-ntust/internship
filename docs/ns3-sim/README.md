@@ -92,7 +92,7 @@ NS-3 models a wide array of computer network elements, including:
 
 When writing NS-3 simulation programs using C++, there are four fundamental steps to follow:
 
-![](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/ns3-flowchart.jpg)
+![](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/ns3-flowchart.png)
 
 1. **Create Network Topology:**
    The creation of a network topology involves initializing objects in C++ such as nodes, network devices, channels (or links), and the network protocols to be used for the network modeling simulation. This step sets the foundation for how various components of the network will interact with each other, following a process similar to the flow chart depicted below (Figure 6.3 illustrates the sequence of creating a network topology in NS-3).
