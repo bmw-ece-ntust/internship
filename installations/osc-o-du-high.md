@@ -1,0 +1,8 @@
+## Overview
+OSC O-DU High is a component of the O- RAN Distributed Unit High Layers (ODUHIGH) project, which is responsible for implementing the high layers of the O-RAN distributed unit. The O-DU High is responsible for implementing the higher layer protocols of the O-RAN protocol stack, including the RRC, PDCP, and RLC protocols.
+
+The G Release is the latest release of the O-RAN Software community, which includes updates to various O-RAN projects, including the O-DU High. The G Release includes updates to the Non-Real-time RIC (NONRTRIC), Near-Real-time RIC X-APPs (RICAPP), Near-Real-time RAN Intelligent Controller Platform (E2 Interface) (RICPLT), Operation and Maintenance (OAM), O-RAN Central Unit (OCU), O-DU High, O-DU Low, Simulators (SIM), Service Management and Orchestration Layer (SMO), Infrastructure (INF), Integration and Test (INT), and AIML Framework (AIMLFW) projects.
+
+The G Release of the O-RAN Software Community was released on March 7, 2023. The H Release was released in July 2023. The I Release is currently in incubation.
+
+The O-DU High component is supported by all three releases. The O-DU High in the H Release is based on the commercial FlexRan 21.11 release and supports Massive MIMO and URLLC. The O-DU High in the I Release is a high-performance implementation of the O-RAN Distributed Unit (O-DU) that is designed to support high-bandwidth and low-latency applications. The I-Release is focused on rApp manager service, Service Manager service, RAN PM functions for DME, Function Test environments, stability, 3PP vulnerability, test coverage and quality, and A1 Policy Functions
