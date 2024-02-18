@@ -2,22 +2,9 @@
 
 ## Overview
 
-  srsran is an open-source project that develops software radio suites for 4G and
-5G applications. srsran software is written in portable C++ with minimal
-third-party dependencies and runs on Linux with off-the-shelf compute and
-radio hardware. srsran software can be used to build end-to-end mobile wireless
-networks for RnD, testing and PoC implementations. srsran software includes
-UE, eNodeB and EPC network elements for 4G, and UE and gNodeB network
-elements for 5G.
+  srsran is an open-source project that develops software radio suites for 4G and 5G applications. srsran software is written in portable C++ with minimal third-party dependencies and runs on Linux with off-the-shelf compute and radio hardware. srsran software can be used to build end-to-end mobile wireless networks for RnD, testing and PoC implementations. srsran software includes UE, eNodeB and EPC network elements for 4G, and UE and gNodeB network elements for 5G.
 
-  srsran 5g is the latest software suite from srsran project that provides a
-complete 5G RAN solution, featuring an ORAN-native CU/DU developed by
-Software Radio Systems (SRS). srsran 5g includes a full L1/2/3 implementa-
-tion with minimal external dependencies and supports a wide range of radio
-hardware options with different functional splits via FAPI. srsran 5g can be
-used with third-party core network solutions to build end-to-end 5G networks.
-srsran 5g also supports 5G SA features for both srsUE and srsENB, which can
-be enabled via the configuration files
+  srsran 5g is the latest software suite from srsran project that provides a complete 5G RAN solution, featuring an ORAN-native CU/DU developed by Software Radio Systems (SRS). srsran 5g includes a full L1/2/3 implementation with minimal external dependencies and supports a wide range of radio hardware options with different functional splits via FAPI. srsran 5g can be used with third-party core network solutions to build end-to-end 5G networks. srsran 5g also supports 5G SA features for both srsUE and srsENB, which can be enabled via the configuration files
 
 ## 1. Adding the srsRAN repository to the system:
 Input:
