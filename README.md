@@ -7,7 +7,7 @@ University: Bandung Institute of Technology (ITB)
 
 Department: STEI - Telecommunication Engineering
 
-GPA:
+GPA: 3.00
 
 Intern: UniXecure/SYSTEX
 
