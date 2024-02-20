@@ -3,17 +3,7 @@
 ## Overview
 {to be written soon}
 
-## 1. Installing Open5GS via a package manager:
-Input:
-```
-sudo add-apt-repository ppa:open5gs/latest
-sudo apt update
-sudo apt install open5gs
-```
-Output:
-{to be written soon}
-
-## 2. Installing MongoDB for user plane machines communication database registry:
+## 1. Installing MongoDB for user plane machines communication database registry:
 Input:
 ```
 ## installing curl command if it wasn't installed before
@@ -33,7 +23,37 @@ sudo apt-get install -y mongodb-org
 mongod --version
 ```
 Output:
-{to be written soon}
+```
+
+```
+
+## 2. Installing Open5GS via a package manager:
+Input:
+```
+sudo add-apt-repository ppa:open5gs/latest
+sudo apt update
+sudo apt install open5gs
+```
+Output:
+```
+... output omitted ...
+Open5GS is a C-language Open Source implementation of 5G Core and EPC, i.e. the core network of NR/LTE network (Release-17)
+More info: https://launchpad.net/~open5gs?+archive/ubuntu/latest
+Adding repository.
+Press [ENTER] to continue or Ctrl-c to cancel.
+Adding deb etry to /etc/apt/sources/list.d/open5gs-ubuntu-latest-jammy.list
+Adding disabled deb-src entry to /etc/apt/sources/list.d/open5gs-ubuntu-latest-jammy.list
+Adding key to /etc/apt/trusted.gpg.d/open5gs-ubuntu-latest-gpg with fingerprint CA542085D892C03492F35E1EACC46E8E238249B1
+... output omitted ...
+
+Fetched 11.5 MB in 21s (548 kB/s)
+Reading package lists... Done
+... output omitted ...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+166 packages can be upgraded. Run 'apt list --upgradable' to see them.
+```
 
 ## 3. Installing WebUI of Open5GS
 Input:
