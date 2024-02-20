@@ -129,9 +129,9 @@ The cell state is crucial for Long-Term Memory in LSTMs. It is updated by combin
 
 ### VAR Module
 - VAR is indeed a multivariate time series forecasting algorithm used when there are dynamic relationships among two or more variables over time. VAR helps us see how changes in one variable affect others and vice versa.
--  ![altext](https://editor.analyticsvidhya.com/uploads/61439Screenshot%202021-07-23%20at%203.16.29%20PM.png)
-- c-> intercept
-- epsilon -> error
-- $\phi$ ->coefficient of lags of Y that tells how much the current value of a variable depends on its own past values and the past values of other variables in the system.
-- $Y_t$ -> output  prediction
+-  ![altext](https://github.com/bmw-ece-ntust/internship/blob/dda57ac507419d1824ffa3882248d58feda159b3/images/VAR_formula.png)
+- c        : intercept
+- epsilon  : error
+- $\phi$   : coefficient of lags of Y that tells how much the current value of a variable depends on its own past values and the past values of other variables in the system.
+- $Y_t$    : output  prediction
 - Lags ($Y_{1(t-2)}$, $Y_{2(t-2)}$, ...): represent the historical values of each variable. This is the memory of the system
