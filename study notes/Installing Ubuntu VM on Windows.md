@@ -5,7 +5,7 @@
 | spec | Size|
 | --- | --- |
 | Base Memory | 4096 MB DDR5 4800 MHz|
-| processors | 13 cores base speed 2.5 Ghz |
+| processors | 13 cores |
 | Video Memory | 70 MB |
 | Virtual Size | 50 Gb |
 #
