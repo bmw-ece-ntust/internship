@@ -4,8 +4,8 @@
 # My Specs for Ubuntu Virtual Box
 | spec | Size|
 | --- | --- |
-| Base Memory | 4096 MB|
-| processors | 13 cores |
+| Base Memory | 4096 MB DDR5 4800 MHz|
+| processors | 13 cores base speed 2.5 Ghz |
 | Video Memory | 70MB |
 | Virtual Size | 50 Gb |
 #
