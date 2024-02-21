@@ -42,18 +42,59 @@ Receiving objects: 100% (23000/23000), 32.72 MiB | 322.00 KiB/s, done.
 Resolving deltas: 100% (17641/17641), done.
 ```
 
-## 3. Setting up Netconf server to compile and run ODU with O1 interface enabled:
+## 3. [UPDATE] To solve the failed libraries cases or issues, try to install the requirements in -dev below:
+Input:
+```
+sudo apt-get install -y liibssh-dev libyang-dev libnetconf2-dev
+```
+Output:
+```
+... output omitted ...
+The following additional packages will be installed:
+    libssh2-1 libssl-dev libssl3 zlib1g-dev
+Suggested pacakages:
+    libssl-doc
+The following NEW packages will be installed
+    libssh2-1 libssh2-1-dev libssl-dev zlib1g-dev
+The following packages will be upgraded:
+    libssl3
+1 to upgrade, 4 to newly install, 0 to remove and 164 not to upgrade.
+Need to get 4,792 kB of archives.
+... output omitted ...
+
+... output omitted ...
+The following additional packages will be installed:
+    libpcre16-3 libpcre3-dev libpcre32-3 libpcrecpp0v5 libyang1
+The following NEW packages will be installed
+    libpcre16-3 libpcre3-dev libpcre32-3 libpcrecpp0v5 libyang-dev libyang1
+0 to upgrade, 6 to newly install, 0 to remove and 164 not to upgrade.
+Need to get 1,437 kB of archives.
+... output omitted ...
+
+... output omitted ...
+The following additional packages will be installed:
+    libnetconf2-2 libpcre2-16-0 libpcre2-dev libpcre2-posix3 libyang2 libyang2-dev
+The following packages will be REMOVED
+    libyang-dev
+The following NEW packages will be installed
+    libnetconf2-2 libnetconf2-dev libpcre2-16-0 libpcre2-dev libpce2-posix3 libyang2 libyang2-dev
+0 to upgrade, 7 to newly install, 1 to remove and 164 not to upgrade.
+Need to get 1,598 kB of archives.
+... output omitted ...
+```
+
+## 4. Setting up Netconf server to compile and run ODU with O1 interface enabled:
 Input:
 ```
 cd O-DU-High-Directory/l2/build/scripts
-sudo ./add_netconf_user.sh
-sudo ./install_lib_O1.sh -c
-sudo ./load_yang.sh
-sudo ./netopeer-server.sh start
+    sudo ./add_netconf_user.sh
+    sudo ./install_lib_O1.sh -c
+    sudo ./load_yang.sh
+    sudo ./netopeer-server.sh start
 
-cd l2/src/o1/ves
-nano VesUtils.h
-    #define StdDef
+cd l2/src/o1/ves ## OPTIONAL
+    nano VesUtils.h ## OPTIONAL
+        #define StdDef ## OPTIONAL
 ```
 Output:
 ```
@@ -75,11 +116,4 @@ updateYang done
 ... output omitted ...
 ### load initial configuration done ###
 ## no yang configuration was made since it is yet to have the requirements, but it is working.
-```
-
-## 4. To solve the failed libraries cases or issues, try to install the requirements below:
-Input:
-```
-sudo apt-get install -y libssh libyang libnetconf2 sysrepo netopeer2 python2-dev python 2 python-dev-is-python3
-sudo ./install_lib_O1.sh -c
 ```
