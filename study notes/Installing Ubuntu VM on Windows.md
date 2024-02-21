@@ -6,7 +6,7 @@
 | --- | --- |
 | Base Memory | 4096 MB DDR5 4800 MHz|
 | processors | 13 cores base speed 2.5 Ghz |
-| Video Memory | 70MB |
+| Video Memory | 70 MB |
 | Virtual Size | 50 Gb |
 #
 ![alt text](https://github.com/bmw-ece-ntust/internship/blob/99de7b8f5253da07c4931edeb1a268bd39e5d611/images/Oracle_VM.png)
