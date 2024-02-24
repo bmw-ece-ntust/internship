@@ -107,6 +107,23 @@ When writing NS-3 simulation programs using C++, there are four fundamental step
    After the simulation has run and generated trace information, this step involves analyzing the outcomes to derive insights into network performance. Various metrics can be evaluated, such as average link utilization, queue lengths, packet drop rates, and more. NS-3's pcap trace facility can be utilized to visualize and further analyze the simulation data, providing a detailed view of the network's behavior under specified conditions.
 
 
+### NS-3 Pre-Requisite
+
+1. Install the required package
+
+    - Before starting the NS-3 installation, a compiler is required for it can install NS-3 dependencies
+        ```bash
+        sudo apt install build-essential -y
+        ```
+    - Qt installation to be able to install NetAnim on NS-3
+        ```bash
+        sudo apt install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+        ```
+    - Then, there are several dependency packages that need to be installed first.
+        ```bash
+        sudo apt install g++ python3 cmake ninja-build git gir1.2-goocanvas-2.0 python3-gi python3-gi-cairo python3-pygraphviz gir1.2-gtk-3.0 ipython3 tcpdump wireshark sqlite sqlite3 libsqlite3-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools openmpi-bin openmpi-common openmpi-doc libopenmpi-dev doxygen graphviz imagemagick python3-sphinx dia texlive dvipng latexmk texlive-extra-utils texlive-latex-extra texlive-font-utils libeigen3-dev gsl-bin libgsl-dev libgslcblas0 libxml2 libxml2-dev libgtk-3-dev lxc-utils lxc-templates vtun uml-utilities ebtables bridge-utils libboost-all-dev -y
+        ```
+
 ### NS-3 Installation
 
 1. Download NS-3 Latest Release
@@ -153,6 +170,17 @@ When writing NS-3 simulation programs using C++, there are four fundamental step
         ```bash
         ./ns3 run 'first --PrintHelp'
         ```
+
+### NetAnim Installation
+
+1. Install NetAnim
+
+```bash
+# cd ns-allinone-3.41 
+cd netanim-3.41/
+qmake NetAnim.pro
+make
+```
 
 ## Point-to-Point Simmulation
 
