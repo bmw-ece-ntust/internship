@@ -14,36 +14,34 @@ class InfluxDBCSVImporter:
         import_csv(csvfile,bucket): Import CSV file with the filename defined by the csvfile argument into InfluxDB bucket
 
     """
-    def __init__(self, url, org):
-        self.url = url
-        self.org = org
-        
-
-
-    def import_csv(self,csvfile="default.csv",bucket="target_bucket"):
+    def __init__(self, url, org, bucket):
+        self.bucket = bucket
         token = os.environ.get("INFLUXDB_TOKEN")
-        client = influxdb_client.InfluxDBClient(url=self.url, token=token, org=self.org)
-
+        self.client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
+    
+    def initiate_client(self):
         #Initiate influx client
-        write_api = client.write_api(write_options=SYNCHRONOUS)
-        # Open your csv file
-        with open(csvfile, 'r') as f:
-            j = 0
-            reader = csv.reader(f)
-            headers = next(reader)  # Get the headers of the file
-            for row in reader:
-                #for debugging purpose
-                j += 1
-                #fields = {headers[i]: row[i] for i in range (len(row))}
-                point = Point("measure2") \
-                    .tag("tag_test", "tag_1")
-                for i in range(len(row)):
-                    point.field(headers[i],row[i])
-                write_api.write(bucket=bucket, org=self.org, record=point)
-                #for debugging purpose
-                print("sent data:" + str(j))
-                #time.sleep(1) # separate points by 1 second        
-            client.close()
+        write_api = self.client.write_api(write_options=SYNCHRONOUS)
+        return write_api
+
+
+    def write_csv_data_to_influxdb(self, write_api, data):
+        for entry in data:
+            _client_point = Point("Client")\
+                            .tag("essid", entry["essid"])\
+                            .tag("eirp", entry["EIRP"])\
+                            .tag("band", entry["band"])\
+                            .tag("channel", entry["chan"])\
+                            .tag("ht_type", entry["ht_type"])\
+                            .tag("ap_name", entry["AP_Name"])\
+                            .field("rssi", entry["rssi"])
+            write_api.write(bucket=self.bucket, record=[_client_point])
+        print("[INFO] Successfully write ", len(data),"data into database")
+        
         return 0
 
+    def close_influxdb_api(self,write_api):
+        self.client.close()
+        write_api.close()
+        
 
