@@ -8,8 +8,16 @@ class DataProcess:
         melted = self.data.melt(id_vars=[col for col in self.data.columns if col not in non_tag_cols],\
             var_name="AP_Name",value_name="rssi")
         melted = melted.dropna(subset=["rssi"])
+        # Reset the index of the DataFrame
+        melted.reset_index(drop=True, inplace=True)
         self.data = melted
-
+        
+    def to_list(self):
+        return self.data.values.tolist()
+    
+    def to_dict(self):
+        return self.data.to_dict('records')
+    
     def to_dataframe(self):
         df = self.data
         return df
