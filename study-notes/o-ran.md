@@ -1,0 +1,36 @@
+# Open Radio Access Network
+
+## Overview
+O-RAN (Open Radio Access Network) represents a highly disaggregated approach to deploying mobile fronthaul and midhaul networks, built entirely on cloud-native principles. It is an evolution of the Next Generation RAN (NG-RAN) architecture, which was initially introduced by the GSMA’s 3GPP in their release 15 (5G version 1) technical specification (TS 38.401). The O-RAN Alliance was established to advance NG-RAN philosophies, expanding upon the scope originally outlined by the 3GPP. With more than 160 member companies, the O-RAN alliance issues specifications and releases open-source software under the auspices of the Linux Foundation.
+
+The ultimate objective of O-RAN is to enable seamless and secure interoperability between hardware and software components within cellular networks, regardless of their original vendors. In the current O-RAN landscape, multiple vendors may be involved. For instance, the radio unit (RU) software typically comes from the same company that manufactures the antennae, while the Distribution Unit (DU) and Centralized Unit (CU) could originate from different companies. It’s worth noting that historically, the Radio Access Network (RAN) has been a closed and proprietary segment of the network. However, O-RAN aims to change this by promoting openness and standardization.
+
+O-RAN is built upon interoperable lower layer splits, but determining the optimal location for this split is a complex challenge. It involves balancing RU simplification, support for advanced multipoint radio frequency capabilities, and the requirements of front haul transport. These splits are assigned numerical values to facilitate comparison among various options. Higher-numbered splits reside lower in the protocol stack, with less functionality deployed below the RU split. The lower layer splits occur within the protocol stack below the Medium Access Control (MAC) layer. Options include placing the split between the MAC and Physical (PHY) layers (Split 6), within the PHY layer (Split 7), or between the PHY layer and RF functionality (Split 8).
+
+## Logical Architecture
+O-RAN decomposes the existing Baseband Unit (BBU) into two functional components: the Distributed Unit (DU) and Central Unit (CU). By adopting modern control user plane separation (CUPS), the CU can be further split into control plane (CU-CP) and user plane (CU-UP) functions. This architectural shift offers technical advantages, including cost reduction and support for dynamic multiaccess edge compute (MEC) clouds. The deployment of NG-RAN components occurs across fronthaul, midhaul, and backbone networks, with open interfaces defined at different layers. The choice of component instantiation depends on service requirements.
+
+## The Next Generation
+The NG-RAN defines the Distributed Unit (DU) and Central Unit (CU), along with interfaces like F1, E1, Xn, and NG connecting them to the core network. However, it lacks details on service management and interfaces needed for orchestrated cloud environments. The RU-DU interface remains unaddressed. Existing Common Public Radio Interface (CPRI) standards, though modified by vendors, connect RRU to BBU. With 5G’s bandwidth demands, the O-RAN Alliance aims to define new Open Fronthaul interfaces between DU and RU, overcoming limitations of current implementations.
+
+## Layers Behind The Scene
+O-RAN ensures openness by separating hardware and software into three layers:
+1. Commercial Off-The-Shelf (COTS) Merchant Silicon: Includes x86 processors.
+2. Hardware Abstraction Layer: Sits between the silicon and the application layer.
+3. Application Layer: Where RAN functions reside.
+   
+The O-RAN alliance mandates vendor-agnostic layers and has defined requirements for a cloud platform that executes O-RAN network functions—the O-RAN Cloud Platform (O-Cloud). Deploying O-RAN functions on x86 hardware within cloud-native environments (using lightweight containers) requires robust data plane acceleration. Since these functions lack Kernel access, solutions may vary for each O-RAN CNF. Techniques like DPDK and FD.io, or advanced approaches like the Metaswitch Composable Network Applications Platform Packet Processing Engine (CNAP/CPPE), play a crucial role.
+
+## How Does It Work?
+O-RAN (Open Radio Access Network) works by transforming the traditional cellular network architecture to be more open, flexible, and interoperable. It enables a more open and adaptable cellular network, fostering innovation and collaboration among vendors.
+
+1. Network Basics: A mobile network consists of two main parts: the Radio Access Network (RAN) and the Core Network. The RAN connects user devices (like phones) to the network via antennas and base stations. The Core Network handles authentication, routing, charging, and connectivity to the wider internet.
+2. Evolution of Networks: Cellular networks have evolved from 1G (analog voice) to 5G (high-speed data and machine communication). Traditionally, RAN equipment from different vendors was challenging to mix due to proprietary interfaces.
+3. Open RAN Approach: O-RAN aims to change this by promoting openness and interoperability. It decouples hardware and software into three layers: COTS merchant silicon, a hardware abstraction layer, and an application layer where RAN functions reside. O-RAN allows mixing and matching components and opens interfaces inside base stations.
+
+## Benefits
+O-RAN increased competition and innovation. Traditionally, a few suppliers have monopolized the telecom market, limiting diversity and competition among vendors. Open RAN breaks this vendor lock-in by allowing multiple vendors to offer their solutions. The approach promotes competition and innovation, leading to better products and cost savings for operators. Smaller companies and start-ups can also enter the market, fostering a more level playing field.
+
+Whereas it also improved network performance. Open RAN enables operators to choose from a wide range of options tailored to their specific requirements. Operators can optimize coverage in rural or urban areas by selecting solutions designed for those contexts. This flexibility results in better network performance and more efficient resource utilization.
+
+Deeper through, O-RAN also increased flexibility, system integration, connectivity, and power management. Operators have more options and freedom in developing and maintaining their networks. Open RAN supports multi-vendor component integration, breaking vendor lock-in to allow for diverse hardware and software choices, adapting to changing needs and technological advancements. Standardization of components simplifies integration so it can open interfaces facilitate interoperability between different RAN elements. This seamless integration streamlines network deployment and management. Open RAN supports scalability and expansion, so that operators can roll out 5G networks on a larger scale, meeting growing demand for connectivity. It paves the way for future network enhancements and services. With efficient utilization of resources reducing energy consumption, Open RAN encourages sustainable practices and environmental responsibility.
