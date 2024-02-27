@@ -9,6 +9,38 @@ The G Release of the O-RAN Software Community was released on March 7, 2023. The
 
 The O-DU High component is supported by all three releases. The O-DU High in the H Release is based on the commercial FlexRan 21.11 release and supports Massive MIMO and URLLC. The O-DU High in the I Release is a high-performance implementation of the O-RAN Distributed Unit (O-DU) that is designed to support high-bandwidth and low-latency applications. The I-Release is focused on rApp manager service, Service Manager service, RAN PM functions for DME, Function Test environments, stability, 3PP vulnerability, test coverage and quality, and A1 Policy Functions.
 
+## 0. Getting Started
+Hardware requirements:
+| Hardware  | Aspects |
+| ------------- | ------------- |
+| # of servers  | 1 |
+| CPU  | 1  |
+| RAM  | 8 GB  |
+| DISK  | 500 GB  |
+| NICs  | 1  |
+
+Software requirements:
+| Item  | Information |
+| ------------- | ------------- |
+| OS  | CentOS Linux Release 7.9.2009 (core) |
+| Kernel  | Linux localhost.localdomain 3.10.0-1160.99.1.rt56.1245.el7.x86_64  |
+| DPDK  | 20.11.3  |
+| LinuxPTP  | 3.11  |
+| OSC DU Branch  | i-release  |
+| DU LOW Branch  | oran-f-release_v1.0  |
+
+It it yet to user a server hardware so we will leave it be for a while.
+
+For user's specification, it is as stated below:
+
+RAM: 8 GB, CPU: 4
+
+![VirtualBox_eBaIa9m7KK](https://github.com/bmw-ece-ntust/internship/assets/138283247/8fa9cd6b-9374-4db8-ba42-40cc7db659bc)
+
+DISK: 500 GB
+
+![VirtualBox_3QdxVz07Ot](https://github.com/bmw-ece-ntust/internship/assets/138283247/aa2090d1-390f-4640-8f8a-62e6470401ac)
+
 ## 1. Adding following libraries that are required to compile and execute O-DU High:
 Input:
 ```
@@ -83,7 +115,7 @@ Need to get 1,598 kB of archives.
 ... output omitted ...
 ```
 
-## 4. Setting up Netconf server to compile and run ODU with O1 interface enabled:
+## 4. [OPTIONAL] Setting up Netconf server to compile and run ODU with O1 interface enabled:
 Input:
 ```
 cd O-DU-High-Directory/l2/build/scripts
@@ -117,3 +149,28 @@ updateYang done
 ### load initial configuration done ###
 ## no yang configuration was made since it is yet to have the requirements, but it is working.
 ```
+## 5. [UPDATE] Doing compilation and in order to ensure the success of building of OSC O-DU High I2, navigate to the most recent directory (oduhighdir/l2/build/odu), running the following code:
+Input:
+```
+cd oduhighdir/l2/build/odu
+    make clean_odu MACHINE=BIT64 MODE=FDD ## to clean O-DU High Binary [1]
+    make odu MACHINE=BIT64 MODE=FDD ## to compile O-DU High Binary [2]
+```
+Output:
+
+Here attached the images of "Error 1" output documentations.
+[1], succeeded.
+```
+/home/vboxuser/oduhighdir/l2/src/phy_stub/    /home/vboxuser/oduhighdir/l2/src/cm
+make[1]: Leaving directory '/home/vboxuser /oduhighdir/l2/build/odu'
+-e ***** ODU CLEAN COMPLETE *****
+```
+![VirtualBoxVM_1mKadrsifR](https://github.com/bmw-ece-ntust/internship/assets/138283247/cffc9a52-af6b-4685-a699-5061087ecd84)
+
+[2], failed.
+```
+collect2: error: ld returned exit status
+make: *** [makefile:213: link_du] Error 1
+## tried to search for the keyword 'error' excluding those in the bottom lines, found nothing.
+```
+![VirtualBoxVM_sHaxZ8Sfhe](https://github.com/bmw-ece-ntust/internship/assets/138283247/f3b9fee9-e493-42c6-8004-49a342eadbdb)
