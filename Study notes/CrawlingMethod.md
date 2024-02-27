@@ -1,6 +1,10 @@
 # **Crawling Method (Counting Method)**
 Meeting Summary with Rafie Amandio
 
+## **ARUBA WiFi AP Crawling Method Flowchart**
+   <img width="428" alt="image" src="https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/images/FlowchartCrawler.png">
+
+
 ## **Point of Discussion**
 - Learning the data collection process
 - Learning the impact of each raw data type
@@ -12,6 +16,7 @@ Meeting Summary with Rafie Amandio
 
 ## **Table of Contents**
 - [**Crawling Method (Counting Method)**](#crawling-method-counting-method)
+  - [**ARUBA WiFi AP Crawling Method Flowchart**](#aruba-wifi-ap-crawling-method-flowchart)
   - [**Point of Discussion**](#point-of-discussion)
   - [**Action Items**](#action-items)
   - [**Table of Contents**](#table-of-contents)
