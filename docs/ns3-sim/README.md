@@ -349,6 +349,8 @@ The setup involves using the near-real-time RIC from the OpenRAN Gym, which can 
 
 This end-to-end deployment showcases the practical aspects of integrating ns-O-RAN with a real-world RIC, demonstrating how simulated networks can interact with RICs to test and refine control policies in a controlled environment. The description emphasizes the importance of this interaction in enabling a data-driven approach to network management and optimization within the O-RAN architecture, providing a valuable tool for researchers and developers working on O-RAN technologies.
 
+![](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/ns3-O-RAN-architecture.png)
+
 #### Implementation Details : End-to-End Deployment with OpenRAN Gym RIC
 
 The paper describes ns-O-RAN as the first open-source simulation platform that integrates a complete 4G/5G protocol stack with an O-RAN-compliant E2 interface, specifically designed for simulated base stations. This integration is a significant advancement toward enabling efficient and generic AI and ML solutions for Open RAN and future cellular networks. By facilitating the integration of O-RAN software, such as OpenRAN Gym and OSC near-RT RICs with large-scale 5G simulations using 3GPP channel models, ns-O-RAN allows for comprehensive data collection of RAN KPMs across various simulated scenarios. This is critical for testing xApps under different conditions, such as multimedia streaming, web browsing, and wireless virtual reality applications.
