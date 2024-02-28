@@ -339,6 +339,28 @@ ns-O-RAN is the first open source simulation platform that combines a functional
 
 ns-O-RAN has been designed and implemented to enable the integration of O-RAN software such as the O-RAN Software Community Near-RT RIC with large-scale 5G simulations based on 3GPP channel models and a detailed modeling of the full 3GPP RAN protocol stack. This allows data collection of RAN Key Performance Metrics (KPMs) at scale, in different simulated scenarios, and with different applications (e.g., multimedia streaming, web browsing, wireless virtual reality, etc). ns-O-RAN supports an O-RAN-compliant E2 interface and implements two E2 service models (E2SM), E2SM-Key Performance Metrics (KPM) monitoring and E2SM-RAN Control (RC), that enable a closed-loop control (for example, of traffic steering and mobility).
 
+### Introduction: End-to-End Deployment with OpenRAN Gym RIC
+
+> Document from: https://doi.org/10.48550/arXiv.2305.06906
+
+This later explanation show the process for setting up ns-O-RAN within a virtualized environment, thereby establishing a connection between the RIC (Radio Intelligent Controller) and ns-3, and allowing the exchange of E2 messages. This setup facilitates a simulated closed control loop between ns-3 and a near-real-time RIC, illustrating a practical application of the ns-O-RAN system within the OpenRAN Gym framework.
+
+The setup involves using the near-real-time RIC from the OpenRAN Gym, which can be installed on a local workstation or loaded into experimental platforms like Colosseum. The document provides a tutorial for setting up this environment, highlighting the process for collecting Key Performance Measurements (KPMs) from the RAN, wrapping them into RIC Indication Messages, and sending them through the E2 interface. The RIC receives these messages, reads the KPMs and Key Performance Indicators (KPIs), and then defines a data-driven policy. Based on this policy, the RIC creates a Control Action, sends it back to the RAN via a RIC Control Message, and the RAN applies the requested changes.
+
+This end-to-end deployment showcases the practical aspects of integrating ns-O-RAN with a real-world RIC, demonstrating how simulated networks can interact with RICs to test and refine control policies in a controlled environment. The description emphasizes the importance of this interaction in enabling a data-driven approach to network management and optimization within the O-RAN architecture, providing a valuable tool for researchers and developers working on O-RAN technologies.
+
+#### Implementation Details : End-to-End Deployment with OpenRAN Gym RIC
+
+The paper describes ns-O-RAN as the first open-source simulation platform that integrates a complete 4G/5G protocol stack with an O-RAN-compliant E2 interface, specifically designed for simulated base stations. This integration is a significant advancement toward enabling efficient and generic AI and ML solutions for Open RAN and future cellular networks. By facilitating the integration of O-RAN software, such as OpenRAN Gym and OSC near-RT RICs with large-scale 5G simulations using 3GPP channel models, ns-O-RAN allows for comprehensive data collection of RAN KPMs across various simulated scenarios. This is critical for testing xApps under different conditions, such as multimedia streaming, web browsing, and wireless virtual reality applications.
+
+The design also incorporates two distinct E2 service models (SMs): E2 SM KPM for reporting and E2 SM RAN Control (RC) for executing control actions within the RAN, such as traffic steering and mobility management. At its core, ns-O-RAN operates as an external ns-3 module, establishing an SCTP connection between the simulator and the near-RT RIC to support E2AP and E2SM protocols. This connection is realized by enhancing the OSC E2 simulator (e2sim) and integrating it into an ad hoc module for ns-3, allowing for the exchange of E2 messages between the simulated environment and the RIC.
+
+#### Use Cases and Applications : End-to-End Deployment with OpenRAN Gym RIC
+
+ns-O-RAN significantly enhances the versatility of the OpenRAN Gym approach, enabling the development and testing of xApps and AI-based control policies within a simulated environment. This capability is especially beneficial for generating large-scale, 3GPP-compliant datasets, which can later be applied to experimental platforms like Colosseum for emulation with hardware in the loop and further testing on over-the-air testbeds. A key feature of ns-O-RAN's design is its ability to connect the emulated environment to any O-RAN-compliant near-real-time RIC with real xApps, eliminating the need for re-implementation when transitioning from simulated to experimental environments. This design choice simplifies the development lifecycle of end-to-end intelligent control solutions for Open RAN, making it a practical tool for demonstrating intelligent control of handovers in large-scale 5G scenarios.
+
+ns-O-RAN's implementation showcases its potential in accelerating the development and deployment of xApps by providing a realistic dataset generation and testing environment without the need for physical infrastructure. This approach not only fosters innovation in network management and optimization through AI and ML but also ensures that xApps developed within ns-O-RAN can be seamlessly deployed in real RAN environments with minimal adjustments, thereby bridging the gap between simulation and practical application in the Open RAN ecosystem.
+
 ### Near-RT RIC Setup
 
 This part of the tutorial requires a working version of Docker for hosting the RIC on your localhost.
