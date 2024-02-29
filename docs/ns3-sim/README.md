@@ -187,20 +187,7 @@ When writing NS-3 simulation programs using C++, there are four fundamental step
     ./NetAnim
     ```
 
-## Point-to-Point Simmulation
-
-### Fundamentals of Point-to-Point Networking
-
-Before delving into simulating Point-to-Point Protocol (PPP) with NS-3, let's first understand what the point-to-point protocol is and how it operates. Point-to-point protocol is an encapsulation protocol designed to channel IP traffic over a point-to-point link. PPP is comprised of three main components:
-
-1. **Link Control Protocol (LCP):**
-   LCP is responsible for establishing, maintaining, and terminating the connection between two points or endpoints. It also tests the channel to determine whether it is active. Before a connection is established, LCP configures certain parameters of the connection such as Frame Check Sequence (FCS) and High-Level Data Link Control (HDLC) framing. By default, PPP uses a 16-bit FCS, but this can be changed to a 32-bit FCS or even 0 bit (no FCS). Alternatively, HDLC encapsulation over a PPP link can be used. Once the connection is established, the hosts on the PPP link generate Echo-Request and Echo-Response packets to maintain the PPP link.
-
-2. **PPP Authentication:**
-   The Authentication Protocol functions to ensure security between two points. The PPP layer's authentication protocol uses protocols to help ensure the validity of endpoints on the PPP link. Authentication protocols include the Password Authentication Protocol (PAP), Extensible Authentication Protocol (EAP), and Challenge Handshake Authentication Protocol (CHAP), with CHAP being the most commonly used at present.
-
-3. **Network Control Protocol (NCP):**
-   NCP facilitates the initiation of the PPP protocol stack to handle multiple Network Layer Protocols such as IPv4, IPv6, and Connectionless Network Protocol (CLNP). After the authentication process is completed, the PPP connection can be considered established. At this stage, higher-level protocols (such as Internet Protocol or IP) can initiate and function as intended.
+## Do NS-3 Simmulation
 
 ### Initial Steps with NS-3 Point-to-Point Example
 
