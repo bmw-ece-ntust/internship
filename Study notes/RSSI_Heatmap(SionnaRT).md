@@ -11,7 +11,7 @@
 - [Ray Tracing from NVIDIA's website](https://developer.nvidia.com/discover/ray-tracing)
 
 ## Key Takeaway:
-- Usage of Sionna RT's ability to generate pathloss heatmaps for generating the RSSI Heatmap. Transmit power from scene's instance (`sionna.rt.scene.munich`) can be used to calculate the RSSI.
+- Usage of Sionna RT's ability to generate pathloss heatmaps for generating the RSSI Heatmap. Transmit power from scene's instance (`sionna.rt.Scene.coverage_map`) can be used to calculate the RSSI.
 
 ## Sionna RT Overview
 Sionna™ is an open-source Python library for link-level simulations of digital communication systems built on top of the open-source software library TensorFlow for machine learning.
@@ -21,7 +21,7 @@ Sionna is a tool created and continually improved by NVIDIA. It's used for resea
 ## Ray Tracing (Background Information)
 Ray tracing is a rendering technique that can realistically simulate the lighting of a scene and its objects by rendering physically accurate reflections, refractions, shadows, and indirect lighting. Ray tracing generates computer graphics images by tracing the path of light from the view camera, through the 2D viewing plane, out into the 3D scene, and back to the light sources. 
 
-<img width="428" alt="image" src="https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/images/raytracing.jpeg">
+<img width="428" alt="image" src="https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/images/raytracing.jpg">
 
 
 As it traverses the scene, there are three cases that can happen with the light:
@@ -37,7 +37,6 @@ Sionna RT is a ray tracing extension for radio propagation modeling which is bui
 Sionna RT relies on Mitsuba 3 for the rendering and handling of scenes. Mitsuba 3 is a rendering system for forward and inverse light-transport simulation.
 
 ## Components
-
 - ### Scene
   
   It's the most important component of the ray tracer. A scene is a collection of multiple instances of SceneObject which define the geometry and materials of the objects in the scene. The scene also includes transmitters (Transmitter) and receivers (Receiver)
