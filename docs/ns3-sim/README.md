@@ -175,12 +175,17 @@ When writing NS-3 simulation programs using C++, there are four fundamental step
 
 1. Install NetAnim
 
-```bash
-# cd ns-allinone-3.41 
-cd netanim-3.41/
-qmake NetAnim.pro
-make
-```
+    ```bash
+    # cd ns-allinone-3.41 
+    cd netanim-3.41/
+    qmake NetAnim.pro
+    make
+    ```
+2. Open NetAnim
+
+    ```bash
+    ./NetAnim
+    ```
 
 ## Point-to-Point Simmulation
 
@@ -205,93 +210,110 @@ Upon downloading and installing NS-3 as per the instructions, you will find the 
 
 Next, try entering the directory named `examples/tutorial`. Here, you will find a file named `first.cc`. This file is a script for creating a simple network configuration, namely a point-to-point network between two nodes, including echo packets between both nodes.
 
-1. Create the script `first.cpp`
-
-    ```cpp=
-    /*
-    * This program is free software; you can redistribute it and/or modify
-    * it under the terms of the GNU General Public License version 2 as
-    * published by the Free Software Foundation;
-    *
-    * This program is distributed in the hope that it will be useful,
-    * but WITHOUT ANY WARRANTY; without even the implied warranty of
-    * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    * GNU General Public License for more details.
-    *
-    * You should have received a copy of the GNU General Public License
-    * along with this program; if not, write to the Free Software
-    * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-    */
-
-    #include "ns3/applications-module.h"
-    #include "ns3/core-module.h"
-    #include "ns3/internet-module.h"
-    #include "ns3/network-module.h"
-    #include "ns3/point-to-point-module.h"
-    #include "ns3/netanim-module.h"
-    // Default Network Topology
-    //
-    //       10.1.1.0
-    // n0 -------------- n1
-    //    point-to-point
-    //
-
-    using namespace ns3;
-
-    NS_LOG_COMPONENT_DEFINE("FirstScriptExample");
-
-    int
-    main(int argc, char* argv[])
-    {
-        CommandLine cmd(__FILE__);
-        cmd.Parse(argc, argv);
-
-        Time::SetResolution(Time::NS);
-        LogComponentEnable("UdpEchoClientApplication", LOG_LEVEL_INFO);
-        LogComponentEnable("UdpEchoServerApplication", LOG_LEVEL_INFO);
-
-        NodeContainer nodes;
-        nodes.Create(2);
-
-        PointToPointHelper pointToPoint;
-        pointToPoint.SetDeviceAttribute("DataRate", StringValue("5Mbps"));
-        pointToPoint.SetChannelAttribute("Delay", StringValue("2ms"));
-
-        NetDeviceContainer devices;
-        devices = pointToPoint.Install(nodes);
-
-        InternetStackHelper stack;
-        stack.Install(nodes);
-
-        Ipv4AddressHelper address;
-        address.SetBase("10.1.1.0", "255.255.255.0");
-
-        Ipv4InterfaceContainer interfaces = address.Assign(devices);
-
-        UdpEchoServerHelper echoServer(9);
-
-        ApplicationContainer serverApps = echoServer.Install(nodes.Get(1));
-        serverApps.Start(Seconds(1.0));
-        serverApps.Stop(Seconds(10.0));
-
-        UdpEchoClientHelper echoClient(interfaces.GetAddress(1), 9);
-        echoClient.SetAttribute("MaxPackets", UintegerValue(1));
-        echoClient.SetAttribute("Interval", TimeValue(Seconds(1.0)));
-        echoClient.SetAttribute("PacketSize", UintegerValue(1024));
-
-        ApplicationContainer clientApps = echoClient.Install(nodes.Get(0));
-        clientApps.Start(Seconds(2.0));
-        clientApps.Stop(Seconds(10.0));
-
-        Simulator::Run();
-        Simulator::Destroy();
-        return 0;
-    }
+1. Create the script `first.cc`
+2. Build the script (automatically build `/scratch` directory)
+    ```bash
+    ./ns3 build
     ```
+3. Run the script (without file .cc)
+    ```bash
+    ./ns3 run scratch/first
+    ```
+    <details><summary>Expected Output</summary>
+
+    ![alt text](build-first.png)
+        
+    </details>
+    
+4. Import the output `.xml` file to the NetAnim
+
+    <details><summary>Expected Output</summary>
+
+   ![alt text](netanim-first.png)
+        
+    </details>
+
+
+### Initial Steps with NS-3 CSMA
+
+1. Create the script `csma.cc`
+2. Build the script (automatically build `/scratch` directory)
+    ```bash
+    ./ns3 build
+    ```
+3. Run the script (without file .cc)
+    ```bash
+    ./ns3 run scratch/csma
+    ```
+    <details><summary>Expected Output</summary>
+
+    ![alt text](image-2.png)
+        
+    </details>
+    
+4. Import the output `.xml` file to the NetAnim
+
+    <details><summary>Expected Output</summary>
+
+   ![alt text](image-3.png)
+        
+    </details>
+
+### Initial Steps with NS-3 AP-STA
+
+1. Create the script `ap-sta.cc`
+2. Build the script (automatically build `/scratch` directory)
+    ```bash
+    ./ns3 build
+    ```
+3. Run the script (without file .cc)
+    ```bash
+    ./ns3 run scratch/ap-sta
+    ```
+    <details><summary>Expected Output</summary>
+
+    ![alt text](image-4.png)
+        
+    </details>
+    
+4. Import the output `.xml` file to the NetAnim
+
+    <details><summary>Expected Output</summary>
+
+   ![alt text](image-5.png)
+        
+    </details>
+
+### Initial Steps with NS-3 All Combination
+
+1. Create the script `ppp-csma-apsta.cc`
+2. Build the script (automatically build `/scratch` directory)
+    ```bash
+    ./ns3 build
+    ```
+3. Run the script (without file .cc)
+    ```bash
+    ./ns3 run scratch/ppp-csma-apsta
+    ```
+    <details><summary>Expected Output</summary>
+
+    ![alt text](image-8.png)
+        
+    </details>
+    
+4. Import the output `.xml` file to the NetAnim
+
+    <details><summary>Expected Output</summary>
+
+   ![alt text](image-7.png)
+        
+    </details>
 
 ## Traffic Generation in NS-3
 
 Traffic generation in simulation models represents the stochastic nature of traffic flows or data sources within communication networks, such as cellular networks or computer networks. Generating traffic in simulations is crucial for evaluating the performance of a network setup, developing specific technologies in terms of protocol performance, or examining the system blocks within it. In NS-3, two commonly used protocols for traffic generation are UDP (User Datagram Protocol) and TCP (Transmission Control Protocol).
+
+![alt text](image-9.png)
 
 In NS-3, several traffic generators can be used to populate the application layer on a node. In previous simulations, we utilized `UdpEchoServer` and `UdpEchoClient` applications for generating and receiving data within our simulations. However, there are other methods to generate application traffic in simulations beyond these two models. Among them are:
 
