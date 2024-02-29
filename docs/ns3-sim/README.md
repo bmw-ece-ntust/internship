@@ -221,7 +221,7 @@ Next, try entering the directory named `examples/tutorial`. Here, you will find 
     ```
     <details><summary>Expected Output</summary>
 
-    ![alt text](build-first.png)
+    ![Build First](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/build-first.png)
         
     </details>
     
@@ -229,8 +229,8 @@ Next, try entering the directory named `examples/tutorial`. Here, you will find 
 
     <details><summary>Expected Output</summary>
 
-   ![alt text](netanim-first.png)
-        
+   ![NetAnim 1](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/netanim-first.png)
+          
     </details>
 
 
@@ -247,7 +247,7 @@ Next, try entering the directory named `examples/tutorial`. Here, you will find 
     ```
     <details><summary>Expected Output</summary>
 
-    ![alt text](image-2.png)
+    ![Build First](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/build-csma.png)
         
     </details>
     
@@ -255,7 +255,7 @@ Next, try entering the directory named `examples/tutorial`. Here, you will find 
 
     <details><summary>Expected Output</summary>
 
-   ![alt text](image-3.png)
+   ![NetAnim 1](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/netanim-csma.png)
         
     </details>
 
@@ -272,7 +272,7 @@ Next, try entering the directory named `examples/tutorial`. Here, you will find 
     ```
     <details><summary>Expected Output</summary>
 
-    ![alt text](image-4.png)
+    ![alt text](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/build-apsta.png)
         
     </details>
     
@@ -280,7 +280,7 @@ Next, try entering the directory named `examples/tutorial`. Here, you will find 
 
     <details><summary>Expected Output</summary>
 
-   ![alt text](image-5.png)
+    ![alt text](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/netanim-apsta.png)
         
     </details>
 
@@ -297,7 +297,7 @@ Next, try entering the directory named `examples/tutorial`. Here, you will find 
     ```
     <details><summary>Expected Output</summary>
 
-    ![alt text](image-8.png)
+    ![alt text](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/build-combination.png)
         
     </details>
     
@@ -305,7 +305,7 @@ Next, try entering the directory named `examples/tutorial`. Here, you will find 
 
     <details><summary>Expected Output</summary>
 
-   ![alt text](image-7.png)
+    ![alt text](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/netanim-combination.png)
         
     </details>
 
@@ -313,7 +313,7 @@ Next, try entering the directory named `examples/tutorial`. Here, you will find 
 
 Traffic generation in simulation models represents the stochastic nature of traffic flows or data sources within communication networks, such as cellular networks or computer networks. Generating traffic in simulations is crucial for evaluating the performance of a network setup, developing specific technologies in terms of protocol performance, or examining the system blocks within it. In NS-3, two commonly used protocols for traffic generation are UDP (User Datagram Protocol) and TCP (Transmission Control Protocol).
 
-![alt text](image-9.png)
+![alt text](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/traffic-gen.png)
 
 In NS-3, several traffic generators can be used to populate the application layer on a node. In previous simulations, we utilized `UdpEchoServer` and `UdpEchoClient` applications for generating and receiving data within our simulations. However, there are other methods to generate application traffic in simulations beyond these two models. Among them are:
 
