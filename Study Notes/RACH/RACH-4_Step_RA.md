@@ -11,22 +11,7 @@
 - Understanding limitiations when using 4-Step RA
 
 ---
-```sequence
-    participant UE
-    participant gNB
-    Note left of UE: State: \n RRC IDLE
-    gNB-->UE: PRACH Occasion
-    UE->gNB: MSG1: RACH Preamble
-    Note right of gNB: TC-RNTI\n allocation
-    gNB-->UE: PDCCH: RA-RNTI from MSG1
-    gNB->UE: MSG2: RACH Response
-    Note left of UE: Generate Random UE_ID
-    Note left of UE: Extract UL Grant
-    UE->gNB: MSG3: Connection request
-    gNB-->UE: PDCCH: Temporary C-RNTI 
-    gNB->UE: MSG4: Contention Resolution
-    Note left of UE: State: \n RRC Connectedd
-```
+<img src="https://imgur.com/TtYK7ey.png" width="500"/>
 
  **RRC Connection Overall Process:**
 * The RRC state will start at `RRC_IDLE`
@@ -53,16 +38,15 @@ The UE randomly selects a preamble from predefined short and long formats and tr
      
     
 This preamble associated with RA-RNTI (Identifier)
-$$\text{RA-RNTI}={1 + s_{id} + 14 \cdot t_{id} + 14 \cdot 80 × f_{id} + 14 \cdot 80 \cdot 8 \cdot \text{ul_carrier_id}}$$
+$$\text{RA-RNTI}={1 + s_{id} + 14 \cdot t_{id} + 14 \cdot 80 × f_{id} + 14 \cdot 80 \cdot 8 \cdot \text{ul\_carrier\_id}}$$
     
-::: info
-::: spoiler **Details for RNTI (Radio Network Temporary Identifier)**
+
+**Details for RNTI (Radio Network Temporary Identifier)**
  Used to differentiate and identify
     * connected UE in cell / specific radio channel
     * group of UEs in case of paging / for which power control is issued by eNB
     * system information transmitted for all UEs by gNB
-        ![image](https://hackmd.io/_uploads/ryDgttKua.png)
-:::
+        <img src="https://hackmd.io/_uploads/ryDgttKua.png" width = "500"/>
      
      
 ### 2. **Msg2 (Random Access Response):**
@@ -74,8 +58,7 @@ The RAR message is used to allocate resources and provide instructions to the UE
 * Both frequency domain and time domain resource allocations are specified by the DCI Format. The DCI provides instructions related to the allocation of resources for the Random Access Response (RAR) procedure.
 
         
-::: success
-::: spoiler **More about DCI**
+ **More about DCI**
 
 **Downlonk Control Information**
 * Carried within PDDCH Channel
@@ -85,15 +68,14 @@ The RAR message is used to allocate resources and provide instructions to the UE
             
             
 DCI has serveral formats, which one is being used is determined by the RNTI Type
-        ![image](https://hackmd.io/_uploads/S13VsSrdp.png)
+        <img src="https://hackmd.io/_uploads/S13VsSrdp.png" width = "500"/>
 
-:::
+
 
 * The UE receives the PDCCH, and upon successful decoding, proceeds to decode the PDSCH (Physical Downlink Shared Channel) associated with the PDCCH. The PDSCH carries the RAR data.
 *  Inside the RAR data, there is a field known as RAPID (Random Access Preamble ID). The UE checks if the RAPID in the RAR data matches the RAPID assigned to the UE during the random access preamble transmission.
 
-::: info
-::: spoiler **Data structure of MAC PDU that carries the response**
+ **Data structure of MAC PDU that carries the response**
 Each MAC PDU consists of one or more MAC subPDU. In case or RAR, each subPDU can consists of the following:
 
 >**MAC subheader + Backoff Indicator**
@@ -117,19 +99,18 @@ Each MAC PDU consists of one or more MAC subPDU. In case or RAR, each subPDU can
    Details:
 
    - **E (Extension):** Indicates if more MAC subPDUs follow. "1" means more follow, "0" means it's the last in the MAC PDU.
-    - **T (Type):** Flags the presence of either a Backoff Indicator (T=0) or a Random Access Preamble ID (T=1) in the subheader.
-    - **R (Reserved):** Reserved bit, always set to "0."
-    - **BI (Backoff Indicator):** 4-bit field to adjust backoff timer
-        ![image](https://hackmd.io/_uploads/H1ljK8S_a.png)
-    - **RAPID (Random Access Preamble ID):** 6-bit field identifying transmitted Random Access Preamble. If RAPID corresponds to SI request, MAC RAR is not included in the MAC subPDU.
+  
+  - **T (Type):** Flags the presence of either a Backoff Indicator (T=0) or a Random Access Preamble ID (T=1) in the subheader.
+    
+  - **R (Reserved):** Reserved bit, always set to "0."
+   - **BI (Backoff Indicator):** 4-bit field to adjust backoff timer
+        <img src="https://hackmd.io/_uploads/H1ljK8S_a.png" width = "500"/>
+  - **RAPID (Random Access Preamble ID):** 6-bit field identifying transmitted Random Access Preamble. If RAPID corresponds to SI request, MAC RAR is not included in the MAC subPDU.
     * Timing Advance Command: 12-bit field indicating the TA index for timing adjustment control in TS 38.213 [6]. TA is needed for establish sync due to signal delay.
     * **UL Grant**: 27-bit field specifying uplink resources in TS 38.213. This is for assigning the initial Resource to UE in order for it to use PUSCH [6].
-        ![image](https://hackmd.io/_uploads/BJ0QcLH_p.png)
+        <img src="https://hackmd.io/_uploads/BJ0QcLH_p.png" width = "500"/>
 
 * **Temporary C-RNTI**: 16-bit field indicating the temporary identity used by the MAC entity during Random Access.
-
-
-:::
     
 ### 3. **Msg3: Connection request** 
 

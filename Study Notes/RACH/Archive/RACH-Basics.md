@@ -5,17 +5,15 @@
  
 [toc]
 
-:::success
 **Goals**
 - [x] Learn about the background RACH
 - [x] Learn about the detasiled mechanism for 4-Step RACH
 - [x] Learn about the frequency and time domain allocation for each RACH Channel
 
-\
+
 **What I have learned**
 - An understanding what is RACH and why and when it is needed.
 - An understanding of how RACH Procedure works
-:::
 
 ---
 
@@ -40,10 +38,6 @@ Because of this multiple UEs can accidentally chooses the same signature and cau
     UE->NW: L2/L3 Message
     NW->UE: Contention Resolution
 ```
-
-
-
-
 #### b. Contention Free
 There is some case where contention is not acceptable. This method prevents contention by providing UEs with a unique PRACH Preamble to use and when to use.
 **Steps:**
@@ -74,9 +68,8 @@ Prior to the MSG1 process the gNB will broadcast SS/PBCH signal block order to p
 #### Time Domain Allocation
 The PRACH settings is in `prach-ConfigurationIndex`. This configuration will take input in form of INTEGER {0...255} which each value corresponds to a unique PRACH configuration. The parameters that will be adjusted 
 
-::: info
 Details for all configuration can be seen on **[TS 38.211]([here](https://www.etsi.org/deliver/etsi_ts/138200_138299/138211/16.02.00_60/ts_138211v160200p.pdf))**
-:::
+
 1. **Preamble Format**: Preamble format to use
 2. **$n_{sfn}$**: Radio frame in the UE will transmit PRACH
 3. **SF Number**: Subframe in which RACH Ocassion are configured

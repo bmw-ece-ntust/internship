@@ -26,21 +26,10 @@ Because of this multiple UEs can accidentally chooses the same signature and cau
 *  **Case 2:** The UE only decodes signal from one device and failed to decode from the other. The UE with succesfiul L2/L3 decoding on the NW side will receives **HARQ ACK** .
 
 **Steps:**
-```sequence
-    UE->NW: RACH Preamble
-    NW->UE: RACH Response
-    UE->NW: L2/L3 Message
-    NW->UE: Contention Resolution
-```
-
-
-
+<img src="https://imgur.com/Hakd9vC.png" width="500"/>
 
 #### b. Contention Free
 There is some case where contention is not acceptable. This method prevents contention by providing UEs with a unique PRACH Preamble to use and when to use.
 **Steps:**
-```sequence
-    NW->UE: RACH Preamble (PRACH) Assignment
-    UE->NW: RACH Preamble
-    NW->UE: RACH Response
-```
+
+<img src="https://imgur.com/3ivuxcO.png" width="500"/>

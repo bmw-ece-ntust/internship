@@ -113,7 +113,7 @@ For PRACH, allocation for frequency domain is handled by `msg1-FDM` and `msg1-Fr
  **msg1-FDM**: Indicates the number of RACH Occasion
  **msg1-FrequencyStart**: Indicates the offset for the lowest frequency in PRACH Occasion
  
-![image](https://hackmd.io/_uploads/SkpBCwC_p.png)
+<img src="https://hackmd.io/_uploads/SkpBCwC_p.png" width = "500"/>
 
  
 ### RACH Occasion
