@@ -55,8 +55,11 @@ The USRP B210 is a 2x2 MIMO (Multiple Input, Multiple Output) software-defined r
 Source
 ---
 [B200/B210/B200mini/B205mini Getting Started Guides](https://kb.ettus.com/B200/B210/B200mini/B205mini_Getting_Started_Guides)
+
 [Digilent Ettus USRP™ B210](https://eu.mouser.com/new/digilent/digilent-ettus-usrp-b210/?_gl=1*10qazc*_ga*MTQ5MDA3ODQyNy4xNzA5NDYwNjcy*_ga_15W4STQT4T*MTcwOTQ2MDY3Mi4xLjAuMTcwOTQ2MDY5OC4zNC4wLjA.*_ga_1KQLCYKRX3*MTcwOTQ2MDY3Mi4xLjAuMTcwOTQ2MDY5OC4wLjAuMA..)
+
 [About Ettus USRP B210](https://www.ettus.com/announcing-the-usrp-b200-and-usrp-b210/)
+
 [Ettus USRP B210 In Shop](https://digilent.com/shop/ettus-usrp-b210-2x2-70mhz-6ghz-sdr-cognitive-radio/)
 
 
