@@ -1,8 +1,11 @@
 Tried the  https://askubuntu.com/questions/420981/how-do-i-save-terminal-output-to-a-file from Kak Wilfrid but didn't succeed
 
+![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/7e3d5291-f4dd-4480-9220-28b04883bfa7)
 
 
-Thus i copy all the script from terminal and paste it below here,
+Thus i copy all the script from terminal and paste it here,
+
+```
 gisela@gisela:~$ gcc --version
 gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
 Copyright (C) 2021 Free Software Foundation, Inc.
@@ -320,6 +323,7 @@ exit
 Script done.
 gisela@gisela:~$ script terminal
 Script started, output log file is 'terminal'.
-gisela@gisela:~$ 
+gisela@gisela:~$
+```
 
 
