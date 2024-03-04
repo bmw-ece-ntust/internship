@@ -38,7 +38,9 @@ cd O-DU_High_Directory/o-du-l2/build/odu
 make clean_odu MACHINE=BIT64 MODE=FDD
 make odu MACHINE=BIT64 MODE=FDD
 ```
-<img width="872" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/df3a9216-c630-4796-82b2-cc00e9720d33">
+![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/d5a35f91-c03a-4264-bdcc-8edcc1455d76)
+![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/03db3c0f-5dd6-4e17-92b2-bec37884b4a2)
+
 Still solving problem at the "make clean_odu" and "make odu"
 
 
