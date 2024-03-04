@@ -34,9 +34,9 @@ sudo ./install_lib_O1.sh -c
 ```
 sudo ./netopeer-server.sh start
 cd
-cd O-DU_High_Directory/o-du-l2/build/scripts
+cd O-DU_High_Directory/o-du-l2/build/odu
 make clean_odu MACHINE=BIT64 MODE=FDD
-make odu MACHINE=BIT64/MODE=FDD
+make odu MACHINE=BIT64 MODE=FDD
 ```
 <img width="872" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/df3a9216-c630-4796-82b2-cc00e9720d33">
 Still solving problem at the "make clean_odu" and "make odu"
