@@ -1,12 +1,53 @@
 # O - RAN Architecture (Part 2)
 
 ## O - RAN Architecture Elements
-In order for User Equipment to connect with the public internet, several connections via several protocols and devices need to be passed as illustrated by this figure down below
 
-![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/Core%20Network%20-%20UE%202.png) Wireless Network 5G Illustration
+![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/Logical%20Architecture%20of%20O-RAN.png) High Level View of O-RAN Architecture
+
+### Service Management and Orchestration (SMO)
+1. #### SMO Architecture Principles
+
+Service Based Architecture (SBA) introduces the roles of service producer and service consumer together with standardized service-based interfaces. These standardized service-based interfaces enable interoperability within the SMO. SBA is not concerned with the implementation, but it defines logical functions in their service producer and consumer roles. When properly applied the SBA approach can enable the following:
+
+* Validates produced services with consumer use cases.
+* Identifies service operations with their information model defining semantic behaviour.
+* Specifies the API and a data model for a syntactic interface.
+* Identifies common services that can be produced by a single producer such as those that are commonly used by multiple internal consumers (e.g., authentication, authorization, service registration and discovery, data management, etc.).
+
+2. #### SMO Functionality
+Introduction to SMO Functionality
+
+This clause describes the functionality provided by the SMO in O-RAN architecture. In a Service Provider’s Network, there can be many management domains such as RAN management, Core Management, Transport Management, End to End Slice Management etc. In the O-RAN architecture, SMO is responsible for RAN domain management. The SMO description in this architecture document is focused on the SMO services that support the RAN. The key capabilities of the SMO that provide RAN support in O-RAN are:
+
+* FCAPS interface to O-RAN Network Functions
+* Non-RT RIC for RAN optimization
+* O-Cloud Management, Orchestration and Workflow Management
+
+The SMO performs these services through four key interfaces towards other O-RAN architecture elements.
+
+* A1 Interface between the Non-RT RIC in the SMO and the Near-RT RIC for RAN Optimization.
+* O1 Interface used by SMO for the FCAPS support of the O-RAN Network Functions (excluding O-RU).
+* In the hybrid model, Open Fronthaul M-plane interface between SMO and O-RU for FCAPS support.
+* O2 Interface between the SMO and the O-Cloud to provide platform resources and workload management
+
+SMO does not define any formal interface towards the Non-RT RIC. An SMO deployment, therefore, may make its own design choice for creating a boundary towards the Non-RT RIC Framework, or choose not to implement a clear boundary at all.
+
+The following definitions apply to the functionality of the SMO:
+* Non-RT RIC Framework Anchored Functionality – This functionality is associated with the Non-RT RIC Framework itself. Examples include the A1 and R1 interfaces (see Clause 5.3.1.2.3).
+* O-RAN SMO Framework Anchored Functionality – This functionality is not associated with the Non-RT RIC Framework. Examples include the O1, Open FH M-plane and O2 interfaces.
+* Non-anchored Functionality – This functionality may or may not be associated with the Non-RT RIC Framework.
+
+These terms and the relationships between the SMO services related to rApps are illustrated in Figure 5.3-1 below.Extending the “Services that enable rApps” outside the Non-RT RIC (i.e., into the SMO Framework), as shown in this figure, denotes that the R1 services being exposed to rApps may either come from the Non-RT RIC or the SMO. Please refer to [21] for more details.
 
 
-The user's device needs to be connected to the 5G Radio Access Network / gNB which is connected to the core network. To understand the relationship and interconnection between user devices and 5G internet, we will explore the architecture of 5G RAN which is the intermediary between the two.
+### Near-RT RIC
+### O-CU-CP
+### O-CU-UP
+### O-DU
+### O-RU
+### O-eNB
+### O-Cloud
+
 
 
 ## O - RAN Architecture Interfaces
@@ -18,28 +59,9 @@ The Open Fronthaul M-plane interface supports O-RU management in hybrid mode. NF
 
 The Near-RT RIC NF provides RAN analytics via the Y1 service interface, accessible after authentication and authorization by subscribing or requesting via the Y1 service interface. Y1 consumers within PLMN trusted domain can access directly, while those outside use secure access via an exposure function.
 
-![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/High%20Level%20O-RAN%20Architecture.png) High Level Architecture of O-RAN
-
-## Logical Architecture of O-RAN
-
-Within the logical architecture of O-RAN, as shown in Figure down below, the radio side includes Near-RT RIC (RAN intelligence Controller), O-CU-CP (Control Plane), O-CU-UP (User Plane), O-DU, and O-RU O-RAN NFs. The E2 interface connects O-eNB to Near-RT RIC. Although not shown in this figure, the O-eNB does support O-DU and O-RU O-RAN NFs with an Open Fronthaul interface between them. The Near-RT RIC, in the figure below, supports the Y1 service interface towards Y1 consumers. Y1 consumers, unlike the other network elements shown in this figure, does not denote a logical O-RAN function
-
-As stated earlier, the management side includes SMO Framework containing a Non-RT-RIC function. The O-Cloud, on the other hand, is a cloud computing platform comprising a collection of physical infrastructure nodes that meet O-RAN requirements to host the relevant O-RAN NFs (such as Near-RT RIC, O-CU-CP, O-CU-UP, and O-DU etc.), the supporting software components (such as Operating System, Virtual Machine Monitor, Container Runtime, etc.) and the appropriate management and orchestration functions.
-
 ![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/Logical%20Architecture%20of%20O-RAN.png) Logical Architecture of O-RAN
 
-## Control Loops of O-RAN
 
-The O-RAN architecture supports at least the following control loops involving different O-RAN functionalities:
-* Non-RT (Non-Real Time) control loops
-* Near-RT (Near-Real Time) control loops
-* RT (Real Time) control loops
-
-![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/O-RAN%20Control%20Loop.png) Control loops of O-RAN
-
-The figure above illustrates control loops, categorized by the controlling entity, and their interactions with other logical entities. These loops operate simultaneously at different levels, with potential interaction depending on the use case. Use cases and interactions for Non-RT and Near-RT control loops, including RICs, are defined in the O-RAN Use Cases Analysis Report. This report also outlines interactions for O-CU-CP and O-DU control loops, handling call control, mobility, radio scheduling, HARQ, and beamforming, among others. 
-
-Control loop timing varies by use case: Non-RT loops typically take 1 second or more, Near-RT loops around 10 milliseconds or more, and E2 Nodes loops can operate under 10 milliseconds, such as O-DU radio scheduling.
 
 ## Source
 * [O-RAN Work Group 1 (Use Cases and Overall Architecture)](https://orandownloadsweb.azurewebsites.net/specifications)
