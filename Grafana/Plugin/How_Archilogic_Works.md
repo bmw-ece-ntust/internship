@@ -46,7 +46,7 @@ For the detail, you can also check my repo [Grafana and InfluxDB Integration](ht
 **2. Upload Your Floor Plan to Archilogic:**
   * Visit the [Archilogic Floor Plan Engine website](https://www.archilogic.com/).
   * Sign in or create an account if you haven’t already.
-    The problem here is that we have to contact the archilogic team to create an account and convert our plans into archilogic format by filling out the form [here] (https://www.archilogic.com/contact-us). I have contacted them to create an account but still no response.
+    The problem here is that we have to contact the archilogic team to create an account and convert our plans into archilogic format by filling out the form [here](https://www.archilogic.com/contact-us). I have contacted them to create an account but still no response.
   * Upload your floor plan using the provided tools. Archilogic will process it and create a 3D model.
 
 **3. Retrieve Your Floor Plan ID:**
