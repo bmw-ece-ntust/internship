@@ -9,7 +9,7 @@
 * [Archilogic Floor Panel Plugin - Grafana Labs](https://grafana.com/grafana/plugins/archilogic-floor-panel/?tab=relatedcontent)
 
 ## **Table of Contents**
-- [**Archilogic Floor Panel Plugin**](#archilogic-floor-panel-plugin)
+- [**How it works: Archilogic Floor Panel Plugin**](#how-it-works-archilogic-floor-panel-plugin)
   - [**Table of Contents**](#table-of-contents)
   - [**Overview**](#overview)
   - [**Installation (Ubuntu 22.04)**](#installation-ubuntu-2204)
