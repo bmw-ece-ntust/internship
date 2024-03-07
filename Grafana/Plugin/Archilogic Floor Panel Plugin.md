@@ -1,4 +1,4 @@
-# **Archilogic Floor Panel Plugin**
+# **Installation: Archilogic Floor Panel Plugin**
 
 **Goal：**
 * Successfully install Archilogic Floor Panel Plugin on Grafana
