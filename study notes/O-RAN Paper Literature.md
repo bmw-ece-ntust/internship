@@ -1,4 +1,4 @@
-# [O-RAN.WG1.Use-Cases-Detailed-Specification-R003-v13.00](https://orandownloadsweb.azurewebsites.net/specification) 
+# [O-RAN.WG1.Use-Cases-Detailed-Specification-R003-v13.00](https://orandownloadsweb.azurewebsites.net/specifications) 
 ## Energy Saving
 -  Energy saving (ES) techniques can be implemented at different timescales and cell loads, such as switching off carriers or cells, RF channel switching, and Advanced Sleep Modes (ASM).
 - ES solutions can be applied to various components of the O-Cloud, including O-CU and O-DU.  AI/ML helps figure out the best times to switch things off and on for maximizing energy savings.
