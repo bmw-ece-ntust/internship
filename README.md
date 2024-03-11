@@ -11,6 +11,7 @@
 - Mentor: Ian Joseph Chandra
 - Portofolio: [LinkedIn](https://www.linkedin.com/in/michael-harditya-8b36641b6/), [Github](https://github.com/GreyWard), [CakeResume](https://www.cakeresume.com/s--ni1e5AYUTGLRNPiVitlTfw--/michael-h-2e0b09)
 
+# Milestones
 <details>
 <summary><b> Milestones </b></summary>
 
@@ -43,6 +44,8 @@
 - [ ] dddd/dd/dd: Setup Environment
 - [ ] dddd/dd/dd: Create AI model to predict Rouge AP
 </details>
+<details>
+<summary> <b>O-RAN ChatBot Milestones </b></summary>
 
 ## 1. Data Preparation
 - [ ] dddd/dd/dd: Prepare the O-RAN documentations
@@ -57,6 +60,7 @@
 - [ ] dddd/dd/dd: Integrate the ChatBot model
 - [ ] dddd/dd/dd: Integrate the vector embedding to generate vector query
 - [ ] dddd/dd/dd: Integrate the vector database
+</details>
 
 ## End of Internship
 - [ ] 2024/08/13: Youtube project demo
@@ -64,6 +68,8 @@
 - [ ] 2024/08/13: Google docs written testimonial & project summary
 - [ ] 2024/08/20: Project repository + documentation
 </details>
+
+# Daily Log
 <details>
 <summary><b> Daily Log (continuation from: <a href=https://trello.com/c/VJbOjFfD/96-12-%F0%9F%87%AE%F0%9F%87%A9-ui-michael-wifi>Trello</a>)</b></summary>
 
