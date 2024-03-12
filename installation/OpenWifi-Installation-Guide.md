@@ -9,7 +9,6 @@ Reference : [OpenWiFi](https://github.com/Telecominfraproject/wlan-cloud-ucentra
   - [**Troubleshooting Docker Permissions**](#troubleshooting-docker-permissions)
   - [**Renaming IP**](#renaming-ip)
 
-
 The [wlan-cloud-ucentral-deploy](https://github.com/Telecominfraproject/wlan-cloud-ucentral-deploy) repository contains two packaging options:
 - Docker Compose - used for local deployments
 - Helm - used for deployment to Kubernetes clusters

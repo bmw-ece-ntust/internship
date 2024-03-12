@@ -1,3 +1,15 @@
+# Data from Crawler
+
+## Table of contents
+- [Data from Crawler](#data-from-crawler)
+  - [Table of contents](#table-of-contents)
+- [Overview](#overview)
+- [RSSI (Received Signal Strength Indication)](#rssi-received-signal-strength-indication)
+- [Number of Clients (STAs)](#number-of-clients-stas)
+- [EIRP (Transmission Power)](#eirp-transmission-power)
+- [Usage Load](#usage-load)
+
+
 # Overview
 The data retrieved from Aruba is important for network management and optimization. There are a lot of data types retrieved, but in this case, there are few important data to be processed and important for optimizing indoor wifi positioning. They are signal strength, client distribution, transmission power, and network usage load.
 

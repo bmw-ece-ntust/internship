@@ -3,6 +3,15 @@
 > [!WARNING]
 > This note isn't final due to the uncertainty of the hardware specifications in Universitas Indonesia's system architecture. These are the potential specifications used and the commands supporting power saving.
 
+## Table of Contents
+- [Hardware Power Consumption](#hardware-power-consumption)
+  - [Aruba 3810M (JL075A) (From Wi-Fi Controller to each floor)](#aruba-3810m-jl075a-from-wi-fi-controller-to-each-floor)
+  - [Power Saving](#power-saving)
+  - [Controlling PoE allocation](#controlling-poe-allocation)
+  - [PoE port allocation by class](#poe-port-allocation-by-class)
+  - [Manually configuring PoE power levels](#manually-configuring-poe-power-levels)
+
+
 # Hardware Power Consumption
 ## Aruba 3810M (JL075A) (From Wi-Fi Controller to each floor) 
 

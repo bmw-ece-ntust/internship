@@ -1,5 +1,18 @@
 # Wifi Positioning Method
 
+## Table of Contents
+- [Wifi Positioning Method](#wifi-positioning-method)
+  - [Table of Contents](#table-of-contents)
+  - [Flowchart Reference](#flowchart-reference)
+  - [Data Preparation](#data-preparation)
+    - [Data Reconstructing](#data-reconstructing)
+    - [Data Cleaning](#data-cleaning)
+  - [WiFi positioning computation](#wifi-positioning-computation)
+    - [Average RSSI\_1h Computation](#average-rssi_1h-computation)
+    - [Estimating Interfering AP Locations](#estimating-interfering-ap-locations)
+    - [Separating Interfering APs:](#separating-interfering-aps)
+  - [Data Visualization](#data-visualization)
+
 ## Flowchart Reference
 
 <img width="428" alt="image" src="https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/images/Flowchart.png">

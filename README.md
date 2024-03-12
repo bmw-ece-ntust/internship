@@ -59,6 +59,9 @@
 <details>
 <summary><b> Daily Log (continuation from: <a href=https://trello.com/c/jm6gig9m/99-11-%F0%9F%87%AE%F0%9F%87%A9-ui-lauren-wifi-dr-prima>Trello</a>)</b></summary>
 
+## 2024/03/12
+- 11.00 - 12.00 Adding Table of Contents and polishing the study notes
+
 ## 2024/03/11
 - 11.00 - 12.00 Migrating logs to GitHub
 

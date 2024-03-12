@@ -10,6 +10,17 @@
 - [Sionna Ray Tracing](https://nvlabs.github.io/sionna/api/rt.html#coverage-map)
 - [Ray Tracing from NVIDIA's website](https://developer.nvidia.com/discover/ray-tracing)
 
+## Table of Contents
+- [Sionna RT](#sionna-rt)
+  - [Main Reference:](#main-reference)
+  - [Table of Contents](#table-of-contents)
+  - [Key Takeaway:](#key-takeaway)
+  - [Sionna RT Overview](#sionna-rt-overview)
+  - [Ray Tracing (Background Information)](#ray-tracing-background-information)
+  - [Ray Tracing (SionnaRT Module)](#ray-tracing-sionnart-module)
+  - [Components](#components)
+    - [Scene](#scene)
+
 ## Key Takeaway:
 - Usage of Sionna RT's ability to generate pathloss heatmaps for generating the RSSI Heatmap. Transmit power from scene's instance (`sionna.rt.Scene.coverage_map`) can be used to calculate the RSSI.
 
@@ -37,7 +48,7 @@ Sionna RT is a ray tracing extension for radio propagation modeling which is bui
 Sionna RT relies on Mitsuba 3 for the rendering and handling of scenes. Mitsuba 3 is a rendering system for forward and inverse light-transport simulation.
 
 ## Components
-- ### Scene
+  ### Scene
   
   It's the most important component of the ray tracer. A scene is a collection of multiple instances of SceneObject which define the geometry and materials of the objects in the scene. The scene also includes transmitters (Transmitter) and receivers (Receiver)
   
@@ -47,7 +58,7 @@ Sionna RT relies on Mitsuba 3 for the rendering and handling of scenes. Mitsuba 
 
   <img width="428" alt="image" src="https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-11-Lauren/images/munich.png">
 
-  - #### Coverage Maps
+  - ### Coverage Maps
     
     In the case of displaying RSSI Heatmap from multiple access points, `sionna.rt.Scene.coverage_map` might be the correct one to use. This function computes a coverage map for every transmitter in the scene.
 

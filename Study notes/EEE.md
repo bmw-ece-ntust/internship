@@ -1,5 +1,16 @@
 # Energy Efficient Ethernet (EEE)
 
+## Table of Contents
+- [Energy Efficient Ethernet (EEE)](#energy-efficient-ethernet-eee)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Hardwares in Universitas Indonesia that supports EEE](#hardwares-in-universitas-indonesia-that-supports-eee)
+  - [Configuring 802.3az Energy Efficient Ethernet Standard (Aruba)](#configuring-8023az-energy-efficient-ethernet-standard-aruba)
+  - [Configuring 802.3az Energy Efficient Ethernet Standard (Cisco)](#configuring-8023az-energy-efficient-ethernet-standard-cisco)
+    - [Configuration](#configuration)
+    - [Monitoring EEE](#monitoring-eee)
+
+
 ## Overview  
 Energy-efficient Ethernet (EEE) reduces power consumption in accordance with IEEE 802.3az. Energy Efficient Ethernet is a technology defined as IEEE 802.3az to reduce switch power consumption during periods of low network traffic, to reduce power consumption by more than 50 percent while remaining fully compatible with existing devices. It detects link status, allowing each port on the switch to power down into a standby state when a connected device is not active. Second, it detects cable length and adjusts the power used for transmission accordingly. 
 
