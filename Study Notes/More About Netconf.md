@@ -1,4 +1,4 @@
-## :BOOKS: NETCONF
+## :books: NETCONF
 Netconf or The Network Configuration Protocol is a protocol used for managing network devices, allowing for configuration changes, monitoring of device state, and retrieving operational data. Netconf uses Extensible Markup Language or XML and it is developed by the IETF. In this note we will use the term of client and server. 
 
 Four layers of netconf is :
