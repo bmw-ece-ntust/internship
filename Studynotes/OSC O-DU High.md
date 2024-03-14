@@ -49,6 +49,19 @@ contains the higher physical layer High-PHY functions while the O-RU contains th
 
 ### Cell up and Broadcast Procedure
 ![Image](https://docs.o-ran-sc.org/projects/o-ran-sc-o-du-l2/en/latest/_images/CellUpAndBroadcast.png)
+
+- If O1 interface is disabled, DU APP module uses static configuration.
+- O-DU High sends F1 Setup Request to O-CU, containing a list of configured cells.
+- O-CU responds with F1 Setup Response, listing cells that must be activated.
+- O-DU High sends cell configurations to 5G NR MAC based on the received list of cells.
+- 5G NR MAC configures 5G NR SCH and O-DU Low via Lower MAC module.
+- DU APP sends gNB DU Config Update to O-CU; O-CU responds with gNB DU Config Update ACK.
+- DU APP exchanges F1 Reset message with O-CU to initialize UE contexts.
+- DU APP sends Cell Start Req to 5G NR MAC, translated into START.request towards O-DU Low by Lower MAC.
+- O-DU Low begins sending slot indications to 5G NR MAC based on supported numerology.
+- Upon receiving slot indications, DU APP marks cell as up; if O1 is enabled, triggers an alarm to SMO.
+- 5G NR SCH tracks SSB and SIB1 occasions, schedules SSB/SIB1 upon detection, and forwards DL Scheduling Information to 5G NR MAC.
+- 5G NR MAC multiplexes PDU and sends SSB/SIB1 packets to O-DU Low via Lower MAC.
 ### UE Attach Procedure
 ![Image](https://docs.o-ran-sc.org/projects/o-ran-sc-o-du-l2/en/latest/_images/UeAttach.png)
 ### Closed Loop Automation Procedure
