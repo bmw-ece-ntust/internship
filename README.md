@@ -16,13 +16,14 @@
 <summary><b> Milestones </b></summary>
 
 ## Initial Checklist
-- [x] 2023/12/19: Read the [Internship Orientation](https://trello.com/c/PYVVgzTv) (Agree: **Yes/~~No~~**) 
+- [x] 2023/12/19: Read the [Internship Orientation](https://trello.com/c/PYVVgzTv) (Agree: **Yes/~~No~~**)
 - [x] 2023/12/19: Join the [LINE group](https://line.me/ti/g/eu1WvNDT3o)
 - [x] 2024/01/15: Find a thesis topic: Wi-Fi
 - [x] 2024/01/15: Get a thesis advisor: Dr. Prima
 
 <details>
-## 1. InfluxDB (DL: 2024/05/30)
+  
+## 1. InfluxDB (DL: 2024/05/30)  
 - [x] 2024/01/04: [Exploring InfluxDB: Installing and Configuring](https://github.com/alifyaza/TEEP-2024/blob/main/InfluxDB%20v2%20Documentation%20Progress.md)
 - [x] 2024/01/17: [Connecting Grafana with InfluxDB and learn the use case](https://github.com/NTUST-BMW-Lab/internship/blob/18a49a71ea9d24b26169047e9dbc2546e6522913/Probation/Connecting%20Grafana%20with%20InfluxDB.md)
 - [x] 2024/01/29: Learn [Importing Data to InfluxDB](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/InfluxDB/Importing_Data_to_InfluxDB.md) with Python
