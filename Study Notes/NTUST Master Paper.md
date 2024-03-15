@@ -13,4 +13,5 @@ RT RIC provides radio resource management and optimization of real-time RAN func
 
 ## Process of Setting Up RRC between UE, CU, and DU in Telecommunications Network
 <img width="437" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/2fbd1123-6ddf-492f-a1e8-163fa559922d">
+
 The process begins with the gNB granting the UE access to radio resources. The CU then initiates the RRC setup by sending DL RRC Message Transfer to the UE, followed by the UE responding with UL RRC Message Transfer, completing the RRC setup. Next, the CU sends UE Context Setup to the DU to establish UE context, including SRB and DRB configuration, possibly accompanied by a Security Mode Command for AS security activation. Upon DU setup, the CU receives UE Context Response. Subsequently, Security Mode Complete is sent to the CU via UL RRC Message Transfer. Finally, the CU sends RRC Reconfiguration with DL RRC Message Transfer to establish SRB and DRB, receiving RRC Reconfiguration Complete with UL RRC Message Transfer as confirmation
