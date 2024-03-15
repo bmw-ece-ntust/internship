@@ -38,7 +38,6 @@
 - [x] 2024/05/30: OpenWiFi Installation
 - [x] 2024/05/30: Create OpenWiFi Installation Guide
 
-</details>
 ## End of Internship
 - [ ] 2024/08/13: Youtube project demo
 - [ ] 2024/08/13: YouTube internship testimonial
