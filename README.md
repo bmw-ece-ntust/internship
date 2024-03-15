@@ -27,7 +27,7 @@
 - [x] 2024/01/17: [Connecting Grafana with InfluxDB and learn the use case](https://github.com/NTUST-BMW-Lab/internship/blob/18a49a71ea9d24b26169047e9dbc2546e6522913/Probation/Connecting%20Grafana%20with%20InfluxDB.md)
 - [x] 2024/01/29: Learn [Importing Data to InfluxDB](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/InfluxDB/Importing_Data_to_InfluxDB.md) with Python
 
-## 3. OpenWiFi (DL: 2024/05/30)
+## 2. Grafana (DL: 2024/05/30)
 - [x] 2024/01/10: [Grafana Installation](https://github.com/alifyaza/TEEP-2024/blob/main/Grafana%20Documentation%20Progress.md)
 - [x] 2024/01/17: Install [Archilog Floor Panel](https://grafana.com/grafana/plugins/archilogic-floor-panel/). Create the [installation guide](https://github.com/NTUST-BMW-Lab/internship/blob/b7ad860e77a84cf7cfab19e9c486bb04f953d55b/Probation/Archilogic%20Floor%20Panel%20Plugin.md)
 - [x] 2024/01/17: Install [Indoor Map Plugin](https://grafana.com/grafana/plugins/tailosstg-map-panel/). Create the installation guide of [Grafana](https://github.com/alifyaza/TEEP-2024/blob/main/Grafana%20Documentation%20Progress.md) and [Indoor Map Plugin](https://github.com/alifyaza/TEEP-2024/blob/main/Indoor%20Map%20Plugin.md).
@@ -37,6 +37,7 @@
 ## 3. OpenWiFi (DL: 2024/05/30)
 - [x] 2024/05/30: OpenWiFi Installation
 - [x] 2024/05/30: Create OpenWiFi Installation Guide
+</details>
 
 ## End of Internship
 - [ ] 2024/08/13: Youtube project demo
