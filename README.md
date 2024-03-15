@@ -59,6 +59,13 @@
 <details>
 <summary><b> Daily Log (continuation from: <a href=https://trello.com/c/jm6gig9m/99-11-%F0%9F%87%AE%F0%9F%87%A9-ui-lauren-wifi-dr-prima>Trello</a>)</b></summary>
 
+## 2024/03/14
+- 11.00 - 12.00 Contacting Prof. Gde for details on system architecture PoE switch's specification
+- 12.00 - 13.00 Continue to configure Aruba's API reference to crawl PoE data
+
+## 2024/03/13
+- 11.00 - 12.00 Configuring Aruba's API reference to fetch PoE data ("Port ID", "Allocated Power(w)", "POE Enabled", "POE Allocation Method", "POE Priority", "Pre-Standard Dectect Enabled", "Actual Power(w)", "MPS Absent Count", "Over Current Count", "POE Detection Status", "Port Voltage(v)", "Power Class", "Power Denied Count", "Power Short Count")
+
 ## 2024/03/12
 - 11.00 - 12.00 Adding Table of Contents and polishing the study notes
 
