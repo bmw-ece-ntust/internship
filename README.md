@@ -61,7 +61,7 @@
 
 ## 2024/03/14
 - 11.00 - 12.00 Contacting Prof. Gde for details on system architecture PoE switch's specification
-- 12.00 - 13.00 Continue to configure Aruba's API reference to crawl PoE data
+- 12.00 - 13.00 Continue to configure Aruba's [API reference to crawl PoE data](https://github.com/bmw-ece-ntust/internship/blob/181ef7ce45ce0e7947a2efa34c1d37b700beb59f/Study%20notes/PoE_API.py)
 
 ## 2024/03/13
 - 11.00 - 12.00 Configuring Aruba's API reference to fetch PoE data ("Port ID", "Allocated Power(w)", "POE Enabled", "POE Allocation Method", "POE Priority", "Pre-Standard Dectect Enabled", "Actual Power(w)", "MPS Absent Count", "Over Current Count", "POE Detection Status", "Port Voltage(v)", "Power Class", "Power Denied Count", "Power Short Count")
