@@ -17,33 +17,50 @@ contains the higher physical layer High-PHY functions while the O-RU contains th
 
 Architecture Split of gNodeB
 
+![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/Layer%20Split.jpg)
+
+Functional Split of 5G
+
 ![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/O-DU%20Functional%20Blocks.png)
 
 3GPP considered the split concept (DU and CU) for 5G from the beginning of writing its specifications. The DU is responsible for real time layer 1 (L1, physical layer) and lower layer 2 (L2) which contains the data link layer and scheduling functions. The CU is responsible for non-real time, higher L2 and L3 (network layer) functions.
 
-![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/Layer%20Split.jpg) Functional Split of 5G
+![Image](https://media.licdn.com/dms/image/C4D12AQE6NK_84tUh1A/article-inline_image-shrink_1500_2232/0/1648085580383?e=1716422400&v=beta&t=v6vfVk64rW82HpWnjy0Ian9JeTWUHxfzbc8OL62Q0D8)
+
+L2 Structure of 5G NR U-Plane
 
 ## O-DU Architecture (OSC)
 
 ### Elements & Interfaces
-![Image](https://media.licdn.com/dms/image/C4D12AQE6NK_84tUh1A/article-inline_image-shrink_1500_2232/0/1648085580383?e=1716422400&v=beta&t=v6vfVk64rW82HpWnjy0Ian9JeTWUHxfzbc8OL62Q0D8)
+
 * RLC
 * MAC
 * High-PHY
 * FAPI
+
 ## Channels
 ![Image](https://media.licdn.com/dms/image/C5612AQEfzCRX7sT4bQ/article-cover_image-shrink_720_1280/0/1646707724354?e=1716422400&v=beta&t=LGy9dYfNXGxuqu_bRcvhNG2Q6buVdL_NvXwiUV_S1Gc)
 
 In the 5G cellular communication system, there are three types of channels:
 
 1. **Logical Channel**:
-   - Further categorized into Control and Traffic channels.
-   - These channels provide communication pathways between different layers of the 5G NR stack.
-   - For example, the RLC (Radio Link Control) and MAC (Medium Access Control) layers are connected via logical channels.
+   - Logcal Channel serve as pathways for transmitting data between the RLC and MAC layers
+   - Logical channels receive generic data from upper layers (e.g., application layer) and segmentize it into different categories (e.g., data or control).
+   - Logical channels are further categorized into Control and Traffic channels
+   - Control channels transmit control and configuration information essential for operating the NR system
+   - Traffic channels are responsible for transmitting user data
+   - Logical channels facilitate multiplexing data from various sources into respective transport channels
+   - They enable scheduling and initiation of processes such as HARQ (Hybrid Automatic Repeat Request)
 
 2. **Transport Channel**:
    - This channel serves as a communication link between the MAC layer and the PHY (Physical) layer.
-   - Transport channel payloads are mapped into physical channels for transmission over the air interface.
+   - It facilitates the transmission of data from the MAC layer to the PHY layer for eventual transmission over the air interface.
+   - Data on the Transport Channel is organized into Transport Blocks (TB) by the MAC layer
+   - Each TTI can transmit at most one dynamic-sized TB, or two TBs in case of spatial multiplexing with more than four layers
+   - Associated with each TB is a Transport Format (TF), which specifies how the TB is to be transmitted over the radio interface
+   - The TF includes information about the transport-block size, modulation-and-coding scheme, and antenna mapping
+   - Varying the TF allows the MAC layer to adjust data rates, facilitating link adaptation for error-free transmission even in challenging radio conditions
+   - Data on the Transport Channel is mapped onto physical channels (e.g., PDCCH, PDSCH, etc.) by the PHY layer for transmission over the air interface
 
 3. **Physical Channel**:
    - These channels are responsible for carrying the actual data over the air interface between the gNB (base station) and the user device.
@@ -52,8 +69,46 @@ In the 5G cellular communication system, there are three types of channels:
 Overall, logical channels facilitate communication between different layers within the 5G NR stack, transport channels link the MAC and PHY layers, and physical channels handle the actual transmission of data over the air interface.
 
 #### Control Logical Channels
+* Broadcast Control Channel (BCCH) :
+  - Downlink channel used for broadcasting system information to all UE within a cell
+  - Transmits Master Information Block (MIB) mapped onto BCH transport channel and System Information Blocks (SIBs) mapped onto DL-SCH transport channel
+
+* Paging Control Channel (PCCH) :
+  - Downlink channel used for paging UE whose cell-level locations are unknown to the network
+  - Transmits paging messages mapped onto PCH transport channel
+
+* Common Control Channel (CCCH) :
+  - Used for transmitting control information on both the downlink and uplink from UE
+  - Utilized for initial access for devices without a Radio Resource Control (RRC) connection
+
+* Dedicated Control Channel (DCCH) :
+  - Used for transmitting dedicated control information between the UE and the network
+  - Operates by UE and Network in both uplink and downlink after establishing an RRC connection
+
+* Dedicated Traffic Channel (DTCH) :
+  - Channel present in both uplink and downlink, dedicated to a specific UE
+  - Used for transmitting user data between a specific UE and the network
 
 #### Control Transport Channels
+* Broadcast Channel (BCH) :
+  - Downlink channel used exclusively for transmitting parts of the BCCH System Information (SI), specifically the Master Information Block (MIB)
+  - It has a specific format for efficient transmission of essential network information
+
+* Paging Channel (PCH) :
+  - Downlink channel used for transmitting paging information from the PCCH logical channel
+  - Supports discontinuous reception (DRX) to allow devices to save battery power by waking up at predefined time instants for PCH reception
+
+* Downlink Shared Channel (DL-SCH) :
+  - Primary downlink transport channel for transmitting downlink data
+  - Supports key 5G NR features such as dynamic rate adaptation, HARQ, channel-aware scheduling, and spatial multiplexing
+  - Also used for transmitting parts of the BCCH system information (SIB)
+
+* Uplink Shared Channel (UL-SCH) :
+  - Uplink counterpart to DL-SCH, used for transmitting uplink data
+
+* Random Access Channel (RACH) :
+  - Transport channel used for carrying random access preamble during random access procedures
+  - It does not carry Transport Blocks (TB) and is distinct from other transport channels
 
 #### Physical Channels
 * Physical Broadcast Channel (PBCH) :
@@ -110,8 +165,32 @@ Overall, logical channels facilitate communication between different layers with
 - Upon receiving slot indications, DU APP marks cell as up; if O1 is enabled, triggers an alarm to SMO.
 - 5G NR SCH tracks SSB and SIB1 occasions, schedules SSB/SIB1 upon detection, and forwards DL Scheduling Information to 5G NR MAC.
 - 5G NR MAC multiplexes PDU and sends SSB/SIB1 packets to O-DU Low via Lower MAC.
+
 ### UE Attach Procedure
 ![Image](https://docs.o-ran-sc.org/projects/o-ran-sc-o-du-l2/en/latest/_images/UeAttach.png)
+
+* Cell broadcast of System Information which includes SSB and SIB1.
+
+* RACH Procedure
+  - RACH Indication
+  - Random Access Response
+  - RRC Setup Request
+  - RRC Setup
+
+* UE attach signalling flow
+  - RRC Setup Complete
+  - Registraton Request
+  - NAS Authentication Request
+  - NAS Authentication Response
+  - NAS Security Mode Command
+  - NAS Security Mode Complete
+  - RRC Security Mode Command
+  - RRC Security Mode Complete
+  - Registraton Accept
+  - Registraton Complete
+  - RRC Reconfiguration
+  - RRC Reconfiguration Complete
+
 ### Closed Loop Automation Procedure
 
 ### Inter-DU Handover within O-CU
