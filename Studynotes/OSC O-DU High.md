@@ -2,7 +2,8 @@
 
 ## O-DU
 
-![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/Logical%20Architecture%20of%20O-RAN.png) Logical Architecture of O-RAN
+![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/Logical%20Architecture%20of%20O-RAN.png)
+Logical Architecture of O-RAN
 
 Distributed Unit (DU) is a crucial component in the architecture of 5G, which is part of the radio network and has functions related to the MAC/PHY layer. DU is a logical node that incorporates the RLC/MAC/High-PHY layers based on functional separation that defined by O-RAN.
 
@@ -11,7 +12,8 @@ DU will be integrated with the Central Unit (CU), forming the 5G radio system. R
 In some RAN deployment scenarios, the physical layer is split between the O-DU and O-RU. O-RAN WG4 defines the open front haul interface which is adopted in the split architecture as shown in Figure below. The O-DU 
 contains the higher physical layer High-PHY functions while the O-RU contains the lower physical layer Low-PHY.
 
-![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/gNodeB.png) Architecture Split of gNodeB
+![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/gNodeB.png) 
+Architecture Split of gNodeB
 
 ![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/O-DU%20Functional%20Blocks.png)
 3GPP considered the split concept (DU and CU) for 5G from the beginning of writing its specifications. The DU is responsible for real time layer 1 (L1, physical layer) and lower layer 2 (L2) which contains the data link layer and scheduling functions. The CU is responsible for non-real time, higher L2 and L3 (network layer) functions.
@@ -26,8 +28,10 @@ contains the higher physical layer High-PHY functions while the O-RU contains th
 * High-PHY
 * FAPI
 ### Channels
-![Image](https://www.electronics-notes.com/images/5gnr-downlink-data-channel-mapping-01.svg) 5G NR downlink logical, transport & physical channel mapping
-![Image](https://www.electronics-notes.com/images/5gnr-uplink-data-channel-mapping-01.svg) 5G NR uplink logical, transport & physical channel mapping
+![Image](https://www.electronics-notes.com/images/5gnr-downlink-data-channel-mapping-01.svg) 
+5G NR downlink logical, transport & physical channel mapping
+![Image](https://www.electronics-notes.com/images/5gnr-uplink-data-channel-mapping-01.svg) 
+5G NR uplink logical, transport & physical channel mapping
 * Control Logical Channels
 * Control Transport Channels
 * Physical Channels
