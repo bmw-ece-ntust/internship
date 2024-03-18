@@ -32,8 +32,11 @@ Architecture Split of gNodeB
 * FAPI
 ### Channels
 ![Image](https://www.electronics-notes.com/images/5gnr-downlink-data-channel-mapping-01.svg) 
+
 5G NR downlink logical, transport & physical channel mapping
+
 ![Image](https://www.electronics-notes.com/images/5gnr-uplink-data-channel-mapping-01.svg) 
+
 5G NR uplink logical, transport & physical channel mapping
 * Control Logical Channels
 * Control Transport Channels
