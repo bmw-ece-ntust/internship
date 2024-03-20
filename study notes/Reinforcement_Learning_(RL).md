@@ -11,10 +11,10 @@ In RL, **the reward** represents the quantity of cans collected by the robot. **
 - *Image 1. Example of K-armed bandit problem*
 - In the examples, determining the optimal action for a doctor requires defining the value associated with each possible action. These values are referred to as **action values**. 
 - **action values Function:** 
-$$ q_*(a) := \mathbb{E}[R_t \mid A_t = a] \; \forall a \in \{1,2,..,k\}  $$
-$$ = \sum_r p(r|a)r$$
+$$q_*(a) := \mathbb{E}[R_t \mid A_t = a] \; \forall a \in \{1,2,..,k\}$$
+$$= \sum_r p(r|a)r$$
 	- := meaning is *defined as* 
-	- $q_*(a)$ is defined as the expectation of $R_t$, given we selected action A, for each possible action one through k. The value $q_*(a)$ is the reward.
+	- $q *(a)$ is defined as the expectation of $R_t$, given we selected action A, for each possible action one through k. The value $q_*(a)$ is the reward.
 	- The goal of the agent is to maximize the expected reward &rarr; $\operatorname{argmax}_{a} q_*(a)$
 	- Inside the sum, multiply each possible reward by the probability of observing that reward.
 	
