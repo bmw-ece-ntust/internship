@@ -36,4 +36,27 @@ The NETCONF protocol facilitates secure RPC communications between the client an
 
 When a client communicates with a server, it sends one or more RFC request messages to that server, which responds with its own RFC reply messages. The two most common XML elements used for RFC communications are <rpc> and <rpc-reply>. The <RPC> element encloses a request sent from the client to the server. The request information within the element includes the RPC's name and its parameters. The <rpc-reply> element is used to respond to <rpc> messages. All response data is encoded within the <rpc-reply> element.
 
+## Netconf Communication Mode
+The client-initiated RPC requests and the server-originated replies are both encoded in `<rpc>` and `<rpc-reply>` elements using XML. This request-reply framework is independent of transport layer protocols.
+* `<rpc>` : Client send request to a server, similiar to a HTTP request
+* `<rpc-reply>` :  Sent by a server in response to each `<rpc>` request, similiar to a HTTP reply. If the request is valid and
+is succesful then it will reply with an `<ok>`, if the request is invalid or server failed to comply it will reply with an `<rpc-error>`
 
+## NETCONF Message Flow
+![image](https://github.com/bmw-ece-ntust/internship/assets/145204053/31401362-8e87-4307-bab5-d0268920c137)
+1. The client and server exchange Hello messages for capabilities negotiation, preventing ambiguity during data parsing.
+2. The client sends an <rpc> request to the server.
+3. The server receives and parses the <rpc> request, and verifies validity of this request based on the definition of the YANG data model.
+4. The server executes the <rpc> request, and returns an <rpc-reply> message containing the execution result to the client.
+5. The client receives and parses the <rpc-reply> message.
+
+## NETCONF Capabilities Exchange Flow
+The NETCONF Capabilities Exchange Process refers to the initial negotiation phase that occurs when a NETCONF client establishes a connection with a NETCONF server. During this process, the client and server exchange information about their capabilities and supported features to determine the parameters and protocols that will be used for communication during the session.
+
+This process is similiar to NETCONF Message Flow, but it is a process that needs to be done before the client and server can start communicating or exchanging messages, it steps are:
+
+1. Client Connection Request: The NETCONF client initiates a connection request to the NETCONF server, indicating its intention to establish a session for configuration, management, or monitoring tasks.
+2. Server Capability Response: Upon receiving the connection request, the NETCONF server responds by providing a list of its capabilities and supported features. This list includes information about the operations, data models, transport protocols, and extensions supported by the server.
+3. Negotiation: The client and server engage in a negotiation process to determine the subset of capabilities and features that will be utilized during the session. This negotiation may involve selecting specific protocol versions, data model revisions, or additional functionalities supported by both parties.
+4. Capability Selection: Based on the exchanged capabilities and negotiation outcomes, the client and server mutually agree on the set of features and parameters that will govern their interaction during the session.
+5. Session Establishment: With the capabilities and parameters agreed upon, the NETCONF session is established, allowing the client and server to exchange configuration, management, or monitoring messages using the agreed-upon protocols and functionalities.
