@@ -8,19 +8,34 @@ RL	: **the reward** represents the quantity of cans collected by the robot. **Th
 ## K-armed Bandits
 -  In the k-armed bandit problem, an agent selects from k different actions and earns a reward corresponding to the chosen action. 
 - ![image](https://hackmd.io/_uploads/r11uO4dRa.png)
-- *Image 1. Example of K-armed bandit problem*
+	- *Figure 1. Example of K-armed bandit problem*
 - In the examples, determining the optimal action for a doctor requires defining the value associated with each possible action. These values are referred to as **action values**. 
-- **action values Function:** 
-	- $$ q_*(a) := \mathbb{E}[R_t \mid A_t = a] \; \forall a \in \{1,2,..,k\}  $$
-	- $$ = \sum_r p(r|a)r$$
-	- := meaning is *defined as* 
-	- $q_*(a)$ is defined as the expectation of $R_t$, given we selected action A, for each possible action one through k. The value $q_*(a)$ is the reward.
-	- The goal of the agent is to maximize the expected reward &rarr; $\operatorname{argmax}_{a} q_*(a)$
-	- Inside the sum, multiply each possible reward by the probability of observing that reward.
+### **action values Function:** 
+- $$ q_*(a) := \mathbb{E}[R_t \mid A_t = a] \; \forall a \in \{1,2,..,k\}  $$
+- $$  q_*(a) = \sum_r p(r|a)r \tag{2.0}$$ 
+- := meaning is *defined as* 
+- $q_*(a)$ is defined as the expectation of $R_t$, given we selected action A, for each possible action one through k. The value $q_*(a)$ is the expected reward  (true value of action a).
+- The goal of the agent is to maximize the expected reward &rarr; $\operatorname{argmax}_{a} q_*(a)$
+- Inside the sum, multiply each possible reward by the probability of observing that reward.
 	
 - ![image](https://hackmd.io/_uploads/Hy1zu4u0p.png)
-- *Image 2. Bernoulli distribution*
-
+	- *Figure 2. Bernoulli distribution*
+- $q_*(a)$ is not known to agent, just like the doctor doesn't know the effectiveness of each treatment.
+### **Sampel-average Method:**
+- estimate  $q_*(a)$: $$Q_t(a) := \frac{\text{sum of rewards when } a \text{ taken prior to }t} {\text{number of times } a \text{ taken prior to } t} = \frac{\sum_{i=1}^{t-1}R_i}{t-1} \tag{2.1}$$
+**if action A has not yet been taken, set the value to some default like zero**
+- ![image](https://hackmd.io/_uploads/BJxUgxhFRa.png)
+	- *Figure 3. Example sample-averaged method*
+- **sample-averaged** method can be used to estimate action values
+- The **greedy action** is the action with the highest value. from Fig.3, the result of greedy action is argmax Q(a) = 0.75 the Y-action)
+###  Incremental Update Rule
+- ![image](https://hackmd.io/_uploads/rkVNfnYC6.png)
+- $$Q_{n+1}= Q_n + \frac{1}{n}(R_n-Q_n) \Leftrightarrow \text{NewEstimate = OldEstimate + StepSize[Target − OldEstimate]} \tag{2.2}$$
+- 
+###  Nonstationary Problem
+![image](https://hackmd.io/_uploads/HJRCcnYCT.png)
+ $$ Q_{n+1}=(1- \alpha)^nQ_1+ \sum_{i=1}^{n} \alpha(1-\alpha)^{n-i}R_i \; \textbf{where} \; \alpha \;  \textbf{is step-size} \tag{2.3} $$
+- The equation (2.3) describes how current estimate of value $(Q_{n+1})$ is related to $Q_1$ and all observed rewards. As more data is gathered, the influence of the initial Q goes to zero. The most recent rewards contribute most to current estimate. The **first term** indicates that the impact of $Q_1$ diminishes exponentially over time. The **second term** suggests that rewards from earlier times have exponentially diminishing influence.
 # Notation
 ![image](https://hackmd.io/_uploads/ry5OvddA6.png)
 ![image](https://hackmd.io/_uploads/ry0FD__Ra.png)
