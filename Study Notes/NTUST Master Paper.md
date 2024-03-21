@@ -41,12 +41,13 @@ A bit different from O-CU, OAI (Open Air Interface) doesn’t implement all O-CU
 
 ## OAI CU Software Module
 <img width="345" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/bf4f291f-69aa-4d40-9376-44d88b5d2270">
+
 As a Control Unit in Open Air Interface some of the modules that will be used ofr CU-DU integration is as figure aboive which includes gNB APP, RRC, PDCP, GTP-U, and F1AP.
-- gNBs APP ( 5G New Radio (NR) base stations applications) configures various OAI modules, excluding message protocol functions like F1AP and GTP-U. It also manages base station and user indirectly. 
-- RRC (Radio Resource Control) manages connection establishment, system configuration, mobility, and security between UE and gNB. It includes RRC Encoder and Decoder for processing RRC containers exchanged between gNB and UE.
-- PDCP (Packet Data Convergence Protocol) handles NR-PDCP functionalities such as header compression, integrity protection, ciphering, and routing for split bearers.
-- F1AP encodes and decodes all F1AP messages, managing procedures for gNB, cell, and UE, including F1-C interface management, cell activation, and UE access control.
-- GTP-U establishes tunnels for user plane messages, identifying UE and DRB based on TEID and IP address mapping.
+1. gNBs APP ( 5G New Radio (NR) base stations applications) configures various OAI modules, excluding message protocol functions like F1AP and GTP-U. It also manages base station and user indirectly. 
+2. RRC (Radio Resource Control) manages connection establishment, system configuration, mobility, and security between UE and gNB. It includes RRC Encoder and Decoder for processing RRC containers exchanged between gNB and UE.
+3. PDCP (Packet Data Convergence Protocol) handles NR-PDCP functionalities such as header compression, integrity protection, ciphering, and routing for split bearers.
+4. F1AP encodes and decodes all F1AP messages, managing procedures for gNB, cell, and UE, including F1-C interface management, cell activation, and UE access control.
+5. GTP-U establishes tunnels for user plane messages, identifying UE and DRB based on TEID and IP address mapping.
 
 
 
