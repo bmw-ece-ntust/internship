@@ -335,6 +335,8 @@ Overall, logical channels facilitate communication between different layers with
 ## Terms
 - QPSK  Quadrature Phase Shift Keying
 - OFDM  Orthogonal Frequency Division Multiplexing 
+- SDAP  Service Data Adaptation Protocol
+- PDCP  Packet Data Convergence Protocol
 
 ---
 
