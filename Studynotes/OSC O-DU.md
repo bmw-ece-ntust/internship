@@ -4,7 +4,7 @@
 
 ![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/Logical%20Architecture%20of%20O-RAN.png)
 
-Logical Architecture of O-RAN
+Figure 1 - Logical Architecture of O-RAN
 
 Distributed Unit (DU) is a crucial component in the architecture of 5G, which is part of the radio network and has functions related to the MAC/PHY layer. DU is a logical node that incorporates the RLC/MAC/High-PHY layers based on functional separation that defined by O-RAN.
 
@@ -15,31 +15,164 @@ contains the higher physical layer High-PHY functions while the O-RU contains th
 
 ![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/gNodeB.png) 
 
-Architecture Split of gNodeB
+Figure 2 - Architecture Split of gNodeB
 
 ![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/Layer%20Split.jpg)
 
-Functional Split of 5G
+Figure 3 - Functional Layer Split of 5G NR
 
 ![Image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/O-DU%20Functional%20Blocks.png)
+
+Figure 4 - Functional Layer Split on O-DU
 
 3GPP considered the split concept (DU and CU) for 5G from the beginning of writing its specifications. The DU is responsible for real time layer 1 (L1, physical layer) and lower layer 2 (L2) which contains the data link layer and scheduling functions. The CU is responsible for non-real time, higher L2 and L3 (network layer) functions.
 
 ![Image](https://media.licdn.com/dms/image/C4D12AQE6NK_84tUh1A/article-inline_image-shrink_1500_2232/0/1648085580383?e=1716422400&v=beta&t=v6vfVk64rW82HpWnjy0Ian9JeTWUHxfzbc8OL62Q0D8)
 
-L2 Structure of 5G NR U-Plane
+Figure 5 - L2 Structure of 5G NR U-Plane
 
-## O-DU Architecture (OSC)
+## O-DU High Architecture
+![Image](https://docs.o-ran-sc.org/projects/o-ran-sc-o-du-l2/en/latest/_images/ODUArch.jpg)
+
+Figure 6 - L2 Structure of 5G NR U-Plane
+
+O-DU implements the functional blocks of L2 layer of a 5G NR protocol stack in SA(StandAlone) mode. These layers primarily include NR MAC, NR Scheduler and NR RLC layers.
 
 ### Elements & Interfaces
 
-* RLC
-* MAC
-* High-PHY
-* FAPI
+| Thread        | Description   |
+| ------------- |-------------  |
+| Thread 1      | O-DU thread   |
+| Thread 2      | DU APP inclusive of Config Handler, DU Manager, UE Manager, and ASN.1 Codecs      |
+| Thread 3      | 5G NR RLC DL and MAC (inclusive of 5G NR SCH and Lower MAC)    |
+| Thread 4      | 5G NR RLC UL      |
+| Thread 5      | SCTP Handler      |
+| Thread 6      | Lower MAC Handler |
+| Thread 7      | EGTP Handler      |
+| Thread 8      | O1                |
+
+### Details of Each Elements
+
+#### DU APP
+This module configures and manages all the operations of O-DU. It interfaces with external entities as follows:
+
+  - OAM : DU APP interacts with OAM (Operational, Administration, and Maintenance) on the O1 interface for configuration, alarms and performance management.
+  - O-CU: DU APP interacts with O-CU for RAN functionalities over the F1 interface which is built on SCTP. Control messages are exchanged on the F1-C interface and data messages on the F1-U interface.
+  - RIC: DU APP interacts with RIC on E2 interface over SCTP.
+
+DU App submodules are as follows:
+
+  - Config Handler manages the configurations received on O1 interfaces and stores them within DU APP context.
+  - DU Manager handles all cell operations at the DU APP.
+  - UE Manager handles UE contexts at the DU APP.
+  - SCTP handler is responsible for establishing SCTP connections with O-CU, RIC on the F1AP and E2AP interfaces respectively.
+  - EGTP handler is responsible for establishing EGTP connection with O-CU for data message exchange on the F1-U interface.
+  - ASN.1 Codecs contain ASN.1 encode/decode functions which are used for System information, F1AP and E2AP messages.
+
+#### 5G NR RLC
+This module provides services for transferring the control and data messages between MAC layer and O-CU (via DU App).
+
+5G NR RLC UL and 5G NR RLC DL are the sub modules of this module that implement uplink and downlink functionality respectively.
+
+#### 5G NR MAC
+This module uses the services of the NR physical layer to send and receive data on the various logical channels. Functions of the 5G NR MAC module are as follows:
+
+  - 5G NR MAC is responsible for multiplexing and de-multiplexing of the data on various logical channels.
+  - Lower MAC interfaces between the MAC and the O-DU Low. It implements all the messages of FAPI specification. It has a receiver thread to handle messages from L1.
+
+#### 5G NR SCH
+  - This module is completely encapuslated withing 5G NR MAC i.e. all interactions of the 5G NR SCH is via the 5G NR MAC.
+  - Schedules resources in UL and DL for cell and UE based procedures.
+  - SCH framework design supports plugging-in new scheduling algorithm easily. Refer to section “Scheduler Framework with plug-in support” in Developer-Guide document for details.
+
+#### O-DU Utility and Common Functions
+These modules contain platform specific files and support O-DU High functionality and message exchanges.
+
+##### O1 Module
+![Image](https://docs.o-ran-sc.org/projects/o-ran-sc-o-du-l2/en/latest/_images/ODU-O1-Arch.jpg)
+
+Figure 7 - O1 Architecture
+
+As shown in figure 2 the O1 module runs as a thread in O-DU High. Alarm communication happens over a Unix socket between the O1 and O-DU threads. O1 module uses API calls for interacting with the Netconf server(Netopeer) and datastore(sysrepo) for providing the Netconf interface.
+
+O1 architecture has following components:
+
+  - Netconf Session Handler: Subscribe to Netconf YANG modules and events. Register callback handler methods.
+  - VES Agent : Sends the VES events to SMO
+  - Alarm Manager: Stores and manages(add/updated/delete) alarms.
+  - Alarm Interface : Provides an interface to O-DU High threads for sending the alarm messages to O1 module over Unix socket.
+  - Config Interface : Interface to handle the configurations sent from SMO to the stack
+  - Netopeer server: Serves the northbound SMO/OAM Netconf requests.
+
+## O-DU High Interfaces
+![Image](https://docs.o-ran-sc.org/projects/o-ran-sc-o-du-l2/en/latest/_images/O-DUHighInterfaces.jpg)
+
+Figure 8 - O-DU High Interfaces
+
+### O-CU
+O-DU High communicates with O-CU on the F1AP interface. The control message exchanges are on F1-C while data message exchanges are on F1-U interfaces. The below F1AP messages on F1-C are implemented, as per 3GPP 38.473-f60 v15.3:
+
+  - Interface Management
+    - F1 Setup
+    - gNB-DU Configuration Update
+    - F1 Reset
+    - PAGING
+  - UE Context Management
+    - UE Context Setup
+    - UE Context Modification
+    - UE Context Release
+  - RRC Message Transfer
+    - Initial UL RRC Message Transfer
+    - DL RRC Message Transfer
+    - UL RRC Message Transfer
+    - RRC Delivery Report
+
+### Near RT RIC
+O-DU High communicates with Near RT RIC on the E2 interface. The below E2AP messages are implemented, as per O-RAN.WG3.E2GAP-R003-v03.00 and O-RAN.WG3.E2AP-R003-v03.00.
+
+  - Global Procedures
+    - E2 Setup
+    - E2 Node Configuration Update
+    - RIC Service Update
+    - E2 Connection Update
+    - E2 Removal
+    - E2 Reset
+    - Error Indication
+  - Near RT RIC Functional Procedures
+    - RIC Subscription
+    - RIC Subscription Modification
+    - RIC Subscription Modification Required
+    - RIC Subscription Delete
+    - RIC Subscription Delete Required
+    - RIC Indication 
+
+### O-DU LOW
+O-DU High communicates with O-DU Low on the FAPI interface. The below FAPI messages are supported, as per FAPI interface files shared by Intel:
+
+  - P5 messages - PHY mode control interface
+    - PARAM.request/PARAM.response
+    - CONFIG.request/CONFIG.response
+    - START.request
+    - STOP.request
+    - STOP.indication
+  - P7 messages - Main data path interface
+    - DL_TTI.request
+    - UL_TTI.request
+    - SLOT.indication
+    - UL_DCI.request
+    - TX_Data.request
+    - RX_Data.indication
+    - CRC.indication
+    - UCI.indication
+    - RACH.indication
+
+### OAM
+O-DU High communicates with OAM on the O1 interface.
 
 ## Channels
 ![Image](https://media.licdn.com/dms/image/C5612AQEfzCRX7sT4bQ/article-cover_image-shrink_720_1280/0/1646707724354?e=1716422400&v=beta&t=LGy9dYfNXGxuqu_bRcvhNG2Q6buVdL_NvXwiUV_S1Gc)
+
+Figure 9 - Uplink and Downlink Channel Connection
 
 In the 5G cellular communication system, there are three types of channels:
 
@@ -67,6 +200,8 @@ In the 5G cellular communication system, there are three types of channels:
    - Physical channels represent the closest layer to the over-the-air transmission process.
 
 Overall, logical channels facilitate communication between different layers within the 5G NR stack, transport channels link the MAC and PHY layers, and physical channels handle the actual transmission of data over the air interface.
+
+### Type of Channel Breakdown
 
 #### Control Logical Channels
 * Broadcast Control Channel (BCCH) :
@@ -148,7 +283,7 @@ Overall, logical channels facilitate communication between different layers with
   - Short Sequence: 139 symbols, applied to subcarrier spacings of 15 kHz and 30 kHz (FR1 bands) and 60 kHz and 120 kHz (FR2 bands)
   - PRACH employs OFDM for its signal, distinguishing it from other channels like PUCCH and PUSCH.
 
-## O-DU Functionality
+## O-DU High Functionality 
 
 ### Cell up and Broadcast Procedure
 ![Image](https://docs.o-ran-sc.org/projects/o-ran-sc-o-du-l2/en/latest/_images/CellUpAndBroadcast.png)
@@ -200,7 +335,9 @@ Overall, logical channels facilitate communication between different layers with
 ## Terms
 - QPSK  Quadrature Phase Shift Keying
 - OFDM  Orthogonal Frequency Division Multiplexing 
+
 ---
+
 ## Source
 * [SIB : System Information Block](https://www.linkedin.com/pulse/sib-system-information-block-lte-techlte-world/)
 * [Different Channel In 5G NR (Part 1)](https://www.linkedin.com/pulse/different-channels-5g-nr-part-1-shan-jaffry/)
