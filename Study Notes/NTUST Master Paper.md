@@ -14,10 +14,12 @@ RT RIC provides radio resource management and optimization of real-time RAN func
 ## Process of Setting Up RRC between UE, CU, and DU in Telecommunications Network
 <img width="437" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/2fbd1123-6ddf-492f-a1e8-163fa559922d">
 
+
 The process begins with the gNB granting the UE access to radio resources. The CU then initiates the RRC setup by sending DL RRC Message Transfer to the UE, followed by the UE responding with UL RRC Message Transfer, completing the RRC setup. Next, the CU sends UE Context Setup to the DU to establish UE context, including SRB and DRB configuration, possibly accompanied by a Security Mode Command for AS security activation. Upon DU setup, the CU receives UE Context Response. Subsequently, Security Mode Complete is sent to the CU via UL RRC Message Transfer. Finally, the CU sends RRC Reconfiguration with DL RRC Message Transfer to establish SRB and DRB, receiving RRC Reconfiguration Complete with UL RRC Message Transfer as confirmation
 
 ## O-CU
 <img width="574" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/8239fb5c-642d-4de1-9774-e772cc591446">
+
 Above is the functional blocks of O-CU. The explanation of each blocks is as below
 1. O-CU-CP-OAM : receives configuration from OAM (Operations, Administration, and Maintenance) and performs operations for Operations Control Unit Control Processor. 
 2. gNB Procedure Management: This part handles services not directly related to specific users, like managing connections between different network interfaces, following 3GPP standards.
@@ -33,4 +35,34 @@ Above is the functional blocks of O-CU. The explanation of each blocks is as bel
 12. SDAP: Manages the mapping of Quality of Service flows to Data Radio Bearers, as defined in 3GPP standards.
 
 <img width="530" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/be02e668-8821-4595-9e53-e934409bcfed">
+
 A bit different from O-CU, OAI (Open Air Interface) doesn’t implement all O-CU (Open Central Unit) functions. As we can see from the figure above about OAI CU blocks and the figure before about O-CU functional blocks, OAI-CU doesn’t support OAM and SDAP and some of the names changed as well. For example, NR PDCP and eGTPu became PDCP and and GTP-U.
+
+
+## OAI CU Software Module
+<img width="345" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/bf4f291f-69aa-4d40-9376-44d88b5d2270">
+As a Control Unit in Open Air Interface some of the modules that will be used ofr CU-DU integration is as figure aboive which includes gNB APP, RRC, PDCP, GTP-U, and F1AP.
+- gNBs APP ( 5G New Radio (NR) base stations applications) configures various OAI modules, excluding message protocol functions like F1AP and GTP-U. It also manages base station and user indirectly. 
+- RRC (Radio Resource Control) manages connection establishment, system configuration, mobility, and security between UE and gNB. It includes RRC Encoder and Decoder for processing RRC containers exchanged between gNB and UE.
+- PDCP (Packet Data Convergence Protocol) handles NR-PDCP functionalities such as header compression, integrity protection, ciphering, and routing for split bearers.
+- F1AP encodes and decodes all F1AP messages, managing procedures for gNB, cell, and UE, including F1-C interface management, cell activation, and UE access control.
+- GTP-U establishes tunnels for user plane messages, identifying UE and DRB based on TEID and IP address mapping.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
