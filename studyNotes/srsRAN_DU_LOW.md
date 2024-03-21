@@ -5,7 +5,7 @@ DU (Distributed Unit) is responsible for handling both uplink and downlink traff
 and DL (Down Link) 
 
 ## UL (Up Link)
-Uplink consists of several blocks such as
+Uplink facilitates communication from UEs (User Equipment) to the network and it consists of several blocks such as
 - PUCCH (Physical Uplink Control Channel) -> carries UCI (Uplink Control Information)
 - PUSCH (Physical Uplink Shared Channel) -> carries user data
 - PRACH (Physical Random Access Channel) -> carries random access preamble from UE towards gNB 
