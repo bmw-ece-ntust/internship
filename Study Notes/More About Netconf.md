@@ -2,10 +2,10 @@
 Netconf or The Network Configuration Protocol is a protocol used for managing network devices, allowing for configuration changes, monitoring of device state, and retrieving operational data. Netconf uses Extensible Markup Language or XML and it is developed by the IETF. In this note we will use the term of client and server. 
 
 Four layers of netconf is :
-1. Secure Transport Layer: This layer ensures the secure transmission of data between the NETCONF client and server. It typically involves protocols like SSH (Secure Shell) or TLS (Transport Layer Security) to provide encryption, authentication, and integrity checking of the data being transmitted.
-2. Message Layer: This layer defines the format and structure of the messages exchanged between the NETCONF client and server. It includes the headers, metadata, and any other information necessary for the communication to occur. Messages in NETCONF are typically XML-based.
-3. Operation Layer: This layer specifies the operations that can be performed by the NETCONF protocol. These operations include actions such as querying device configuration, modifying configuration settings, retrieving operational data, and other management tasks.
-4. Content Layer: This layer pertains to the actual data being exchanged between the NETCONF client and server. It includes the configuration data, operational data, and any other information relevant to the network device being managed.
+1. Secure Transport Layer: This layer ensures the **secure transmission of data between the NETCONF client and server**. It typically involves protocols like SSH (Secure Shell) or TLS (Transport Layer Security) to provide encryption, authentication, and integrity checking of the data being transmitted.
+2. Message Layer: This layer defines the **format and structure of the messages exchanged between the NETCONF client and server.** It includes the headers, metadata, and any other information necessary for the communication to occur. Messages in NETCONF are typically XML-based.
+3. Operation Layer: This layer **specifies the operations that can be performed by the NETCONF protocol**. These operations include actions such as querying device configuration, modifying configuration settings, retrieving operational data, and other management tasks.
+4. Content Layer: This layer **pertains to the actual data being exchanged between the NETCONF client and server.** It includes the configuration data, operational data, and any other information relevant to the network device being managed.
 
 
 -Client 
