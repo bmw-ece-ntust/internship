@@ -1,8 +1,14 @@
 # Introduction
 
-Near-RT RIC (Near-Real-Time RAN Intelligent Controller) is a logical function playing a crucial role in enabling near-real-time control and optimization of Radio Access Network (RAN) elements and resources. It achieves this by performing fine-grained data collection and executing actions over the E2 interface. Essentially, Near-RT RIC enhances the efficiency and responsiveness of RAN operations. While Non-RT RIC (Non-Real-Time RAN Intelligent Controller), within the Service Management and Orchestration (SMO) framework, serves a different purpose. It acts as a logical function responsible for managing the content exchanged across the A1 interface. The Non-RT RIC consists of two key components: the Non-RT RIC Framework and the Non-RT RIC Applications. These also exists xApp (Extended Application), an application specifically designed to run on the Near-RT RIC platform. It can be composed of one or more microservices. During the onboarding process, an xApp specifies the data it consumes and provides. Importantly, xApps are independent of the Near-RT RIC itself and can be developed by third-party entities. The E2 interface establishes a direct link between an xApp and the underlying RAN functionalities.
+Near-RT RIC (Near-Real-Time RAN Intelligent Controller) is a logical function playing a crucial role in enabling near-real-time control and optimization of Radio Access Network (RAN) elements and resources. It achieves this by performing fine-grained data collection and executing actions over the E2 interface.
+
+Essentially, Near-RT RIC enhances the efficiency and responsiveness of RAN operations. While Non-RT RIC (Non-Real-Time RAN Intelligent Controller), within the Service Management and Orchestration (SMO) framework, serves a different purpose. It acts as a logical function responsible for managing the content exchanged across the A1 interface. The Non-RT RIC consists of two key components: the Non-RT RIC Framework and the Non-RT RIC Applications.
+
+These also exists xApp (Extended Application), an application specifically designed to run on the Near-RT RIC platform. It can be composed of one or more microservices. During the onboarding process, an xApp specifies the data it consumes and provides. Importantly, xApps are independent of the Near-RT RIC itself and can be developed by third-party entities. The E2 interface establishes a direct link between an xApp and the underlying RAN functionalities.
 
 # More about its functions...
+
+![image](https://github.com/bmw-ece-ntust/internship/assets/138283247/ff23c1ab-fb3e-4e8e-9f86-8d5b0def608d)
 
 A. Database and Related SDL (Shared Data Layer) Services enables both reading and writing of critical information related to Radio Access Network (RAN) and User Equipment (UE). It also supports other data necessary for specific use cases. Essentially, it acts as a bridge between applications and the underlying data storage.
 1. UE-NIB (User Equipment Network Information Base) serves as a repository for essential network-related information specific to individual user equipment. It contains details about the UE’s connection status, capabilities, and other relevant data.
@@ -33,6 +39,8 @@ H. Functions hosted by xApps allow services to be executed within the Near-RT RI
 
 # APIs!
 
+![image](https://github.com/bmw-ece-ntust/internship/assets/138283247/80a7f747-ac6b-4460-af3a-1e2b8714eb9f)
+
 Near-RT RIC APIs are designed to support xApp development in multiple programming languages such as C, C++, Python, and Go. Near-RT RIC APIs empower xApp developers to create customized applications, enhance mobility management, optimize radio connections, manage quality of service, and handle interference—all while benefiting from the agility and scalability of cloud-based solutions.
 
 Key Functions:
@@ -40,8 +48,14 @@ Key Functions:
 2. Low Latency Network since NEAR-RT RIC requires rapid  access to the network. This is enabled by AWS Outposts, which provides a fully-managed service offering the same AWS infrastructure, services, APIs, and tools at edge locations.
 
 The implementation can be done using two different types of approaches:
+
+![image](https://github.com/bmw-ece-ntust/internship/assets/138283247/09b1fed2-65e9-4bb1-a993-1e380331ba59)
+
 1. Network API Approach, so that the Near-RT RIC APIs can be implemented directly through network endpoints. Each relevant Near-RT RIC endpoint exposes a specific network endpoint. It specifies both the data encoding protocol (e.g., JSON, XML) and the network transport protocol (e.g., HTTP, WebSocket) to be used for communication. xApps can directly interact with these endpoints, allowing fine-grained control and customization. This gives direct access to specific functionalities and the flexibility in choosing communication protocols.
-2.  SDK (Software Development Kit) Approach, so that the Near-RT RIC vendor provides an SDK—a software library that simplifies xApp development. The SDK handles connection management, abstracting the complexities of network communication. It exposes a straightforward API for xApps to interact with the Near-RT RIC. Developers can focus on application logic rather than low-level networking details. The benefits come from a streamlined development process and a consistent, reliable communication.
+
+![image](https://github.com/bmw-ece-ntust/internship/assets/138283247/f22f3e2e-1b90-4cff-90e5-5b83b5bc48f1)
+
+2. SDK (Software Development Kit) Approach, so that the Near-RT RIC vendor provides an SDK—a software library that simplifies xApp development. The SDK handles connection management, abstracting the complexities of network communication. It exposes a straightforward API for xApps to interact with the Near-RT RIC. Developers can focus on application logic rather than low-level networking details. The benefits come from a streamlined development process and a consistent, reliable communication.
 
 Both approaches empower xApp developers to seamlessly integrate with Near-RT RIC, whether through direct network APIs or via the convenience of an SDK. Regarding that, the approaches to Near-RT RIC API are not necessarily mutually exclusive. And to delve into the specifics of each approach:
 1. A1 Related APIs offer value-added services based on policies or enrichment information (or both). These policies and enrichment data are transferred through the A1 interface by Non-RT RIC (Radio Intelligent Controller).
