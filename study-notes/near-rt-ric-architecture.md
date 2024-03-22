@@ -43,3 +43,9 @@ H.3. xApp Repository Function selects xApps for A1 message routing based on A1 p
 H.4. xApps collaborates  with the Near-RT RIC platform functions to support various specialized use cases. Upon registration, an xApp provides OAM and control information to enable relevant functionalities.
 
 # APIs!
+
+Near-RT RIC APIs are designed to support xApp development in multiple programming languages such as C, C++, Python, and Go. Near-RT RIC APIs empower xApp developers to create customized applications, enhance mobility management, optimize radio connections, manage quality of service, and handle interference—all while benefiting from the agility and scalability of cloud-based solutions.
+
+Key Functions:
+1. xApp Subscription Management: Near-RT RIC APIs facilitate xApps’ subscription management based on operators’ policies. An xApp can be restricted to interface with only a subset of E2 Nodes based on these policies.
+2. Low Latency Access to the Network: Near-RT RIC requires rapid, low-latency access to the network. This is enabled by AWS Outposts, which provides a fully-managed service offering the same AWS infrastructure, services, APIs, and tools at edge locations.
