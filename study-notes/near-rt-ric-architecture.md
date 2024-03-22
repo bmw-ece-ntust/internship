@@ -55,30 +55,30 @@ Both approaches empower xApp developers to seamlessly integrate with Near-RT RIC
 Below written the guidance regarding the procedure:
 1. A1-related API procedures are essential for A1-related functionality within the Near-RT RIC ecosystem, and to break down the A1 Policy procedures and A1-EI (Enrichment Information) procedures:
    1. A1 Policy Procedures
-        Setup: Establishing initial policies.
-        Update: Modifying existing policies.
-        Delete: Removing policies.
-        Query: Retrieving policy information.
-        Status Update: Reporting changes in policy status.
+        1. Setup: Establishing initial policies.
+        2. Update: Modifying existing policies.
+        3. Delete: Removing policies.
+        4. Query: Retrieving policy information.
+        5. Status Update: Reporting changes in policy status.
    2. A1-EI Procedures
-        Query: Obtaining enrichment information.
-        Subscription Setup: Configuring subscriptions for enrichment data.
-        Subscription Update: Modifying existing subscriptions.
-        Subscription Delete: Removing enrichment subscriptions.
-        Delivery: Receiving and handling enrichment data.
+        1. Query: Obtaining enrichment information.
+        2. Subscription Setup: Configuring subscriptions for enrichment data.
+        3. Subscription Update: Modifying existing subscriptions.
+        4. Subscription Delete: Removing enrichment subscriptions.
+        5. Delivery: Receiving and handling enrichment data.
 2. E2-related API procedures are relevant to E2-related functionality within Near-RT RIC, and to break down the specifics of RIC Functional Procedures and E2 Guidance Related Procedures:
     1. RIC Functional Procedures:
-        E2 Subscription API: Managing E2 subscriptions.
-        E2 Subscription Delete (initiated by an xApp): Removing E2 subscriptions.
-        E2 Subscription Delete Query and E2 Subscription Notification Procedures: Handling queries related to subscription deletion and notifications.
-        E2 Indication: Receiving indications from E2.
-        E2 Control: Exercising control over E2 functions.
+        1. E2 Subscription API: Managing E2 subscriptions.
+        2. E2 Subscription Delete (initiated by an xApp): Removing E2 subscriptions.
+        3. E2 Subscription Delete Query and E2 Subscription Notification Procedures: Handling queries related to subscription deletion and notifications.
+        4. E2 Indication: Receiving indications from E2.
+        5. E2 Control: Exercising control over E2 functions.
     2. E2 Guidance Related Procedures allow authorized xApps to seek guidance from the Conflict Mitigation platform function before taking action:
-        xApp-initiated E2 guidance request/response procedure
-        Modification API:
-        xApp Subscription Management initiated
-        Message monitoring initiated
-        Conflict Mitigation initiated
+        1. xApp-initiated E2 guidance request/response procedure
+        2. Modification API:
+        3. xApp Subscription Management initiated
+        4. Message monitoring initiated
+        5. Conflict Mitigation initiated
 3. Management API procedures pertain to xApp management within the Near-RT RIC environment: xApp Registration (enrolling xApps), xApp Deregistration (removing xApps), xApp Configuration (adjusting xApp settings).
 4. SDL API procedures facilitate data storage and retrieval, the notable use cases for SDL APIs involve E2NodeInfo and E2NodeList: SDL Client Registration, SDL Client Deregistration, Fetch Data, Subscribe/Notify, Store Data, Modify Data, Subscribe/Push.
 5. API Enablement procedures relate to the discovery and subscription of Near-RT RIC APIs, whereas including the Near-RT RIC API Discovery procedure and API Event Subscription and Notification.
