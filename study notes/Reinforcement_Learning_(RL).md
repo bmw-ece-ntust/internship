@@ -4,7 +4,10 @@
 2. [Reinforcement Learning An Introduction second edition by Richard S.](https://d3c33hcgiwev3.cloudfront.net/Ph9QFZnEEemRfw7JJ0OZYA_808e8e7d9a544e1eb31ad11069d45dc4_RLbook2018.pdf?Expires=1711065600&Signature=acE3T19e2QKi6gu7CNwLkEDh2PbkTR8Z20V163Vn4-tVDXviK4G24oYbuIwkFIR~dcZXEgvGcgdBLk8kIuPf-YtWJ3JZqGaJ1quuCMQXKnO2au1NfTqSJCwfNLaYcud6Mxpmk7DU3Nq6EIcgCBI3cn6-wE1WYtEsH5Mo9uBdJdE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
 
 RL	: **the reward** represents the quantity of cans collected by the robot. **The agent** learns by experimenting to maximize the collection of cans.
-
+## Jupyter Notebook Code
+- [WEEK 1](https://github.com/Bintang-Satwika/StudyNotes-Literature/blob/191e3041246b7e9b444a48a8dc628e4a869d820e/RL_UAlberta/W1_Jupyter.ipynb)
+- WEEK 2 (Not yet)
+- .....
 ## K-armed Bandits
 -  In the k-armed bandit problem, an agent selects from k different actions and earns a reward corresponding to the chosen action. 
 - ![image](https://hackmd.io/_uploads/r11uO4dRa.png)
@@ -30,12 +33,33 @@ RL	: **the reward** represents the quantity of cans collected by the robot. **Th
 - The **greedy action** is the action with the highest value. from Fig.3, the result of greedy action is argmax Q(a) = 0.75 the Y-action)
 ###  Incremental Update Rule
 - ![image](https://hackmd.io/_uploads/rkVNfnYC6.png)
-- $$Q_{n+1}= Q_n + \frac{1}{n}(R_n-Q_n) \Leftrightarrow \text{NewEstimate = OldEstimate + StepSize[Target − OldEstimate]} \tag{2.2}$$
-- 
+- **Final Formula**: $$Q_{n+1}= Q_n + \frac{1}{n}(R_n-Q_n) \Leftrightarrow \text{NewEstimate = OldEstimate + StepSize[Target − OldEstimate]} \tag{2.2}$$
+
 ###  Nonstationary Problem
-![image](https://hackmd.io/_uploads/HJRCcnYCT.png)
- $$ Q_{n+1}=(1- \alpha)^nQ_1+ \sum_{i=1}^{n} \alpha(1-\alpha)^{n-i}R_i \; \textbf{where} \; \alpha \;  \textbf{is step-size} \tag{2.3} $$
-- The equation (2.3) describes how current estimate of value $(Q_{n+1})$ is related to $Q_1$ and all observed rewards. As more data is gathered, the influence of the initial Q goes to zero. The most recent rewards contribute most to current estimate. The **first term** indicates that the impact of $Q_1$ diminishes exponentially over time. The **second term** suggests that rewards from earlier times have exponentially diminishing influence.
+- ![image](https://hackmd.io/_uploads/HJRCcnYCT.png)
+- **Final Formula**:$$ Q_{n+1}=(1- \alpha)^nQ_1+ \sum_{i=1}^{n} \alpha(1-\alpha)^{n-i}R_i \; \textbf{where} \; \alpha \;  \textbf{is step-size} \tag{2.3} $$
+ - The equation (2.3) describes how current estimate of value $(Q_{n+1})$ is related to $Q_1$ and all observed rewards. As more data is gathered, the influence of the initial Q goes to zero. The most recent rewards contribute most to current estimate. The **first term** indicates that the impact of $Q_1$ diminishes exponentially over time. The **second term** suggests that rewards from earlier times have exponentially diminishing influence.
+### Exploration vs Exploitation
+- **Exploration** occrus when agent try new actions to get more accurate estimates of its values, even if they may not seem optimal at first.
+- **Exploitation** occurs when the agent takes the action it currently believes is best, hoping it will yield the highest reward.
+-  The agent **can’t** do exploration and exploitation at the same time. The Epsilon-Greedy method  chooses between them for balancing.
+#### Epsilon-Greedy 
+- $$A_t = \left\{ \begin{array}{rl} \operatorname{argmax}_{a} q_*(a) & \text {with probability}\ 1-\epsilon \\ a \text{~} Uniform(\{a_1 ... a_k\}) & \text {with probability}\ \epsilon \end{array}\right.$$
+- When Epsilon-Greedy exploits, it chooses the action which maximizes the current value estimate. When Epsilon-Greedy explores, it chooses an action Uniform randomly.
+#### Limitiation Optimistic Initial Values
+- ![image](https://hackmd.io/_uploads/BJJ-fe410.png)
+- **Limited Exploration**: optimistic initial values only drive exploration early in learning, this means agents will not continue exploring after some time.
+- **Non-stationary problems**: For example, one of the action values may change after some number of time steps. An agent might become fixated on an action that was initially good but is no longer optimal due to a shift in the environment
+- Setting the appropriate initial value can be tricky. We may not know what the optimistic initial value should be.
+
+#### Upper-Confidence Bound (UCB) 
+- UCB mixes exploitation and exploration through the use of **confidence intervals**.
+- $$ A_t :=  \operatorname{argmax} \left [{Q_t(a)+c \ln{\sqrt{\frac{\ln t}{N_t(a)} } } } \right]$$
+- $Q_t(a)$ is exploration part and $\ln{\sqrt{\frac{\ln t}{N_t(a)} } }$ is exploitation part.
+- The C parameter as a user-specified parameter that controls the amount of exploration
+- ![image](https://hackmd.io/_uploads/H12_Yx4J0.png)
+
 # Notation
 ![image](https://hackmd.io/_uploads/ry5OvddA6.png)
 ![image](https://hackmd.io/_uploads/ry0FD__Ra.png)
+
