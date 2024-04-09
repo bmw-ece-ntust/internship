@@ -7,6 +7,7 @@ To create RAG, first the data (in this case, PDF file of ORAN Documentation) str
   - [**Parse PDF to Text with Tika**](#parse-pdf-to-text-with-tika)
     - [**About Apache Tika**](#about-apache-tika)
     - [**Implementation**](#implementation)
+    - [Chunking](#chunking)
 
 ## **Parse PDF to Text with Tika**
 To easily parse PDF files into text, this implementation use [Apache Tika](https://tika.apache.org/), a content analysis toolkit from Apache. This toolkit runs asynchronously in the background using `java` as a server, and can be called using `tika` Python library. 
@@ -55,4 +56,54 @@ This commit includes a new utility [`utils/pdf_parser.py`](../utils/pdf_parser.p
 
     >[!NOTE]Additional functionality of `PDFParser` is expected to be added when needed.
 
+## Document Preprocessing
+The document parsed by Tika is 'as is', so it contains tables, footers, headers, texts from images, and many unnecessary information. Before convert it to vectors, removing these informations might boost performance of the vector database similarity search. This preprocessing steps only remove footers by detecting it's pattern.
 
+### Removing Footers
+Footers from the parsed document has specific pattern like this:
+```
+_______________________________________________
+[document information]
+[page]
+```
+This patterns repetitively spotted, informing the parsed document that they are going to the next page. The information of the footer is less likely to be used since adding information about the pages might separate information between pages, like incomplete sentences or incomplete lists. By removing and joining the lines between pages create better view of the information between sentences. Removing the footers can be done using `RegEx` to find the underscore-lines.
+```re
+_{3,}
+```
+This `RegEx` captures the underscore-lines, and the next part is to remove the next two lines and joins them as a single newline.
+```python
+# Split the text into lines
+        lines = text.splitlines()
+        # Initialize a list to store non-footer lines
+        non_footer_lines = []
+        flag = 0
+        # Iterate through each line
+        for line in lines:
+            # Check if the line matches the footer pattern
+            if flag == 0:
+                if not re.match(r"_{3,}", line):
+                    non_footer_lines.append(line)
+                else:
+                    # Footer found, removing next 2 lines
+                    flag = 3
+            else:
+                flag -= 1
+        # Join the non-footer lines back into a single string
+        cleaned_text = "\n".join(non_footer_lines)
+```
+Implementation can be found in [`text_processor.py`](../utils/text_processor.py), and used in [`pdf_parser.py`](../utils/pdf_parser.py).
+
+### Chunking
+Chunking is another process to be done before building the vector space of the document. By chunking, the process of the whole vectorizing and vector search are optimized. Chunking can be done using langchain library, `CharacterTextSplitter`, to split the documents into chunks of documents. The chunks then stored in vector database to be used in similarity search. Example below use separator `\n`, with 1000 size for each chunks.
+```python
+from langchain.text_splitter import CharacterTextSplitter
+# create character chunks
+text_splitter = CharacterTextSplitter(
+    separator="\n",
+    chunk_size=1000,
+    chunk_overlap=200,
+    length_function=len,
+    is_separator_regex=False,
+)
+chunks = text_splitter.create_documents([text[0]['content']])
+```

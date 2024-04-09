@@ -1,8 +1,8 @@
 import os
 import tika
 from tika import parser
-
-
+import re
+from utils.text_processor import TextPreprocessor
 class PDFParser:
     """
     A class for parsing text from PDF files in a given folder.
@@ -48,6 +48,21 @@ class PDFParser:
             if filename.endswith(".pdf"):
                 file_path = os.path.join(folder_path, filename)
                 text = parser.from_file(file_path)
-                parsed_texts.append(text['content'])
+                # prprocess the text
+                pre_processed_text = TextPreprocessor().preprocess_text(text['content'])
+                # get the Title from the content
+                # Use regex to find the first character-filled line
+                match = re.search(r"^\s*([^\n]+)", pre_processed_text)
+                title = match.group(1) if match else "Unknown Title"
+                # Remove dots to lines
+                title = title.replace(".", "_")
+                # Remove tail spaces
+                title = title.strip()
+                title = title.replace( " ", "_")
+                # preprocess the text and append to the list
+                parsed_texts.append({'title': title, 'content': pre_processed_text})
+
         return parsed_texts
+
+    
 
