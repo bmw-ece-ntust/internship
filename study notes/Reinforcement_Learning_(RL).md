@@ -5,9 +5,7 @@
 
 RL	: **the reward** represents the quantity of cans collected by the robot. **The agent** learns by experimenting to maximize the collection of cans.
 ## Jupyter Notebook Code
-- [WEEK 1](https://github.com/Bintang-Satwika/StudyNotes-Literature/blob/191e3041246b7e9b444a48a8dc628e4a869d820e/RL_UAlberta/W1_Jupyter.ipynb)
-- WEEK 2 (Not yet)
-- .....
+- [Code-1](https://github.com/Bintang-Satwika/StudyNotes-Literature/blob/191e3041246b7e9b444a48a8dc628e4a869d820e/RL_UAlberta/W1_Jupyter.ipynb)
 ## K-armed Bandits
 -  In the k-armed bandit problem, an agent selects from k different actions and earns a reward corresponding to the chosen action. 
 - ![image](https://hackmd.io/_uploads/r11uO4dRa.png)
@@ -87,16 +85,17 @@ RL	: **the reward** represents the quantity of cans collected by the robot. **Th
 - Actions: Represented by the voltages applied to the motors controlling the arm.
 - Reward: The robot receives a reward of +100 for each object successfully placed in the target location. The reward -1 for each unit of energy consumed
 
-# Episodic task
- - the goal of an agent in terms of maximizing the expected return. The agent environment interaction breaks up into episodes. Each episode begins independently of how the previous one ended.
+### Episodic task
+ - the goal of an agent in terms of maximizing the expected return $(G_t)$. The agent environment interaction breaks up into episodes. Each episode begins independently of how the previous one ended.
 - At termination, the agent is reset to a start state. Every episode has a final state which call the **terminal state**.
+- The number of steps in an episode is stochastic: each episode can have a different number of steps. 
 - example episodic: chess game, video games like image below.
 - ![image](https://hackmd.io/_uploads/H1DSAEZeR.png)
 	- state: an array of pixel values corresponding to the current screen
 	- Action: Move Up,down,left, or right.
 	-  Reward: +1 whenever collect a treasure block
 	- An episode ends when the agent touches one of the green enemies. The next episode begin with the agent in the center of the screen with no enemies present
-# Continuing task
+### Continuing task
 - Example continuing task: Sceduler
 	- State: priority and free servers
 	- Action: accept or reject
@@ -107,7 +106,7 @@ RL	: **the reward** represents the quantity of cans collected by the robot. **Th
 	- Reward : -1 every time someone adjust temperature manually, and 0 otherwise.
 - ![image](https://hackmd.io/_uploads/BkhEiEbg0.png)
 - ![image](https://hackmd.io/_uploads/S1sjiEZg0.png)
--  factor $\gamma$ called the **discount rate** where $0 \le \gamma < 1$. Immediate rewards contribute more to the some. Rewards far into the future contribute less because multiplied by Gamma raised to successively larger powers of k. **Discounting is used to ensure returns are finite**.
+-  factor $\gamma$ called the **discount rate** where $0 \le \gamma < 1$. Immediate rewards contribute more. Rewards far into the future contribute less because multiplied by Gamma raised to successively larger powers of k. **Discounting is used to ensure returns are finite**.
 - ![image](https://hackmd.io/_uploads/r16_2NZl0.png)
 
 | Episodic task |Contiuning task |
@@ -115,7 +114,38 @@ RL	: **the reward** represents the quantity of cans collected by the robot. **Th
 |interaction breaks into episodes|interaction goes continually|
 |each episode ends in a terminal state. Episodes are independent|No terminal state|
 |$G_t = R_{t+1}+R_{t+2}+...+R_{t}$|$G_t = R_{t+1}+\gamma G_{t+1}$|
+||$G_t= \sum_{k=0}^\infty \gamma^k R_{t+k+1}$|
 
 ### Notation MDP
 - ![image](https://hackmd.io/_uploads/HyXBMB-l0.png)
 
+## Policies and Value Functions
+- an agent's behavior is specified by a policy that maps the state to a probability distribution over actions
+- **the policy can depend only on the current state**. It can't depend on things like time or previous states. 
+-  **state value** function refers to the expected return from a given state under a specific policy. $$V_\pi(s) := \mathbb{E}_\pi [G_t|S_t=s]$$
+-  **action value** function refers to the expected return from a given state after selecting a particular action and then following a given policy. $$q_\pi(s,a) := \mathbb{E}_\pi[G_t|S_t=s, A_t=a]$$
+### Bellman equation
+- ![image](https://hackmd.io/_uploads/rkSJquGeC.png)
+
+- **State-value Bellman**: $$v_{\pi}(s)=\sum_a \pi(a|s) \sum_{s'} \sum_r p(s',r|s,a)[r+\gamma v_\pi(s')]$$
+-![image](https://hackmd.io/_uploads/HJX1k5feC.png)
+- **Action-Value Bellman** $$ q_\pi(s,a)=\sum_{s'} \sum_r p(s',r|s,a)[r+\gamma \sum \pi (a'|s)q_\pi (s',a')]$$
+
+- Bellman equations provide relationships between the values of a state or state action pair, and the possible next states or next state action pairs.
+#### Example :gridworld
+- ![image](https://hackmd.io/_uploads/H1nB-9zlA.png)
+- with $\gamma=0.7$, the result using linear alegbra are $V_\pi(A)=4.2 , V_\pi(B)=6.1, V_\pi(C)=2.2, V_\pi(D)=4.2$
+
+### Optimal Policy 
+- an optimal policy is defined as the policy with the highest value in all states. At least one optimal policy always exists but there may be more than one. 
+- Optimal Policy: $$ \pi_1 \geq \pi_2 \text{ if } v_{\pi_1}(s) \geq v_{\pi_2}(s) \text{ for every state}$$
+![image](https://hackmd.io/_uploads/SJpq0f7lR.png)
+- Optimal State Value Function: $$V_{\pi*}=\max_\pi v_\pi(s) \text{ for every state}$$ 
+- optimal action value functions: $$q_\pi*(s,a) := \max_\pi q_\pi(s,a) \text{ for every state and action}$$
+- Belmann Equation for Optimal State: $$v_{*}(s)=\max_a \sum_{s'} \sum_r p(s',r|s,a)[r+\gamma v_*(s')]$$
+- Belmann Equation for Optimal Action: $$q_*(s,a)=\sum_{s'} \sum_r p(s',r|s,a)[r+\gamma \max_{a'} q_* (s',a')]$$
+- Dynamics of the MDP: $$\pi_{*}(s)=\operatorname{argmax}_a \sum_{s'} \sum_r p(s',r|s,a)[r+\gamma v_*(s')]$$
+- ![image](https://hackmd.io/_uploads/r1UmOU8e0.png)
+
+### Notation Belmann
+- ![image](https://hackmd.io/_uploads/H1Y6N5Ml0.png)
