@@ -137,7 +137,7 @@ A policy can be computed at any point during value iteration which lead to bette
     - ${Count}(s_t) \leftarrow \text{Count}(s_t) + 1$
     
     
-## Time Difference Learning
+## Temporal Difference Learning
 - Updated estimations from other learned estimations without waiting for a final outcome (end of episode)
 
 **Formula:**
