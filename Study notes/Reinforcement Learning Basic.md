@@ -60,9 +60,7 @@ Components of MDP:
 
 Utility of a state-action sequence
 
-$$
-V([\mathbf{s}_0, a_0, \mathbf{s}_1, a_1, \ldots, a_{T-1}, \mathbf{s}_T]) = \sum_{t=0}^{T-1} \gamma^t R(\mathbf{s}_t, a_t, \mathbf{s}_{t+1})
-$$
+$$V([s_0, a_0, s_1, a_1,..., a_{T-1}, s_T]) = \sum_{t=0}^{T-1} \gamma^t R(s_t, a_t, s_{t+1})$$
 
 Solving a MDP means finding a policy that mapping from states to actions. 
 
@@ -81,15 +79,83 @@ $$
 V^{\pi}(s) = \sum_{s'} T(s, \pi(s), s') \left[R(s, \pi(s), s') + \gamma V^{\pi}(s')\right]
 $$
 
-Bellman optimality equations are used to find optimal policy and optimal value function.
+Bellman optimality equations is used to find **optimal policy** and **optimal value function**. 
 
 $$
-V(s) = \max_a \sum_{s'} T(s, a, s') \left[R(s, a, s') + \gamma V(s')\right]
+V^*(s) = \max_{a} \sum_{s'} T(s, a, s') \left[R(s, a, s') + \gamma V^*(s')\right]
 $$
 
 $$
-\pi(s) = \arg\max_a \sum_{s'} T(s, a, s') \left[R(s, a, s') + \gamma V(s')\right]
+\pi^*(s) = \underset{a}{\mathrm{argmax}} \sum_{s'} T(s, a, s') \left[R(s, a, s') + \gamma V^*(s')\right]
 $$
+
+
+## Dynamic Programming
+
+### Value Iteration
+
+Value iteration is a dynamic programming approach to solving for $V^*$
+
+Given time limited values $V_i(s)$, we can compute $V_{i + 1}(s)$ using bellman equation
+
+$$ V_{i+1}(s) = \max_a \sum_{s'} T(s, a, s')[R(s, a, s') + \gamma V_i(s')] $$
+
+**algorithm:**
+* Initialize $V_0$ for all state
+* Loop from $i = 0$
+* For each state s
+  $$V_{i+1}(s) = \max_a \sum_{s'} T(s, a, s')[R(s, a, s') + \gamma V_i(s')] $$
+* until
+$$\max| V_{i+1}(s) - V_i(s) \| < \epsilon$$
+
+### Policy Iteration
+
+A policy can be computed at any point during value iteration which lead to better values
+
+**algorithm:**
+- Initialize $\pi_0(s)$ arbitrarily for all states \(s\)
+- Loop from \(i = 0\):
+  - Policy evaluation: Compute $(V^{\pi_i})$ for policy $(\pi_i)$
+  - Policy improvement: Given $(V^{\pi_i})$, find new policy $(\pi_{i+1})$
+- Until $(\pi_{i+1} = \pi_i)$
+
+
+## Monte Carlo
+ - Dynamic programming required knowledge of environtment model. 
+ - Monte Carlo: Generated sampled experience and average them for different states and action. 
+ - Idea: $V(s)$ can be estimated by averagin utilitis observer after visiting $S$
+ 
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/RL2.png)
+
+
+**Algorithm:**
+- Generate episode $E$ following $\pi$: $s_0, a_0, r_1, s_1, ....s_{T-1}, a_{T-1}, r_T$. 
+- For first occurrence of each state $s_t \in E$
+  
+    - $G \leftarrow \sum_{j=0}^{T-1} \gamma^j r_{j+1}$
+    - $V^{\pi}(s_t) \leftarrow \left( \text{Count}(s_t) \times V^{\pi}(s_t) + G \right) / \left( \text{Count}(s_t) + 1 \right)$
+    - ${Count}(s_t) \leftarrow \text{Count}(s_t) + 1$
+    
+    
+## Time Difference Learning
+- Updated estimations from other learned estimations without waiting for a final outcome (end of episode)
+
+**Formula:**
+$$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ r + \gamma Q(s',a') - Q(s,a) \right]$$
+
+### On-Policy: SARSA
+ - Learn values of behaviour policy
+ - More likely to choose the "safe" path
+$$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ r + \gamma Q(s',a') - Q(s,a) \right]$$
+
+### Off-Policy: Q-Learning
+- Learn values of target policy
+- More likely to choose the "shorter" path
+$$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ r + \gamma * \max_{a'} Q(s',a') - Q(s,a) \right]$$
+
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-16-Taqi/Study%20notes/images/RL3.png)
+
+ 
 
 
 
