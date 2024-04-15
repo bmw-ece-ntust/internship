@@ -8,6 +8,8 @@ To create RAG, first the data (in this case, PDF file of ORAN Documentation) str
     - [**About Apache Tika**](#about-apache-tika)
     - [**Implementation**](#implementation)
     - [Chunking](#chunking)
+  - [Embedding with HuggingFace](#embedding-with-huggingface)
+  - [Storing Vector Database with Langchain](#storing-vector-database-with-langchain)
 
 ## **Parse PDF to Text with Tika**
 To easily parse PDF files into text, this implementation use [Apache Tika](https://tika.apache.org/), a content analysis toolkit from Apache. This toolkit runs asynchronously in the background using `java` as a server, and can be called using `tika` Python library. 
@@ -100,10 +102,39 @@ from langchain.text_splitter import CharacterTextSplitter
 # create character chunks
 text_splitter = CharacterTextSplitter(
     separator="\n",
-    chunk_size=1000,
+    chunk_size=2000,
     chunk_overlap=200,
     length_function=len,
     is_separator_regex=False,
 )
-chunks = text_splitter.create_documents([text[0]['content']])
+# chunks = text_splitter.create_documents([text[0]['content']])
+chunks = []
+for content in text:
+    chunks.extend(text_splitter.create_documents([content['content']]))
+len(chunks)
 ```
+## Embedding with HuggingFace
+Embeddings are representation of a string, where many strings can be converted into embeddings, then processed as numerical data. This implementation use Embedding Model, a defined algorithm that converts strings into vector embeddings, using HuggingFace API. Code example below is how to define an embeddings model, using MiniLM L6 V2 as the model.
+```python
+from langchain.embeddings import HuggingFaceEmbeddings
+embeddings_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2",
+                                         model_kwargs={"device": "cpu"},
+                                         encode_kwargs={'normalize_embeddings':False})
+```
+## Storing Vector Database with Langchain
+Langchain is a library that integrate several machine learning model and algorithm, and for this implementation, the models defined on previous section is going to be used to create vector embeddings of all the documents that has been processed into chunks, then place it into FAISS vector database. The database then stored inside [`data/faiss_index`](./data/faiss_index). The code implementation is attached below.
+```python
+# First install the faiss-cpu library
+%pip install faiss-cpu
+# Define the vector stores first, then load the chunks and the embeddings_model
+from langchain_community.vectorstores import FAISS
+db = FAISS.from_documents(chunks, embeddings_model)
+# Save the database into the file
+db.save_local('./data/faiss_index')
+# To load, use
+db = FAISS.load_local('./data/faiss_index')
+```
+
+
+documents that has been added into the database up until:
+*WG3: Near-real-time RIC and E2 Interface Workgroup*
