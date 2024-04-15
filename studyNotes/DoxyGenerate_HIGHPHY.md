@@ -13,3 +13,6 @@ Next, go to expert tab and search for dot menu on the left side of panel (scroll
 Next, go to run tab and click run 
 ![image](https://github.com/bmw-ece-ntust/internship/assets/123167913/973e5c76-4263-4d52-a37e-268e6562830a)
 (note : incase the run button is grayed out, please click file on corner top left then click save as (just save it randomly), the run button should be available after saving)
+The final output of the document should be located under html folder, click on index.html, the following is the sample of generated HIGH PHY docs
+![image](https://github.com/bmw-ece-ntust/internship/assets/123167913/22d91360-6024-4c12-a2b0-1d6f6435dafa)
+![image](https://github.com/bmw-ece-ntust/internship/assets/123167913/108deed0-ca72-454c-9dde-209f9111c05c)
