@@ -56,3 +56,47 @@ Lastly, after processing the QoE Prediction Request, the QP xApp responds with t
 ```
 
 Above, the throughput predictions for three cells are provided for the UE “Train passenger 2.” Each array contains DL (downlink) and UL (uplink) throughput predictions. The TS xApp then checks if the predicted throughput in any neighboring cell is higher than the serving cell’s throughput for the UE. If that's the case, it'll make decisions about UE handover based on this information.
+
+## It also checks for the Service Cell ID for UE ID...
+
+It determines if the predicted throughput is higher in a neighbor cell: the first cell in this prediction message is assumed to be the serving cell.
+
+If predicted throughput is higher than the A1 policy “threshold” in a given neighbor cell, TS xApp sends the CONTROL message to a given endpoint. Since RC xApp is not mandatory for this use case, TS xApp sends CONTROL messages using either REST or gRPC calls. The CONTROL endpoint is set up in the xApp descriptor file called “config-file.json”.
+
+It is advised to check the "schema.json" file out for more config examples!
+
+Here below is how a REST message requesting the handover of a given UE looks:
+
+```
+{
+    "command": "HandOff",
+    "seqNo": 1,
+    "ue": "Train passenger 2",
+    "fromCell": "310-680-200-555001",
+    "toCell": "310-680-200-555003",
+    "timestamp": "Sat May 22 10:35:33 2021",
+    "reason": "Hand-Off Control Request from TS xApp",
+    "ttl": 10
+}
+```
+
+Control messages might also be exchanged with E2 Simulators that implement REST-based interfaces. TS xApp then logs the REST response showing whether or not the control operation has succeeded. The gRPC interface is only required to exchange messages with the RC xApp. Lastly, below is the example of the gRPC message requesting the RC xApp to handover a given UE looks:
+
+```
+e2NodeID: "000000000001001000110100"
+plmnID: "02F829"
+ranName: "enb_208_092_001235"
+    RICE2APHeaderData {
+    RanFuncId: 300
+    RICRequestorID: 1001
+}
+RICControlHeaderData {
+    ControlStyle: 3
+    ControlActionId: 1
+    UEID: "Train passenger 2"
+}
+RICControlMessageData {
+    TargetCellID: "mnop"
+}
+```
+TS xApp requires to fetch additional RAN information from the E2 Manager to communicate with RC xApp and it also requests information to the default endpoint of E2 Manager in the Kubernetes cluster. The default E2 Manager endpoint from TS can be changed using “SERVICE_E2MGR_HTTP_BASE_URL”.
