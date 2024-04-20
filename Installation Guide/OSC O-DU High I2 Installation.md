@@ -22,9 +22,7 @@ OSC O-DU is an open-source implementation of O-DU developed by the Open Source C
 | Item          | Info                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | OS            | Ubuntu 22.04.4 LTS |
-| Kernel        | 5.15.133.1-microsoft-standard-WSL2 |
-| DPDK          | - |
-| LinuxPTP      | - |
+| Kernel        | 6.5.0-27-generic|
 | OSC DU Branch | i-release |
 
 
