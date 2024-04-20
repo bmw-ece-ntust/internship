@@ -34,5 +34,9 @@ Flowchart of SchInstCfg Function
 
 This function in called by SchProcGenCfgReq(). It handles the general configurations of the scheduler instance. Returns reason for success/failure of this function.
 
+# Conclusion
+
+After reading ![the entire program code](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-24-Reyhan/Studynotes/SCH%20Thread%20Functions.pdf), I found that all functions in the SCH.H file are designed to respond to commands from MAC. Therefore, SCH operates without a main thread, but only by responding to commands from MAC.
+
 ---
 * [O-RAN : Base Stasion O-DU and O-CU Software Architecture and APIs](https://www.o-ran.org/blog/57-new-or-updated-o-ran-specifications-released-since-march-2023)
