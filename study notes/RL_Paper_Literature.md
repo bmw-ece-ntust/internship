@@ -11,7 +11,7 @@
 - Task offloading optimizes distributed systems by splitting tasks among network devices to reduce individual device workload.
 - This paper design an efficient algorithm based on multi-agent deep depolicy gradient (MADDPG) to observe the states of user equipments (UEs), edge servers, and cloud server thereby reducing offloading delay and energy consumption. 
 ## Model & Problem
-![image](https://hackmd.io/_uploads/rksMI3fW0.png)
+-![image](https://github.com/bmw-ece-ntust/internship/assets/87467666/9a9000a5-2b08-48f0-b4c6-a117d788ead1)
     $$\text{Figure Task Offloading Model in 6G}$$ 
 - If a task cannot be completed locally, the user end offloads it to edge or cloud servers based on the chosen strategy. The network consists of *U* (user ends), *E* (edge servers), and *C* (cloud servers).
 -  The issue of resource allocation in 6G networks is typically focused on two key factors: total time and total energy. 
