@@ -5,7 +5,8 @@
 
 RL	: **the reward** represents the quantity of cans collected by the robot. **The agent** learns by experimenting to maximize the collection of cans.
 ## Jupyter Notebook Code
-- [Code-1](https://github.com/Bintang-Satwika/StudyNotes-Literature/blob/191e3041246b7e9b444a48a8dc628e4a869d820e/RL_UAlberta/W1_Jupyter.ipynb)
+1. [JupyterNotebook-1](https://github.com/Bintang-Satwika/StudyNotes-Literature/blob/191e3041246b7e9b444a48a8dc628e4a869d820e/RL_UAlberta/W1_Jupyter.ipynb)
+2. [JupyterNotebook-2](https://github.com/Bintang-Satwika/StudyNotes-Literature/blob/695d8dd2a0e0f18b1a56a6209fdd97d1a433e480/RL_UAlberta/W4_dynamicProgramming.ipynb)
 ## K-armed Bandits
 -  In the k-armed bandit problem, an agent selects from k different actions and earns a reward corresponding to the chosen action. 
 - ![image](https://hackmd.io/_uploads/r11uO4dRa.png)
@@ -149,3 +150,36 @@ RL	: **the reward** represents the quantity of cans collected by the robot. **Th
 
 ### Notation Belmann
 - ![image](https://hackmd.io/_uploads/H1Y6N5Ml0.png)
+
+## Policy Evaluation (Prediction) & Policy Iteration (Control) 
+- Policy evaluation is the task of determining the statevalue function $V_\pi$ for a specific policy $\pi$. 
+- Control is the task of improbing an existing policy $\pi$.
+### Iterative policy
+- ![image](https://hackmd.io/_uploads/SkouXh2eC.png)
+- $$V_{k+1}(s) \leftarrow \sum_a \pi(a|s) \sum_{s'} \sum_r p(s',r|s,a)[r+\gamma v_k(s')] $$
+-  If an update iteration leaves the value function unchanged ($V_{k+1}=V_k$ for all states), then $V_k =V_\pi$ (indicating optimal function has been found). For any initialize value function $V_0$, $\lim_{k \to \infty}V_k = V_\pi$.
+-  ![image](https://hackmd.io/_uploads/r1HSIhhlA.png)
+### policy Iteration (Control)
+-  ![image](https://hackmd.io/_uploads/HJycAphe0.png)
+-  $$\pi^{'}(s) :=\operatorname{argmax}_{a}  \sum_{s'} \sum_r p(s',r|s,a)[r+\gamma v_pi(s')] $$
+-  ![image](https://hackmd.io/_uploads/SkXVZ0ngR.png)
+- Policy iteration involves alternating between two main steps: policy evaluation and policy improvement. 
+	- In policy evaluation, the value function for the current policy is determined. 
+	- Policy improvement, also known as greedification, involves making the policy greedy based on the current value function.
+
+- policy iteration follows a sequence of better policies and value functions until it reaches the optimal policy
+- ![image](https://hackmd.io/_uploads/Hk-qJJl-R.png)
+
+### Generalized policy Iteration
+- ![image](https://hackmd.io/_uploads/rJgdJygZC.png)
+- in this the evaluation and improvement steps need not run to completion.
+- value iteration to combine policy evaluation and improvement in a single-step
+- Synchronous dynamic programming methods systematically sweep through the entire state space in each iteration. In contrast, asynchronous methods offer flexibility by updating states in any order. This flexibility allows asynchronous methods to focus on specific states, making them more efficient, especially in scenarios with vast state spaces.
+- **Monte Carlo Method**:
+	- ![image](https://hackmd.io/_uploads/Bkq5OA1-A.png)
+	- $V_\pi(s) := \mathbb{E}_\pi [G_t|S_t=s]$ from this equation, gather a large number of returns under $\pi$ and take their average. This will eventually converge to the state value. 
+	- This method require large number returns for each state due to the randomness of actions and state transitions in the MDP. Each return could differ significantly from the true state value, necessitating averaging many returns every single state before estimate convergences.
+- **Bootstrapping**:
+	- bootstrapping can save us from performing a huge amount of unnecessary work by exploiting the connection between the value of a state and its possible successors.
+- **Brute-force**:
+	- This method simply evaluates every possible deterministic policy one at a time, we then pick the one with the highest value. However, the number of deterministic policies can be huge
