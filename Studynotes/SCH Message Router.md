@@ -73,6 +73,7 @@ Return:
 * **ROK** (uint8_t)
 * **RFAILED** (uint8_t)
 
+## SCH Message Router Function
 To control the task flow of the 5G NR SCH, schMessageRouter will invoke SCH Message Router Sub-function for each case explained below
 
 ### Layer Manager Configuration request handler
