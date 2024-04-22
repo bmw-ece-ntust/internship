@@ -22,9 +22,7 @@ OSC O-DU is an open-source implementation of O-DU developed by the Open Source C
 | Item          | Info                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | OS            | Ubuntu 22.04.4 LTS |
-| Kernel        | 5.15.133.1-microsoft-standard-WSL2 |
-| DPDK          | - |
-| LinuxPTP      | - |
+| Kernel        | 6.5.0-27-generic|
 | OSC DU Branch | i-release |
 
 
@@ -60,28 +58,43 @@ git clone https://gerrit.o-ran-sc.org/r/o-du/l2
 ![image](https://hackmd.io/_uploads/SJcz8krhp.png)
 
 ### Compilation
-In order to compile and build the OSC O-DU High I2 Navigate to `ODUI2/l2/build/odu` and then run the following code
-* Clean O-DU High binary
-    ```
-    make clean_odu MACHINE=BIT64 MODE=FDD
-    ```
-    ![image](https://hackmd.io/_uploads/HkV7DJH3T.png)
-
-* Compile O-DU High binary
-    ```
-    make odu MACHINE=BIT64 MODE=FDD
-    ```
-    ![image](https://hackmd.io/_uploads/r1IRD1H2p.png)
-
-    Still encounter problem to compile the du_sys_info_hdl.c file due to error, if the compilation succes the final message should be
-    ![image](https://hackmd.io/_uploads/ByWA_1B2p.png)
-
-
-    **Error Message**
-    ```
-    ‘PLMN_IdentitY_t’ undeclared (first use in this function); did you mean ‘PLMN_Identity_t’?
-    ```
-
+In order to compile and build the O-DU HIGH, CU STUB, and RIC STUB Navigate to `ODUI2/l2/build/odu` and then run the following code
+* O-DU HIGH
+    * Clean O-DU High Binary
+        ```
+        make clean_odu MACHINE=BIT64 MODE=FDD
+        ```
+        ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-24-Reyhan/Images/Clean%20O-DU%20High%20binary.png)
+    
+    * Compile O-DU High Binary
+        ```
+        make odu MACHINE=BIT64 MODE=FDD
+        ```
+        ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-24-Reyhan/Images/Compile%20O-DU%20HIGH%20BInary.png)
+* CU STUB
+    * Clean CU STUB Binary
+        ```
+        mmake clean_cu NODE=TEST_STUB MACHINE=BIT64 MODE=FDD
+        ```
+        ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-24-Reyhan/Images/Clean%20CU%20Stub%20Binary.png)
+    
+    * Compile CU STUB Binary
+        ```
+        make cu_stub NODE=TEST_STUB MACHINE=BIT64 MODE=FDD
+        ```
+        ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-24-Reyhan/Images/Build%20CU%20Stub%20BInary.png)
+* RIC STUB
+    * Clean RIC STUB Binary
+        ```
+        make clean_ric NODE=TEST_STUB MACHINE=BIT64 MODE=FDD
+        ```
+        ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-24-Reyhan/Images/Clean%20RIC%20Stub%20Binary.png)
+    
+    * Compile RIC Stub Binary
+        ```
+        make ric_stub NODE=TEST_STUB MACHINE=BIT64 MODE=FDD
+        ```
+        ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-24-Reyhan/Images/Compile%20RIC%20Stub%20Binary.png)
 
 ---
 ## Source
