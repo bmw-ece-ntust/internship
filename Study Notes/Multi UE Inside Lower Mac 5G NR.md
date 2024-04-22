@@ -82,12 +82,12 @@ Each function takes input parameters related to the current UL TTI (Transmission
 
 The codes are mainly different in their repetition. Single UE only runs the process for 1 UE, while Multi UE iterates the process for each UEs available.
 
-Here is the flowchart of Lower Mac for Single UE:
+Here is the flowchart of Lower Mac for Single UE in getnPdus function:
 ![image](https://hackmd.io/_uploads/rJU94Dm-R.png)
 
 
 
-And here is the flowchart of Lower Mac for Multi UE:
+And here is the flowchart of Lower Mac for Multi UE in getnPdus function:
 ![image](https://hackmd.io/_uploads/Hko8rPm-A.png)
 
 
