@@ -2,7 +2,7 @@
 The claim that there is multi UE (multiple user equipment) in the O-RAN (Open Radio Access Network) refers to the support for multiple UE in the O-RAN architecture. The O-RAN architecture supports multi UE scheduling, with a maximum of 2 UE per TTI (Time Transmission Interval) in the scheduler. Additionally, the O-RAN architecture enables multi-layer decision-making, where a UE may perform intelligent sensing on its own. The JIRA tasks mentioned in the search results indicate that there are specific features and improvements related to multi UE resource allocation, PDSCH (Physical Downlink Shared Channel) allocation, and PDCCH (Physical Downlink Control Channel) allocation. 
 
 Here is the flowchart of Multi UE in general:
-![image](https://hackmd.io/_uploads/H1Go0550a.png)
+![upload_faa51ca7ad6f1dc873c15191ea894617](https://hackmd.io/_uploads/SyDu9Sm-C.png)
 
 
 
@@ -28,7 +28,7 @@ https://gerrit.o-ran-sc.org/r/c/o-du/l2/+/12580
 5. It can be seen that the changes made to transition from a single UE to multiple UEs:
 
 - **Addition of UE Loop:**
-Before multi-UE support, there was no loop for individual UEs. After the modification, a **`for`** loop iterates through each UE from 0 to **`MAX_NUM_UE`**, enabling the code to handle and process data related to each UE individually.
+Before multi-UE support, there was nohttps://hackmd.io/7aK94IPHQ8CyQ2V29Qke0A?both# loop for individual UEs. After the modification, a **`for`** loop iterates through each UE from 0 to **`MAX_NUM_UE`**, enabling the code to handle and process data related to each UE individually.
 - **UE-Specific Index Utilization:**
 Within the UE loop, the **`ueIdx`** variable is used to access UE-specific data. This index facilitates accessing configuration details such as PUSCH and PUCCH configurations for each UE.
 - **Handling UE-Specific Information:**
@@ -61,6 +61,7 @@ These changes enable the code to efficiently manage multiple UEs, accessing and 
     - Increment **`pduIdx`** for each UE to keep track of PDUs processed.
     - Calculate PDU counts based on UE-specific data types and configurations.
 
+![upload_9670d013fb79ff7226fd6fe36c140de7](https://hackmd.io/_uploads/S1rTcBXbC.png)
 
 
 7. Open the code in Ubuntu paralel desktop
