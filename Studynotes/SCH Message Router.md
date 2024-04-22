@@ -178,7 +178,7 @@ Return:
 * **ROK** (uint8_t)
 * **RFAILED** (uint8_t)
 
-### Modify Ue Config request from MAC
+### Modify UE Config request from MAC
 Description:
 
 Function to modify Ue Config request from MAC
