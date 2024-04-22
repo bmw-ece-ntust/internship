@@ -56,7 +56,7 @@ Parameter:
 Return:
 * **void**
 
-## SCH Message Router
+## SCH Message Router 
 Description:
 
 This function invoked by schActvTsk to the set execution of SCH function according to the parameter
@@ -73,7 +73,7 @@ Return:
 * **ROK** (uint8_t)
 * **RFAILED** (uint8_t)
 
-## SCH Message Router Function
+## SCH Message Router Sub-Function
 To control the task flow of the 5G NR SCH, schMessageRouter will invoke SCH Message Router Sub-function for each case explained below
 
 ### Layer Manager Configuration request handler
