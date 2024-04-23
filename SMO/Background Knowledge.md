@@ -26,3 +26,7 @@ Another view of the same can be seen in the diagram below. In this case the even
 The VES Collector stores the events in InfluxdB and alternatively to the Elasticsearch engine and/or the Kafka bus. The event data can then be picked up by Grafana or any other application to perform any analysis on the data.
 
 ![image](https://github.com/bmw-ece-ntust/internship/assets/145204053/2ffb857e-4e46-47b2-9526-3d398d898b6d)
+
+## Example Topology of SMO to Managed Elements
+![image](https://github.com/bmw-ece-ntust/internship/assets/145204053/26816eca-4d9b-4821-b18d-29fe67070e19)
+
