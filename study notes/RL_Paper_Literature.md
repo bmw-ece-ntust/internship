@@ -51,4 +51,14 @@ The Algorithm proposed in this paper compared to RAN, MEC, DQN, MADDPG-MEC.
 - This paper purpose a multi-agent DRL based function deployment algorithm to minimize energy consumption while fulfilling multiple requests and adhering to latency and resource constraints. The proposed algorithm is evaluated through simulations on 8-MEC and 14-MEC RAN networks.
 - Effective baseband function management policies should considerUser Plane Functions **(UPF)** placement, activation time, and potential action space explosion in large networks.
     - **UPF** has critical role in enabling users to access data networks for ultra-reliable low latency communication (uRLLC) services.
+## MODEL 
+- This paper using Mixed-Integer Linear Programming (MILP) and Multi-agent DRL  for optimizing baseband function deployments O-RAN.
+- Complexity of MILP leads to expensive computation, making it unsuitable for real-time applications. Moreover, MILP unable accommodate decreasing traffic along *SFC ( Service Function Chains)*. To address real-time network management with dynamic traffic patterns, the paper proposes a DRL algorithm.
+    - *SFC*s in O-RAN are designed to handle requests from cell units by linking various baseband functions like DUs, CUs, and UPFs.
+- ![image](https://hackmd.io/_uploads/HyHLLcIW0.png)
+- from the image, DRL agents collaborate  to determine the activation of MEC. The goal is to select the server combination with the lowest energy consumption for baseband placement.$$\downarrow$$ The decisions made by the DRL agents are then used as inputs for RFDH, which handles further computation and bandwidth resource management. 
+
+## Algorithm
+![image](https://hackmd.io/_uploads/H1N3s5LWA.png)
+
 
