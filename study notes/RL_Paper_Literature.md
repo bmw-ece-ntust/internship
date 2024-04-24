@@ -39,3 +39,16 @@ The Algorithm proposed in this paper compared to RAN, MEC, DQN, MADDPG-MEC.
 ### Cons:
 - The algorithm proposed in this paper requires many epochs compared to other methods to achieve superb performance.
 
+# [DRL-Based Energy-Efficient Baseband Function Deployments for Service-Oriented Open RAN](https://ieeexplore.ieee.org/document/10268589)
+| item | information |
+| --- | --- |
+| Authors |Haiyuan Li; Amin Emami ; etc.|
+| Date of Publication |   02 October 2023  |
+|type |IEEE Transactions on Green Communications and Networking|
+| total pages |  14 pages|
+| keywords |Open RAN, resource optimization, baseband function deployment, energy-efficient, MADDPG|
+## About & Contributor of the Paper
+- This paper purpose a multi-agent DRL based function deployment algorithm to minimize energy consumption while fulfilling multiple requests and adhering to latency and resource constraints. The proposed algorithm is evaluated through simulations on 8-MEC and 14-MEC RAN networks.
+- Effective baseband function management policies should considerUser Plane Functions **(UPF)** placement, activation time, and potential action space explosion in large networks.
+    - **UPF** has critical role in enabling users to access data networks for ultra-reliable low latency communication (uRLLC) services.
+
