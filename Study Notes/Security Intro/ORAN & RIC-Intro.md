@@ -62,3 +62,51 @@ Open Fronthaul, in O-RAN, refers to the interface between the Radio Unit (O-RU) 
     - Synchronization Plane (S-Plane): This plane ensures all the radio units are in perfect timing for smooth communication. Imagine it as the metronome keeping everyone in sync.
 
 
+## RIC (RAN Intelligent Controller)
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="https://imgur.com/S0kMGdq.png" alt="Chart" width="500" style="background-color: white; padding: 10px; border-radius: 15px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
+</div>
+<div style="height: 50px;"></div>
+RIC is a software-defined component within the Open RAN architecture that functions to manage to do controlling and aptimization within the RAN functions. RIC provides mobile operators with advanced network control, improve network performance, quick enablement of new services, AI/ML driven network control, and supports low latency applications. RIC effectively balances the RAN load, which alleviates network congestion and improve network performance. It customizes RAN functionality by optimization of regional resources, which enables quick launch of new services to build new revenue streams with personalized services. RIC provides advanced control functionality, leveraging analytics and data-drive approaches including advanced ML/AI tools to improve resource management capabilities.
+<div style="height: 15px;"></div>
+
+The RIC facilitates multivendor interoparibility by providing a common platform where various elements from different suppliers can be integrated and managed effectively. This interoperability is crucial for breaking the dominance of single-vendor networks, allowing operators more flexibility and choice in their deployments.
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="https://imgur.com/5E2Mhj1.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 15px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
+</div>
+
+### Non-RT RIC (Non-Realtime RIC)
+Non-RT RIC is used to manage operations that does not have tight timing. The Non-RT RIC supports intelligent RAN optimization by providing policy-based guidance, ML model management and enrichment information to the Near-RT RIC function. 
+
+The Non-RT RIC is comprised of two sub-functions:
+-	Non-RT RIC Framework – Functionality internal to the SMO Framework that logically terminates the A1 interface and exposes the required services to rApps through its R1 interface.
+-	Non-RT RIC Applications (rApps) – Modular applications that leverage the functionality exposed by the Non-RT RIC Framework to perform RAN optimization and other functions. Services exposed to rApps via the R1 interface enable rApps to obtain information and trigger actions (e.g., policies, re-configuration) through the A1, O1, O2 and Open FH M-Plane related services.
+
+Non-RT RIC is a part of SMO, which is an automation platform which applies automation at scale to simplify the complexity of networks, as well as improve network performance, enhance customer experience and minimize RAN operational costs. This SMO is depployed in the center of service provider network which enables non-real-time (> 1 second) control of RAN elements and their resources through specialized applications called rApps. Non-RT RIC can use data analytics and AI/ML training/inference to determine the RAN optimization actions for which it can leverage SMO services such as data collection and provisioning services of the O-RAN nodes as well as the O1 and O2 interfaces.
+
+
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="https://imgur.com/aRrXv5C.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 15px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
+</div>
+
+The key capabilities of the SMO that provide RAN support in O-RAN are:
+-	FCAPS interface to O-RAN Network Functions
+-	Non-RT RIC for RAN optimization
+-	O-Cloud Management, Orchestration and Workflow Management
+
+
+The SMO performs these services through four key interfaces towards other O-RAN architecture elements.
+- A1 Interface between the Non-RT RIC in the SMO and the Near-RT RIC for RAN Optimization.
+- O1 Interface used by SMO for the FCAPS support of the O-RAN Network Functions (excluding O-RU).
+- In the hybrid model, Open Fronthaul M-plane interface between SMO and O-RU for FCAPS support.
+- O2 Interface between the SMO and the O-Cloud to provide platform resources and workload management.
+
+### Near-RT RIC (Near-realtime RIC)
+Near RT RIC operates within a time frame that is shorter than traditional RAN management systems but not as immediate as the millisecond-level reactions required for some physical layer functions. The Near-RT RIC hosts one or more xApps that use E2 interface to collect near real-time information (e.g., on a UE basis or a Cell basis) and provide value added services. The Near-RT RIC control over the E2 Nodes is steered via the policies and the enrichment data provided via A1 from the Non-RT RIC. Based on the available data, the Near-RT RIC generates the RAN analytics information and exposes it via Y1 interface. 
+
+## CU
+## DU
+## RU
