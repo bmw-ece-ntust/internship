@@ -26,6 +26,19 @@ or in interface context:
 Port with LLDP configuration information obtained from the device
 ![image](/images/lldp.png)
 
+Detail:
+| Field            | Description                                                                                                      |
+|------------------|------------------------------------------------------------------------------------------------------------------|
+| PoE Port     | Lists all PoE-capable ports on the switch.            |
+| Power Enable         | Shows Yes for ports enabled to support PoE (the default) and No for ports on which PoE is disabled.                          |
+| Power Priority      | Lists the power priority (Low, High, and Critical) configured on ports enabled for PoE.                             |
+| Alloc by | Displays how PoE is allocated (usage, class, value)  |
+| Alloc Power | The maximum amount of PoE power allocated for that port (expressed in watts.)Default: 17 watts for PoE; 33 watts for PoE+.  |
+| Actual Power | The power actually being used on that port.  |
+| Configured Type | If configured, shows the user-specified identifier for the port. If not configured, this field is empty.  |
+| Detection Status: | Searching (The port is trying to detect a PD connection), Delivering (The port is delivering power to a PD), Disabled (On the indicated port, either PoE support is disabled or PoE power is enabled but the PoE module does not have enough power available to supply the port's power needs), Fault (The switch detects a problem with the connected PD), Other Fault (The switch has detected an internal fault that prevents it from supplying power on that port) |
+| Power Class     | Shows the 802.3af power class of the PD detected on the indicated port.            |
+
 ## show power-over-ethernet <port-list>
 Displays the following PoE status and statistics (since the last reboot) for each port in `<port-list>` :
 
