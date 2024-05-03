@@ -30,4 +30,6 @@ AJSC finally calls Kafka services and response is sent back.
     requires user authentication and endpoint authorization, supports low-latency large file transmission, and offers a guaranteed delivery option even when subscribers are down for an extended period.
 
 ### Architecture Alignment
+  DMaaP is indentified as a common service in ONAP Architecture which can be seen below:
+  
    ![image](https://github.com/bmw-ece-ntust/internship/assets/145204053/53ff12c3-86e2-4d69-85fd-7f5dcaf7eae5)
