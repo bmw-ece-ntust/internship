@@ -1,5 +1,5 @@
 ## UERANSIM
-> Make sure you have enough space in your VM by making a bigger storage. In this example I am using 8GB (~~I tried 4GB~~ --> it did not work)
+> Make sure you have enough space in your VM by making a bigger storage. In this example I'm using 8GB (~~I tried 4GB~~ --> it didn't work)
 ## A bit about 5G, OAI, and USRP
 ![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/6f3d3d54-e43e-46ff-a9d0-33ad421d6626)
 
@@ -12,9 +12,9 @@ sudo apt upgrade
 ```
 <img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/65e360b3-15dd-45e8-b6b3-01f9386d38d5">
 <img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/afa2ea07-2f63-4dc4-9171-12644edf2ae4">
-```
-P.S. YEP! it might take a while just be patient :>
-```
+
+>P.S. YEP! it might take a while just be patient :>
+
 <img width="715" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/4ae9c0a8-838c-45eb-b901-45a2e4338aa2">
 
 2. Installing Tools
@@ -49,6 +49,9 @@ git checkout v3.1.0
 make
 ```
 <img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/f73a7d19-ec3c-4f0a-9415-48b03210f1aa">
+
+>>ERROR
+<img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/bda8e6ba-05c0-428a-8aae-4750fbe0f89b">
 
 6. 
 7. D
