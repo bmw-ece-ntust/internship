@@ -26,6 +26,10 @@ This system is used for communcation system such as
 5. IoT Communication: Connecting various IoT (Internet of Things) devices to the network for data exchange and control.
 
 
+## cu_gnB OAI
+![IMG_6633](https://github.com/bmw-ece-ntust/internship/assets/123353805/bcfa1f10-540c-49a0-aa6b-4aafc84c5f90)
+![IMG_6634](https://github.com/bmw-ece-ntust/internship/assets/123353805/e2c29a25-9634-445c-9630-7a9abd783db7)
+
 
 ## List of abbreviations:
 - OSC: ORAN Software Community
