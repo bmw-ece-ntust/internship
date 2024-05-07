@@ -337,5 +337,5 @@ on progress
 </details>
 
 > Related documentation:
-> - [Variable Panel Plugin](https://)
+> - [Variable Panel Plugin](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Grafana/Dashboard_Development/variable_panel_plugin.md#using-the-variable-panel-plugin)
 > - [Grafana Syntax Explanation](https://) (Link not available yet, still on progress)
