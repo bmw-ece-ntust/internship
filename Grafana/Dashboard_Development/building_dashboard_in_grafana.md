@@ -23,9 +23,9 @@ This progress report documents the development of two dashboards, AP Dashboard a
 
 <details>
 <summary><b> Task 1 </b></summary>
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas1.jpg)
 
 ## Task 1: Table of All Data
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas1.jpg)
 
 * **Objective**
 To create a comprehensive table displaying various parameters of APs across different buildings and floors.
@@ -68,9 +68,9 @@ Variables ap_group_building and ap_group_floor were created to filter data based
 </details>
 <details>
 <summary><b> Task 2 </b></summary>
-        
-## Task 2: Specific AP Table
 ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas2.jpg)
+
+## Task 2: Specific AP Table
 
 * **Objective**
 To create a table for a specific AP, showing detailed information.
@@ -113,9 +113,9 @@ A variable ap_name was created to filter data for a specific AP. The query follo
 </details>
 <details>
 <summary><b> Task 3 </b></summary>
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas3.jpg)
 
 ## Task 3: Client Numbers in Specific AP
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas3.jpg)
 
 * **Objective**
 To visualize the number of clients connected to a specific AP.
@@ -134,9 +134,9 @@ A bar chart is created using a query that filters data for a specific AP (ap_nam
 </details>
 <details>
 <summary><b> Task 4 </b></summary>
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas4.jpg)
 
 ## Task 4: Noise Floor in Specific AP
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas4.jpg)
 
 * **Objective**
 To display the noise floor for a specific AP.
@@ -153,9 +153,9 @@ A query is used to filter data for a specific AP (ap_name) and select the noise_
 </details>
 <details>
 <summary><b> Task 5 </b></summary>
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas5.jpg)
 
 ## Task 5: Channel Utilization for 2.4GHz & 5GHz Bands
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas5.jpg)
 
 * **Objective**
 To calculate and display the channel utilization for 2.4GHz and 5GHz bands in a specific AP.
@@ -197,9 +197,9 @@ A pie chart is created using a query that filters data for a specific AP (ap_nam
 
 <details>
 <summary><b> Task 1 </b></summary>
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas1.jpg)
 
 ## Task 1: Table of All Data
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas1.jpg)
 
 * **Objective**
 To create a comprehensive table displaying various parameters of clients.
@@ -238,9 +238,9 @@ A query is used to filter data from the "Client" measurement and select relevant
 </details>
 <details>
 <summary><b> Task 2 </b></summary>
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas2.jpg)
 
 ## Task 2: Specific Client Table
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas2.jpg)
 
 * **Objective**
 To create a table for a specific client, showing detailed information.
@@ -280,9 +280,9 @@ A variable userName was created to filter data for a specific client. The query 
 </details>
 <details>
 <summary><b> Task 3 </b></summary>
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas3.jpg)
 
 ## Task 3: Channel for Specific Client
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas3.jpg)
 
 * **Objective**
 To visualize the channel used by a specific client, represented using bar chart.
@@ -301,9 +301,9 @@ A bar chart is created using a query that filters data for a specific client (us
 </details>
 <details>
 <summary><b> Task 4 </b></summary>
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas4.jpg)
 
 ## Task 4: SNR for Specific Client
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas4.jpg)
 
 * **Objective**
 To display the Signal-to-Noise Ratio (SNR) for a specific client, represented using line chart (time series).
@@ -337,5 +337,5 @@ on progress
 </details>
 
 > Related documentation:
-> - [How to create and use variable in Grafana and](https://) (on progress)
-> - [Grafana Syntax Explanation](https://) (on progress)
+> - [Variable Panel Plugin](https://)
+> - [Grafana Syntax Explanation](https://) (Link not available yet, still on progress)
