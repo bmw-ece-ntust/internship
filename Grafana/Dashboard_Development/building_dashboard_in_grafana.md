@@ -333,9 +333,9 @@ on progress
 * **Explanation**
 on progress
 
+</details>
+</details>
+
 > Related documentation:
 > - [How to create and use variable in Grafana and](https://) (on progress)
 > - [Grafana Syntax Explanation](https://) (on progress)
-
-</details>
-</details>
