@@ -61,4 +61,13 @@ The Algorithm proposed in this paper compared to RAN, MEC, DQN, MADDPG-MEC.
 ## Algorithm
 ![image](https://hackmd.io/_uploads/H1N3s5LWA.png)
 
+##  RESULTS
+- ![image](https://hackmd.io/_uploads/S1no5AvMC.png)
+- In the 8-MEC Network, Deep Reinforcement Learning (DRL) can save 12% to 71% energy compared to PMD, RA, GHP, and ASM. However, Mixed-Integer Linear Programming (MILP) still has the lowest energy consumption.
+- in the 14-MEC Network, DRL has the lowest energy consumption as the network size grows, the relative benefits obtained by DRL gradually diminish. However, the paper does not include MILP model.
+- For running time comparision in 8-MEC,  MILP approach requires 544 seconds to achieve the optimal result. Unfortunately, this violates the real-time response requirements for 5G services. In contrast, DRL demonstrates a significantly faster reasoning time, completing in less than 1 second
+
+## Pros and Cros
+- DRL has significantly quicker response time for 5G services than MILP. However MILP still maintains lower energy consumption.
+- During training, DRL can consume a lot of energy due to the complexity of the algorithm. However, it can continuously serve the network, offering sustainable energy savings.
 
