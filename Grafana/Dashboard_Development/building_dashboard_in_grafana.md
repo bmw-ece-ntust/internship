@@ -25,7 +25,7 @@ This progress report documents the development of two dashboards, AP Dashboard a
 <summary><b> Task 1 </b></summary>
 
 ## Task 1: Table of All Data
-![image](Assets/dashboard/apdas1.jpg)
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas1.jpg)
 
 * **Objective**
 To create a comprehensive table displaying various parameters of APs across different buildings and floors.
