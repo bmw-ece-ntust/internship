@@ -70,7 +70,7 @@ Variables ap_group_building and ap_group_floor were created to filter data based
 <summary><b> Task 2 </b></summary>
         
 ## Task 2: Specific AP Table
-![image](Assets/dashboard/apdas2.jpg)
+![image](./Assets/dashboard/apdas2.jpg)
 
 * **Objective**
 To create a table for a specific AP, showing detailed information.
