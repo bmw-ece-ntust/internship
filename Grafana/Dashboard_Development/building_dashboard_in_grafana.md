@@ -155,7 +155,7 @@ A query is used to filter data for a specific AP (ap_name) and select the noise_
 <summary><b> Task 5 </b></summary>
 
 ## Task 5: Channel Utilization for 2.4GHz & 5GHz Bands
-    ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas5.jpg)
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas5.jpg)
 
 * **Objective**
 To calculate and display the channel utilization for 2.4GHz and 5GHz bands in a specific AP.
@@ -193,7 +193,7 @@ A pie chart is created using a query that filters data for a specific AP (ap_nam
 - [x] Create a Table for the specific client
 - [x] Show channel for the specific client
 - [x] Show SNR for the specific client
-- [x] Add a line chart below the existing charts, displaying three lines: total_data (total_data_bytes), rx (rx_data_bytes), and tx (tx_data_bytes). 
+- [ ] Add a line chart below the existing charts, displaying three lines: total_data (total_data_bytes), rx (rx_data_bytes), and tx (tx_data_bytes). 
 
 <details>
 <summary><b> Task 1 </b></summary>
@@ -323,29 +323,15 @@ A line chart is created using a query that filters data for a specific client (u
 <details>
 <summary><b> Task 5 </b></summary>
     
-## Task 5: Channel Utilization for 2.4GHz & 5GHz Bands
+## Task 5: Add Total Data, Rx, and Tx Line Chart
 * **Objective**
-To calculate and display the channel utilization for 2.4GHz and 5GHz bands in a specific AP.
+on progress
 * **Query**
 ```
-from(bucket: "wifi")
- |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
- |> filter(fn: (r) => r["_measurement"] == "AP" and r["ap_name"] =~ /^${apName:regex}$/)
- |> filter(fn: (r) => r["radio_band"] == "(2.4 or  5.0")
- |> filter(fn: (r) =>   r["_field"] == "rx_time" or
-                        r["_field"] == "tx_time" or
-                        r["_field"] == "channel_interference" or
-                        r["_field"] == "channel_free")
- |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
- |> keep(columns: ["ap_name", 
-                     "rx_time",
-                     "tx_time",
-                     "channel_interference",
-                     "channel_free"])  
- |> group()
+on progress
 ```
 * **Explanation**
-A pie chart is created using a query that filters data for a specific AP (ap_name) and selects fields related to channel utilization (rx_time, tx_time, channel_interference, channel_free). The query calculates the total utilization for each band and displays it in the chart.
+on progress
 
 </details>
 </details>
