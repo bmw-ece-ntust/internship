@@ -92,7 +92,7 @@ DEBUG  -->  RLC : Received scheduling report from MAC
    - if the return variable is still `ROK` (encouter no problem) and there is any `nmbDLch` (number of ded LC), Invoke `rlcProcDedLcSchedRpt` to triger data transfer from RLC to MAC for ded LC
 4. **Return:**
     - Return `ROK` if the return variable is still `ROK` or during the process encounter no problem
-
+</details>
 
 ## `rlcHandleSnssaiTputlist (RLC)`
 Description :
@@ -112,7 +112,7 @@ DEBUG  -->  RLC : SNSSAI found in LL
    - Log error message for no data direction
    - Create or find `snssaiList` based on direction and the action command
 2. Transverse each LC node from `snssaiList` link list
-
+</details>
 
 ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-24-Reyhan/Images/Function%20Flow%20Diagram%20for%20SCHMACRLC%20Bo%20reReq.png) 
 
