@@ -301,7 +301,7 @@ DEBUG  -->  SCH : Received RLC BO Status indication LCId [4] BO [749]
 
    Add UE to ueToBeScheduled List and invoked by  `schFcfsDlRlcBoInfo` function
 
-#
+## Flow Diagram
 ![image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/Function%20Flow%20Diagram%20for%20SCHMACRLC%20Bo%20reReq.png) 
 
 Function Flow Diagram for BO Report and Schedule Request 
