@@ -279,27 +279,27 @@ DEBUG  -->  SCH : Received RLC BO Status indication LCId [4] BO [749]
 
 - MacSendSchedResultRptToRlc :
   
-   function to Send Schedule result report to RLC and invoked by `sendSchedRptToRlc` function
+   function to send Schedule result report to RLC and invoked by `sendSchedRptToRlc` function
 
 - rlcProcDedLcSchedRpt
    
-   function to trigerring the data transfer from RLC to MAC for dedicated logical channels, invoked by `RlcProcSchedResultRpt` function
+   function to triger the data transfer from RLC to MAC for dedicated logical channels, invoked by `RlcProcSchedResultRpt` function
 
 - rlcSendDedLcDlData
 
-   function to stores DL PDU info for all logical channels of per UE grant per TTI and sends to MAC and invoked by `rlcUtlSendToMac` function
+   function to store DL PDU info for all logical channels of per UE grant per TTI and sends to MAC and invoked by `rlcUtlSendToMac` function
 
 - sendDlRlcBoInfoToSch
   
-  funtion to sends DL BO Info to SCH and invoked by `MacProcRlcDlData` function
+  function to send DL BO Info to SCH and invoked by `MacProcRlcDlData` function
 
 - schFcfsDlRlcBoInfo
 
-   Processes Buffer Occupancy report from RLC and invoked by `SchProcDlRlcBoInfo` function
+   function to process Buffer Occupancy report from RLC and invoked by `SchProcDlRlcBoInfo` function
  
 - schFcfsAddUeToSchedule
 
-   Add UE to ueToBeScheduled List and invoked by  `schFcfsDlRlcBoInfo` function
+   function to add UE to ueToBeScheduled List and invoked by  `schFcfsDlRlcBoInfo` function
 
 ## Flow Diagram
 ![image](https://raw.githubusercontent.com/bmw-ece-ntust/internship/2024-TEEP-24-Reyhan/Images/Function%20Flow%20Diagram%20for%20SCHMACRLC%20Bo%20reReq.png) 
