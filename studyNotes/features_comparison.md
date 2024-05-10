@@ -27,5 +27,11 @@ This section discuss the features available in the DU which is RLC, Mac Schedule
 |:--------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | OSC            |      ✔        |      ✔        |      ✔        |      ✔        |      ✔        |      ✔        |       ❌   |          ❌         |
 | OAI            |      ✔        |      ✔        |      ✔        |      ✔        |      ✔        |      ✔        |      ✔        |      ✔        |
-| SRS RAN        |      N/A       |      N/A       |      N/A       |      N/A       |      N/A       |      N/A       |      N/A       |      N/A       |
+| SRS RAN        |      N/A       |      N/A       |      ✔        |      ✔        |      ✔        |      ✔        |      N/A       |      N/A       |
 
+### MIMO Support comparison
+| Project       | MIMO support  |
+| ------------- |:-------------:|
+| OSC           | N/A           |
+| OAI           | 2T2R          |
+| SRS RAN       | 4T4R          |
