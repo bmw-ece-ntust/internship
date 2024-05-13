@@ -1,5 +1,9 @@
-<img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/720d5c31-8ee7-4b4a-95f2-98545f41e017">## UERANSIM
+
+## UERANSIM
+> [!NOTE]
 > Make sure you have enough space in your VM by making a bigger storage. In this example I'm using 8GB (~~I tried 4GB~~ --> it didn't work)
+> Make sure to use Ubuntu 20.04 version (~~I tried 22.04 version~~ --> it didn't work)
+
 ## A bit about 5G, OAI, and USRP
 ![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/6f3d3d54-e43e-46ff-a9d0-33ad421d6626)
 
@@ -75,6 +79,7 @@ sudo apt -y update
 sudo apt -y install mongodb wget git
 sudo systemctl start mongodb
 ```
+<img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/720d5c31-8ee7-4b4a-95f2-98545f41e017">
 <img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/4d695da1-b537-496a-850c-f202edb1719a">
 
 <img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/0064f17f-d0ef-423e-9040-9ce3c6aa4e81">
