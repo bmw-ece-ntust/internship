@@ -45,14 +45,18 @@ git checkout v3.1.0
 ```
 <img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/691c8da5-9b4b-44aa-bfd5-46d099fef170">
 
-<img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/b9dda15b-77d9-4b9e-b85a-800e53f51f77">
+![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/4b7bc1f7-6167-45a7-b299-1f261bef67fd)
+
 <img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/55b4dc1f-8a0e-4bbf-a2c2-5cb18f09c5d5">
 
 4. Building UERANSIM
 ```
 make
 ```
+![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/946184fa-0b49-451b-9173-8153f0229d25)
+
 <img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/f73a7d19-ec3c-4f0a-9415-48b03210f1aa">
+![Uploading image.png…]()
 
 sudo : run as administrator
 sudo nano : used to edit the file
