@@ -1,4 +1,4 @@
-## UERANSIM
+<img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/720d5c31-8ee7-4b4a-95f2-98545f41e017">## UERANSIM
 > Make sure you have enough space in your VM by making a bigger storage. In this example I'm using 8GB (~~I tried 4GB~~ --> it didn't work)
 ## A bit about 5G, OAI, and USRP
 ![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/6f3d3d54-e43e-46ff-a9d0-33ad421d6626)
@@ -50,8 +50,54 @@ make
 ```
 <img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/f73a7d19-ec3c-4f0a-9415-48b03210f1aa">
 
->>ERROR
-<img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/bda8e6ba-05c0-428a-8aae-4750fbe0f89b">
+sudo : run as administrator
+sudo nano : used to edit the file
+
+- modifying bashrc file
+```
+sudo nano ~/.bashrc
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+export GO111MODULE=auto
+source ~/.bashrc
+```
+
+> Insert the first command
+> using keyboard arrow, go to the top of the terminal and insert the second until fifth line
+> `Ctrl + X` --> `Y` --> `Enter`
+> Insert the last command to run the file and save the effect of the changes
+<img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/9e8f5329-3984-4c2e-8af0-17d887b409a7">
+
+- Install MongoDB
+```
+sudo apt -y update
+sudo apt -y install mongodb wget git
+sudo systemctl start mongodb
+```
+<img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/4d695da1-b537-496a-850c-f202edb1719a">
+
+<img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/0064f17f-d0ef-423e-9040-9ce3c6aa4e81">
+
+- Install Control-Plane and User-Plane Supporting Packages
+```
+sudo apt -y update
+sudo apt -y install git gcc g++ cmake autoconf libtool pkg-config libmnl-dev libyaml-dev
+```
+<img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/babba440-76c9-47c5-83eb-cd55112071a3">
+
+<img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/2705c56d-a835-4d8b-a576-76ca4b9edc48">
+
+- Setting up Linux Host Network
+```
+sudo iptables -t nat -A POSTROUTING -o enp0s1 -j MASQUERADE
+sudo iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1400
+sudo systemctl stop ufw
+```
+> [!TIP]
+> Use `ifconfig` to know the <dn_interface> of your ubuntu. From the image below we can see that `enp0s1` is the <dn_interface> of my mac
+<img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/a71a2780-3b15-4e5f-a048-3a3aec079df0">
+
 
 6. 
 7. D
