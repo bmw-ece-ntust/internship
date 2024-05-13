@@ -33,7 +33,8 @@ sudo snap install cmake --classic
 
 <img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/93b0ed6e-f8cd-4c6e-98ce-fdcb3f0ac5f4">
 
-<img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/e5db0f23-87d3-404f-9eb0-0bcff71193b4">
+![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/5f9d1a02-2c64-4fd3-a418-941c5b30208e)
+
 <img width="496" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/f33b621d-dc2f-4961-bbf1-2d7364b1215f">
 
 3. Downloading UERANSIM
@@ -53,7 +54,6 @@ git checkout v3.1.0
 ```
 make
 ```
-![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/946184fa-0b49-451b-9173-8153f0229d25)
 
 <img width="912" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/f73a7d19-ec3c-4f0a-9415-48b03210f1aa">
 ![Uploading image.png…]()
@@ -75,6 +75,7 @@ source ~/.bashrc
 > using keyboard arrow, go to the top of the terminal and insert the second until fifth line
 > `Ctrl + X` --> `Y` --> `Enter`
 > Insert the last command to run the file and save the effect of the changes
+
 <img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/9e8f5329-3984-4c2e-8af0-17d887b409a7">
 
 - Install MongoDB
