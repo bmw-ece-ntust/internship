@@ -109,5 +109,9 @@ sudo systemctl stop ufw
 <img width="800" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/a71a2780-3b15-4e5f-a048-3a3aec079df0">
 
 
+>> Reference:
+>> https://hackmd.io/DSxPRhrzQrqIRn7kdO4_2w?view#5G-Core--gt-Free5GC
+>> https://hackmd.io/@joshevan/UERANSIM-Installation#3-Install-free5GC-Web-Console
+>> https://www.youtube.com/watch?v=-XFNUeWhsIQ
 6. 
 7. D
