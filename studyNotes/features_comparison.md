@@ -7,7 +7,7 @@ This section discuss the features available in the DU which is RLC, Mac Schedule
 
 ### RLC Operation comparison
 | Project       | TM | UM | AM |
-| ------------- |:---:|
+| ------------- |:---:|:---:|:---:|
 | OSC           |  ✔  |  ✔  |  ✔  | 
 | OAI           |  ✔  |  ✔  |  ✔  |
 | SRS RAN       |  ✔  |  ✔  |  ✔  |
