@@ -22,6 +22,7 @@ This progress report documents the development of two dashboards, AP Dashboard a
 - [x] Show the Channel Utilization of 2.4GHZ & 5G in the specific AP  
 
 <summary><b> Task 1 </b></summary>
+
 ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas1.jpg)
 
 ## Task 1: Table of All Data
