@@ -9,6 +9,7 @@
   - [Installing the Variable Panel Plugin](#installing-the-variable-panel-plugin)
   - [Using the Variable Panel Plugin](#using-the-variable-panel-plugin)
   - [Implementing Variables in Your Dashboard Development](#implementing-variables-in-your-dashboard-development)
+  - [Related Documentation](#related-documentation)
 
 ## Introduction
 
@@ -89,9 +90,7 @@ to filter data based on the selected variable value.
 
 By following these steps and utilizing the features of the Volkov Labs Variable Panel plugin, you can enhance your Grafana dashboards with dynamic and interactive elements, improving both the user experience and the efficiency of data analysis.
 
-> Related documentation:
-> - [Building Dashboards in Grafana](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Grafana/Dashboard_Development/building_dashboard_in_grafana.md)
-> - [Grafana Syntax Explanation](https://) (Link not available yet, still on progress)
 
-
-
+### Related documentation:
+- [Building Dashboards in Grafana](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Grafana/Dashboard_Development/building_dashboard_in_grafana.md)
+- [Grafana Syntax Explanation](https://) (Link not available yet, still on progress)
