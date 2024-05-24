@@ -22,6 +22,11 @@
 
 This progress report documents the development of two dashboards, AP Dashboard and Client Dashboard, within Grafana utilizing InfluxDB as the data source.  The dashboards are designed to monitor Access Points (APs) and Clients within a wireless network. The report outlines the goals of each dashboard and provides detailed explanations of the queries used to achieve these goals.
 
+**Goal**
+- Streamline network management and optimization through comprehensive data organization and analysis for APs and client devices.
+- Enable detailed analysis and targeted troubleshooting by focusing on specific APs and clients, improving network performance.
+- Enhance user experience by leveraging detailed metrics and visualizations to ensure optimal network operation.
+
 **Main Reference：**
 
 * [InfluxData Documentation](https://docs.influxdata.com/)
@@ -195,8 +200,13 @@ A pie chart is created using a query that filters data for a specific AP (ap_nam
 
 <details>
 <summary><b> Milestone </b></summary>
-    
+
 ## Goal
+- Develop a detailed table for comprehensive tracking of client devices on a WLAN, including extensive performance metrics and connection details.
+- Implement a dedicated table for monitoring specific client performance, enabling targeted analysis and optimization.
+- Integrate a line chart to visually represent network traffic data, enhancing real-time monitoring and identification of data flow patterns.
+
+## Task
 - [x] Create a Table including User Name, IP Address, MAC Address, Client Health, SNR (dB), Speed, Goodput, Throughput, Usage, Time, WLAN, AP Name, Radio Band (GHz), Channel, Role.
 - [x] Create a Table for the specific client
 - [x] Show channel for the specific client
