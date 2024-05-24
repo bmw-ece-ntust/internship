@@ -1,5 +1,23 @@
 # Building Dashboards in Grafana
 
+## Table of Contents
+- [Building Dashboards in Grafana](#building-dashboards-in-grafana)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [AP Dashboard](#ap-dashboard)
+      - [Task 1: Table of All Data](#task-1-table-of-all-data)
+      - [Task 2: Specific AP Table](#task-2-specific-ap-table)
+      - [Task 3: Client Numbers in Specific AP](#task-3-client-numbers-in-specific-ap)
+      - [Task 4: Noise Floor in Specific AP](#task-4-noise-floor-in-specific-ap)
+      - [Task 5: Channel Utilization for 2.4GHz & 5GHz Bands](#task-5-channel-utilization-for-24ghz--5ghz-bands)
+  - [Client Dashboard](#client-dashboard)
+      - [Task 1: Table of All Data](#task-1-table-of-all-data-2)
+      - [Task 2: Specific Client Table](#task-2-specific-client-table)
+      - [Task 3: Channel for Specific Client](#task-3-channel-for-specific-client)
+      - [Task 4: SNR for Specific Client](#task-4-snr-for-specific-client)
+      - [Task 5: Add Total Data, Rx, and Tx Line Chart](#task-5-add-total-data-rx-and-tx-line-chart)
+  - [Related Documentation](#related-documentation)
+
 ## Introduction
 
 This progress report documents the development of two dashboards, AP Dashboard and Client Dashboard, within Grafana utilizing InfluxDB as the data source.  The dashboards are designed to monitor Access Points (APs) and Clients within a wireless network. The report outlines the goals of each dashboard and provides detailed explanations of the queries used to achieve these goals.
@@ -13,20 +31,23 @@ This progress report documents the development of two dashboards, AP Dashboard a
 
 <details>
 <summary><b> Milestone </b></summary>
-    
+
 ## Goal
+- Organize and analyze data on wireless access points (APs) through comprehensive tables capturing essential metrics like client numbers, channel utilization, and noise figure (NF).
+- Focus on specific APs by creating detailed tables to manage and understand individual unit performances within the network.
+- Visualize and present key performance metrics such as client numbers, NF, and channel utilization for specific APs across different frequency bands to enhance network optimization insights.
+
+## Task
 - [x] Create a Table including ap_name, radio band, client numbers, channel, EIRP, NF, Channel Quality, Channel Utilization, Channel Busy.
 - [x] Create a Table for the specific AP
 - [x] Show the client numbers in the specific AP
 - [x] Show the NF in the specific AP
 - [x] Show the Channel Utilization of 2.4GHZ & 5G in the specific AP  
 
-<summary><b> Task 1 </b></summary>
-
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas1.jpg)
-
 ## Task 1: Table of All Data
-
+    
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas1.jpg)
+    
 * **Objective**
 To create a comprehensive table displaying various parameters of APs across different buildings and floors.
 * **Query**
@@ -65,12 +86,10 @@ from(bucket: "wifi")
 * **Explanation**
 Variables ap_group_building and ap_group_floor were created to filter data based on building and floor. The query uses these variables along with a series of filters to select relevant fields from the "AP" measurement. The data is then pivoted and grouped to display the required columns.
 
-<details>
-<summary><b> Task 2 </b></summary>
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas2.jpg)
-
 ## Task 2: Specific AP Table
 
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas2.jpg)
+    
 * **Objective**
 To create a table for a specific AP, showing detailed information.
 * **Query**
@@ -109,13 +128,10 @@ from(bucket: "wifi")
 * **Explanation**
 A variable ap_name was created to filter data for a specific AP. The query follows a similar structure to Task 1 but includes an additional filter for ap_name. The resulting data is pivoted and grouped to display the required columns.
 
-</details>
-<details>
-<summary><b> Task 3 </b></summary>
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas3.jpg)
-
 ## Task 3: Client Numbers in Specific AP
 
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas3.jpg)
+    
 * **Objective**
 To visualize the number of clients connected to a specific AP.
 * **Query**
@@ -130,13 +146,10 @@ from(bucket: "wifi")
 * **Explanation**
 A bar chart is created using a query that filters data for a specific AP (ap_name) and selects the sta_count field, representing the number of clients.
 
-</details>
-<details>
-<summary><b> Task 4 </b></summary>
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas4.jpg)
-
 ## Task 4: Noise Floor in Specific AP
 
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas4.jpg)
+    
 * **Objective**
 To display the noise floor for a specific AP.
 * **Query**
@@ -149,12 +162,9 @@ from(bucket: "wifi")
 * **Explanation**
 A query is used to filter data for a specific AP (ap_name) and select the noise_floor field, which is then visualized.
 
-</details>
-<details>
-<summary><b> Task 5 </b></summary>
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas5.jpg)
-
 ## Task 5: Channel Utilization for 2.4GHz & 5GHz Bands
+    
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas5.jpg)
 
 * **Objective**
 To calculate and display the channel utilization for 2.4GHz and 5GHz bands in a specific AP.
@@ -180,7 +190,6 @@ from(bucket: "wifi")
 A pie chart is created using a query that filters data for a specific AP (ap_name) and selects fields related to channel utilization (rx_time, tx_time, channel_interference, channel_free). The query calculates the total utilization for each band and displays it in the chart.
 
 </details>
-</details>
 
 ## Client Dashboard
 
@@ -194,12 +203,10 @@ A pie chart is created using a query that filters data for a specific AP (ap_nam
 - [x] Show SNR for the specific client
 - [ ] Add a line chart below the existing charts, displaying three lines: total_data (total_data_bytes), rx (rx_data_bytes), and tx (tx_data_bytes). 
 
-<details>
-<summary><b> Task 1 </b></summary>
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas1.jpg)
-
 ## Task 1: Table of All Data
 
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas1.jpg)
+    
 * **Objective**
 To create a comprehensive table displaying various parameters of clients.
 * **Query**
@@ -234,12 +241,9 @@ from(bucket: "wifi")
 * **Explanation**
 A query is used to filter data from the "Client" measurement and select relevant fields. The data is then pivoted and grouped to display the required columns.
 
-</details>
-<details>
-<summary><b> Task 2 </b></summary>
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas2.jpg)
-
 ## Task 2: Specific Client Table
+    
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas2.jpg)
 
 * **Objective**
 To create a table for a specific client, showing detailed information.
@@ -276,12 +280,9 @@ from(bucket: "wifi")
 * **Explanation**
 A variable userName was created to filter data for a specific client. The query follows a similar structure to Task 1 but includes an additional filter for userName. The resulting data is pivoted and grouped to display the required columns.
 
-</details>
-<details>
-<summary><b> Task 3 </b></summary>
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas3.jpg)
-
 ## Task 3: Channel for Specific Client
+
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas3.jpg)
 
 * **Objective**
 To visualize the channel used by a specific client, represented using bar chart.
@@ -297,12 +298,9 @@ from(bucket: "wifi")
 * **Explanation**
 A bar chart is created using a query that filters data for a specific client (userName) and selects the channel field.
 
-</details>
-<details>
-<summary><b> Task 4 </b></summary>
-![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas4.jpg)
-
 ## Task 4: SNR for Specific Client
+    
+![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/clientdas4.jpg)
 
 * **Objective**
 To display the Signal-to-Noise Ratio (SNR) for a specific client, represented using line chart (time series).
@@ -317,12 +315,9 @@ from(bucket: "wifi")
 ```
 * **Explanation**
 A line chart is created using a query that filters data for a specific client (userName) and selects the snr field.
-
-</details>
-<details>
-<summary><b> Task 5 </b></summary>
     
 ## Task 5: Add Total Data, Rx, and Tx Line Chart
+
 * **Objective**
 on progress
 * **Query**
@@ -332,9 +327,9 @@ on progress
 * **Explanation**
 on progress
 
-</details>
+
 </details>
 
-> Related documentation:
-> - [Variable Panel Plugin](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Grafana/Dashboard_Development/variable_panel_plugin.md#using-the-variable-panel-plugin)
-> - [Grafana Syntax Explanation](https://) (Link not available yet, still on progress)
+### Related documentation:
+- [Variable Panel Plugin](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Grafana/Dashboard_Development/variable_panel_plugin.md#using-the-variable-panel-plugin)
+- [Grafana Syntax Explanation](https://) (Link not available yet, still on progress)
