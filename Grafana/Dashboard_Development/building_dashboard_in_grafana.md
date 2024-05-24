@@ -21,7 +21,6 @@ This progress report documents the development of two dashboards, AP Dashboard a
 - [x] Show the NF in the specific AP
 - [x] Show the Channel Utilization of 2.4GHZ & 5G in the specific AP  
 
-<details>
 <summary><b> Task 1 </b></summary>
 ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas1.jpg)
 
@@ -65,7 +64,6 @@ from(bucket: "wifi")
 * **Explanation**
 Variables ap_group_building and ap_group_floor were created to filter data based on building and floor. The query uses these variables along with a series of filters to select relevant fields from the "AP" measurement. The data is then pivoted and grouped to display the required columns.
 
-</details>
 <details>
 <summary><b> Task 2 </b></summary>
 ![image](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-4-Alifya/Assets/dashboard/apdas2.jpg)
