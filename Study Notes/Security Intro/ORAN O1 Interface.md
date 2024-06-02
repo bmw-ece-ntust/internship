@@ -460,7 +460,7 @@ This is an additional step that is used for chekcing whether PNF Software MnS Pr
 #### Software Activation
 PNF Software MnS Consumer triggers the activation of a software package on the PNF Software MnS Provider including data migration and reset if needed.
 
-<div style="display: flex; justify-content: space-around;"><img src="https://imgur.com/57I2wgL\.png" alt="Chart" width="600" style="background-color: white; padding: 10px; border-radius: 15px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);"></div>
+<div style="display: flex; justify-content: space-around;"><img src="https://imgur.com/57I2wgL.png" alt="Chart" width="600" style="background-color: white; padding: 10px; border-radius: 15px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);"></div>
 <!-- 
 ### Heartbeat management services
 ### Start-up and registration management services for Physical Network Functions (PNFs)
