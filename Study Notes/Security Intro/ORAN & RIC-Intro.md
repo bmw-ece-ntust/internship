@@ -107,6 +107,61 @@ The SMO performs these services through four key interfaces towards other O-RAN 
 ### Near-RT RIC (Near-realtime RIC)
 Near RT RIC operates within a time frame that is shorter than traditional RAN management systems but not as immediate as the millisecond-level reactions required for some physical layer functions. The Near-RT RIC hosts one or more xApps that use E2 interface to collect near real-time information (e.g., on a UE basis or a Cell basis) and provide value added services. The Near-RT RIC control over the E2 Nodes is steered via the policies and the enrichment data provided via A1 from the Non-RT RIC. Based on the available data, the Near-RT RIC generates the RAN analytics information and exposes it via Y1 interface. 
 
-## CU
-## DU
-## RU
+## RAN Functional Split
+<div style="display: flex; justify-content: space-around;">
+    <img src="https://imgur.com/hseTcIO.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 15px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
+</div>
+
+Since the establishment of 5G NR standard, there's been a push to dissagregate the BBU in order to acheive higher flexibility. For
+disaggregation to happen, hardware and
+software components must be interoperable,
+letting network engineers mix and match
+these units from different vendors.
+Disaggregation also brings tradeoffs in
+deciding which unit should control certain
+operations – the functional split.
+
+## CU (Centralized Unit) - Higher L2 and L3
+The centralized unit software that runs
+the Radio Resource Control (RRC) and
+Packet Data Convergence Protocol
+(PDCP) layers. The gNB consists of a CU
+and one DU connected to the CU via Fs-C
+and Fs-U interfaces for CP and UP
+respectively. A CU with multiple DUs will
+support multiple gNBs. The split
+architecture lets a 5G network utilize
+different distributions of protocol stacks
+between CU and DUs depending on
+midhaul availability and network design. It
+is a logical node that includes the gNB
+functions like transfer of user data, mobility
+control, RAN sharing (MORAN),
+positioning, session management etc.,
+except for functions that are allocated
+exclusively to the DU. The CU controls the
+operation of several DUs over the midhaul
+interface. CU software can be co-located
+with DU software on the same server on
+site.
+## DU (Distributed Unit) - Lower L2
+The distributed unit software that is
+deployed on site on a COTS server. DU
+software is normally deployed close to the
+RU on site and it runs the RLC, MAC, and
+parts of the PHY layer. This logical node
+includes a subset of the eNodeB
+(eNB)/gNodeB (gNB) functions, depending
+on the functional split option, an
+## RU (Radio Unit) - L1
+This is the radio hardware unit that
+coverts radio signals sent to and from the
+antenna into a digital signal for
+transmission over packet networks. It
+handles the digital front end (DFE) and the
+lower PHY layer, as well as the digital
+beamforming functionality. 5G RU designs
+are supposed to be “inherently” intelligent,
+but the key considerations of RU design
+are size, weight, and power consumption.
+Deployed on site.
