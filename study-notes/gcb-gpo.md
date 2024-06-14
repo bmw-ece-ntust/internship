@@ -6,6 +6,8 @@ In the context of blueteaming, GCB stands for Global Central Bank, which is an E
 
 # Group Policy Object
 
+![image](https://github.com/bmw-ece-ntust/internship/assets/138283247/e65a2661-b5bc-477f-96e8-f69d9c34b7d2)
+
 GPO, on the other hand, typically refers to Group Policy Object in the context of Windows environments. It’s a feature of Microsoft Windows that provides centralized management and configuration of operating systems, applications, and users’ settings in an Active Directory environment. In blueteaming, GPOs can be used to simulate security policies and configurations that a Blue team would need to defend against or a Red team would need to exploit.
 
 ### Common GPO Security Best Practices
@@ -24,6 +26,8 @@ It is important to test any changes on a small group of users and computers befo
 10. GPO Security Filtering: Use GPO security filtering to apply policies only to specific users or groups within an OU.
 
 ### Secure The Active Directory!
+
+![image](https://github.com/bmw-ece-ntust/internship/assets/138283247/05504f72-4dea-421b-94fb-06e9707b513b)
 
 Securing an AD environment is an ongoing process that requires constant vigilance and adaptation to new security challenges. It is crucial for protecting your organization’s data and resources.
 
