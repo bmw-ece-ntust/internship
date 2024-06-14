@@ -94,7 +94,7 @@ Balancing sensitivity and specificity in cybersecurity detection rules is essent
 3. Implement Machine Learning: Utilize machine learning algorithms that can learn from data and improve over time, adjusting the balance between sensitivity and specificity based on feedback.
 4. Regularly Update Rules: Cyber threats evolve, so it’s important to update our detection rules regularly to maintain their effectiveness.
 5. Test and Validate: Continuously test our rules against known datasets to validate their accuracy and adjust them as needed.
-6. Feedback Loop: Create a feedback loop where the security team reviews alerts and provides input on the accuracy of the detection rules, allowing for continuous improvement1.
+6. Feedback Loop: Create a feedback loop where the security team reviews alerts and provides input on the accuracy of the detection rules, allowing for continuous improvement.
 
 # Group Policy Implementation
 
