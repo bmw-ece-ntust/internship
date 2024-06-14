@@ -8,7 +8,7 @@ A Suricata rule is a set of instructions used by the Suricata open-source detect
 2. Header: Defines the protocol, IP addresses, ports, and direction of the traffic that the rule applies to.
 3. Rule Options: Specifies the details of the rule, such as exact IP addresses, port numbers, or specific patterns to match.
 
-### Show me the example of a Suricata rule!
+### The example of a Suricata rule!
 
 #### Detecting HTTP GET request
 ```
@@ -52,3 +52,5 @@ However, it’s also important to note that Suricata can be more complex to conf
 In comparison, other popular IDS/IPS solutions like Snort also offer extensive rule sets and protocol analysis capabilities. Snort has been a staple in the network security domain for decades and has a large community support base. However, as of Snort 3.0, it also introduced multi-threading capabilities, bringing it closer to Suricata in terms of performance.
 
 Ultimately, the choice between Suricata and other IDS/IPS solutions will depend on our specific needs, the size and complexity of our network, and our team’s expertise in configuring and managing these systems.
+
+For next in-depth learning, refer to: https://docs.suricata.io/en/latest/rules/index.html.
