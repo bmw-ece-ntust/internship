@@ -120,11 +120,11 @@ Common security controls in cybersecurity are measures put in place to protect s
 7. Access Control Lists (ACLs): Define who or what is allowed to access certain resources within a network.
 8. Encryption Measures: Secure data by converting it into a code to prevent unauthorized access.
 
-Implementing encryption and firewall in security control group policy is a critical aspect of cybersecurity. By implementing these security controls through group policy, you can maintain a consistent security posture across all managed devices within an organization. It’s important to regularly review and update these policies to adapt to new threats and changes in the organization’s infrastructure.
+Implementing encryption and firewall in security control group policy is a critical aspect of cybersecurity. By implementing these security controls through group policy, we can maintain a consistent security posture across all managed devices within an organization. It’s important to regularly review and update these policies to adapt to new threats and changes in the organization’s infrastructure.
 
 ### About encryption...
 
-We can use BitLocker to encrypt drives on Windows devices. You can configure BitLocker through Group Policy Objects (GPOs) for devices joined to an Active Directory domain. This ensures that data at rest is protected against unauthorized access.
+We can use BitLocker to encrypt drives on Windows devices. We can configure BitLocker through Group Policy Objects (GPOs) for devices joined to an Active Directory domain. This ensures that data at rest is protected against unauthorized access.
 
 And then, Encrypting File System (EFS). EFS can be controlled using GPOs to manage encryption of files and folders on NTFS volumes.
 
