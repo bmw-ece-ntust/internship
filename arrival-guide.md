@@ -6,7 +6,7 @@
 - Get your room in NTUST Dorm
 - Buy living neccessities
 - Make your bank account
-- Do and enjoy your intership
+- Do and enjoy your internship
 
 # TPE Airport to NTUST with Trains
 
