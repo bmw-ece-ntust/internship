@@ -1,7 +1,7 @@
 # Things to Do in Taiwan
 
 - Arrive Safely at Airport
-- Get UI number in Airport
+- Get [UI number](https://egate.immigration.gov.tw/NIA_OnlineApply_inter/foreignApply/foreignApplyForm.action) in Airport
 - Travel to NTUST
 - Get your room in NTUST Dorm
 - Buy living neccessities
