@@ -30,7 +30,7 @@
 - Bath Soap
 - Room Slippers
 - Table Broom
-- Bath TOwel
+- Bath Towel
 - Face Towel
 - Toothbrush
 - Glass for Toothbrush
@@ -40,6 +40,7 @@
 
 # Things to Buy in Taiwan
 
+- Sim Card
 - Mattress
 - Pillow
 - Bolster
