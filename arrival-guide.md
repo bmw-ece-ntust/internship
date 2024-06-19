@@ -50,6 +50,7 @@
 
 # Things Available in NTUST Dorm
 
+- Wifi
 - Study Table
 - Chair
 - Bunk Bed
