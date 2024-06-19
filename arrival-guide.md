@@ -15,6 +15,7 @@
 - Travel from Airport Terminal to Taipei Main Station on Taoyuan Metro (https://www.travel.taipei/en/information/taoyuanmetro)
 - Travel from Taipei Main Station to Gongguan (https://guidetotaiwan.com/en/transit/taipei-mrt-green-line)
 - Walk to NTUST (https://oia-r.ntust.edu.tw/p/412-1060-8947.php?Lang=en)
+- Video by NTUST ISA: https://www.youtube.com/watch?v=ebmUwua2Z2E
 
 # Things to Bring to Taiwan
 
