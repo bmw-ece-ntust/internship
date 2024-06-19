@@ -57,5 +57,6 @@
 - Public Bathroom
 - Washing Machine
 - Dryer
-- Clothes Hangging Area
+- Clothes Hanging Area
+- There are dorm rules you need to follow. Please see website
 - Website info: https://student.ntust.edu.tw/p/412-1053-8395.php?Lang=en
