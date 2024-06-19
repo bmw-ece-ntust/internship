@@ -5,7 +5,7 @@
 - Travel to NTUST
 - Get your room in NTUST Dorm
 - Buy living neccessities
-- Make your bank account
+- Make your [bank account](https://www.post.gov.tw/post/internet/U_english2/index.jsp?ID=3515010102)
 - Do and enjoy your internship
 
 # TPE Airport to NTUST with Trains
