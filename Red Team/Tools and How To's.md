@@ -79,3 +79,64 @@ This tool is incredibly powerful for pinpointing vulnerabilities and their speci
 2. Then, from a Linux browser, navigate to https://kali:8834/.
 
 
+## Exploitation
+### Reverse and Bind Shell
+Shell is the access to a system, one of its example is Command Prompt. There are two kinds of shells:
+1. Reverse Shell, The attacker is on "listening". The attacker opens a port, and the victim initiates the connection.
+
+![image](https://github.com/bmw-ece-ntust/internship/assets/145204053/b2acf1d5-3dc4-4678-a131-075ff027e060)
+
+2. Bind Shell, The victim is on "listening". The victim opens a port, and the attacker initiates the connection.
+
+![image](https://github.com/bmw-ece-ntust/internship/assets/145204053/35358416-7624-4705-af77-e1486c6d93e4)
+
+Reverse shell is more commonly used because bind shell connections are often blocked by firewalls (which typically monitor and restrict incoming connections, not outgoing ones).
+
+![image](https://github.com/bmw-ece-ntust/internship/assets/145204053/45769b27-609e-43bd-8c02-f5e460fc3ae8)
+
+### Manual Exploitation FTP
+1. Once you have determined the FTP version using Nmap (ensure version detection is included during the scan), search the internet for exploits. For example you found an exploit file, such as a backdoor named "49757.py"
+2. Run the exploit using ```python 49757.py <target_host>```. Note that the execution method may vary for different exploits, but generally, you need to specify the language, e.g., ```python 49757.py <target_host>```.
+3. If access is gained, immediately check your privileges with ```whoami```. If you have root access, proceed with the desired actions.
+
+### Manual Exploitation Apache Tomcat
+1. Log in to the website using the admin role credentials obtained through FTP enumeration.
+2. Exploit a WAR file; search for the method online.
+   
+   a. Once found, create a malicious WAR file using msfvenom.
+   
+   b. The reverse shell will be used. After downloading the malicious WAR file (shell), start listening on port 4444 with nc -nlvp 4444.
+   
+   c. After setting up listening, upload the shell.
+   
+   d. Execute the uploaded shell to establish a connection back to Kali.
+
+### Exploit Using Metasploit
+Start with ```mfsconsole```
+* FTP
+1. To find an exploit, use ```search <version>```.
+2. Once you find it, use ```use <exploit_number>```.
+3. To understand how to use the exploit, type ```options```.
+4. For vsftpd, use the command ```set <COMMAND> <required>``` before using the provided Metasploit commands. For example, ```set RHOSTS 10.0.2.4```.
+5. After configuring the settings, execute the exploit with ```exploit``` or ```run```.
+* Apache
+1. It's similar, but this time search for ```apache tomcat manager```.
+
+### Exploiting UNREALIRCD Using Metasploit
+1. Start with Nmap.
+2. For ports 6667 and 6697, where IRC is detected, run Nmap on these ports with the ```-A``` option to get detailed information, especially the version.
+3. To find the exploit, use ```searchsploit unrealircd``` and locate the appropriate exploit.
+4. Download the exploit with ```searchsploit -m <exploit_number>``` (Note: use the number after the last / in the path).
+5. Launch Metasploit with ```msfconsole```.
+6. Search for the exploit using ```search unrealircd```.
+7. Use the identified exploit.
+   a. If it cannot be executed due to missing payloads, list the available payloads with ```show payloads``` and set the payload with ```set payload <payload_number>```.
+
+### Exploiting UNREALIRCD Manually
+1. Search on Google for the appropriate exploit.
+2. If you find it on GitHub, locate the code, open it in raw view, and copy the link.
+3. Download it in Kali using ```wget <link_exploit>```.
+4. Understand how it works. For example, if it's a Python exploit, run it with ```python <exploit_file_name>```.
+5. Proceed to exploit.
+
+   a. If it doesn't work, open the exploit file with nano <exploit_file_name> and check if there are any parameters that need to be changed.
