@@ -140,3 +140,88 @@ Start with ```mfsconsole```
 5. Proceed to exploit.
 
    a. If it doesn't work, open the exploit file with nano <exploit_file_name> and check if there are any parameters that need to be changed.
+
+## Basic Privilege Escalation
+### Linux Permissions
+1. Regarding users, there are two important files:
+   
+a. /etc/passwd: This file contains user names, user IDs, home directories, and other details.
+
+b. /etc/shadow: This file contains hashed passwords for each user.
+
+2. Groups refer to collections of users:
+   
+a. /etc/group: This file contains information about user groups.
+
+To view details of folders or files, you can use the command ls -la.
+
+![image](https://github.com/bmw-ece-ntust/internship/assets/145204053/8ea15f02-68b5-4320-9c01-154273d853e8)
+
+### Kernel Exploit
+The kernel is the core component of an operating system. Exploiting it can lead to obtaining a root shell, which involves four steps:
+
+1. Identify the kernel version using ```uname -a```.
+2. Search for exploits using tools like searchsploit or exploitsuggester2.
+   
+   a. To use exploitsuggester2, execute ```perl linux-exploit-suggester-2.pl -k <kernel_version>```.
+
+4. Transfer the exploit to the target system.
+5. Compile and execute the exploit.
+
+### Exploiting SUID
+Set User Id (SUID) is a feature in Linux that allows files to be executed with the privileges of the file owner. For example, if a file has its SUID bit set to root, anyone executing that file will run it with root privileges. The process involves:
+
+1. Check for files with SUID set using ```find / -type f -perm -u=s 2> /dev/null```.
+2. Use a helpful tool like ```lse.sh``` to specifically identify uncommon SUID settings:
+   
+   a. Make the script executable with ```chmod +x lse.sh```.
+   
+   b. Execute it with ./lse.sh | more.
+   
+3. Look for misconfigurations or vulnerabilities in the identified SUID binaries for potential privilege escalation using resources like GTFOBins. For example, explore potential vulnerabilities in utilities such as Nmap or xargs.
+
+### Exploiting SUDO
+Super User Do (Sudo) is a command that allows executing tasks with root privileges. Exploiting it is similar to SUID in nature but involves searching for executable files configured in the sudoers file. Here's how to proceed:
+
+1. Check which commands can be run with sudo privileges using ```sudo -l```. Look for entries marked with NOPASSWD.
+2. Once identified, search for potential exploits on GTFOBins that leverage these privileged commands.
+
+### Weak File Permissions
+* Examples of easily exploited file permissions:
+1. Readable /etc/shadow
+2. Writable /etc/shadow
+3. Writable /etc/passwd
+* Exploit Steps: Readable shadow
+1. Check the permissions of shadow and passwd files using ```ls -la /etc/shadow``` and similar commands.
+2. If shadow is readable, copy the root password hash and save it locally.
+3. Once saved, use the 'john the ripper' tool to crack the password hash. Use the command ```john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt <file_name>``` to retrieve the password.
+* Exploit Steps: Writable shadow
+1. Make sure to back up first, for example, using ```cp /etc/shadow /tmp/shadow.bak``` to create a backup in tmp.
+2. Generate a new hash/password to replace the default hash, using ```mkpasswd -m sha-512 <new_password>```.
+3. Edit the default file using ```vim /etc/shadow```.
+4. Replace the default hash with the new hash.
+5. Simply use sudo with the new password.
+6. Don't forget to restore the backup to avoid detection, using ```cp /tmp/shadow.bak /etc/shadow```.
+* Exploit Steps: Writable passwd
+  
+![image](https://github.com/bmw-ece-ntust/internship/assets/145204053/308cc0d6-5c22-48d4-a830-7e549548057f)
+
+
+Format: ```[username] : "x" = password stored in shadow : uid : guid.```
+
+There are two exploits: you can replace "x" with a newly created hash for a new password, or simply delete "x" to gain root access without needing a password.
+
+Steps to replace "x":
+
+1. Don't forget to back up to avoid being caught stealing, use ```cp /etc/passwd /tmp/passwd.bak```.
+2. Generate a new password hash using another method, such as openssl, like this: ```openssl passwd "<new_password>" ```.
+3. Replace "x" with the new hash.
+4. Use sudo with the new password.
+5. Ensure to restore all files to their original state to avoid detection
+
+### Upgrade Interactive Shells for Easier Operations
+1. Check if Python is available using "which python". Proceed if Python is found, otherwise accept it.
+2. Continue with "python -c 'import pty;pty.spawn("/bin/bash")'".
+3. Press Ctrl + Z.
+4. Proceed with "stty raw -echo; fg".
+5. Press Enter twice.
