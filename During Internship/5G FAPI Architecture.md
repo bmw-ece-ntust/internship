@@ -51,5 +51,6 @@ Notes:
 ![IMG_E9EAD5E52468-1](https://github.com/bmw-ece-ntust/internship/assets/123353805/8565baf0-1fb5-49a2-83f0-19abf2dba1d2)
 
 Resources :
-[Fauzan's FAPI Procedures](https://hackmd.io/9tBOS229SCyOm_7Js9DXWQ?view#2-FAPI-Procedures)
-[5G FAPI Spesifications](https://www.smallcellforum.org/work-items/fapi/#:~:text=The%20latest%20FAPI%20specifications%20are,(P5)%20interface%20%5BSCF222%5D)
+
+1. [Fauzan's FAPI Procedures](https://hackmd.io/9tBOS229SCyOm_7Js9DXWQ?view#2-FAPI-Procedures)
+2. [5G FAPI Spesifications](https://www.smallcellforum.org/work-items/fapi/#:~:text=The%20latest%20FAPI%20specifications%20are,(P5)%20interface%20%5BSCF222%5D)
