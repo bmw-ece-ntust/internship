@@ -13,6 +13,7 @@
 # Milestone [Internship]
 **Week 1**
 1. [2024/06/27](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Architecture.md) : 56 FAPI Architecture
+2. [2024/06/28](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions.md) : Reorganize 56 FAPI Architecture notes and make 5G FAPI Functions
 
 # Milestone [Pre-Internship]
 1. [2024/06/22](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/Study%20Notes/OAI%20L2.md) : Understanding L1 and L2
