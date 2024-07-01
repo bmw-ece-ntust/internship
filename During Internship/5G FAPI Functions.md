@@ -23,5 +23,17 @@ flowchart TD
 
 
 # phy_config_sib13_eNB
+Configuration making sure each area are appropriately labeled
+```mermaid
+flowchart TD 
+  A(Start) -->B{mbsfn_Area_idx == 0?};
+  B -->|True| C[Assign bsfn_AreaId_r9 to fp->Nid_cell_mbfsn];
+  C --> D[Need to be fixed message];
+  D --> E[Call lte_gold_mbsfn and call te_gold_mbsfn_khz_1dot25];
+  B -->|False| E;
+  E --> F(End)
+```
+> [!NOTE]
+> `Log Applying MBSFN Area ID` : MBFSN (Multicast Broadcast Single Frequency Networks). Enable tv services to be used by multiple users simultaneously
 
 ![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/dff1cf43-e6c0-40ee-a534-a9850623b0c3)
