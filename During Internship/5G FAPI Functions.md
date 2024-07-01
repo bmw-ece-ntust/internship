@@ -48,4 +48,16 @@ flowchart TD
 > [!NOTE]
 > `MCH_pdu` is a data unit used to encapsulate and transmit multicast or broadcast data in LTE systems.
 
+# get_dlsch_sdu
+Finding few types of data
+1. SI_RNTI : Broadcast system - wide information
+2. P_RNTI : Direct message to specific UE
+3. UE_id : Individual user-specific data peyloads
+
+> [!NOTE]
+> `data payloads` : actual information that is transmitted or stored within a communication system
+
+# eNB_dlsch_ulsch_scheduler
+Managing and making sure an efficient process. Handling UE & resources
+
 ![image](https://github.com/bmw-ece-ntust/internship/assets/123353805/dff1cf43-e6c0-40ee-a534-a9850623b0c3)
