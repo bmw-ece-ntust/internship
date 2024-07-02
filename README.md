@@ -3,7 +3,7 @@
 - Email: 13221002@std.stei.itb.ac.id
 - University: Institut Teknologi Bandung
 - Department: Department of Electrical Engineering
-- GPA: 3.55
+- GPA: 3.6
 - Intern:
   - Topic: O-RAN
   - Duration:
