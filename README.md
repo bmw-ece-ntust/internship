@@ -17,7 +17,8 @@
 
 **Week 2**
 1. [2024/07/01](https://github.com/bmw-ece-ntust/internship/blob/0db0bbc9140664258b2fcd95c8090a0ead820a5b/During%20Internship/5G%20FAPI%20Functions/nr_intitate_ra_proc.md) : nr_intitate_ra_proc
-2. [2024/07/02](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/get_dlsch_sdu%20and%20eNB_dlsch_ulsch_scheduler.md) : Continuing 5G FAPI Architecture
+2. [2024/07/02](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions/get_dlsch_sdu%20and%20eNB_dlsch_ulsch_scheduler.md) : Continuing 5G FAPI Architecture
+3. 2024/07/02 : [gNB_dlsch_ulsch_scheduler](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions/gNB_dlsch_ulsch_scheduler.md), [eNB_dlsch_ulsch_scheduler](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions/eNB_dlsch_ulsch_scheduler.md), and [rx_sdu](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions/rx_sdu.md)
 
 # Milestone [Pre-Internship]
 1. [2024/06/22](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/Study%20Notes/OAI%20L2.md) : Understanding L1 and L2
