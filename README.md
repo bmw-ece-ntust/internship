@@ -8,8 +8,8 @@
 * Topic : Cybersecurity - ORAN-WG11 Specification
 * Duration : June 2024 - August 2024
 * Mentor :
-* Portofolio : LinkedIn, Resume
+* Portofolio : [LinkedIn](https://www.linkedin.com/in/royoswaldha/), [My Website](https://rroiii.github.io/)
 
 *Study Notes:
-[ORAN](https://hackmd.io/@iG-KtfSiQyijZj4YgfGMIA/BJF3UPU-R))
+[ORAN](https://hackmd.io/@iG-KtfSiQyijZj4YgfGMIA/BJF3UPU-R)
 [ORAN WG11 Security Specifications](https://hackmd.io/@iG-KtfSiQyijZj4YgfGMIA/BJQD5v8ZR)
