@@ -16,7 +16,7 @@
 2. [2024/06/28](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions.md) : Reorganize 5G FAPI Architecture notes and make 5G FAPI Functions
 
 **Week 2**
-1. [2024/07/01](https://github.com/bmw-ece-ntust/internship/commit/64d308ecda08fabc568fdf53c8abd5ada589ba46?short_path=e5a1f07#diff-e5a1f075ba09c9f6d0d7a7e6cf90ee7026322927964ecdafdcdace26d1122e27) : nr_intitate_ra_proc
+1. [2024/07/01](https://github.com/bmw-ece-ntust/internship/blob/0db0bbc9140664258b2fcd95c8090a0ead820a5b/During%20Internship/5G%20FAPI%20Functions/nr_intitate_ra_proc.md) : nr_intitate_ra_proc
 2. [2024/07/02](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/get_dlsch_sdu%20and%20eNB_dlsch_ulsch_scheduler.md) : Continuing 5G FAPI Architecture
 
 # Milestone [Pre-Internship]
