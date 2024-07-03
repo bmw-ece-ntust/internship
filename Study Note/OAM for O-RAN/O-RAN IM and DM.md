@@ -41,10 +41,10 @@ Alarm Dictionary:
 
 ##### Inheritance:
 ManagedApplication:
-![Alt text](image.png)
+![Alt text](Assets/image.png)
 Performance Dictionary:
-![Alt text](image-1.png)
+![Alt text](Assets/image-1.png)
 Alarm Dictionary:
-![Alt text](image-2.png)
+![Alt text](Assets/image-2.png)
 
 ##### 2.2.3 Class definitions
