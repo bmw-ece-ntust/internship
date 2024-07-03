@@ -147,7 +147,7 @@ This schedules the DCI for Downlink and PDSCH
   stop_meas(&gNB->schedule_dlsch);
 ```
 
-Schedules the transmission of Sounding Reference Signals reporting and Physical Uplink Control Channel (PUCCH).
+Schedules the transmission of Scheduling Request reporting and Physical Uplink Control Channel (PUCCH).
 The code then copies the Uplink Time Triggered Information (TTI) request.
 ```
   nr_sr_reporting(gNB, frame, slot);
