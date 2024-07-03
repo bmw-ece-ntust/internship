@@ -25,7 +25,7 @@ The second interface is the `Detector`, this interface captures specific data de
 > The `Detector` interface is not going to be implemented for this case.
 
 ### **Implementation**
-This commit includes a new utility [`utils/pdf_parser.py`](../utils/pdf_parser.py) to parse pdf file using implementation mentioned before. There are several steps to be done before using the utility:
+A new utility [`utils/pdf_parser.py`](../utils/pdf_parser.py) to parse pdf file using implementation explained in this part. There are several steps to be done before using the utility:
 1. **Download the Apache Tika jar file**, 
    
    Download the `tika-server-standard-x.x.x.jar`, can be accessed from this [link](https://tika.apache.org/download.html).
