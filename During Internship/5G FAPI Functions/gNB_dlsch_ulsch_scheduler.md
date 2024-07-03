@@ -90,10 +90,9 @@ within each frame for scheduling tasks like sending ticks to different protocol.
 ```
 
 > [!NOTE]
-> SIB 1
-Cell Access Related Information - PLMN Identity List, PLMN Identity, TA Code, Cell identity & Cell Status
-Cell Selection Information - Minimum Receiver Level
-Scheduling Information - SI message type & Periodicity, SIB mapping Info, SI Window length
+
+<img width="1059" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/f02e6999-1637-4319-aea2-b99d466f6096">
+
 
 ```
   // This schedules SIB1
