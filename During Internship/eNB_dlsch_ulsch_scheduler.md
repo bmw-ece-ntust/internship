@@ -1,4 +1,5 @@
 ## eNB_dlsch_ulsch_scheduler
+>  managing and optimizing resource allocation and scheduling policies within an LTE eNB, ensuring efficient use of radio resources and maintaining UE connectivity.
 Initialization of variables and structures used in this function
 ```
 void
