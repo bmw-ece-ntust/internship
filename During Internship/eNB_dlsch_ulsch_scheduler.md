@@ -1,3 +1,6 @@
+## eNB_dlsch_ulsch_scheduler
+Initialization of variables and structures used in this function
+```
 void
 eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
                           frame_t frameP,
@@ -18,8 +21,10 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
   // 1303275.278188 [MAC]   XXX 0.0 -> 0.4 = 4
   // 1303275.279443 [MAC]   XXX 0.4 -> 639.5 = 6391
   // 1303275.348686 [MAC]   XXX 646.3 -> 646.3 = 0
+```
 
-  // calculating the time making sure the the scheduler is processing the correct time frame.
+Calculating the time making sure the the scheduler is processing the correct time frame.
+```
   // If the delta is too large the function log the issue and returns
   int delta = (frameP * 10 + subframeP) - (eNB->frame * 10 + eNB->subframe);
   if (delta < 0)
@@ -39,10 +44,10 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
 
   eNB->frame    = frameP;
   eNB->subframe = subframeP;
+```
 
-
-// clearing VRB maps for each component carrier
-// handling MBSFN nad NFAPI
+Clearing VRB (Virtual Resource Block --> represent resource allocations that may not directly correspond to physical RBs but are managed at a higher protocol layer.) maps for each component carrier. This code snippet handles MBSFN nad NFAPI.
+```
   for (CC_id = 0; CC_id < MAX_NUM_CCs; CC_id++) {
     mbsfn_status[CC_id] = 0;
     /* Clear vrb_maps */
@@ -58,8 +63,11 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
      * TODO: remove this hack, deal with physical bits properly
      *       i.e. reduce MCS in the scheduler if code rate > 0.93
      */
+```
 
-// Special handling for subframe 0 to avoid scheduling issues with BCH (Broadcast Channel) RBs.
+
+Special handling for subframe 0 (first subframe) to avoid scheduling issues with BCH (Broadcast Channel) RBs.
+```
     if (subframeP == 0) {
       int i;
       int bw = cc[CC_id].mib->message.dl_Bandwidth;
@@ -70,73 +78,40 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
         cc[CC_id].vrb_map[start[bw] + i] = 1;
     }
   }
+```
 
-  /* Refresh UE list based on UEs dropped by PHY in previous subframe */
+Refresh UE list based on UEs dropped by PHY in previous subframe 
+```
   for (UE_id = 0; UE_id < MAX_MOBILES_PER_ENB; UE_id++) {
     if (UE_info->active[UE_id]) {
       rnti = UE_RNTI(module_idP, UE_id);
       CC_id = UE_PCCID(module_idP, UE_id);
       UE_scheduling_control = &(UE_info->UE_sched_ctrl[UE_id]);
-
-/* to be merged with MAC_stats.log generation. probably redundant
-      if (((frameP & 127) == 0) && (subframeP == 0)) {
-        double total_bler;
-        if(UE_scheduling_control->pusch_rx_num[CC_id] == 0 && UE_scheduling_control->pusch_rx_error_num[CC_id] == 0) {
-          total_bler = 0;
-        }
-        else {
-          total_bler = (double)UE_scheduling_control->pusch_rx_error_num[CC_id] / (double)(UE_scheduling_control->pusch_rx_error_num[CC_id] + UE_scheduling_control->pusch_rx_num[CC_id]) * 100;
-        }
-        LOG_I(MAC,"UE %x : %s, PHR %d DLCQI %d PUSCH %d PUCCH %d RLC disc %d UL-stat rcv %lu err %lu bler %lf mcsoff %d bsr %u sched %u tbs %lu cnt %u , DL-stat tbs %lu cnt %u rb %u buf %u 1st %u ret %u ri %d\n",
-              rnti,
-              UE_scheduling_control->ul_out_of_sync == 0 ? "in synch" : "out of sync",
-              UE_info->UE_template[CC_id][UE_id].phr_info,
-              UE_scheduling_control->dl_cqi[CC_id],
-              UE_scheduling_control->pusch_snr_avg[CC_id],
-              UE_scheduling_control->pucch1_snr[CC_id],
-              UE_scheduling_control->rlc_out_of_resources_cnt,
-              UE_scheduling_control->pusch_rx_num[CC_id],
-              UE_scheduling_control->pusch_rx_error_num[CC_id],
-              total_bler,
-              UE_scheduling_control->mcs_offset[CC_id],
-              UE_info->UE_template[CC_id][UE_id].estimated_ul_buffer,
-              UE_info->UE_template[CC_id][UE_id].scheduled_ul_bytes,
-              UE_info->eNB_UE_stats[CC_id][UE_id].total_pdu_bytes_rx,
-              UE_info->eNB_UE_stats[CC_id][UE_id].total_num_pdus_rx,
-              UE_info->eNB_UE_stats[CC_id][UE_id].total_pdu_bytes,
-              UE_info->eNB_UE_stats[CC_id][UE_id].total_num_pdus,
-              UE_info->eNB_UE_stats[CC_id][UE_id].total_rbs_used,
-#if defined(PRE_SCD_THREAD)
-              UE_info->UE_template[CC_id][UE_id].dl_buffer_total,
-#else
-              0,
-#endif
-              UE_scheduling_control->first_cnt[CC_id],
-              UE_scheduling_control->ret_cnt[CC_id],
-              UE_scheduling_control->aperiodic_ri_received[CC_id]
-        );
-      }
-*/
       RC.eNB[module_idP][CC_id]->pusch_stats_bsr[UE_id][(frameP * 10) + subframeP] = -63;
 
       if (UE_id == UE_info->list.head) {
         VCD_SIGNAL_DUMPER_DUMP_VARIABLE_BY_NAME(VCD_SIGNAL_DUMPER_VARIABLES_UE0_BSR, RC.eNB[module_idP][CC_id]->pusch_stats_bsr[UE_id][(frameP * 10) + subframeP]);
       }
+```
 
-// CDRX stands for Continuous DRX (Discontinuous Reception). 
-// It is a feature in LTE (Long Term Evolution) and 5G networks designed to 
-// optimize power consumption in User Equipment (UE) while maintaining connectivity 
-// with the network.
-      /* Set and increment CDRX related timers */
+CDRX stands for Continuous DRX (Discontinuous Reception) which is a feature in LTE (Long Term Evolution) and 5G networks designed to optimize power consumption in User Equipment (UE) while maintaining connectivity with the network.
+<img width="269" alt="image" src="https://github.com/bmw-ece-ntust/internship/assets/123353805/8544a001-a478-470c-927c-53a338408e08">
+
+
+```
       if (UE_scheduling_control->cdrx_configured == true) {
         bool harq_active_time_condition = false;
         UE_TEMPLATE *UE_template = NULL;
         unsigned long active_time_condition = 0; // variable used only for tracing purpose
+```
 
-// If the CDRX is false then we use HARQ
-        /* (UL and DL) HARQ RTT timers and DRX retransmission timers */
+
+If the CDRX is false then we use HARQ. (UL and DL) HARQ RTT timers and DRX retransmission timers 
+```
         for (int harq_process_id = 0; harq_process_id < 8; harq_process_id++) {
-          /* DL asynchronous HARQ process */
+```
+DL asynchronous HARQ process. Note: here drx_retransmission_timer is restarted instead of started in the specification.
+```
           if (UE_scheduling_control->drx_retransmission_timer[harq_process_id] > 0) {
             UE_scheduling_control->drx_retransmission_timer[harq_process_id]++;
 
@@ -149,26 +124,28 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
             UE_scheduling_control->harq_rtt_timer[CC_id][harq_process_id]++;
 
             if (UE_scheduling_control->harq_rtt_timer[CC_id][harq_process_id] > 8) {
-              /* Note: here drx_retransmission_timer is restarted instead of started in the specification */
-              UE_scheduling_control->drx_retransmission_timer[harq_process_id] = 1; // started when HARQ RTT timer expires
+              
+              UE_scheduling_control->drx_retransmission_timer[harq_process_id] = 1; `started when HARQ RTT timer expires`
               UE_scheduling_control->harq_rtt_timer[CC_id][harq_process_id] = 0;
             }
           }
+```
 
-          /* UL asynchronous HARQ process: only UL HARQ RTT timer is implemented (hence not implemented) */
+
+UL asynchronous HARQ process: only UL HARQ RTT timer is implemented (hence not implemented) 
+``` 
           if (UE_scheduling_control->ul_harq_rtt_timer[CC_id][harq_process_id] > 0) {
             UE_scheduling_control->ul_harq_rtt_timer[CC_id][harq_process_id]++;
 
             if (UE_scheduling_control->ul_harq_rtt_timer[CC_id][harq_process_id] > 4) {
-              /*
-               * TODO: implement the handling of UL asynchronous HARQ
-               * drx_ULRetransmissionTimer should be (re)started here
-               */
               UE_scheduling_control->ul_harq_rtt_timer[CC_id][harq_process_id] = 0;
             }
           }
+```
 
-          /* UL synchronous HARQ process */
+
+UL synchronous HARQ process 
+```
           if (UE_scheduling_control->ul_synchronous_harq_timer[CC_id][harq_process_id] > 0) {
             UE_scheduling_control->ul_synchronous_harq_timer[CC_id][harq_process_id]++;
 
@@ -179,11 +156,12 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
             }
           }
         }
+```
 
-// whether the UE is in active time based on conditions such as on-duration timer, 
-// DRX inactivity, HARQ activity, and uplink scheduling request (ul_SR).
-// tracks how long the UE has been in an active state
-        /* On duration timer */
+
+Knowing whether the UE is in active time based on conditions such as on-duration timer, DRX inactivity, HARQ activity, and uplink scheduling request (ul_SR). Tracks how long the UE has been in an active state
+```
+        //On duration timer
         if (UE_scheduling_control->on_duration_timer > 0) {
           UE_scheduling_control->on_duration_timer++;
 
@@ -192,15 +170,16 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
           }
         }
 
-        /* DRX inactivity timer */
+        //DRX inactivity timer
         if (UE_scheduling_control->drx_inactivity_timer > 0) {
           UE_scheduling_control->drx_inactivity_timer++;
 
           if (UE_scheduling_control->drx_inactivity_timer > (UE_scheduling_control->drx_inactivity_timer_thres + 1)) {
-            /* Note: the +1 on the threshold is due to information in table C-1 of 36.321 */
+            //Note: the +1 on the threshold is due to information in table C-1 of 36.321
             UE_scheduling_control->drx_inactivity_timer = 0;
-
-            /* When timer expires switch into short or long DRX cycle */
+```
+When timer expires switch into short or long DRX cycle 
+```
             if (UE_scheduling_control->drx_shortCycle_timer_thres > 0) {
               UE_scheduling_control->in_short_drx_cycle = true;
               UE_scheduling_control->drx_shortCycle_timer = 0;
@@ -211,11 +190,11 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
           }
         }
 
-        /* Short DRX Cycle */
+        //Short DRX Cycle
         if (UE_scheduling_control->in_short_drx_cycle == true) {
           UE_scheduling_control->drx_shortCycle_timer++;
 
-          /* When the Short DRX cycles are over, switch to long DRX cycle */
+          //When the Short DRX cycles are over, switch to long DRX cycle
           if (UE_scheduling_control->drx_shortCycle_timer > UE_scheduling_control->drx_shortCycle_timer_thres) {
             UE_scheduling_control->drx_shortCycle_timer = 0;
             UE_scheduling_control->in_short_drx_cycle = false;
@@ -226,7 +205,7 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
           UE_scheduling_control->drx_shortCycle_timer = 0;
         }
 
-        /* Long DRX Cycle */
+        //Long DRX Cycle
         if (UE_scheduling_control->in_long_drx_cycle == true) {
           UE_scheduling_control->drx_longCycle_timer++;
 
@@ -237,13 +216,15 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
           UE_scheduling_control->drx_longCycle_timer = 0;
         }
 
-        /* Check for error cases */
+        //Check for error cases
         if ((UE_scheduling_control->in_short_drx_cycle == true) && (UE_scheduling_control->in_long_drx_cycle == true)) {
           LOG_E(MAC, "Error in C-DRX: UE id %d is in both short and long DRX cycle. Should not happen. Back it to long cycle only\n", UE_id);
           UE_scheduling_control->in_short_drx_cycle = false;
         }
+```
 
-        /* Condition to start On Duration Timer based on the current DRX cycle */
+Condition to start On Duration Timer ( period during which the UE remains in an active state. ) based on the current DRX cycle 
+```
         if (UE_scheduling_control->in_short_drx_cycle == true && UE_scheduling_control->on_duration_timer == 0) {
           if (((frameP * 10) + subframeP) % (UE_scheduling_control->short_drx_cycle_duration) ==
               (UE_scheduling_control->drx_start_offset) % (UE_scheduling_control->short_drx_cycle_duration)) {
@@ -255,17 +236,11 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
             UE_scheduling_control->on_duration_timer = 1;
           }
         }
-
-        /* Update Active Time status of UE
-         * Based on 36.321 5.7 the differents conditions for the UE to be in Acttive Should be check ONLY
-         * here for the current subframe. The variable 'UE_scheduling_control->in_active_time' should be updated
-         * ONLY here. The variable can then be used for testing the actual state of the UE for scheduling purpose.
-         */
-
-// 
         UE_template = &(UE_info->UE_template[CC_id][UE_id]);
+```
 
-        /* (a)synchronous HARQ processes handling for Active Time */
+(a)synchronous HARQ processes handling for Active Time 
+```
         for (int harq_process_id = 0; harq_process_id < 8; harq_process_id++) {
           if (UE_scheduling_control->drx_retransmission_timer[harq_process_id] > 0) {
             harq_active_time_condition = true;
@@ -274,7 +249,7 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
           }
         }
 
-        /* Active time conditions */
+        //Active time conditions
         if (UE_scheduling_control->on_duration_timer > 0 ||
             UE_scheduling_control->drx_inactivity_timer > 1 ||
             harq_active_time_condition ||
@@ -283,9 +258,11 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
         } else {
           UE_scheduling_control->in_active_time = false;
         }
+```
 
-        /* BEGIN VCD */
-        if (UE_id == 0) {
+Debugging and tracing mechanism for monitoring the status and behavior of a User Equipment (UE) in a cellular network --> VCD (Value Change Dump) Begin.
+```
+        if (UE_id == 0) { //for a specific UE with ID 0 for a focused debugging process
           VCD_SIGNAL_DUMPER_DUMP_VARIABLE_BY_NAME(VCD_SIGNAL_DUMPER_VARIABLES_ON_DURATION_TIMER, (unsigned long) UE_scheduling_control->on_duration_timer);
           VCD_SIGNAL_DUMPER_DUMP_VARIABLE_BY_NAME(VCD_SIGNAL_DUMPER_VARIABLES_DRX_INACTIVITY, (unsigned long) UE_scheduling_control->drx_inactivity_timer);
           VCD_SIGNAL_DUMPER_DUMP_VARIABLE_BY_NAME(VCD_SIGNAL_DUMPER_VARIABLES_DRX_SHORT_CYCLE, (unsigned long) UE_scheduling_control->drx_shortCycle_timer);
@@ -306,8 +283,9 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
         }
 
         /* END VCD */
-
-        /* DCI0 ongoing timer */
+```
+Manage timing for Downlink Control Information (DCI) transmissions. 
+```
         if (UE_scheduling_control->dci0_ongoing_timer > 0) {
           if (UE_scheduling_control->dci0_ongoing_timer > 7) {
             UE_scheduling_control->dci0_ongoing_timer = 0;
@@ -316,8 +294,10 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
           }
         }
       } else { // else: CDRX not configured
-        /* Note: (UL) HARQ RTT timers processing is done here and can be used by other features than CDRX */
-        /* HARQ RTT timers */
+```
+
+HARQ RTT (Round Trip Time) timers for both downlink and uplink HARQ processes for a User Equipment (UE)
+```
         for (int harq_process_id = 0; harq_process_id < 8; harq_process_id++) {
           if (UE_scheduling_control->harq_rtt_timer[CC_id][harq_process_id] > 0) {
             UE_scheduling_control->harq_rtt_timer[CC_id][harq_process_id]++;
@@ -336,8 +316,12 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
           }
         } // end loop harq process
       } // end else CDRX not configured
+```
 
-      /* Increment these timers, they are cleared when we receive an sdu */
+Handling various timers for a User Equipment (UE) in an LTE network, specifically for uplink (UL) inactivity, Channel Quality Indicator (CQI) requests, and UE reestablishment rejection.
+
+
+```
       UE_scheduling_control->ul_inactivity_timer++;
       UE_scheduling_control->cqi_req_timer++;
       LOG_D(MAC, "UE %d/%x : ul_inactivity %d, cqi_req %d\n",
@@ -352,8 +336,10 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
 
         if (UE_scheduling_control->ue_reestablishment_reject_timer >= UE_scheduling_control->ue_reestablishment_reject_timer_thres) {
           UE_scheduling_control->ue_reestablishment_reject_timer = 0;
+```
 
-          /* Clear reestablish_rnti_map */
+Clearing reestablishment-related data structures
+```
           if (UE_scheduling_control->ue_reestablishment_reject_timer_thres > 20) {
             for (int ue_id_l = 0; ue_id_l < MAX_MOBILES_PER_ENB; ue_id_l++) {
               if (reestablish_rnti_map[ue_id_l][0] == rnti) {
@@ -368,32 +354,12 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
             rrc_rlc_remove_ue(&ctxt);
             pdcp_remove_UE(&ctxt);
           }
-
-          /* Note: This should not be done in the MAC! */
-	  /*
-          for (int ii=0; ii<MAX_MOBILES_PER_ENB; ii++) {
-            LTE_eNB_ULSCH_t *ulsch = RC.eNB[module_idP][CC_id]->ulsch[ii];
-
-            if((ulsch != NULL) && (ulsch->rnti == rnti)) {
-              void clean_eNb_ulsch(LTE_eNB_ULSCH_t *ulsch);
-              LOG_I(MAC, "clean_eNb_ulsch UE %x \n", rnti);
-              clean_eNb_ulsch(ulsch);
-            }
-          }
-
-          for (int ii=0; ii<MAX_MOBILES_PER_ENB; ii++) {
-            LTE_eNB_DLSCH_t *dlsch = RC.eNB[module_idP][CC_id]->dlsch[ii][0];
-
-            if((dlsch != NULL) && (dlsch->rnti == rnti)) {
-              void clean_eNb_dlsch(LTE_eNB_DLSCH_t *dlsch);
-              LOG_I(MAC, "clean_eNb_dlsch UE %x \n", rnti);
-              clean_eNb_dlsch(dlsch);
-            }
-          }
-	  */
-
 	int id;
+```
 
+The code is responsible for cleaning up ULSCH and DLSCH entries and removing UEs from uplink configuration request bodies. Cleaning ULSCH/DLSCH Entries will ensures that UEs that are no longer needed or are being rejected for reestablishment have their ULSCH and DLSCH entries cleaned up, freeing resources and maintaining the integrity of the data structures. Removing UEs from UL Config Request Bodies can be done by iterating through UL config request bodies and removes PDUs associated with the given RNTI, **ensuring that no stale PDUs are left in the configuration**
+
+```
 	// clean ULSCH entries for rnti
 	id = find_ulsch(rnti,RC.eNB[module_idP][CC_id],SEARCH_EXIST);
         if (id>=0) clean_eNb_ulsch(RC.eNB[module_idP][CC_id]->ulsch[id]);
@@ -408,7 +374,11 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
 
             if (ul_req_tmp) {
               int pdu_number = ul_req_tmp->number_of_pdus;
+```
 
+Iterates through each PDU in the uplink configuration list, checking if it matches the given RNTI. If a match is found, the PDU (Protocol Data Unit) is removed by shifting the subsequent PDUs and decrementing the total PDU count.
+Each removal is logged for debugging and monitoring purposes.Finally, the rrc_mac_remove_ue function is called to perform additional cleanup steps for the UE in the MAC layer.
+```
               for (int pdu_index = pdu_number-1; pdu_index >= 0; pdu_index--) {
                 if (ul_req_tmp->ul_config_pdu_list[pdu_index].ulsch_pdu.ulsch_pdu_rel8.rnti == rnti) {
                   LOG_I(MAC, "remove UE %x from ul_config_pdu_list %d/%d\n",
@@ -434,3 +404,4 @@ eNB_dlsch_ulsch_scheduler(module_id_t module_idP,
     } // end if UE active
   } // end for loop on UE_id
 }
+```
