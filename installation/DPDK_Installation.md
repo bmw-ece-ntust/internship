@@ -39,7 +39,7 @@ tar xf dpdk-23.11.1.tar.xz
 sudo apt install build-essential meson python3-pyelftools libnuma-dev pkgconf
 ```
 
-![install the dependencies](../assets/DPDK_Installation/Screenshot%202024-07-03%20140513.png)
+![install the dependencies](../assets/dpdk_installation/Screenshot%202024-07-03%20140513.png)
 
 ### 2.4 | Go to DPDK directory
 
@@ -54,9 +54,9 @@ meson -Dexamples=all build
 ninja -C build
 ```
 
-![install the dependencies](../assets/DPDK_Installation/Screenshot%202024-07-03%20140407.png)
-![install the dependencies](../assets/DPDK_Installation/Screenshot%202024-07-03%20140257.png)
-![install the dependencies](../assets/DPDK_Installation/Screenshot%202024-07-03%20140224.png)
+![install the dependencies](../assets/dpdk_installation/Screenshot%202024-07-03%20140407.png)
+![install the dependencies](../assets/dpdk_installation/Screenshot%202024-07-03%20140257.png)
+![install the dependencies](../assets/dpdk_installation/Screenshot%202024-07-03%20140224.png)
 
 ### 2.6 | Go to build directory and install it
 
@@ -73,7 +73,7 @@ sudo -i
 dpdk-devbind.py -s
 ```
 
-![install the dependencies](../assets/DPDK_Installation/Screenshot%202024-07-03%20140141.png)
+![install the dependencies](../assets/dpdk_installation/Screenshot%202024-07-03%20140141.png)
 
 ### 2.8 | Bind the port to DPDK by turning off the port first
 
@@ -84,8 +84,8 @@ modprobe uio_pci_generic
 dpdk-devbind.py -b uio_pci_generic 00:08.0
 ```
 
-![install the dependencies](../assets/DPDK_Installation/Screenshot%202024-07-03%20140115.png)
-![install the dependencies](../assets/DPDK_Installation/Screenshot%202024-07-03%20140054.png)
+![install the dependencies](../assets/dpdk_installation/Screenshot%202024-07-03%20140115.png)
+![install the dependencies](../assets/dpdk_installation/Screenshot%202024-07-03%20140054.png)
 
 ### 2.9 | Check the port status
 
@@ -117,4 +117,4 @@ sudo ./dpdk-helloworld -l 0-1 -n 2
 
 ## Result
 
-![install the dependencies](../assets/DPDK_Installation/Screenshot%202024-07-03%20140020.png)
+![install the dependencies](../assets/dpdk_installation/Screenshot%202024-07-03%20140020.png)
