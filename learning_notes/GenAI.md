@@ -10,6 +10,8 @@ GenAI have many branches divided by models and architecture of the algorithms, a
   - [**GenAI Usage in Computer Engineering Fields**](#genai-usage-in-computer-engineering-fields)
     - [**TestPilot by Max Schafer et. al.**](#testpilot-by-max-schafer-et-al)
   - [**GenAI Usage in 5G**](#genai-usage-in-5g)
+    - [**Testing Framework**](#testing-framework)
+      - [**AI Testing Framework for Next-G O-RAN Networks: Requirements, Design, and Research Opportunities**](#ai-testing-framework-for-next-g-o-ran-networks-requirements-design-and-research-opportunities)
     - [**Network Management**](#network-management)
       - [**LLM-Assisted Intent-Based 5G Core Network Management and Orchestration**](#llm-assisted-intent-based-5g-core-network-management-and-orchestration)
     - [**Interoperability**](#interoperability)
@@ -37,6 +39,24 @@ TestPilot uses five main components:
 LLM Model only used to generate candidate tests from the prompt generator, and all components in TestPilot doesn't use any LLM or AI algorithm, only hard coded rules. Note that the model using OpenAI inference server using it's API, without any training or architecture process.
 
 ## **GenAI Usage in 5G**
+
+### **Testing Framework**
+#### **AI Testing Framework for Next-G O-RAN Networks: Requirements, Design, and Research Opportunities**
+RAN architecture creates a lot of possibility in deploying AI models into the network yet performance testing of the performance in realistic performance haven't been explored that much. The proposed Open AI Cellular Testing Framework is the proposed solution in testing the network, consists of three components: Test Input, Server, and Actor. 
+- Test Inputs are test configuration and scripts for each task, that is used to automatically set up the testing environment.
+- Server manages a number of remote testing actors, including maintaining the socket connection to each actor and monitoring its resource usage and test status. Server is going to interpret the inputs, manage the actors, and generate the reports.
+- Actors are the sensor of the testing, consists of manager, AI core, test executor, and two interface for the unit under test, which can be an AI controlled radio network. Manager communicates to the server and check the integrity of actors, AI core enables AI-models to test and facilitate the testing, and Test executor is responsible for running sequential test actions instructed by the server and for monitoring their statuses.
+  
+![alt img](../images/AI-testing-framework.png)
+
+Architecture of the proposed open AI cellular testing framework [11].
+
+The framework enables the usage of AI in network testing (in the AI Core component inside the Actor). It is to bridge the gap of advancement of AI in networks, with the network testing by adding AI Core to dynamically creates test  actions and explore the capabilities of AI-controlled RANs. There are few scenarios to be used:
+1. Sensitivity Analysis, by testing one by one parameters to find any change of the output, to map the AI behaviour in the network system.
+2. AI Fuzzing, automatically creates input data with perturbation to find software defects and faults.
+3. Adversarial Learning, creates automated test signals that captures similar characteristics of real-world channel conditions. These signals then reacted by the AI on the network to be solved, creating an adversarial scenario.
+4. Reinforcement Learning, generates an action or adjustment, then define the reward. th reward then can be used to updates the AI model in the industry.
+
 ### **Network Management**
 #### **LLM-Assisted Intent-Based 5G Core Network Management and Orchestration**
 The paper proposes intent-based 5G Core by adding Semantic Router to process user prompts that translates the prompts into various commands to the core. Semantic Router itself is a method of deterministic decision-making of semantic meaning to route an input to the desired output. Semantic router enhance stability and reliability in LLM deployment, because its ability to define explicit routes without performance deterioration due to LLM hallucinations. There are 6 routes used in the semantic router: deployment, modification, performance assurance, intent report, intent feasibility, and regular notification.
@@ -110,3 +130,5 @@ The Chatbot model use Mixtral 8x7B, which is a large language model with 7B para
 
 [10] Sixu Tan; et. al.; Poster: A Novel Adaptor Approach for O-RAN Interoperability; 2024; Proceedings of the 25th International Workshop on Mobile Computing Systems and Applications; HOTMOBILE '24: Proceedings of the 25th International Workshop on Mobile Computing Systems and Applications
 ; ACM Digital Library
+
+[11] Bo Tang; et. al.; AI Testing Framework for Next-G O-RAN Networks: Requirements, Design, and Research Opportunities; IEEE Wireless Communications; 2023; DOI: 10.1109/MWC.001.2200213
