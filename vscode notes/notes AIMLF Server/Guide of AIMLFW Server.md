@@ -87,3 +87,106 @@ influx bucket list --org primary --token UcxRTvArR5mk_-J2k17SEf1uvD_-PT_gi1L-zkX
 ### Update the code into insert.py file. [Link code](https://hackmd.io/@Jerry0714/rkdJx5gph#3-2-Accessing-Applications-in-the-Cluster-Using-Port-Forwarding-to-send-data)
 ![alt text](image-8.png)
 ### Wait for few hours for uploading dataset
+
+## 8.  Influx DB datalake not available
+
+```javascript
+cd aimlfw-dep/
+vim RECIPE_EXAMPLE/example_recipe_latest_stable.yaml
+```
+![alt text](image-12.png)
+```
+press "i" + "escape" to edit 
+press "escape" + ":wq" to save and quit
+```
+### use this command only for re-install datalake
+```javascript
+1. bin/uninstall.sh
+2. bin/install.sh -f RECIPE_EXAMPLE/example_recipe_latest_stable.yaml
+```
+### if show error "can't locate the aimlfw-common helm package"
+![alt text](image-13.png)
+```javascript
+cd aimlfw-dep/bin
+./install_common_templates_to_helm.sh
+```
+### Check the chart is install or not.
+```javascript
+helm search repo | grep aiml
+```
+![alt text](image-14.png)
+### reinstall the yaml
+```javascript
+bin/install.sh -f RECIPE_EXAMPLE/example_recipe_latest_stable.yaml
+```
+![alt text](image-15.png)
+
+## 9. [Go to dashboard website](Guide dashboard JupyterNotebook\dashboard.md)
+
+## 10. Deploy trained qoe prediction model on Kserv
+```javascript
+1. kubectl create namespace kserve-test
+2. cd
+3. vim qoe.yaml
+```
+![alt text](image-16.png)
+```
+press "i" + "escape" to edit 
+press "escape" + ":wq" to save and quit
+```
+### Copy Mode URL to storage URL
+![alt text](image-22.png)
+### To deploy model update the Model URL in the qoe.yaml fil
+```javascript
+1. kubectl apply -f qoe.yaml -n kserve-test
+2. kubectl get pod -A
+```
+![alt text](image-17.png)
+```javascript
+kubectl get pods -n kserve-test
+```
+![alt text](image-18.png)
+
+## 11. Test predictions using model deployed on Kserve
+###  to obtain Ingress port for Kserve
+```javascript
+kubectl get svc istio-ingressgateway -n istio-system
+```
+### change  your IP and port inside vim predict
+![alt text](image-19.png)
+```javascript
+vim predict.sh
+```
+![alt text](image-20.png)
+### obtain your IP and Port
+
+```javascript
+1. ip a
+2. kubectl get svc istio-ingressgateway -n istio-system
+```
+```javascript
+my IP: 192.168.8.44
+my Port: 30650
+```
+### create sample data for predictions in file input_qoe.json.
+```javascript
+vim input_qoe.json
+```
+```javascript
+{"signature_name": "serving_default", "instances": [[[2.56, 2.56],
+       [2.56, 2.56],
+       [2.56, 2.56],
+       [2.56, 2.56],
+       [2.56, 2.56],
+       [2.56, 2.56],
+       [2.56, 2.56],
+       [2.56, 2.56],
+       [2.56, 2.56],
+       [2.56, 2.56]]]}
+```
+### Use command below to trigger predictions
+```javascript
+source predict.sh
+```
+### SUCCESS OUTPUT
+![alt text](image-21.png)

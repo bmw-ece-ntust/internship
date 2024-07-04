@@ -19,4 +19,13 @@ http://localhost:32005/
 ![alt text](image-5.png)
 ## 7. Check "Training Job Status"
 ![alt text](image.png)
-### Data extraction  is still failed because the data is still empty. Need to wait for influxdb to upload the dataset
+### Data extraction  is still failed because the data is still empty. [Solution](https://hackmd.io/ai9WR29zTl2Rmle8K4-Yog#7-2-Rroblem-2%EF%BC%9AInfluxDB-datalake-cant-able-to-training-)
+
+## 8. Create Feature Group
+### Feature Group  Name: Hellopanda
+![alt text](image-7.png)
+## 9. Create Training Job
+![alt text](image-8.png)
+## 10. Training Job Status succeeded
+### Trajining Job Name: Hellopanda22
+![alt text](image-9.png)
