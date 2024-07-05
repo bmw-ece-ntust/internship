@@ -20,6 +20,7 @@
 2. [2024/07/02](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions/get_dlsch_sdu%20and%20eNB_dlsch_ulsch_scheduler.md) : Continuing 5G FAPI Architecture
 3. 2024/07/03 : [gNB_dlsch_ulsch_scheduler](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions/gNB_dlsch_ulsch_scheduler.md), [eNB_dlsch_ulsch_scheduler](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions/eNB_dlsch_ulsch_scheduler.md), and [rx_sdu](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions/rx_sdu.md)
 4. [2024/07/04](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions/_nr_rx_sdu.md) : Understanding 5G FAPI Functions --> _nr_rx_sdu.md
+5. [2024/07/05] : Understanding[nfapi_nr_rach_indication_t] (https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions/nfapi_nr_rach_indication_t.md) and [nfapi_nr_uci_indication_t](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/During%20Internship/5G%20FAPI%20Functions/nfapi_nr_uci_indication_t.md)
 
 # Milestone [Pre-Internship]
 1. [2024/06/22](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-21-Gisela/Study%20Notes/OAI%20L2.md) : Understanding L1 and L2
