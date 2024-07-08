@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: headlamp-ingress
+  namespace: kube-system
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "headlamp.bmw.lab"
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service:
+            name: headlamp
+            port:
+              number: 80
