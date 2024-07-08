@@ -1,11 +1,14 @@
 # oai_nfapi_nr_rx_data_indication
+```
 int oai_nfapi_nr_rx_data_indication(nfapi_nr_rx_data_indication_t *ind) {
   ind->header.phy_id = 1; // HACK TODO FIXME - need to pass this around!!!!
   ind->header.message_id = NFAPI_NR_PHY_MSG_TYPE_RX_DATA_INDICATION;
   return nfapi_pnf_p7_nr_rx_data_ind(p7_config_g, ind);
 }
+```
 
 # nfapi_pnf_p7_nr_rx_data_ind
+```
 int nfapi_pnf_p7_nr_rx_data_ind(nfapi_pnf_p7_config_t* config, nfapi_nr_rx_data_indication_t* ind)
 {
 	if(config == NULL || ind == NULL)
@@ -17,8 +20,10 @@ int nfapi_pnf_p7_nr_rx_data_ind(nfapi_pnf_p7_config_t* config, nfapi_nr_rx_data_
 	pnf_p7_t* _this = (pnf_p7_t*)(config);
 	return pnf_nr_p7_pack_and_send_p7_message(_this, (nfapi_p7_message_header_t*)ind, sizeof(nfapi_nr_rx_data_indication_t));
 }
+```
 
 # pnf_nr_p7_pack_and_send_p7_message
+```
 int pnf_nr_p7_pack_and_send_p7_message(pnf_p7_t* pnf_p7, nfapi_p7_message_header_t* header, uint32_t msg_len)
 {
 	header->m_segment_sequence = NFAPI_P7_SET_MSS(0, 0, pnf_p7->sequence_number);
@@ -108,6 +113,6 @@ int pnf_nr_p7_pack_and_send_p7_message(pnf_p7_t* pnf_p7, nfapi_p7_message_header
 
 	return 0;
 }
-
+```
 
 
