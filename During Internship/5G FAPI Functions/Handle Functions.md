@@ -19,7 +19,9 @@ void handle_nr_rach(NR_UL_IND_t *UL_info)
   }
   bool in_timewindow = frame_diff == 0 || (frame_diff == 1 && UL_info->slot < 7);
 
-// If there are PDUs in the RACH indication and it's within the valid time window then it will log and terates through each PDU in the RACH indication to do preamble (enabling UEs to initiate communication with the base station) check and initiate Random Access procedure
+// If there are PDUs in the RACH indication and it's within the valid time window then
+it will log and terates through each PDU in the RACH indication to do preamble
+(enabling UEs to initiate communication with the base station) check and initiate Random Access procedure
   if (UL_info->rach_ind.number_of_pdus > 0 && in_timewindow) {
     LOG_D(MAC,"UL_info[Frame %d, Slot %d] Calling initiate_ra_proc RACH:SFN/SLOT:%d/%d\n",
           UL_info->frame, UL_info->slot, UL_info->rach_ind.sfn, UL_info->rach_ind.slot);
