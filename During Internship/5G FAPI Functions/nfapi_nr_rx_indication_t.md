@@ -1,4 +1,5 @@
 # oai_nfapi_nr_rx_data_indication
+Prepares a rx_data indication message by setting necessary header fields and then sends the message using the nfapi_pnf_p7_nr_rx_data_ind function. It ensures the message is correctly formatted with a physical layer ID and message ID before transmission.
 ```
 int oai_nfapi_nr_rx_data_indication(nfapi_nr_rx_data_indication_t *ind) {
   ind->header.phy_id = 1; // HACK TODO FIXME - need to pass this around!!!!
@@ -8,6 +9,7 @@ int oai_nfapi_nr_rx_data_indication(nfapi_nr_rx_data_indication_t *ind) {
 ```
 
 # nfapi_pnf_p7_nr_rx_data_ind
+Checking config and ind whether it is NULL or not. config (nfapi_pnf_p7_config_t*): Configuration structure containing settings for the P7 interface of the physical layer. ind (nfapi_nr_rx_data_indication_t*): rx data indication structure containing specific control information to be transmitted.
 ```
 int nfapi_pnf_p7_nr_rx_data_ind(nfapi_pnf_p7_config_t* config, nfapi_nr_rx_data_indication_t* ind)
 {
@@ -23,6 +25,7 @@ int nfapi_pnf_p7_nr_rx_data_ind(nfapi_pnf_p7_config_t* config, nfapi_nr_rx_data_
 ```
 
 # pnf_nr_p7_pack_and_send_p7_message
+Packing and sending the messages by setting a sequence number for each messages. The message will be packed according to the length of the message. 1) <0 will unlock the mutex, print error, and return -1, 2) > maximum will make the messages to be divided first into multiple segments, 3) fits in a single segment will be sent directly. After a successful send, the sequence number will be incremented and mutex will be unlocked.
 ```
 int pnf_nr_p7_pack_and_send_p7_message(pnf_p7_t* pnf_p7, nfapi_p7_message_header_t* header, uint32_t msg_len)
 {
