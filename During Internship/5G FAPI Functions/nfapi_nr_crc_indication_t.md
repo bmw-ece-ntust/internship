@@ -1,4 +1,5 @@
 # oai_nfapi_crc_indication
+Prepares a CRC indication message by setting necessary header fields and then sends the message using the nfapi_pnf_p7_crc_ind function. It ensures the message is correctly formatted with a physical layer ID and message ID before transmission.
 ```
 int oai_nfapi_crc_indication(nfapi_crc_indication_t *crc_ind) {
   crc_ind->header.phy_id = 1; // HACK TODO FIXME - need to pass this around!!!!
@@ -8,7 +9,9 @@ int oai_nfapi_crc_indication(nfapi_crc_indication_t *crc_ind) {
 }
 ```
 
-#
+# nfapi_pnf_p7_crc_ind
+Checking config and ind whether it is NULL or not. config (nfapi_pnf_p7_config_t*): Configuration structure containing settings for the P7 interface of the physical layer. ind (nfapi_crc_indication_t*): crc indication structure containing specific control information to be transmitted.
+```
 int nfapi_pnf_p7_crc_ind(nfapi_pnf_p7_config_t* config, nfapi_crc_indication_t* ind)
 {
 	if(config == NULL || ind == NULL)
@@ -20,7 +23,10 @@ int nfapi_pnf_p7_crc_ind(nfapi_pnf_p7_config_t* config, nfapi_crc_indication_t* 
 	pnf_p7_t* _this = (pnf_p7_t*)(config);
 	return pnf_p7_pack_and_send_p7_message(_this, (nfapi_p7_message_header_t*)ind, sizeof(nfapi_crc_indication_t));
 }
-
+```
+# pnf_p7_pack_and_send_p7_message
+Packing and sending the messages by setting a sequence number for each messages. The message will be packed according to the length of the message. 1) <0 will unlock the mutex, print error, and return -1, 2) > maximum will make the messages to be divided first into multiple segments, 3) fits in a single segment will be sent directly. After a successful send, the sequence number will be incremented and mutex will be unlocked.
+```
 
 int pnf_p7_pack_and_send_p7_message(pnf_p7_t* pnf_p7, nfapi_p7_message_header_t* header, uint32_t msg_len)
 {
@@ -111,7 +117,7 @@ int pnf_p7_pack_and_send_p7_message(pnf_p7_t* pnf_p7, nfapi_p7_message_header_t*
 
 	return 0;
 }
-
+```
 
 
 
