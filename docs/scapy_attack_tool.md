@@ -19,7 +19,7 @@ pip install scapy
 ```
 After installation, you can check whether scapy is installed on your machine using this command:
 ```python
-scapy
+sudo scapy
 ```
 ![Screenshot 2024-07-09 105801](/assets/scapy/Screenshot%202024-07-09%20105801.png)
 
