@@ -31,7 +31,7 @@ sendp(Ether(src="aa:bb:cc:dd:ee:ff")/IP(src="192.168.1.69", dst="192.168.1.121")
 ![scapy_test_1](/assets/scapy/scapy_test_1.jpg)
 
 ## 4. Testing Scapy with Script
-```python=
+```python
 from scapy.all import *
 
 dest_ip = "192.168.56.1"
