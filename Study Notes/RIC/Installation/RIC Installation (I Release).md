@@ -64,6 +64,9 @@ Now just run the installation script.
 cd ric-dep/bin
 ./install -f ../RECIPE_EXAMPLE/PLATFORM/example_recipe_oran_i_release.yaml
 ```
+
+
+
 After it is done, check the deployment status. The status should be all running
 ```sh
 kubectl get pods -A
