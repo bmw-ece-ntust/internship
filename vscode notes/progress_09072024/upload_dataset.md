@@ -48,4 +48,4 @@ Go to website: http://192.168.8.44:31843/
 pyhton3 pushdata.py
 ```
 Go to website: http://192.168.8.44:31843/. The output if the data is successfully uploaded.
-![alt text](image-4.png)
+![alt text](image-5.png)
