@@ -66,7 +66,7 @@ influx bucket list --org primary --token UcxRTvArR5mk_-J2k17SEf1uvD_-PT_gi1L-zkX
 
 ## 6. Enter the Database (QoE Data)
 ``` javascript
-1. kubectl exec -it my-release-influxdb-56c6fdcfcd-j52z5 -- bash1. kubectl exec -it my-release-influxdb-56c6fdcfcd-j52z5 -- bash
+1. kubectl exec -it my-release-influxdb-56c6fdcfcd-j52z5 -- bash
 2. influx query  'from(bucket: "UEData") |> range(start: -1000d)' -o primary -t UcxRTvArR5mk_-J2k17SEf1uvD_-PT_gi1L-zkXdvW1KcyiyqREs7aD3kxkdtDngmhCW5qBKM69h0djn_CfEgw==
 ```
 ### if data successfuly uploaded
