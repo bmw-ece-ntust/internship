@@ -61,6 +61,6 @@ Go to website: http://192.168.8.44:31843/. The output if the data is successfull
 ### II. Use this command to reinstall.
 ```
 bin/uninstall.sh
-bin/install.sh -f RECIPE_EXAMPLE/example_recipe_latest_stable.yam
+bin/install.sh -f RECIPE_EXAMPLE/example_recipe_latest_stable.yaml
 ```
 ![alt text](image-5.png)
