@@ -1,4 +1,4 @@
-# OSC RIC Installation (H Relase
+# OSC RIC Installation (H Relase)
 
 ## Environment
 Operating Sytem: Ubuntu 20.04
