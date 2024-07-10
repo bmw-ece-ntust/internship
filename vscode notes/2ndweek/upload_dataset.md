@@ -48,4 +48,19 @@ Go to website: http://192.168.8.44:31843/
 pyhton3 pushdata.py
 ```
 Go to website: http://192.168.8.44:31843/. The output if the data is successfully uploaded.
+![alt text](image-4.png)
+
+## 5. if InfluxDB datalake can't able to training
+### I. Use this command to update "ip_address" and "datalake"
+```
+1. cd aimlfw-dep/
+2. vim RECIPE_EXAMPLE/example_recipe_latest_stable.yaml
+```
+![alt text](image-6.png)
+
+### II. Use this command to reinstall.
+```
+bin/uninstall.sh
+bin/install.sh -f RECIPE_EXAMPLE/example_recipe_latest_stable.yam
+```
 ![alt text](image-5.png)
