@@ -1,5 +1,6 @@
 # Power Control
-When a transmitter sends signal to a receiver through a wired communication there won't be that much power degradation. Different from a wireless communication which will have an uncontrollable power drop in the process. Thus, a power control mechanism should exist that can deliver the right amount of power based on the needs between the transmitter and receiver such as the distance .
+When a transmitter sends signal to a receiver through a wired communication there won't be that much power degradation. Different from a wireless communication which will have an uncontrollable power drop in the process. Thus, a power control mechanism should exist that can deliver the right amount of power based on the needs between the transmitter and receiver such as the distance.
+
 A. Closed Loop Power Control
   - Send signal from  T to R
   - R measure the power of the signal
