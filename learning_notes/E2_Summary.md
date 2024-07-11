@@ -5,6 +5,7 @@
   - [E2 Introduction](#e2-introduction)
   - [Protocol](#protocol)
   - [About Performance](#about-performance)
+  - [About AI/ML Deployment](#about-aiml-deployment)
   - [References](#references)
   
 
@@ -44,6 +45,37 @@ First the interface is being initialized between E2 node and nRT RIC. E2 node ad
 ## About Performance
 O-RAN Community released E2SM-KPM (E2SM Key Performance Measurement) document that specifies the capabilities exposed over the E2 interface [3]. 
 
+O-RAN E2SM Key Performance Measurements [4] defines technical term and use case of how to measure E2SM performances. RAN Function defined to do this is called "KPM Monitor" with the short name as "ORAN-E2SM-KPM". This function is supported by several part of the E2 Node. The first one is the RIC Event Trigger to trigger the function. The trigger mentioned here shows that it is a **periodic report**, which use REPORT services periodically. There are 6 defined REPORT services used to measure:
+
+RIC Style Type | Style Name | Style Type Description
+---|---|---
+1|E2 Node Measurement| Used to carry measurement report from a target E3 Node, belongs to *Fundamental* level REPORT Services
+2|E2 Node Measurement for a single UE|Used to carry measurement report for a single UE of interest from a target E2 Node, belongs to *Fundamental* level REPORT Services
+3|Condition-based, UE-level E2 Node Measurement|Used to carry UE-level measurement report for a group of UEs per measurement type matching subscribed conditions from a target E2 Node, belongs to *Fundamental* level REPORT Services
+4|Common Condition-based, UE-level Measurement|Used to carry measurement report for a group of UEs accross a set of measurement types satisfying common subscribed conditions from a target E2 Node, belongs to *Fundamental* level REPORT Services
+5|E2 Node Measurement for multiple UEs|Used to carry measurement report for multiple UEs of interest from a target E2 Node, belongs to *Fundamental* level REPORT Services
+255|Multiple report measurements|Used for multiple actions of the selected *fundamental* level REPORT Service style(s), belongs to *Integrated* level REPORT Services.
+
+There are O-RAN specific Performance Measurements mentioned on the document (more information in the document [4]):
+
+Measurement Name|Purpose|Output|Description
+---|---|---|---
+DL Transmitted Data Volume|performance assurance (user plane connection quality)|Integer, number of bits (in kbits) of PLMNs x QoS levels x S-NSSAIs|Measure transmitted data volume in the downlink in a measurement time
+UL Transmitted Data Volume|performance assurance (user plane connection quality)|Integer, number of bits (in kbits) of PLMNs x QoS levels x S-NSSAIs|Measure transmitted data volume in the uplink in a certain period
+Distribution of Percentage of DL Transmitted Data Volume to Incoming Data Volume|Network Operator's Traffic Engineering Community|Set of Integers, representing samples with a percentage of DL transmitted data volume to incoming data volume in the range represented by that bin|Measure the distribution of the percentage of successfully transmitted data volume to incoming data volume in downlink for UEs
+Distribution of Percentage of UL Transmitted Data Volume to Incoming Data Volume|Network Operator's Traffic Engineering Community|Set of Integers, representing samples with a percentage of UL transmitted data volume to incoming data volume in the range represented by that bin|Measure the distribution of the percentage of successfully transmitted data volume to incoming data volume in uplink for UEs
+Distribution of DL Packet Drop Rate|Performance assurance (user plane connection quality)|Integer, represent the drop rate multiplied by 1E6 of each UE within the range of the bin|Measure fraction of RLC SDU packets which are dropped on the downlink, due to high traffic load, traffic management, etc. in the gNB-DU
+Distribution of UL Packet Loss Rate|Performance assurance (user plane connection quality)|Integer, representing loss rate multiplied by 1E6 of each UE within the range of the bin|Measure the distribution of the fraction of PDCP SDU packets which are not successfully received at gNB-CU-UP
+DL Synchronization Signal based Reference Signal Received Power (SS-RSRP)|mMIMO Non-GoB optimization|Real value representing average of the reported DL SS-RSRP values for each SSB|Measures average of the DL SS-RSRP values reported from UEs in the cell when SS-RSRP is used for L1-RSRP as configured by reporting configs
+DL Synchronization Signal based Signal to Noise and Interference Ratio (SS-SINR)|mMIMO Non-GoB optimization|Real value representing average of the reported DL SS-SINR values for each SSB|Measure average of the DL SS-SINR values reported from UEs in the cell when SS-SINR is used for L1-SINR as congiured by reporting configs
+UL Sounding Reference Signal based Reference Signal Received Power (SRS-RSRP)|mMIMO Non-GoB optimization|real value representing the average of the measured UL SRS-RSRP values|Measure the average of UL SRS-RSRP values measured for UEs in the cell
+
+## About AI/ML Deployment
+Here is the workflow of AI/ML in the O-RAN architecture [5]. The RAN infrastructure provides data through O-RAN interfaces to the data colection and preparation logical blocks, and the models are then trained, validated, and deployed within O-RAN nodes.
+
+![img](../images/AIworkflow.png)
+
+
 ## References
 [1] https://rimedolabs.com/blog/o-ran-architecture-nodes-interfaces/ 
 
@@ -52,3 +84,5 @@ O-RAN Community released E2SM-KPM (E2SM Key Performance Measurement) document th
 [3] https://www.o-ran.org/blog/o-ran-alliance-introduces-48-new-specifications-released-since-july-2021
 
 [4]O-RAN E2 Service Model (E2SM) KPM 5.0; https://specifications.o-ran.org/specifications 
+
+[5] Understanding O-RAN: Architecture, Interfaces, Algorithms, Security, and Research Challenges; https://arxiv.org/pdf/2202.01032
