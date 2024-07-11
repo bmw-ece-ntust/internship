@@ -63,5 +63,62 @@ if __name__ == "__main__":
 ```
 ![Screenshot 2024-07-09 110959](/assets/scapy/Screenshot%202024-07-09%20110959.png)
 
-## Result
+## Result 09/07/2024
 ![wireshark_script](/assets/scapy/wireshark_script.png)
+
+## 5. Scapy Script to Send eCPRI U-Plane Packets
+```python
+from scapy.all import *
+
+src_ip = "192.168.1.69"
+dest_ip = "192.168.56.1"
+src_mac = "32:43:c7:8d:59:5c"
+dest_mac = "0A:00:27:00:00:17"
+iface = "enp0s3"
+count = 20
+
+class eCPRI(Packet):
+    name = "eCPRI"
+    fields_desc = [
+        BitField("protocolRevision", 0, 4),
+        BitField("reserved", 0, 3),
+        BitField("C", 0, 1),
+        ByteField("messageType", 0),
+        ShortField("payloadSize", 0)
+    ]
+
+def main():
+    # Bind eCPRI protocol to Ethernet with a specific EtherType (0xAEFE)
+    bind_layers(Ether, eCPRI, type=0xAEFE)
+
+    # Create an instance of the eCPRI packet
+    ecpri_packet = eCPRI(
+        protocolRevision=0x01, 
+        reserved=0b000, 
+        C=0, 
+        messageType=0x00, 
+        payloadSize=1024
+    )
+
+    # Define the payload
+    payload = b"Hello World"
+
+    # Create the complete packet with Ethernet header
+    ether = Ether(dst=dest_mac, type=0xAEFE)
+
+    # Assemble the complete packet structure
+    packet = ether / ecpri_packet / payload
+
+    # Display the packet structure
+    packet.show()
+
+    # Send the packet using Scapy's sendp function
+    sendp(packet, iface=iface, count=count)
+
+if __name__ == "__main__":
+    main()
+```
+![ecpri_packets](/assets/scapy/ecpri_packets.png)
+
+## Result 11/07/2024
+![oran_fh_u_wireshark](/assets/scapy/oran_fh_u_wireshark.png)
