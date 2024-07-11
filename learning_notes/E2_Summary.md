@@ -4,6 +4,10 @@
   - [Table of Contents](#table-of-contents)
   - [E2 Introduction](#e2-introduction)
   - [Protocol](#protocol)
+  - [E2AP](#e2ap)
+    - [Elementary Procedures](#elementary-procedures)
+    - [RIC Functional Procedures](#ric-functional-procedures)
+    - [Global Procedures](#global-procedures)
   - [About Performance](#about-performance)
   - [About AI/ML Deployment](#about-aiml-deployment)
   - [References](#references)
@@ -18,7 +22,8 @@ E2 Interface is the interface that is connected to specific entitites within the
  ## Protocol
  E2 Protocol stacked above of IP Layer, they are SCTP, E2AP, and E2AP Messages carrying E2SM from IP to above. E2AP is a specific O-RAN Alliance over SCTP/IP as the transport protocol. On the top of E2AP, application-specific controls and events are conveyed through E2 service models (E2SM), also used by the xApps in the Near-RT RIC.
 
- E2AP Terminologies:
+## E2AP
+Terminologies:
  - E2 node: disaggregated network function O-CU-CP, O-CU-UP and O-DU of a gNB or a combined O-eNB are called the E2 nodes. The nodes supports E2 interface towards nRT RIC and O1 interface towards Non Real-Time RIC (NRT RIC).
  - RAN Functions: specific function in an E2 node, includes network interfaces and RAN internal functions handling user equipment context handlers, call handlers, paging, etc.
  - RIC Service: provided on an E2 Node to provide access to message and measure and/or enable control of the E2 Node from the nRT RIC, includes:
@@ -29,6 +34,39 @@ E2 Interface is the interface that is connected to specific entitites within the
    - QUERY
  - RAN Function ID: local identifier of a specific RAN function within an E2 Node that supports one or more RIC Services using a specific E2SM, and a same E2SM can be used by more than one RAN Function in the same E2 Node.
  - Style: Group of different types of data for each RIC Services, where E2SM may support many styles for each RIC services.
+
+E2AP procedures are divided into:
+1. RIC Functional Procedures, contains procedures used to pass application specific messages between Near-RT RIC applications and a target RAN Function in an E2 node.
+2. Global Procedures, contains procedures that are not directly related to a specific application.
+   
+>E2AP Functions can be found on O-RAN WG3 Near-RT RIC, E2 General Aspects and Principles.
+
+### Elementary Procedures
+Elementary Procedures divided into Class 1 and Class 2, where Class 1 is basic procedures in communicating between the RIC and the Node (where successful and unsuccessful has different response), while Class 2 is more to sending messages by one device with less priority that the message is actually received each procedures (as Indicator) can be seen at [6].
+
+### RIC Functional Procedures
+Consists of 8 different procedures:
+- RIC Subscription Procedures, to start connection between RIC and the Node, consisting an event trigger and a sequence of RIC Service Action initiated by Near-RT RIC. If it fails, the RIC is going to release any resources left, and RIC Subscription Delete Procedure is initiated.
+- RIC Subscription Delete Procedures, to stop connection between RIC and the Node and release information and resource of the RIC abotu the node. Initiated by Near-RT RIC. When failed, the Near-RT RIC is going to terminate the procedure.
+- RIC Subscription Delete Required Procedures, to stop connection but initiated by the E2 Node.
+- RIC Subscription Audit Procedure, used to audit the list of established RIC Subscriptions on E2 Node, initiated by the Near-RT RIC. When failed, the RIC going to terminate the RIC Subscription procedure.
+- RIC Indication Procedure, to transfer Report and/or insert RIC Service Action associated with a RIC Subscription procedure, initiated by the E2 Node. There are no failure operation in this procedure, and have varied action by the RIC depend on the conditions.
+- RIC Control Procedure, to initiate or resume a specific functionality in the E2 Node, initiated by Near-RT RIC. When failed, the Node is going to return RIC CONTROL FAILURE and the near-RT RIC terminate the RIC Control Procedure.
+- RIC Subscription Modification Procedure, to modify an existing RIC subscription on an E2 Node in terms of its event trigger definition and/or the sequence of actions, initiated by the Near-RT RIC. When failed, the near-RT RIC will terminate the RIC Subscription Modification procedures
+- RIC Subscription Modification Required Procedure, to send a request to the Near-RT RIC for modifying an existing RIC Subscription in the E2 Node, initiated by E2 Node. When no service action can be modified in the existing RIC Subscription, the Near-RT RIC is going to send refusal.
+- RIC Query Procedure, to request RAN and/or UE related information from E2 by Near-RT RIC.
+
+### Global Procedures
+Consists of 7 different procedures:
+- E2 Setup Procedure,to exchange application level dat aneeded for the E2 Node and Near-RT RIC o correctly interoperate on the E2 interface, firstly triggered after the TNL association. It erases any existing application level config data in the two nodes and replaced by the new one, initiated by E2 Node.
+- Reset Procedure, re-initialize the E2 Node in the event of Near-RT RIC failure or vice-versa, it does not affect the application level data exchanged during the E2 Setup procedure, E2 Node Config. Update Procedure, and RIC Service Update Procedure. It is initiated using the E2 Node or the Near-RT RIC.
+- Error Indication, initiated by either E2 Node or Near-RT RIC to report detected errors in one incoming messages, and cannot be reported by failure message. Can be initiated by E2 Node or the Near-RT RIC.
+- RIC Service Update Procedure, to update application level RIC Service related data needed to E2 Node and Near-RT RIC to interoperate correctly over the E2 Interface, initiated by E2 Node. When failure, there are a wait time before reinitiating the same procedure, while the Node continue with the previous service data.
+- E2 Node Configuration Update Procedure, to update application level E2 Node configuration data needed for E2 Node and Near-RT RIC to interoperate correctly over the E2 interface and to support E2 Node initiated TNL association removal, initiated by E2 Node. When failed, the RIC and E Node is going to operate with the existing config. data.
+- E2 Connection Update Procedure, to allow the Near-RT RIC to update the TNL information associated with the E2 interface connection between the E2 Node adn Near-RT RIC, initiated by  Near-RT RIC. When failed, the RIC is going to use timer before reinitiating E2 Connection Update procedure towards the same E2 node.
+- E2 Removal Procedure, to remove the E2 signaling connection between the Near-RT RIC and the E2 Node in a controlled manner, initiated both E2 Node or the Near-RT RIC.
+
+Various message functional definition and content can be accessed via the document [6].
 
 More about E2 Nodes:
 ![img](../images/E2Node.png)
@@ -86,3 +124,5 @@ Here is the workflow of AI/ML in the O-RAN architecture [5]. The RAN infrastruct
 [4]O-RAN E2 Service Model (E2SM) KPM 5.0; https://specifications.o-ran.org/specifications 
 
 [5] Understanding O-RAN: Architecture, Interfaces, Algorithms, Security, and Research Challenges; https://arxiv.org/pdf/2202.01032
+
+[6] O-RAN E2 WG3 Near-RT RIC and E2 Interface: E2 Application Protocol (E2AP); https://specifications.o-ran.org/specifications 
