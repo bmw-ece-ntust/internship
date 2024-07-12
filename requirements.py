@@ -42,6 +42,9 @@ def create_requirements_txt(imports, output_path='requirements.txt'):
         elif imp.startswith('from '):
             packages.add(imp.split()[1].split('.')[0])
     
+    # Ensure 'sklearn' is replaced by 'scikit-learn'
+    packages = {'scikit-learn' if pkg == 'sklearn' else pkg for pkg in packages}
+    
     packages_with_versions = {}
     for package in packages:
         version = get_package_version(package)
@@ -58,3 +61,4 @@ if __name__ == "__main__":
     notebook_path = 'NTUST_Notebook.ipynb'  # Update this path if necessary
     imports = extract_imports(notebook_path)
     create_requirements_txt(imports)
+    print("install all dependencies using 'pip install -r requirements.txt'")
