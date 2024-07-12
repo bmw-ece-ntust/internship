@@ -8,6 +8,7 @@
     - [Elementary Procedures](#elementary-procedures)
     - [RIC Functional Procedures](#ric-functional-procedures)
     - [Global Procedures](#global-procedures)
+  - [E2SM](#e2sm)
   - [About Performance](#about-performance)
   - [About AI/ML Deployment](#about-aiml-deployment)
   - [References](#references)
@@ -80,6 +81,20 @@ General Workflow of E2 Interface:
 ![img](../images/E2NodeGeneralWorkflow.png)
 First the interface is being initialized between E2 node and nRT RIC. E2 node advertises the list of RAN functions that it supports and the corresponding E2SM supported for each RAN function. The xApps that runs on nRT RIC subscribe the E2 node, providing the event triggers and what actions to perform when it triggers. The action to perform is either REPORT or INSERT, the E2 node notifies the nRT RIC when the event occurs. If the nRT RIC detects REPORT, the xApp provide CONTROL request to the E2 node. the CONTROL enables xApp to control the call processing, radio resource allocation, handover control, idle mode mobility control, radio admission, carrier aggregation, and dual connectivity behaviors.
 
+## E2SM
+E2SM is the bridge between application layers, especially the xApps on the Near-RT RIC with the E2 nodes. E2SM define function-specific protocols that are implemented on top of the E2AP specification. E2SM are defined using ASN.1 (Abstract Syntax Notation One) syntax, which is a standard interface description language for defining data structures [7].
+
+Few example of E2SM for O-RAN specified usage are:
+E2SM Short Name|Scope
+---|---
+E2SM-NI|RAN Function NI (Network Interface) performs: Exposure of Network Interfaces, Modification of both incoming and outgoing network interface message contents, Execution of plicies that may result in charge of network behavior.
+E2SM-KPM Version 1|RAN Function KPM (KPM Monitor) performs: Exposure of O-DU's cell related performance IEs through periodic KPM Report, Exposure of O-CU-CP's cell/UE related performance IEs through periodic KPM Report, Exposure of O-CU-UP's bearer related performance IEs through periodic KPM Report.
+E2SM-KPM Version 2|RAN Function KPM (KPM Monitor) performs: Exposure of available measurements from O-DU, O-CU-CP, and/or O-CU-UP via the RAN Function Definition IE, Periodic reporting of measurements subscribed from Near-RT RIC.
+E2SM-RC|RAN Function RC (RAN Control) performs: Exposure of RAN control and UE context related information, Modification and initiation of RAN control related call processes and messages, Execution of policies that may result in change of RAN control behaviour.
+E2SM-CCC|RAN Function CCC (Cell Configuration and Control) performs: Exposure of node level and cell level configuration information, Initiate control and/or configuration of node level and cell level parameters
+
+It is possible for new adaptation of new E2SM definition using the Information Element defined in the document [7]. Information element (IE) for the E2SM includes RAN Function name, RIC Style type, RIC Style name, RIC Format type, Cell Global ID, UE ID, Group ID, Core CP ID,QoS ID, and many more.
+
 ## About Performance
 O-RAN Community released E2SM-KPM (E2SM Key Performance Measurement) document that specifies the capabilities exposed over the E2 interface [3]. 
 
@@ -126,3 +141,5 @@ Here is the workflow of AI/ML in the O-RAN architecture [5]. The RAN infrastruct
 [5] Understanding O-RAN: Architecture, Interfaces, Algorithms, Security, and Research Challenges; https://arxiv.org/pdf/2202.01032
 
 [6] O-RAN E2 WG3 Near-RT RIC and E2 Interface: E2 Application Protocol (E2AP); https://specifications.o-ran.org/specifications 
+
+[7] O-RAN WG3 E2SM; https://specifications.o-ran.org/specifications 
