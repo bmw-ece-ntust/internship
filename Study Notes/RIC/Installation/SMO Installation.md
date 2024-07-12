@@ -20,7 +20,7 @@ apt install -y python3-pip
 ### Installing kubespray
 #### Cloning kubespray repo
 ```sh
-apt install -y python3-pip
+git clone https://github.com/kubernetes-sigs/kubespray -b release-2.23
 ```
 #### Installing pip requirements
 ```sh

@@ -101,7 +101,89 @@ ricplt         statefulset-ricplt-dbaas-server-0                            1/1 
 root@ricintern-virtual-machine:~/ric-3/ric-dep/bin# 
 ```
 
+## Troubleshooting influxdb pending
+This is caused by problem in the persistent storage
+```sh
+kubectl get pv -n ricplt && kubectl get pvc -n ricplt
 
+NAME                     CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                            STORAGECLASS    REASON   AGE
+pv-ricplt-alarmmanager   100Mi      RWO            Retain           Bound       ricplt/pvc-ricplt-alarmmanager   local-storage            3d
+pv-ricplt-e2term-alpha   100Mi      RWO            Retain           Bound       ricplt/pvc-ricplt-e2term-alpha   local-storage            3d
+pv-ricplt-influxdb       8Gi        RWO            Retain           Available                                    local-storage            79m
+NAME                      STATUS    VOLUME                   CAPACITY   ACCESS MODES   STORAGECLASS    AGE
+pvc-ricplt-alarmmanager   Bound     pv-ricplt-alarmmanager   100Mi      RWO            local-storage   3d
+pvc-ricplt-e2term-alpha   Bound     pv-ricplt-e2term-alpha   100Mi      RWO            local-storage   3d
+r4-influxdb-influxdb2     Pending                                                      local-storage   3d
+```
+### Edit the PV config
+```sh
+kubectl edit pv pv-ricplt-influxdb -n ricplt
+```
+Using vim, in the spec object add `storageClassName: local-storage` and change the storage capacity to 50Gi 
+`capacity: 50Gi`
+
+```yaml
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    #This one=========================
+    storage: 50Gi
+    #This one=========================
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: r4-influxdb-influxdb2
+    namespace: ricplt
+    resourceVersion: "443163"
+    uid: 21de30c8-f41e-4aad-9cca-f35afc0046f9
+  hostPath:
+    path: /mnt/pv-ricplt-influxdb
+    type: ""
+  persistentVolumeReclaimPolicy: Retain
+  #This one=========================
+  storageClassName: local-storage
+  #This one=========================
+  volumeMode: Filesystem
+```
+then save using `:wq`
+>Cannot use nano because i cannot find the actual file location
+
+### Edit PVC config
+Using vim, in the spec object add `storageClassName: local-storage`.
+```yaml
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+  #THhis one =======================================
+  storageClassName: local-storage
+  #THhis one =======================================
+  volumeMode: Filesystem
+  volumeName: pv-ricplt-influxdb
+```
+### Result
+```sh
+kubectl get pod -n ricplt
+NAME                                                         READY   STATUS    RESTARTS       AGE
+deployment-ricplt-a1mediator-64fd4bf64-glmzr                 1/1     Running   0              3d1h
+deployment-ricplt-alarmmanager-7d47d8f4d4-gstch              1/1     Running   0              3d1h
+deployment-ricplt-appmgr-5bdd7cbb54-nrqn5                    1/1     Running   0              3d1h
+deployment-ricplt-e2mgr-b988db566-dvx58                      1/1     Running   0              3d1h
+deployment-ricplt-e2term-alpha-75d8ccb646-th27s              1/1     Running   0              3d1h
+deployment-ricplt-jaegeradapter-7489d97555-7wzqj             1/1     Running   0              3d1h
+deployment-ricplt-o1mediator-76c4646878-2b9wv                1/1     Running   0              3d1h
+deployment-ricplt-rtmgr-6556c5bc7b-vqj2r                     1/1     Running   2 (3d1h ago)   3d1h
+deployment-ricplt-submgr-599754c984-5rs7c                    1/1     Running   0              3d1h
+deployment-ricplt-vespamgr-786666549b-fscfr                  1/1     Running   0              3d1h
+r4-influxdb-influxdb2-0                                      1/1     Running   0              3d1h
+r4-infrastructure-kong-5986fc7965-cwtsb                      2/2     Running   0              3d1h
+r4-infrastructure-prometheus-alertmanager-64f9876d6d-79vwl   2/2     Running   0              3d1h
+r4-infrastructure-prometheus-server-bcc8cc897-27lwg          1/1     Running   0              3d1h
+statefulset-ricplt-dbaas-server-0                            1/1     Running   0              3d1h
+```
 
 # RIC Applications (xApp usng DMS CLi)
 ## Installing prerequisites
