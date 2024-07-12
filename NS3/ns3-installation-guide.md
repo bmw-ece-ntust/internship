@@ -12,6 +12,7 @@
   - [Building and Testing](#building-and-testing)
     - [Building NS3](#building-ns-3)
     - [Testing NS3](#testing-ns-3) 
+  - [Running First Script](#running-first-script)
   - [Conclusion](#conclusion)
 
 ## Introduction
@@ -403,8 +404,75 @@ This command runs all available tests and may take some time to complete. You'll
 
 3. **Troubleshooting**: If you encounter build errors or test failures, consult the NS-3 documentation and forums for troubleshooting advice. Common issues include missing dependencies, incorrect configuration options, or compatibility problems with specific versions of compilers and libraries.
 
+## Running First Script
+
+1. **Install synpatic package manager**
+
+    To check and install `g++`, Synaptic Package Manager is used. If it's not installed on your system, you can install it using the following commands:
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install synaptic
+    ```
+
+    Once installed, open Synaptic with `sudo synaptic`, search for **g++**, select it, and click apply.
+
+
+2. **Navigate to NS-3 Directory**
+    
+    Change directory to your ns-3 development folder.
+    ```bash
+    cd ns-3-dev
+    ```
+
+3. **Run Tests**
+
+    Execute the test script to verify the setup. This can take some time, so you can stop it with Ctrl+C if needed. To test only the core libraries, use:
+    ```bash
+    ./test.py -c core
+    ```
+
+4. **Configure NS-3 with Debugging**
+
+    Enable debugging, examples, and tests during the NS-3 configuration.
+    ```bash
+    ./ns3 -d debug --enable-examples --enable-tests configure
+    ```
+
+5. **Access Tutorial Examples**
+
+    Navigate to the examples directory and then into the tutorial folder.
+    ```bash
+    cd examples/
+    cd tutorial/
+    ```
+
+6. **Prepare the Simulation Script**
+
+    Copy the `first.cc` script from the tutorial directory to the scratch folder.
+    ```bash
+    cp first.cc ../../scratch/
+    ```
+
+7. **Run the Simulation**
+
+    Return to the main NS-3 directory and execute the `first.cc` script.
+    ```bash
+    cd ../..
+    ./ns3 run scratch/first
+    ```
+
+**Expected Output**
+
+Upon successful execution, you should see the following output:
+
+```bash
+At time +2s client sent 1024 bytes to 10.1.2.4 port 9
+At time +2.0118s server received 1024 bytes from 10.1.1.1 port 49153
+At time +2.0118s server sent 1024 bytes to 10.1.1.1 port 49153
+At time +2.02161s client received 1024 bytes from 10.1.2.4 port 9
+```
+
 ## Conclusion
 
 Following this guide should help you successfully install NS-3 on your system. Remember to consult the main references for any updates or additional information.
-
-
