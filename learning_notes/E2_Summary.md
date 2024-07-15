@@ -48,11 +48,14 @@ Elementary Procedures divided into Class 1 and Class 2, where Class 1 is basic p
 ### RIC Functional Procedures
 Consists of 8 different procedures:
 - RIC Subscription Procedures, to start connection between RIC and the Node, consisting an event trigger and a sequence of RIC Service Action initiated by Near-RT RIC. If it fails, the RIC is going to release any resources left, and RIC Subscription Delete Procedure is initiated.
+  ![img](../images/ric_subscription.png)
 - RIC Subscription Delete Procedures, to stop connection between RIC and the Node and release information and resource of the RIC abotu the node. Initiated by Near-RT RIC. When failed, the Near-RT RIC is going to terminate the procedure.
 - RIC Subscription Delete Required Procedures, to stop connection but initiated by the E2 Node.
 - RIC Subscription Audit Procedure, used to audit the list of established RIC Subscriptions on E2 Node, initiated by the Near-RT RIC. When failed, the RIC going to terminate the RIC Subscription procedure.
 - RIC Indication Procedure, to transfer Report and/or insert RIC Service Action associated with a RIC Subscription procedure, initiated by the E2 Node. There are no failure operation in this procedure, and have varied action by the RIC depend on the conditions.
+  ![img](../images/ric_indication.png)
 - RIC Control Procedure, to initiate or resume a specific functionality in the E2 Node, initiated by Near-RT RIC. When failed, the Node is going to return RIC CONTROL FAILURE and the near-RT RIC terminate the RIC Control Procedure.
+  ![img](../images/ric_control.png)
 - RIC Subscription Modification Procedure, to modify an existing RIC subscription on an E2 Node in terms of its event trigger definition and/or the sequence of actions, initiated by the Near-RT RIC. When failed, the near-RT RIC will terminate the RIC Subscription Modification procedures
 - RIC Subscription Modification Required Procedure, to send a request to the Near-RT RIC for modifying an existing RIC Subscription in the E2 Node, initiated by E2 Node. When no service action can be modified in the existing RIC Subscription, the Near-RT RIC is going to send refusal.
 - RIC Query Procedure, to request RAN and/or UE related information from E2 by Near-RT RIC.
@@ -128,6 +131,15 @@ Here is the workflow of AI/ML in the O-RAN architecture [5]. The RAN infrastruct
 
 ![img](../images/AIworkflow.png)
 
+The case in the workflow defined by the image above is about an operator that aims to develop, train, and deploy an xApp that controls RAN slicing policies by adapting it in near-real-time according to current network load and traffic demand via AI-based algorithms. The goal is to control RAN slicing policies by assigning the available PRBs to each slice so that the diverse performance requirements for each slice can be provided.
+1. Data Collection and Processing: The data is collected over the O1, A1, and E2 interfaces and stored in large datasets where it can be extracted upon request. The data to be taken is based on what is the purpose of the AI model, and can use autoencoders for dimensionality reduction and other preprocessing methods such as normalization, scaling, and reshaping.
+2. Training: AI/ML models are required to go through an offline training phase to ensure the reliability of intelligence and avoid inaccuracies that might result in outages or inefficiencies in the network. It is possible to use online training, but only for fine-tuning models that has been pretrained previously.
+3. Validation and Publishing: Trained models are validated once more according to the goal of the integration. If it is possible and ready for deployment, the models are published and stored in an AI/ML catalog on the SMO/non-RT RIC.
+4. Deployment: The models stored in the AI/ML catalog can be downloaded, deployed, and executed using image-based and file-based deployments. both case use the O1 interface, using an *inference host* or a node that use the model to create inference.
+   1. *image-based deployment* use containerized image of the AI/ML model in the form of an O-RAN application (xApp or rApp) deployed at the O-RAN nodes, where it is executed to perform online inference.
+   2. *file-based deployment* use the AI/ML model as standalone file that executes within an inference environment outside the O-RAN application domain that forwards the inference output to one or more O-RAN applications.
+5. AI/ML Execution and Inference: The deployed models on the inference host are given with data to perform diverse online inference tasks, at both RICs (transmitted over A1 and E2 interfaces), and taking management and control actions (over O1 and E2 interfaces respectively).
+6. Continuous Operations: Another important aspect of AI/ML workflow is the ability to monitor and analyze the deployment throughout the network to verify the output are effective, accurate and not negatively affect performance of the network. Continuous Operations ensure the models can be refined and retrained to improve their functionalities.
 
 ## References
 [1] https://rimedolabs.com/blog/o-ran-architecture-nodes-interfaces/ 
