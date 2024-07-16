@@ -148,3 +148,5 @@ File "/home/oran/oranbot/lib/python3.10/site-packages/langchain_nvidia_ai_endpoi
 File "/home/oran/oranbot/lib/python3.10/site-packages/langchain_nvidia_ai_endpoints/_common.py", line 298, in _try_raise
     raise Exception(f"{header}\n{body}") from None
 ```
+Tried Solution:
+- change other model (from mixtral to llama3) with augmented model changed based on the table on the README page on the https://github.com/NVIDIA/GenerativeAIExamples.
