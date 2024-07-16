@@ -14,6 +14,8 @@ To create RAG, first the data (in this case, PDF file of ORAN Documentation) str
   - [Step 5: Setup API Key](#step-5-setup-api-key)
   - [Step 6: Run the chatbot streamlit](#step-6-run-the-chatbot-streamlit)
   - [Step 7: Adding documents and creating vector database](#step-7-adding-documents-and-creating-vector-database)
+  - [Step 7: Try to Prompt!](#step-7-try-to-prompt)
+  - [Troubleshooting](#troubleshooting)
 
 
 ## Preliminaries
@@ -35,7 +37,7 @@ Step 3: Get API Key, copy and save it
 ```bash
 pip install virtualenv
 python3 -m virtualenv oranbot
-source oran/bin/activate
+source oranbot/bin/activate
 ```
 
 The kernel became:
@@ -75,14 +77,14 @@ sudo apt install libreoffice
 ```bash
 nano config.yaml
 ```
-Change the `nvidia_api_key`:
+Change the `nvidia_api_key` according to your API key, and `embedding_model` to `"nvolveqa_40k"`:
 ```bash
 ## Default settings
 nvidia_api_key: "nvapi-****"
 ## Set these to required models endpoints from NVIDIA NGC
 llm_model: "mistralai/mixtral-8x7b-instruct-v0.1"
 # Augmentation_model:
-embedding_model: "NV-Embed-QA"
+embedding_model: "nvolveqa_40k"
 
 NIM: false
 nim_model_name: "meta-llama3-8b-instruct"
@@ -98,6 +100,8 @@ nrem_truncate: "END"
 
 file_delete_password: "oranpwd"
 ```
+
+>The change of `embedding_model` will result a warning of deprecated model, ignore this since the `"NV-Embed-QA"` the newest model, returns `400 Error`. See more at [Troubleshooting](#troubleshooting).
 
 ## Step 6: Run the chatbot streamlit
 ```bash
@@ -123,7 +127,13 @@ The documents in the folder can be accessed via Streamlit UI, to add new folder 
 
 To delete files, use the `Delete File` button with the default password to delete files is `oranpwd`, can be changed in the `config.yaml` file.
 
-**Problem**: The `Create vector DB` button is not working, it returns:
+## Step 7: Try to Prompt!
+use the `Multimodal Assitant` tab on Streamlit then try to type a prompt.
+
+![img](../images/prompting.png)
+
+## Troubleshooting
+The `Create vector DB` button is not working, it returns:
 ```bash
 Exception: [400] Bad Request Inference error RequestID: 854889c8-7173-4ce5-b765-e2bf7202ce7e
 Traceback:
@@ -148,5 +158,5 @@ File "/home/oran/oranbot/lib/python3.10/site-packages/langchain_nvidia_ai_endpoi
 File "/home/oran/oranbot/lib/python3.10/site-packages/langchain_nvidia_ai_endpoints/_common.py", line 298, in _try_raise
     raise Exception(f"{header}\n{body}") from None
 ```
-Tried Solution:
-- change other model (from mixtral to llama3) with augmented model changed based on the table on the README page on the https://github.com/NVIDIA/GenerativeAIExamples.
+Possible Method:
+- Use deprecated `"nvolveqa_40K"` instead as the `embedding_model`.
