@@ -116,8 +116,11 @@ the example above define VLAN 10 network
 ```
 test(dhcp-config)#default-router 10.10.10.1
 ```
-
-
+[4] to exclude an IP address for DHCP ip assignment, we can use "excluded-address" command followed by the ip range (low and high) 
+```
+test(config)#ip dhcp excluded-address 10.10.10.1 10.10.10.10
+```
+the command above will exclude ip from 1-10 for 10.10.10 (DHCP will not assign this ip to any connected devices on the switch)
 
 
 
