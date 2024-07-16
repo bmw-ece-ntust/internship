@@ -67,6 +67,15 @@ test(config)#do show vlan
 ```
 the example above will assign vlan 10 to fastEthernet 0/1 as access port
 
+[6] to setup multiple access ports, we can use "range" command such as
+```
+test(config)#interface range fastEthernet 0/1-10
+```
+to set the range : 0/start-stop 
 
 
+the example above will set fa 0/1 until fa 0/10 as VLAN 10 port
+
+
+### Assigning IP address to VLAN
 
