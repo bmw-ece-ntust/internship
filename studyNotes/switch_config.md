@@ -122,7 +122,11 @@ test(config)#ip dhcp excluded-address 10.10.10.1 10.10.10.10
 ```
 the command above will exclude ip from 1-10 for 10.10.10 (DHCP will not assign this ip to any connected devices on the switch)
 
-
+### Saving configuration file
+to save configuration file simply
+```
+test#copy running-config startup-config
+```
 
 
 
