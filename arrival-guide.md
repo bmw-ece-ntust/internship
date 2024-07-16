@@ -1,24 +1,25 @@
-# Things to Do in Taiwan
+# Things to Do once you arrive at Taiwan
 
 - Arrive Safely at Airport
-- Get [UI number](https://egate.immigration.gov.tw/NIA_OnlineApply_inter/foreignApply/foreignApplyForm.action) in Airport
+- Buy simcard
 - Travel to NTUST
 - Get your room in NTUST Dorm
-- Buy living neccessities
+- Buy living neccessities (pillow, mattress, blanket, etc.)
+- Make UI Number
 - Make your [bank account](https://www.post.gov.tw/post/internet/U_english2/index.jsp?ID=3515010102)
 - Do and enjoy your internship
 
 # TPE Airport to NTUST with Trains
 
-- Get your e-money card
-- Top-up your e-money card
+- Buy your EZCard  
+- Top-up your EZCard
 - Travel from Airport Terminal to Taipei Main Station on Taoyuan Metro (https://www.travel.taipei/en/information/taoyuanmetro)
 - Travel from Taipei Main Station to Gongguan (https://guidetotaiwan.com/en/transit/taipei-mrt-green-line)
 - Walk to NTUST (https://oia-r.ntust.edu.tw/p/412-1060-8947.php?Lang=en)
 - Video by NTUST ISA: https://www.youtube.com/watch?v=ebmUwua2Z2E
 
 # Things to Bring to Taiwan
-
+- Enough NTD Cash 
 - Face Mask
 - Basket for Dirty Clothes
 - Tissue
@@ -30,26 +31,24 @@
 - Plug Adaptor
 - Bath Soap
 - Room Slippers
-- Table Broom
 - Bath Towel
 - Face Towel
 - Toothbrush
-- Glass for Toothbrush
 - Toothpaste
 - Cloth Hanger
 - Detergent
+- Bed sheets
+*Some of the things above can also be bought at Supermarket in Taiwan
 
 # Things to Buy in Taiwan
-
 - Sim Card
 - Mattress
 - Pillow
 - Bolster
 - Bedcover
-- Bed sheets
+  
 
 # Things Available in NTUST Dorm
-
 - Wifi
 - Study Table
 - Chair
