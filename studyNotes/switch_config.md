@@ -25,3 +25,48 @@ switch(config)#
 switch(config)# hostname test
 test(config)#
 ```
+### Setting up password for the switch
+[1] go to config mode and type "enable password" followed by the password
+```
+test(config)# enable password test
+```
+[2] log out and try to enter via enable command (it should request a password now)
+
+### VLAN Configuration
+[1] list all available vlan with the command "show vlan"
+```
+test# show vlan
+```
+note : default is VLAN 1
+
+
+the terminal should list all of port with assigned vlan
+
+[2] to add vlan, enter configuration mode and type vlan followed by the number
+```
+test# configure terminal
+test(config)# vlan 10
+test(config-vlan)#
+```
+after inputing the vlan number, the terminal should enter configuration mode for the vlan
+
+[3] to name the VLAN simply use "name" command followed by the name
+```
+test(config-vlan)#name sales
+```
+[4] go to step 1 to check whether the VLAN is registered into the VLAN list
+
+
+[5] previous VLAN setup only register the VLAN name without assigning it to the switch port, to assign it :
+```
+test(config)#interface fastEthernet 0/1
+test(config-if)#switchport mode access
+test(config-if)#switchport access vlan 10
+test(config-if)#exit
+test(config)#do show vlan
+```
+the example above will assign vlan 10 to fastEthernet 0/1 as access port
+
+
+
+
