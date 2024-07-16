@@ -99,6 +99,26 @@ to enable inter VLAN routing simply use
 ```
 test(config)#ip routing
 ```
+### Configuring DHCP for automatic ip assignment
+[1] go to config mode and create a dhcp pool using "ip dhcp pool" followed by the pool name
+```
+test(config)#ip dhcp pool 10
+test(dhcp-config)#
+```
+[2] define the network where the VLAN resides
+```
+test(dhcp-config)#network 10.10.10.0 /24 
+```
+the example above define VLAN 10 network
+
+
+[3] define the default router for the network, which is the VLAN 10 ip address itself
+```
+test(dhcp-config)#default-router 10.10.10.1
+```
+
+
+
 
 
 
