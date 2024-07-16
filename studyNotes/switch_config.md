@@ -17,25 +17,25 @@ switch#
 ```
 [3] enter configuration mode with command "configure terminal"
 ```
-switch# configure terminal
+switch#configure terminal
 switch(config)#
 ```
 [4] enter the command "hostname" to change the host name followed by the new name
 ```
-switch(config)# hostname test
+switch(config)#hostname test
 test(config)#
 ```
 ### Setting up password for the switch
 [1] go to config mode and type "enable password" followed by the password
 ```
-test(config)# enable password test
+test(config)#enable password test
 ```
 [2] log out and try to enter via enable command (it should request a password now)
 
 ### VLAN Configuration
 [1] list all available vlan with the command "show vlan"
 ```
-test# show vlan
+test#show vlan
 ```
 note : default is VLAN 1
 
@@ -45,7 +45,7 @@ the terminal should list all of port with assigned vlan
 [2] to add vlan, enter configuration mode and type vlan followed by the number
 ```
 test# configure terminal
-test(config)# vlan 10
+test(config)#vlan 10
 test(config-vlan)#
 ```
 after inputing the vlan number, the terminal should enter configuration mode for the vlan
@@ -80,7 +80,7 @@ the example above will set fa 0/1 until fa 0/10 as VLAN 10 port
 ### Assigning IP address to VLAN
 [1] enter interface mode for desired VLAN
 ```
-test(config)# interface vlan 10
+test(config)#interface vlan 10
 test(config-if)# 
 ```
 [2] to assign the ip address use "ip address" command followed by the ip address and bit mask
