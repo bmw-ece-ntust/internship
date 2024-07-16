@@ -78,4 +78,29 @@ the example above will set fa 0/1 until fa 0/10 as VLAN 10 port
 
 
 ### Assigning IP address to VLAN
+[1] enter interface mode for desired VLAN
+```
+test(config)# interface vlan 10
+test(config-if)# 
+```
+[2] to assign the ip address use "ip address" command followed by the ip address and bit mask
+```
+test(config-if)#ip address 10.10.10.1 255.255.255.0
+```
+
+[3] to check the ip address go back to test# and then use "show ip interface brief"
+```
+test(config-if)#exit
+test(config)#exit
+test#show ip interface brief
+```
+### Enabling inter VLAN routing
+to enable inter VLAN routing simply use
+```
+test(config)#ip routing
+```
+
+
+
+
 
