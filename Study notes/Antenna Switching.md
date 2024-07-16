@@ -29,4 +29,29 @@ Asymmetrical transceivers create a dimension inconsistency between uplink and do
 Although the downlink performance can be maintained, the reduction in the number of receive RF chains can degrade uplink performance, impacting the overall system efficiency
 
 
-## 3. 
+## 3. Antenna Selection in MIMO Systems
+
+![alt text](images/mimo16.png)
+
+**Key Effect of Switching Antenna**:
+- **Positif**: 
+  - Improved Signal Quality and Diversity:
+Antenna switching can significantly enhance the signal quality by selecting the antenna with the best signal-to-noise ratio (SNR). 
+  - Increased System Capacity:
+In a rich scattering environment, antenna selection can lead to higher system capacities by allowing the transmission of parallel independent data streams. This improves the overall data throughput of the system​
+
+- **Negative**
+  - Feedback and Latency Issues:
+Transmit antenna selection requires a feedback path from the receiver to the transmitter to inform which antennas to use. This feedback introduces additional latency and can complicate the system design
+  - Limited Benefit in Frequency-Selective Channels:
+In channels with high frequency selectivity, the optimal antenna selection may vary across different frequency bands, making it difficult to achieve significant gains. This limits the effectiveness of antenna selection in such environments
+  - Suboptimal Performance in Dynamic Environments:
+The performance of antenna selection techniques can degrade if the channel conditions change rapidly and are not quasi-stationary. 
+
+## Trade Off & Effect of Antenna Selection
+
+1. CSI Down -> Problem in Spatial Multiplexing -> Decreasing Troughput, Increasing interference
+2. CSI Down -> UE cannot select the best beam 
+3. Gain Down -> SNR Down -> UE Metrics Down
+4. QOS and CSI can be the constraint for optimization problem
+5. 
