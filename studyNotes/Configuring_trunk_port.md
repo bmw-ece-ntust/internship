@@ -25,3 +25,8 @@ test(config-if)#switchport trunk encapsulation dot1q
 ```
 test(config-if)#switchport mode trunk
 ```
+[5] to check the configuration
+```
+test#show run interface fasEthernet 0/48
+```
+note : switch that are connected to each other via trunk port must be configured with the same trunk configuration
