@@ -171,3 +171,4 @@ Possible Method:
 ## **Notes**
 - Whole O-RAN Documents in the https://orandownloadsweb.azurewebsites.net/specifications (YANG model and .xlsx files are excluded) costs: 695 API Calls and +- 71 minutes.
 - Expanding the response 'sources' might cost an API Call.
+- Access the vectorstore file here: https://drive.google.com/drive/folders/1amvYptJ7gzBzKQHSiW36OEVBojgxTSQO?usp=sharing
