@@ -1,8 +1,7 @@
 > Michael Harditya (TEEP)
-# PDF to Embeddings
-To create RAG, first the data (in this case, PDF file of ORAN Documentation) strings must be converted into embeddings and placed in a vector database. This note is the summary about the task.
+# O-RAN Chatbot RAG
 ## **Table of Contents**
-- [PDF to Embeddings](#pdf-to-embeddings)
+- [O-RAN Chatbot RAG](#o-ran-chatbot-rag)
   - [**Table of Contents**](#table-of-contents)
   - [Preliminaries](#preliminaries)
     - [Versions](#versions)
@@ -15,7 +14,7 @@ To create RAG, first the data (in this case, PDF file of ORAN Documentation) str
   - [Step 6: Run the chatbot streamlit](#step-6-run-the-chatbot-streamlit)
   - [Step 7: Adding documents and creating vector database](#step-7-adding-documents-and-creating-vector-database)
   - [Step 7: Try to Prompt!](#step-7-try-to-prompt)
-  - [Troubleshooting](#troubleshooting)
+  - [**Troubleshooting**](#troubleshooting)
 
 
 ## Preliminaries
@@ -132,7 +131,7 @@ use the `Multimodal Assitant` tab on Streamlit then try to type a prompt.
 
 ![img](../images/prompting.png)
 
-## Troubleshooting
+## **Troubleshooting**
 The `Create vector DB` button is not working, it returns:
 ```bash
 Exception: [400] Bad Request Inference error RequestID: 854889c8-7173-4ce5-b765-e2bf7202ce7e
