@@ -1,4 +1,4 @@
-<img width="1440" alt="image" src="https://github.com/user-attachments/assets/c3af4b67-c0f0-4cdd-b797-b3a99f56fabe"># G_b_f_c
+# G_b_f_c
 ```
 if (power_config->p0_Set == NULL) {
     if (mac->pucch_power_control_initialized == false) {
