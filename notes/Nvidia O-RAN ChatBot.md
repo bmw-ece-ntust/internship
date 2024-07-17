@@ -14,7 +14,9 @@
   - [Step 6: Run the chatbot streamlit](#step-6-run-the-chatbot-streamlit)
   - [Step 7: Adding documents and creating vector database](#step-7-adding-documents-and-creating-vector-database)
   - [Step 7: Try to Prompt!](#step-7-try-to-prompt)
+  - [Inference Test](#inference-test)
   - [**Troubleshooting**](#troubleshooting)
+  - [**Notes**](#notes)
 
 
 ## Preliminaries
@@ -131,6 +133,12 @@ use the `Multimodal Assitant` tab on Streamlit then try to type a prompt.
 
 ![img](../images/prompting.png)
 
+## Inference Test
+
+Cost: 4 API Calls:
+![img](../images/query-1.png)
+
+
 ## **Troubleshooting**
 The `Create vector DB` button is not working, it returns:
 ```bash
@@ -159,3 +167,7 @@ File "/home/oran/oranbot/lib/python3.10/site-packages/langchain_nvidia_ai_endpoi
 ```
 Possible Method:
 - Use deprecated `"nvolveqa_40K"` instead as the `embedding_model`.
+
+## **Notes**
+- Whole O-RAN Documents in the https://orandownloadsweb.azurewebsites.net/specifications (YANG model and .xlsx files are excluded) costs: 695 API Calls and +- 71 minutes.
+- Expanding the response 'sources' might cost an API Call.
