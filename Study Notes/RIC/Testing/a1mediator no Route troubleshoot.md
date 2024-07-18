@@ -157,7 +157,7 @@ Server: kong/3.7.0.0-enterprise-edition
 {"hosts":null,"paths":["/a1mediator"],"request_buffering":true,"response_buffering":true,"snis":null,"tags":null,"created_at":1721268330,"name":null,"updated_at":1721268330,"service":{"id":"b58a0be9-5964-4b8d-a287-de8a47db575d"},"path_handling":"v0","regex_priority":0,"sources":null,"headers":null,"protocols":["http","https"],"destinations":null,"https_redirect_status_code":426,"id":"3af97add-1f83-4106-aa0d-48f6d92e3a0a","strip_path":true,"methods":null,"preserve_host":false}
 ```
 
-### The newly configured kong
+### Testing the newly configured kong
 ```sh
 #Using A1-P healthcheck API here
 curl -i -X GET http://localhost:8000/a1mediator/A1-P/v2/healthcheck
