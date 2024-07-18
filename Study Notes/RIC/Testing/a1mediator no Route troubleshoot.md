@@ -2,6 +2,7 @@
 
 ## Initial Issue
 Cannot access the machine pod from outside the server.
+
  <img src="https://imgur.com/MIpma3p.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
  
  This problem is caused by the built in kong that is included with the RIC Installation inside namespace ricplt.
