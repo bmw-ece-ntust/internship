@@ -15,7 +15,8 @@
   - [Step 7: Adding documents and creating vector database](#step-7-adding-documents-and-creating-vector-database)
   - [Step 7: Try to Prompt!](#step-7-try-to-prompt)
   - [Inference Test](#inference-test)
-  - [**Troubleshooting**](#troubleshooting)
+  - [Modifying Feedbacks](#modifying-feedbacks)
+    - [Step 1: Prepare Google Cloud](#step-1-prepare-google-cloud)
   - [**Notes**](#notes)
 
 
@@ -138,6 +139,30 @@ use the `Multimodal Assitant` tab on Streamlit then try to type a prompt.
 Cost: 4 API Calls:
 ![img](../images/query-1.png)
 
+## Modifying Feedbacks
+### Step 1: Prepare Google Cloud
+1. Create Google Sheets
+2. Open [Google Cloud Project](https://console.cloud.google.com/)
+3. Create new Project
+   ![img](../images/feedback1.png)
+4. Enable Google Sheets API 
+   ![img](../images/feedback2.png)
+5. Create a Service Account
+   ![img](../images/feedback3.png)
+6. `Manage key` and `Add Key` and choose JSON to download JSON key.
+7. Modify the `add_row_to_sheet(values)` function in the `feedback.py`:
+   ```python
+   def add_row_to_sheet(values):
+    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    gc = gspread.service_account(filename="path/to/your_service_account_file.json")
+
+    sh = gc.open_by_url("https://docs.google.com/spreadsheets/d/your_spreadsheet_id/edit#gid=0")
+
+    worksheet = sh.get_worksheet(0)
+
+    worksheet.append_row(values)
+    ```
+Now when someone put a feedback, it will go straight to the Google Sheets defined previously.
 
 ## **Troubleshooting**
 The `Create vector DB` button is not working, it returns:
