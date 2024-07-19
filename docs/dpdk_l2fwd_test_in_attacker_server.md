@@ -1,9 +1,7 @@
 # DPDK-l2fwd Test in Attacker Server
 
-> .
 > **References:**
 > [DPDK-l2fwd official documentation](https://doc.dpdk.org/guides/sample_app_ug/l2_forward_real_virtual.html)
-> .
 
 ## 1. Testing Topology
 ![Testing_Topology](https://hackmd.io/_uploads/HJ2K888_0.png)
