@@ -7,7 +7,8 @@
 - Department : Electrical Engineering
 - GPA : 3.24
 - Intern :
-    - Topic :  5G Digital Twin
-    - Duration :
+    - Topic :  srsRAN OCU/ODU & rApps Development
+    - Duration : 5 Month
 - Mentor : 
 - Portofolio : [Linkedin](https://www.linkedin.com/in/raflihadiana/)
+
