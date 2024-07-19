@@ -17,6 +17,7 @@
   - [Inference Test](#inference-test)
   - [Modifying Feedbacks](#modifying-feedbacks)
     - [Step 1: Prepare Google Cloud](#step-1-prepare-google-cloud)
+  - [**Troubleshooting**](#troubleshooting)
   - [**Notes**](#notes)
 
 
@@ -163,6 +164,26 @@ Cost: 4 API Calls:
     worksheet.append_row(values)
     ```
 Now when someone put a feedback, it will go straight to the Google Sheets defined previously.
+
+> Updates: The code now added to send feedback data to two different google API, the first one as our own database, and the second one is the pre-defined code by Nvidia GitHub. The links are not included because may cause harm. The pre-defined code use `service.json` as the key, but the repository doesn't have this key and thus the transmission failed for sending to Nvidia database.
+<details>
+
+```python
+def add_row_to_sheet(values):
+    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    gc = gspread.service_account(filename="key.json")
+    sh = gc.open_by_url("[GOOGLE LINK]")
+    worksheet = sh.get_worksheet(0)
+    worksheet.append_row(values)
+
+    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    gc = gspread.service_account(filename="service.json")
+    sh = gc.open_by_url("[GOOGLE LINK]")
+    worksheet = sh.get_worksheet(0)
+    worksheet.append_row(values)
+```
+
+</details>
 
 ## **Troubleshooting**
 The `Create vector DB` button is not working, it returns:
