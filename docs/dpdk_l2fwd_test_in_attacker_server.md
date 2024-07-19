@@ -20,9 +20,10 @@ dpdk-devbind.py -b igb_uio 02:00.0
 dpdk-devbind.py -b igb_uio 02:00.1
 ```
 ![image](https://hackmd.io/_uploads/SkuYOIIdR.png)
+
 Here we are using igb_uio interface for maximum performance (Port 0 & Port 1)
 
-#### 2.3. Run DPDK-l2fwd application using previously binded port
+#### 2.3. Run DPDK-l2fwd application using port 0 & port 1
 ```bash
 sudo ./dpdk-l2fwd -l 0-3 -n 4 -- -p 0x3 -P
 ```
