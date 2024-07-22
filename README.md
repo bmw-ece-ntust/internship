@@ -1,6 +1,6 @@
 #  🇮🇩 TelU - Rafli - srsRAN OCU/ODU & rApps Development 
 
-
+![](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/teep-goals.png)
 
 ## Personal Information
 - Name : Mochamad Rafli Hadiana
