@@ -12,7 +12,7 @@
 ```
 #### 1.2. Open the main.c file using VSCode
 ---
-### 2. main() function
+### 2. Learning each parts of the function `main()`
 #### 2.1. Initialization and Argument Parsing:
 ```c
 ret = rte_eal_init(argc, argv);
