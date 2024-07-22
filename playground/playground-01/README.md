@@ -1,3 +1,25 @@
+## Playground 1 : Configure srsRAN gNB - srsUE
+
+![brainstorm-excalidraw(11)](https://hackmd.io/_uploads/SJwuKc7OA.png)
+
+
+This is my playground that I will install on the VM. 
+
+
+<ins>**Machine Requirements:**</ins> Ubuntu 22.04.1 LTS, 50GB disk, 8GB RAM
+
+  <ins>Components:</ins>
+  
+  **srsUE:** [srsRAN 4G](https://github.com/srsran/srsRAN_4G) does include a prototype 5G UE (srsUE) which can be used for testing.
+  
+  **gNB:** srsRAN Project is a 5G CU/DU solution and does not include a UE application.
+  
+  **5GC:** we can either use Open5GS or Free5GC components for 5GC setup.
+  
+  Setup can use either USRP based hardware or ZMQ based virtual radios to simulate e2e environment.
+  
+  We'll be demonstrating ZMQ based virtual radio setup which can also be used along with CICD pipeline to automate process.
+
 ### Pre-Requistite
 
 <ins>**Installing Docker:**</ins>
