@@ -25,43 +25,39 @@ Information (CSI) which are vital for maintaining efficient communication and op
   DELTA_P_rampup_requested = (prach_resources -> RA_PREAMBLE_POWER_RAMPIN_COUNTER-1)*prach_resources -> RA_PREAMBLE_POWER_RAMPING_STEP
                            = (3 - 1)*2
                            = 4
-  mac->G_b_f_c = 10 + (-5) = 5
-  ```
-  
-  ```
-  DELTA_P_rampup = max(min(0,DELTA_P_rampup),DELTA_P_rampup_requested)
-                 = max(min(0,5),10)
-                 = max(0,10)
-                 = 10
 
-  mac->G_b_f_c = 10 + (-5) = 5
+  DELTA_P_rampup = P_CMAX - (P_O_PUSCH + M_PUSCH_component + alpha*pathloss + DELTA_TF + delta_pusch
+                 = 23 - (-104 + 10 + 100 + 14 + 1)
+                 = 2
+
+  mac->f_b_f_c = DELTA_P_rampup + delta_pusch
+               = 2 + 1
+               = 3
   ```
 
-  ```
-  G_b_f_c = mac->G_b_f_c
-  G_b_f_c = 5
-  
-  
-  (!((pucch_power_without_g_pucch + G_b_f_c >= P_CMAX && sum_delta_pucch > 0) ||
-        (pucch_power_without_g_pucch + G_b_f_c <= P_CMIN && sum_delta_pucch < 0)))
-  (!((100 + 5 >= 125 && -5 > 0) || (100 + 5 <= 110 && -5 < 0)))
-  (!((False && False) || (True && True)))
-  (!((False) || (True)))
-  (!(True))
-  False
+`Initialization true`
+```
+  (!((pucch_power_without_f_b_f_c + mac -> f_b_f_c >= P_CMAX && delta_pusch > 0) ||
+        (pucch_power_without_f_b_f_c + mac -> f_b_f_c <= P_CMIN && delta_pusch < 0)))
+  (!((18 + 2 >= 23 && 1 > 0) || (18 + 2 <= -37 && 1 < 0)))
+  (!((False && True) || (False && False)))
+  (!((False) || (False)))
+  (!(False))
+  True
   ```
 >[!NOTE]
-> As it resulted in false, the if statement `G_b_f_c += sum_delta_pucch;` won't be called. Vice versa when the result of the if is 'True then G_b_f_c += sum_delta_pucch;` will be called and run
-
+> As it resulted a true then G_b_f_c += sum_delta_pucch;` will be called and run. Vice versa when the result of the if statement is false, then `G_b_f_c += sum_delta_pucch;` won't be called.  
 -
   ```
-  mac->G_b_f_c = 5
+  mac->f_b_f_c = mac->f_b_f_c + delta_pusch
+               = 2 + 1
+               = 3
   ```
 
   ```
-  pucch_power = min(P_CMAX, pucch_power_without_g_pucch + G_b_f_c);
-  pucch_power = min(125, 100+5);
-  pucch_power = 105 --> Still below P_CMIN
+  return min(P_CMAX, pucch_power_without_f_b_f_c + mac -> f_b_f_c);
+  min(23, 23);
+  23 --> above P_CMIN and below P_CMAX
 
 
 
