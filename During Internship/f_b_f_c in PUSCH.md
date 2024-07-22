@@ -58,7 +58,7 @@ Information (CSI) which are vital for maintaining efficient communication and op
   return min(P_CMAX, pucch_power_without_f_b_f_c + mac -> f_b_f_c);
   min(23, 23);
   23 --> above P_CMIN and below P_CMAX
-
+  ```
 
 
 
