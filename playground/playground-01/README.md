@@ -1,7 +1,6 @@
 ## Playground 1 : Configure srsRAN gNB - srsUE
 
-![brainstorm-excalidraw(11)](https://hackmd.io/_uploads/SJwuKc7OA.png)
-
+![](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/teep-playground-01.png)
 
 This is my playground that I will install on the VM. 
 
