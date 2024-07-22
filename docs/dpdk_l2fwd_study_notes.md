@@ -2,7 +2,7 @@
 
 > **References:**
 > - [Introduction to DPDK: Architecture and Principles](https://embedx.medium.com/introduction-to-dpdk-architecture-and-principles-40db9a61a6f5)
-> - 
+> - [Fateen's (TEEP 2023) DPDK Notes](https://hackmd.io/@kIdpcHY-TN2HXF-K3mKuLQ/BJExhMQ8n)
 > - 
 
 ## 1. Understanding the l2fwd code example
@@ -10,8 +10,8 @@
 ```bash
 /home/eriqoaw/dpdk-stable-23.11.1/examples/l2fwd/main.c
 ```
-### main() function
-#### 1.2. Initialization and Argument Parsing:
+### 2. main() function
+#### 2.1. Initialization and Argument Parsing:
 ```c
 ret = rte_eal_init(argc, argv);
 if (ret < 0)
@@ -19,11 +19,13 @@ if (ret < 0)
 argc -= ret;
 argv += ret;
 ```
+> There are two types of Argument in DPDK, the first one is EAL (Environment Abstraction Layer) arguments, which are the arguments that are used to initialize the DPDK environment. The second one is the application-specific arguments, these are the arguments that are used to configure the application.
+
 - Initializes the Environment Abstraction Layer (EAL).
 - If initialization fails, exits the program.
 - Adjusts the argument list to skip EAL-specific arguments.
 
-#### 1.3. Signal Handling:
+#### 2.2. Signal Handling:
 ```c
 force_quit = false;
 signal(SIGINT, signal_handler);
@@ -31,15 +33,17 @@ signal(SIGTERM, signal_handler);
 ```
 - Sets up signal handlers for SIGINT and SIGTERM to handle graceful shutdown.
 
-#### 1.4. Application-Specific Argument Parsing:
+#### 2.3. Application-Specific Argument Parsing:
 ```c
 ret = l2fwd_parse_args(argc, argv);
 if (ret < 0)
     rte_exit(EXIT_FAILURE, "Invalid L2FWD arguments\n");
 ```
+> The code above will parse for the application-specific arguments. For example, **`-p`** is used to specify the port mask, **`-P`** is used to enable promiscuous mode, and **`-q`** is used to specify the number of RX queues per lcore.
+
 - Parses arguments specific to the L2 forwarding application.
 
-#### 1.5. Configuration and Validation:
+#### 2.4. Configuration and Validation:
 ```c
 nb_ports = rte_eth_dev_count_avail();
 if (nb_ports == 0)
@@ -59,7 +63,7 @@ if (l2fwd_enabled_port_mask & ~((1 << nb_ports) - 1))
 - Validates the port pair configuration if provided.
 - Validates the port mask to ensure it covers valid ports.
 
-#### 1.6. Driver Initialization and Port Configuration:
+#### 2.5. Driver Initialization and Port Configuration:
 ```c
 for (portid = 0; portid < RTE_MAX_ETHPORTS; portid++)
     l2fwd_dst_ports[portid] = 0;
@@ -90,11 +94,12 @@ if (port_pair_params != NULL) {
     }
 }
 ```
+> The code above will initialize the l2fwd_dst_ports array by setting each element to zero. If the port pair parameters are provided, it will set up the port pairs for forwarding. Otherwise, it will set up a simple round-robin pairing for each ports available.
 - Initializes l2fwd_dst_ports array.
 - If port pair parameters are provided, sets up port pairs for forwarding.
 - Otherwise, sets up a simple round-robin pairing of ports.
 
-#### 1.7. Core and Queue Configuration:
+#### 2.6 Core and Queue Configuration:
 ```c
 rx_lcore_id = 0;
 qconf = NULL;
@@ -121,10 +126,18 @@ RTE_ETH_FOREACH_DEV(portid) {
            portid, l2fwd_dst_ports[portid]);
 }
 ```
+> This code snippet will firstly, interate over every available port and check whether it is enabled.
+
+> If a port is enabled, it will iterates through available logical cores to find one that is enabled and has not reached its maximum number of assigned receive queues. If such a core is found, the program will assign the RX queue to this core. If no suitable core is found (all cores are either disabled or have reached their limits), the program exits with an error message indicating that there are not enough cores.
+
+> Then, it will make sure the pointer `qconf` is set to the current logical core's queue configuration. If `qconf` is not already pointing to the configuration for `rx_lcore_id`, it updates `qconf` and increments the counter `nb_lcores`.
+
+> Lastly, the code assigns a new RX port to the current logical core's list of RX ports. The `n_rx_port` counter is incremented to keep track of how many RX ports have been assigned to this logical core. Then it will log the information using `printf`.
+
 - Allocates logical cores to handle RX queues of enabled ports.
 - Prints the mapping of logical cores to ports.
 
-#### 1.8. Memory Pool Creation:
+#### 2.7. Memory Pool Creation:
 ```c
 nb_mbufs = RTE_MAX(nb_ports * (nb_rxd + nb_txd + MAX_PKT_BURST +
     nb_lcores * MEMPOOL_CACHE_SIZE), 8192U);
@@ -135,9 +148,11 @@ l2fwd_pktmbuf_pool = rte_pktmbuf_pool_create("mbuf_pool", nb_mbufs,
 if (l2fwd_pktmbuf_pool == NULL)
     rte_exit(EXIT_FAILURE, "Cannot init mbuf pool\n");
 ```
+- Calculates the size of memory buffers to handle the specified number of ports, descriptors, burst size, and logical cores, with a minimum of 8192 mbufs to guarantee a baseline level of resources.
 - Creates a memory pool for packet buffers (mbufs).
+- Exits the program if memory pool creation fails.
 
-#### 1.9. Port Initialization and Queue Setup:
+#### 2.8. Port Initialization and Queue Setup:
 ```c
 RTE_ETH_FOREACH_DEV(portid) {
     struct rte_eth_rxconf rxq_conf;
