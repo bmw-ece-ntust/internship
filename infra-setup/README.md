@@ -1,6 +1,6 @@
 ### 1.1 Setup Kubernetes
 
-
+![](https://github.com/bmw-ece-ntust/internship/blob/2024-TEEP-18-Rafli/assets/single-cluster.png)
 
 *Environment:*
 - Master
