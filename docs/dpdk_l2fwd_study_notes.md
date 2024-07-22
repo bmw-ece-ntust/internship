@@ -10,6 +10,8 @@
 ```bash
 /home/eriqoaw/dpdk-stable-23.11.1/examples/l2fwd/main.c
 ```
+#### 1.2. Open the main.c file using VSCode
+---
 ### 2. main() function
 #### 2.1. Initialization and Argument Parsing:
 ```c
