@@ -1,4 +1,4 @@
-# G_b_f_c
+# G_b_f_c in PUCCH
 ```
 if (power_config->p0_Set == NULL) {
     if (mac->pucch_power_control_initialized == false) {
