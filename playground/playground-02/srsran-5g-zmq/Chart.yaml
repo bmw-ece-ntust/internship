@@ -14,4 +14,4 @@ name: srsran-5g-zmq
 sources:
 - https://github.com/gradiant/5g-charts
 - https://github.com/srsran/srsRAN_Project
-version: 1.0.0
+version: 1.0.1
