@@ -8,7 +8,7 @@ including Hybrid Automatic Repeat reQuest (HARQ) acknowledgments, Scheduling Req
 Information (CSI) which are vital for maintaining efficient communication and optimal network performance. 
 
 
-![image](https://github.com/user-attachments/assets/3e001edb-77ee-4d0b-945a-cdac3e77d448)
+![TEEP 2025](https://github.com/user-attachments/assets/fec32e6d-a220-4fa8-9e27-66e003cf06a4)
 ![TEEP 2024-17](https://github.com/user-attachments/assets/329031b0-e677-40d1-89a9-39c6393c54a5)
 
 # Case Example
