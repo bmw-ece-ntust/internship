@@ -8,8 +8,8 @@ including Hybrid Automatic Repeat reQuest (HARQ) acknowledgments, Scheduling Req
 Information (CSI) which are vital for maintaining efficient communication and optimal network performance. 
 
 
-![TEEP 2025](https://github.com/user-attachments/assets/fec32e6d-a220-4fa8-9e27-66e003cf06a4)
-![TEEP 2024-17](https://github.com/user-attachments/assets/329031b0-e677-40d1-89a9-39c6393c54a5)
+![PUSCH_OAI_Flowchart drawio](https://github.com/user-attachments/assets/7e296c0d-7ef7-413f-83ee-34943313acce)
+
 
 # Case Example
 - DELTA_P_rampup_requested ->  ensure that the device increases its transmission power in a controlled manner (based on the real situation):  **4**
