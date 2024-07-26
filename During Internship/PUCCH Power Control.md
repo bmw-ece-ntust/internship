@@ -169,6 +169,6 @@ int16_t get_pucch_tx_power_ue(NR_UE_MAC_INST_t *mac,
 ```
 
 # PUCCH Power Control Flowchart
-![image](https://github.com/user-attachments/assets/6f0ccc58-b9e3-48a4-85fb-d2fb2464b43d)
+![image](https://github.com/user-attachments/assets/27e02712-57e7-4968-8497-e09af71d3f34)
 
 
