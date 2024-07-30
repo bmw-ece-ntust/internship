@@ -20,10 +20,15 @@ Measures factual consistency of the generated answer against the given context, 
 $$ Faithfulness=\frac{\sum claims_{from context}}{\sum claims}$$
 
 `ragas` library calculate this faithfulness by breaking response into individual statements, then each statements (as claims) verified back from the given context.
+In term of our implementation to summarize time series data, possible implementations are:
+1. Check the *faithfulness* as is, by passing the context and the response as is, it is possible that the value of *faithfulness* might become small since the chatbot can claim data that is derived from the context.
+2. Do manual data analysis on the time series data then used as the context claims, then used to count the value of *faithfulness*. This method might provide better value of *faithfulness* because it is the true method to get derived data, but it is not directly representing the context as `text`. Other trade-off is the need of manual labor to get the derived data.
 
 #### Answer Relevance
 Measures the relevancy of the generated answer to the given prompt. Lower score indicate answers that are incomplete or contain redundant information while higher score indicate better relevancy. It is defined as the mean cosine similarity of the original question to a number of artificial questions, which is generated based on the answer. This resulting not the factuality of the question actually answered, but penalize if the answer lacks of completeness or contains redundant details.
+
 $$ Relevance_{answer} = \frac{1}{N}\sum^N_{i=1}\frac{E_{gi}\cdot{E_o}}{||E_{gi}||||E_o||}$$
+
 - $E_{gi}$ is the embedding of the generated question $i$.
 - $E{o}$ is the embedding of the original question.
 - $N$ is the number of generated questions.
