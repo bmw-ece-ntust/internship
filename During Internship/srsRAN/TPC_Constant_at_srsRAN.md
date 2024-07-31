@@ -1,19 +1,12 @@
-## TPC_constant_at_srsRAN
-# srsRAN release
+# TPC_constant_at_srsRAN
+## srsRAN release
 <img width="736" alt="image" src="https://github.com/user-attachments/assets/c7fef08f-a894-4d57-a2b2-bece482a0c6b">
 
 From the srsRAN release above, it could be seen From the srsRAN release it could be seen that all MAC procedures are available excluding the power control code 
 
 
-# srsRAN code
-```
-  uint32_t                                     tpc_srs_rnti   = 0;
-  uint32_t                                     tpc_pucch_rnti = 0;
-  uint32_t                                     tpc_pusch_rnti = 0;
-  uint32_t                                     sp_csi_rnti    = 0;
-```
-
-github path srsRAN_Project/include/srsran/asn1/rrc_nr/cell_group_config.h
+## srsRAN code
+### github path srsRAN_Project/include/srsran/asn1/rrc_nr/cell_group_config.h
 ```
 struct pdcch_config {
   /// List of CORESETs to be used by the UE. In case of CORESET Id overlaps with commonControlResourceSet,
@@ -34,7 +27,7 @@ struct pdcch_config {
   // TODO: add remaining fields.
 ```
 
-srsRAN_Project/include/srsran/scheduler/config/serving_cell_config.h
+### srsRAN_Project/include/srsran/scheduler/config/serving_cell_config.h
 ```
 cfg.pusch_pwr_ctrl = pusch_config::pusch_power_control{.msg3_alpha               = alpha::alpha1,
                                                          .p0_nominal_without_grant = -76,
@@ -77,14 +70,14 @@ At the first snippet we can see the code uses values that are already defined,
 making the TPC constant and unable to change dynamically, unlike in OAI. At the second snippet, the pucch and pusch commands are option
 
 
-srsRAN_Project/include/srsran/ran/pusch/pusch_configuration.h
+### srsRAN_Project/include/srsran/ran/pusch/pusch_configuration.h
 ```
    struct sri_pusch_pwr_ctrl {
       /// \brief The index of the closed power control loop associated with this SRI-PUSCH-PowerControl.
       enum class sri_pusch_closed_loop_index : unsigned { i0, i1 };
 ```
 
-srsRAN_Project/lib/scheduler/config/serving_cell_config_factory.cpp
+### srsRAN_Project/lib/scheduler/config/serving_cell_config_factory.cpp
 ```
 pusch_config srsran::config_helpers::make_default_pusch_config(const cell_config_builder_params_extended& params)
 {
