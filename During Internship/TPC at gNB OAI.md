@@ -1,6 +1,6 @@
 # TPC at gNB OAI
 
-## Snippet code from _nr_rx_sdu.c
+### Snippet code from _nr_rx_sdu.c
 ```
 // if not missed detection (10dB threshold for now)
     if (rssi > 0) {
@@ -43,10 +43,54 @@
     }
 ```
 
-## Flowchart Power Control from _nr_rx_sdu.c code
+### Flowchart Power Control from _nr_rx_sdu.c code
 <div align="center">
 	<img width="270" alt="image" src="https://github.com/user-attachments/assets/57e1b66e-9872-4b84-b74c-dd4ccc310441">
 </div>
 
 
 <img width="888" alt="image" src="https://github.com/user-attachments/assets/6f322d9d-04b8-4c77-bf51-e8015ac9d223">
+
+### tpc command calculation
+```
+// all values passed to this function are in dB x10
+uint8_t nr_get_tpc(int target, uint8_t cqi, int incr, int tx_power)
+{
+  // al values passed to this function are x10
+  int snrx10 = (cqi * 5) - 640 - (tx_power * 10);
+  LOG_D(NR_MAC, "tpc : target %d, cqi %d, snrx10 %d, tx_power %d\n", target, ((int)cqi * 5) - 640, snrx10, tx_power);
+  if (snrx10 > target + incr) return 0; // decrease 1dB
+  if (snrx10 < target - (3*incr)) return 3; // increase 3dB
+  if (snrx10 < target - incr) return 2; // increase 1dB
+  LOG_D(NR_MAC,"tpc : target %d, snrx10 %d\n",target,snrx10);
+  return 1; // no change
+}
+```
+![image](https://github.com/user-attachments/assets/c12ec722-47c2-4e40-b579-a59adab61cb2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
