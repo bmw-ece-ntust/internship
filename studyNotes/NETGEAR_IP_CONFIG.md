@@ -6,12 +6,25 @@ for windowss :
 control panel> network and internet> Network and Sharing Center
 ```
 click on the ethernet then click on properties and find IPV4 and assign the static ip
+
+
 ![image](https://github.com/user-attachments/assets/78728dbb-e56f-4f31-ad89-69278d446864)
 
 [3] open web browser and go to switch ip (by default, OBB port use http://192.168.0.239/) and login using credentials
 
 
-[4] 
+[4] try to assign the configuration below
+
+
+```
+VLAN 2 : OAM (10.100.100.254/24) PORT : 1
+VLAN 3 : N2N3 (192.168.2.254/24) PORT : 3
+VLAN 4 : N6 (192.168.6.254/24)   PORT : 4
+VLAN 5 : Internet (172.16.15.254/24) PORT : 5
+```
+
+
+![image](https://github.com/user-attachments/assets/ff095bce-e473-490f-9468-980359e5f08a)
 
 
 ![image](https://github.com/user-attachments/assets/aedc399a-7ae8-4661-9e88-6d6cbaca0236)
