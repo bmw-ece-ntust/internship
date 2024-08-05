@@ -68,9 +68,57 @@ uint8_t nr_get_tpc(int target, uint8_t cqi, int incr, int tx_power)
 ```
 
 ## tpc command flowchart
-![nr_get_tpc drawio](https://github.com/user-attachments/assets/7d544b12-32c2-4046-a6c0-11dbd081faf4)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7d544b12-32c2-4046-a6c0-11dbd081faf4" alt="nr_get_tpc drawio">
+</p>
+
 
 ![image](https://github.com/user-attachments/assets/c12ec722-47c2-4e40-b579-a59adab61cb2)
+
+`incr = 30` from the code
+
+### A. Return 0
+> When the signal is too high thus the power should be decreased  by 1 dB according to the table 7.1.1-1 above
+```
+snrx10 > target + incr
+250 > 200 + 30
+250 > 230
+TRUE
+```
+
+### B. Return 3
+> When the signal is too low thus it needed to be increased until 3dB power
+```
+snrx10 > target - 3*incr
+100 < 200 - 3*30
+100 < 110
+TRUE
+```
+
+> At some cases the snrx10 is low but not too low for it to be increased with 3dB power so it will be increased with 1dB at C.Return 2
+```
+snrx10 < target - 3*incr
+150 < 200 - 3*30
+150 < 110
+FALSE
+```
+### C. Return 2
+> When the signal is a bit low thus it will be increased with 1dB power
+```
+snrx10 < target - incr
+150 < 200 - 30
+150 < 170
+TRUE
+```
+
+### D. Return 1
+> When the signal is still in the range thus no change in power needed
+```
+190 > 230 FALSE
+190 < 110 FALSE
+190 < 150 FALSE
+Thus, no change needed
+```
 
 
 
