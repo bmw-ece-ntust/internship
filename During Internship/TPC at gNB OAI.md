@@ -66,6 +66,10 @@ uint8_t nr_get_tpc(int target, uint8_t cqi, int incr, int tx_power)
   return 1; // no change
 }
 ```
+
+## tpc command flowchart
+![nr_get_tpc drawio](https://github.com/user-attachments/assets/7d544b12-32c2-4046-a6c0-11dbd081faf4)
+
 ![image](https://github.com/user-attachments/assets/c12ec722-47c2-4e40-b579-a59adab61cb2)
 
 
