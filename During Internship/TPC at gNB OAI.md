@@ -72,19 +72,31 @@ uint8_t nr_get_tpc(int target, uint8_t cqi, int incr, int tx_power)
   <img src="https://github.com/user-attachments/assets/7d544b12-32c2-4046-a6c0-11dbd081faf4" alt="nr_get_tpc drawio">
 </p>
 
+```
+uint8_t nr_get_tpc(int target, uint8_t cqi, int incr, int tx_power)
+```
+```
+UE_scheduling_control->tpc0 = nr_get_tpc(target_snrx10, ul_cqi, 30, txpower_calc);
+```
+`target = target_snrx10`
 
-![image](https://github.com/user-attachments/assets/c12ec722-47c2-4e40-b579-a59adab61cb2)
+`uint8_t cqi = ul_cqi`
 
-`incr = 30` from the code
+`incr = 30` 
 
+`tx_power = txpower_calc`
+
+## If condition in tpc command
 ### A. Return 0
 > When the signal is too high thus the power should be decreased  by 1 dB according to the table 7.1.1-1 above
 ```
 snrx10 > target + incr
 250 > 200 + 30
 250 > 230
-TRUE
+TRUE... return 0
 ```
+
+
 
 ### B. Return 3
 > When the signal is too low thus it needed to be increased until 3dB power
@@ -92,24 +104,30 @@ TRUE
 snrx10 > target - 3*incr
 100 < 200 - 3*30
 100 < 110
-TRUE
+TRUE... return 3
 ```
+
 
 > At some cases the snrx10 is low but not too low for it to be increased with 3dB power so it will be increased with 1dB at C.Return 2
 ```
 snrx10 < target - 3*incr
 150 < 200 - 3*30
 150 < 110
-FALSE
+FALSE... continue to C.Return 2
 ```
+
+
+
 ### C. Return 2
 > When the signal is a bit low thus it will be increased with 1dB power
 ```
 snrx10 < target - incr
 150 < 200 - 30
 150 < 170
-TRUE
+TRUE... return 2
 ```
+
+
 
 ### D. Return 1
 > When the signal is still in the range thus no change in power needed
@@ -117,7 +135,7 @@ TRUE
 190 > 230 FALSE
 190 < 110 FALSE
 190 < 150 FALSE
-Thus, no change needed
+Thus, no change needed ... return 1
 ```
 
 
