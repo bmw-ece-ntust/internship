@@ -140,3 +140,35 @@ printf("\n");
 
 ![changing mac address](/assets/editing_packets/changing%20mac%20address.png)
 ![arp newest](/assets/editing_packets/arp%20newest.png)
+
+---
+# Forwarding packets to a different destination mac address
+## 1. Topology
+![DPDK Local.drawio.png](/assets/editing_packets/DPDK%20Local.drawio.png)
+
+## 2. Source Code
+```c 
+uint8_t du_dest_mac[6] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66};
+uint8_t ru_dest_mac[6] = {0x66, 0x55, 0x33, 0x44, 0x55, 0x66};
+uint8_t port_0_mac[6] = {0x08, 0x00, 0x27, 0xf1, 0xf5, 0x57};
+uint8_t port_1_mac[6] = {0x08, 0x00, 0x27, 0xf0, 0x09, 0x3a};
+
+// Update MAC addresses
+if(memcmp(eth_hdr->dst_addr.addr_bytes, port_0_mac, RTE_ETHER_ADDR_LEN) == 0){
+    rte_memcpy(eth_hdr->dst_addr.addr_bytes, du_dest_mac, RTE_ETHER_ADDR_LEN);
+}else if(memcmp(eth_hdr->dst_addr.addr_bytes, port_1_mac, RTE_ETHER_ADDR_LEN) == 0){
+    rte_memcpy(eth_hdr->dst_addr.addr_bytes, ru_dest_mac, RTE_ETHER_ADDR_LEN);
+}
+
+// Forward the packet with the updated MAC address
+l2fwd_simple_forward(m, portid);
+```
+
+The code above is useful to change the destination mac address of incoming packets from either port 0 or port 1. Since the MAC addresses are stored in variables, they can be easily changed or updated as needed.
+
+## Result
+![image](/assets/editing_packets/result_1.png)
+![image](/assets/editing_packets/result_2.png)
+
+As shown above, the DPDK application successfully changes the destination MAC address of traffic from port 1 to a custom and interchangeable MAC address before forwarding it to the other port.
+
