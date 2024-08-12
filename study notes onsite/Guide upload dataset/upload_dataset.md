@@ -17,10 +17,10 @@ sudo nano Cellreports_resample.csv
 ```
 ![alt text](image-1.png)
 ### WARNING: if the csv have columns's name, the for loop in **step 4**  start from 1. If doesn't have, the for loop start from 0.
-## 3. Go to Inside csv file
+## 3. Go to Inside pushdata.py
 ### I.
 ```
-sudo nano Cellreports_resample.csv
+sudo nano pushdata.py
 ```
 ### II.
 ```
