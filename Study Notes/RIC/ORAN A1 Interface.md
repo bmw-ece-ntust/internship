@@ -436,89 +436,376 @@ Here's a summarized breakdown of the test scenarios for the A1-EI Producer funct
 
 ## Test Specification - Near-RT RIC Part
 
+
 <img src="https://imgur.com/vBlLajk.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
 
 <img src="https://imgur.com/IR3gFyo.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
 
-### Conformance Test Cases for A1-P Producer
 
+### Conformance Test Cases for A1-P Producer
+#### Base URI
+```{apiRoot}/A1-P/v2/<ResourceUriPart>```
 
 #### Query Policy Type Test Scenarios
-1. **Query All Policy Type Identifiers (Positive Case)**
-- **Description**: Tests A1-P Producer's query policy types functionality.
-- **Entrance Criteria**: DUT supports query all policy type identifiers.
-- **Methodology**: Sends HTTP GET request with empty body to DUT for different configurations.
-- **Expected Result**: Receives "200 OK"; response body varies based on DUT's policy types availability.
+1. **6.2.1.1 Query All Policy Type Identifiers (Positive Case)**
+   - **Description**: Tests A1-P Producer's query policy types functionality.
+   - **Entrance Criteria**: DUT supports query all policy type identifiers.
+   - **Methodology**: Sends HTTP GET request with empty body to DUT for different configurations.
+     - DUT has single policy
+     - DUT has multiple policies
+     - DUT has no policies
+   - **Method**: `GET`
+   - **URI**: `/policytypes`
+   - **Expected Result**: Receives "200 OK"; Array with all Policy ID.
+  
 
-2. **Query Single Policy Type (Positive Case)**
+2. **6.2.1.2 Query Single Policy Type (Positive Case)**
 - **Description**: Tests query single policy type functionality.
 - **Entrance Criteria**: DUT supports query single policy type.
 - **Methodology**: Sends HTTP GET request with policyTypeId to DUT.
+- **Method**: `GET`
+- **URI**: `/policytypes/{policyTypeID}`
 - **Expected Result**: Receives "200 OK"; response contains PolicyTypeObject.
 
-3. **Query Single Policy Type (Negative Case) - PolicyTypeId Not Supported**
+1. **6.2.1.3 Query Single Policy Type (Negative Case) - PolicyTypeId Not Supported**
 - **Description**: Tests failure scenario for unsupported policyTypeId.
 - **Entrance Criteria**: Similar to positive case but with unsupported policyTypeId.
 - **Methodology**: Sends HTTP GET request to DUT.
+- **Method**: `GET`
+- **URI**: `/policytypes/{policyTypeID}`
 - **Expected Result**: Receives "404 Not Found".
 
 #### Create Policy Test Scenarios
-1. **Create Single Policy (Positive Case)**
+1. **6.2.2.1 Create Single Policy (Positive Case)**
 - **Description**: Tests create single policy functionality.
-- **Entrance Criteria**: DUT supports create single policy.
-- **Methodology**: Sends HTTP PUT request with PolicyObject to DUT.
+- **Entrance Criteria**: DUT supports create single policy. No policy exists in the DUT for the agreed policy type with the same policyId that will be used by the test simulator. Make sure to use supported policyTypeId
+- **Methodology**: Sends HTTP PUT request with PolicyObject to DUT. 
+- **Method**: `PUT`
+- **URI**: `/policytypes/{policyTypeId}/policies/{policyId}`
+- **Body**: `PolicyObject`
+   ```json
+   {
+   "name": "tsapolicy",
+   "description": "tsa parameters",
+   "policy_type_id": policy_type_id,
+   "create_schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "properties": {
+         "threshold": {
+         "type": "integer",
+         "default": 0
+         }
+      },
+      "additionalProperties": false
+   }
+   }
+   ```
 - **Expected Result**: Receives "201 Created"; response contains PolicyObject and location header.
 
-2. **Create Policy (Negative Case) - Schema Validation Failure**
+2. **6.2.2.2 Create Policy (Negative Case) - Schema Validation Failure**
 - **Description**: Tests failure scenario for schema validation.
 - **Entrance Criteria**: Similar to positive case but with invalid PolicyObject.
 - **Methodology**: Sends HTTP PUT request with invalid PolicyObject.
+- **Method**: `PUT`
+- **URI**: `/policytypes/{policyTypeId}/policies/{policyId}`
+- **Body**: `PolicyObject`
+   ```json
+   {
+      "name": "tsapolicy",
+      "description": "tsa parameters",
+      "policy_type_id": policy_type_id,
+      "create_schema": {
+         "$schema": "http://json-schema.org/draft-07/schema#",
+         "type": "object",
+         "properties": {
+            "threshold": {
+               "type": "integer",
+               "default": 0
+            }
+         },
+         "additionalProperties": false
+      }
+   }
 - **Expected Result**: Receives "400 Bad Request".
 
-3. **Create Policy (Negative Case) - PolicyTypeId Not Supported**
+3. **6.2.2.3 Create Policy (Negative Case) - PolicyTypeId Not Supported**
 - **Description**: Tests failure scenario for unsupported policyTypeId.
 - **Entrance Criteria**: Similar to positive case but with unsupported policyTypeId.
 - **Methodology**: Sends HTTP PUT request with unsupported policyTypeId.
+- **Method**: `PUT`
+- **URI**: `/policytypes/{policyTypeId}/policies/{policyId}`
+- **Body**: `PolicyObject`
+   ```json
+   {
+      "name": "tsapolicy",
+      "description": "tsa parameters",
+      "policy_type_id": policy_type_id,
+      "create_schema": {
+         "$schema": "http://json-schema.org/draft-07/schema#",
+         "type": "object",
+         "properties": {
+            "threshold": {
+               "type": "integer",
+               "default": 0
+            }
+         },
+         "additionalProperties": false
+      }
+   }
+   ```
 - **Expected Result**: Receives "404 Not Found".
 
 #### Query Policy Test Scenarios
-1. **Query All Policy Identifiers (Positive Case)**
+1. **6.2.3.1 Query All Policy Identifiers (Positive Case)**
 - **Description**: Tests query policies functionality.
 - **Entrance Criteria**: DUT supports query all policy identifiers.
+- **Method**: `GET`
+- **URI**: `/policytypes/{policyTypeId}/policies`
 - **Methodology**: Sends HTTP GET request to DUT.
-- **Expected Result**: Receives "200 OK"; response body varies based on DUT's policies availability.
+- **Expected Result**: Receives "200 OK"; response body is an array varies based on DUT's policies availability.
 
-2. **Query All Policy Identifiers (Negative Case) - PolicyTypeId Not Supported**
+2. **6.2.3.2 Query All Policy Identifiers (Negative Case) - PolicyTypeId Not Supported**
 - **Description**: Tests failure scenario for unsupported policyTypeId.
 - **Entrance Criteria**: Similar to positive case but with unsupported policyTypeId.
+- **Method**: `GET`
+- **URI**: `/policytypes/{policyTypeId}/policies`
 - **Methodology**: Sends HTTP GET request to DUT.
 - **Expected Result**: Receives "404 Not Found".
 
-3. **Query Single Policy (Positive Case)**
+3. **6.2.3.3 Query Single Policy (Positive Case)**
 - **Description**: Tests query single policy functionality.
 - **Entrance Criteria**: DUT supports query single policy.
 - **Methodology**: Sends HTTP GET request with policyId to DUT.
+- **Method**: `GET`
+- **URI**: `/policytypes/{policyTypeId}/policies/{policyId}`
 - **Expected Result**: Receives "200 OK"; response contains PolicyObject.
 
-4. **Query Single Policy (Negative Case) - Policy Does Not Exist**
+1. **6.2.3.4 Query Single Policy (Negative Case) - Policy Does Not Exist**
 - **Description**: Tests failure scenario for non-existent policy.
 - **Entrance Criteria**: Similar to positive case but with non-existent policy.
 - **Methodology**: Sends HTTP GET request with non-existent policyId to DUT.
+- **Method**: `GET`
+- **URI**: `/policytypes/{policyTypeId}/policies`
 - **Expected Result**: Receives "404 Not Found".
 
-5. **Query Policy Status (Positive Case)**
+1. **6.2.3.5 Query Policy Status (Positive Case)**
 - **Description**: Tests query policy status functionality.
 - **Entrance Criteria**: DUT supports query policy status.
 - **Methodology**: Sends HTTP GET request with policyId to DUT.
+- **Method**: `GET`
+- **URI**: `/policytypes/{policyTypeId}/policies/{policyId}/status`
 - **Expected Result**: Receives "200 OK"; response contains PolicyStatusObject.
 
-6. **Query Policy Status (Negative Case) - Policy Does Not Exist**
+1. **6.2.3.6 Query Policy Status (Negative Case) - Policy Does Not Exist**
 - **Description**: Tests failure scenario for non-existent policy.
 - **Entrance Criteria**: Similar to positive case but with non-existent policy.
 - **Methodology**: Sends HTTP GET request with non-existent policyId to DUT.
+- **Method**: `GET`
+- **URI**: `/policytypes/{policyTypeId}/policies/{policyId}/status`
 - **Expected Result**: Receives "404 Not Found".
 
-These scenarios cover a range of positive and negative test cases to ensure robust testing of the A1-P Producer functionality as per the A1AP [4] specifications.
+#### Update policy test scenarios
+1. **6.2.4.1 Update Single Policy (Positive Case)**
+   - **Description**: Tests the update policy functionality of A1-P Producer.
+   - **Entrance Criteria**: 
+     1. The DUT supports the Update single policy procedure.
+     2. The test simulator can initiate A1-P Update single policy procedure.
+     3. A policy exists in the DUT and the `policyTypeId` and `policyId` are known to the test simulator.
+   - **Method**: `PUT`
+   - **URI**: `/policytypes/{policyTypeId}/policies/{policyId}`
+   - **Methodology**:
+     - **Initial Conditions**: The DUT has A1-P Producer service ready to receive HTTP requests from the test simulator.
+     - **Procedure**:
+       1. Send an HTTP PUT request from the test simulator to the DUT with the correct URI and message body containing the PolicyObject in JSON format.
+       2. At the test simulator, record the received HTTP response.
+   - **Expected Result**: 
+     - The return code is "200 OK".
+     - The response message body content matches the PolicyObject sent in Step 1.
+
+2. **6.2.4.2 Update Single Policy (Negative Case) – Schema Validation Failure**
+   - **Description**: Tests the update policy functionality of A1-P Producer for schema validation failure.
+   - **Entrance Criteria**: 
+     1. The DUT supports the Update single policy procedure.
+     2. The test simulator can initiate A1-P Update single policy procedure.
+     3. A policy exists in the DUT and the `policyTypeId` and `policyId` are known to the test simulator.
+   - **Method**: `PUT`
+   - **URI**: `/policytypes/{policyTypeId}/policies/{policyId}`
+   - **Methodology**:
+     - **Initial Conditions**: The DUT has A1-P Producer service ready to receive HTTP requests from the test simulator.
+     - **Procedure**:
+       1. Send an HTTP PUT request from the test simulator to the DUT with the correct URI and a message body containing the PolicyObject in JSON format with a spelling mistake introduced for schema validation error.
+       2. At the test simulator, record the received HTTP response.
+   - **Expected Result**: 
+     - The return code is "400 Bad Request".
+     - Note: Presence or validation of the optional ProblemDetails object in the response is not used to determine validation in this test.
+
+#### Delete Policy Test Scenarios
+
+1. **6.2.5.1 Delete Single Policy (Positive Case)**
+   - **Description**: Tests the delete policy functionality of A1-P Producer.
+   - **Entrance Criteria**:
+     1. The DUT supports the Delete policy procedure.
+     2. The test simulator can initiate the Delete policy procedure.
+     3. A policy exists in the DUT and the `policyTypeId` and `policyId` are known to the test simulator.
+   - **Method**: `DELETE`
+   - **URI**: `/policytypes/{policyTypeId}/policies/{policyId}`
+   - **Methodology**:
+     - **Initial Conditions**: The DUT has A1-P Producer service ready to receive HTTP requests from the test simulator.
+     - **Procedure**:
+       1. Send an HTTP DELETE request from the test simulator to the DUT with the correct URI format as specified in A1AP [4] clause 6.2.3.
+       2. At the test simulator, record the received HTTP response.
+   - **Expected Result**: 
+     - The return code is "204 No Content".
+     - The response message body is empty.
+
+2. **6.2.5.2 Delete Single Policy (Negative Case) – Policy Does Not Exist**
+   - **Description**: Tests the delete policy functionality of A1-P Producer when the policy does not exist.
+   - **Entrance Criteria**: 
+     1. The DUT supports the Delete single policy procedure.
+     2. The test simulator can initiate the Delete single policy procedure.
+     3. The test simulator is aware of the `policyTypeId` and `policyId` for which no policy exists in the DUT.
+   - **Method**: `DELETE`
+   - **URI**: `/policytypes/{policyTypeId}/policies/{policyId}`
+   - **Methodology**:
+     - **Initial Conditions**: 
+       1. The DUT has A1-P Producer service ready to receive HTTP requests from the test simulator.
+       2. No policy exists in the DUT for the specified `policyTypeId` and `policyId`.
+     - **Procedure**:
+       1. Send an HTTP DELETE request from the test simulator to the DUT with the correct URI format as specified in A1AP [4] clause 6.2.3 and an empty message body.
+       2. At the test simulator, record the received HTTP response.
+   - **Expected Result**: 
+     - The return code is "404 Not Found".
+
+#### Notify Policy Status Test Scenarios
+
+1. **6.2.6.1 Notify Policy Status (Positive Case)**
+   - **Description**: Tests the policy status notification functionality of A1-P Producer.
+   - **Entrance Criteria**:
+     - The test entrance criteria for creating a single policy as specified in clause 6.2.2.1.2 applies.
+   - **Method**: `POST`
+   - **URI**: `{notificationDestination}`
+   - **Methodology**:
+     - **Initial Conditions**: The initial conditions for creating a single policy as specified in clause 6.2.2.1.3.1 apply.
+     - **Procedure**:
+       1. Same as for creating a single policy, see clause 6.2.2.1.3.2, including the `notificationDestination` query parameter.
+       2. At the test simulator, record the received HTTP response.
+       3. Repeat Step 1 with another `notificationDestination` query parameter included.
+       4. At the test simulator, record the received HTTP response.
+       5. Repeat Step 1 without a `notificationDestination` query parameter included.
+       6. At the test simulator, record the received HTTP response.
+       - Note: Steps 3-4 and 5-6 correspond to the procedure for updating a single policy, but it is not required that the PolicyObject in the message body is modified in the test case for notifying policy status.
+   - **Expected Result**:
+     - Check the HTTP response recorded in Steps 2, 4, and 6 of the procedure.
+     - The test is considered passed if the following conditions are met:
+       1. The return code is "201 Created" in Step 2.
+       2. The return code is "200 OK" in Step 4.
+       3. The return code is "200 OK" in Step 6.
+
 
 ### Conformance test cases for A1-EI Consumer
+
+#### Base URI
+```
+{apiRoot}/A1-EI/v1/<ResourceUriPart>
+```
+#### Query EI types test scenarios
+
+1. **6.3.1.1 Query EI type identifiers (positive case)**
+   <img src="https://imgur.com/Lba5U2c.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
+   - **Description**: Test query EI type identifiers functionality of A1-EI Consumer
+   - **Entrance Criteria**: The DUT has functionality to initiate the A1-EI Query EI type identifiers procedure, and the test simulator supports this procedure.
+   - **Method**: `GET`
+   - **URI**: `/eitypes`
+   - **Methodology**: The DUT will send an HTTP GET request to the simulator 
+   - **Expected Result**: The simulator sucessfully receives the request by the DUT.
+
+2. **6.3.1.2 Query EI type (positive case)**
+   <img src="https://imgur.com/eRQNbWM.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
+   - **Description**: Test query EI type functionality of A1-EI Consumer
+   - **Entrance Criteria**: The DUT has functionality to initiate the A1-EI Query EI type procedure, and the test has EI types available.
+   - **Method**: `GET`
+   - **URI**: `/eitypes/{eiTypeId}`
+   - **Methodology**: The DUT will send an HTTP GET request to the simulator 
+   - **Expected Result**: The simulator sucessfully receives the request by the DUT.
+  
+#### Create EI job test scenarios
+
+1. **6.3.2.1 Create EI job (positive case)**
+   <img src="https://imgur.com/hnDCImq.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
+   - **Description**: Test the create EI job functionality of A1-EI Consumer
+   - **Entrance Criteria**:
+     - The DUT has functionality to initiate the A1-EI Create EI jobs procedure, and the test simulator supports this procedure.
+     - The eiTypeId and the JSON schemas of the EI type used for this test are available and used in DUT to formulate the
+Create EI job request, and in test simulator to validate the request.
+   - **Initial Confition**: No EI job exists in the test simulator for the agreed EI type with the same eiJobId that will be used by the DUT
+   - **Method**: `PUT`
+   - **URI**: `/eijobs/{eiJobId} (EiJobObject)`
+   - **Body**: 
+      ```json
+      {
+      "eiTypeId": "12345",
+      "jobResultUri": "https://example.com/ei-job-results/12345",
+      "jobOwner": "user@example.com",
+      "jobStatusNotificationUri": "https://example.com/ei-job-status/12345",
+      "jobDefinition": {}
+      }
+      ```
+   - **Methodology**: The DUT will send an HTTP PUT request to the simulator 
+   - **Expected Result**: The simulator sucessfully receives the request by the DUT.
+
+#### Query EI jobs test scenarios
+
+1. **6.3.3.1 Query EI job identifiers for a single EI type (positive case)**
+   <img src="https://imgur.com/nOmrqT4.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
+   - **Description**: Test query EI job identifiers functionality of A1-EI Consumer
+   - **Entrance Criteria**:
+     - The DUT has functionality to initiate A1-EI Query EI job identifiers procedure.
+     - The test simulator supports at least one EI type.
+   - **Initial Confition**: One or more EI jobs exist in the test simulator for each EI type supported.
+   - **Method**: `GET`
+   - **URI**: `/eijobs`
+   - **Methodology**: The DUT will send an HTTP GET request to the simulator
+   - **Expected Result**: The simulator sucessfully receives the request by the DUT.
+  
+2. **6.3.3.2 Query EI job identifiers for all EI types (positive case)**
+   <img src="https://imgur.com/nOmrqT4.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
+   - **Description**: Test query EI job identifiers functionality of A1-EI Consumer
+   - **Entrance Criteria**:
+     - The DUT has functionality to initiate A1-EI Query EI job identifiers procedure.
+     - The test simulator supports at least one EI type.
+   - **Initial Confition**: One or more EI jobs exist in the test simulator for each EI type supported
+   - **Method**: `GET`
+   - **URI**: `/eijobs`
+   - **Methodology**: The DUT will send an HTTP GET request to the simulator 
+   - **Expected Result**: The simulator sucessfully receives the request by the DUT.
+
+3. **6.3.3.3 Query EI job (positive case)**
+   <img src="https://imgur.com/3Z4EpZD.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
+   - **Description**: Test query EI job identifiers functionality of A1-EI Consume
+   - **Entrance Criteria**:
+     - The test simulator supports at least one EI type.
+   - **Initial Confition**: One or more EI jobs exist in the test simulator for each EI type supported
+   - **Method**: `GET`
+   - **URI**: `/eijobs/{eiJobId}`
+   - **Methodology**: The DUT will send an HTTP GET request to the simulator
+   - **Simulator Response**: 
+   - **Expected Result**: The simulator sucessfully receives the request by the DUT.
+
+#### Update EI job test scenarios
+
+1. **6.3.4.1 Update EI job test scenarios**
+   <img src="https://imgur.com/Pl5Cyj8.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
+   - **Description**: Test update EI job functionality
+   - **Entrance Criteria**:
+     - An EI job exists in test simulator and DUT is aware of the eiTypeId and eiJobId
+     - The eiTypeId and the JSON schemas of the EI job type used for this test are available in DUT to formulate the
+Update EI job request and used by the test simulator for validation purpose.
+   - **Method**: `PUT`
+   - **URI**: `/eijobs/{eiJobId}`
+   - **Methodology**: The DUT will send an HTTP GET request to the simulator
+   - **Simulator Response**: 
+   - **Expected Result**: The simulator sucessfully receives the request by the DUT.
+
+
 

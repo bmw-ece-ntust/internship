@@ -2,6 +2,7 @@
 
 ## Initial Issue
 Cannot access the machine pod from outside the server.
+
  <img src="https://imgur.com/MIpma3p.png" alt="Chart" width="300" style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 4px 4px 10px rgba(0,0,0,0.5);">
  
  This problem is caused by the built in kong that is included with the RIC Installation inside namespace ricplt.
@@ -19,7 +20,7 @@ r4-infrastructure-kong-proxy                LoadBalancer   10.104.222.44    <pen
 ⋮
 ```
 Problems:
-- The proxy route is not working
+- The proxy route in this kong is not working
 - The kong manager web dashboard is not responsive
 
 ## Solution
@@ -27,7 +28,7 @@ Installing new kong in docker container, outside ricplt.
 
 ### Run the [instalation script](https://docs.konghq.com/gateway/latest/get-started/) provided
 ```sh
-cd kong-setup/
+curl -Ls https://get.konghq.com/quickstart | bash
 ```
 Output:
 ```
@@ -115,6 +116,13 @@ Server: kong/3.7.0.0-enterprise-edition
 ### Configuring the proxy and route
 
 #### Create gateway proxy
+The IP and port here is from the k8s pod service that we want to access, to see IPs use `kubectl get svc -A `. For example i want to access the a1mediator
+```
+ricplt          service-ricplt-a1mediator-http              ClusterIP      10.96.102.138    <none>        10000/TCP                       9d
+```
+So the IP and port is `10.96.102.138 :10000`
+
+
 ```sh
 #Create proxy that links to a1mediator service in http://10.96.102.138:10000
 curl -i -X POST http://localhost:8001/services/ \
@@ -137,6 +145,9 @@ Server: kong/3.7.0.0-enterprise-edition
 ```
 
 #### Create Route
+This route is used to access the service from `[machine-ip]:8000/route`
+
+In this config, the base URI will be `[machine-ip]:8000/a1mediator`
 ```sh
 #Create route that access that newly created proxy that can be accessed from localhost:8000/a1mediator
 curl -i -X POST http://localhost:8001/services/a1mediator-service/routes \
@@ -158,9 +169,16 @@ Server: kong/3.7.0.0-enterprise-edition
 ```
 
 ### Testing the newly configured kong
+>If we want to test the a1mediator, i would suggest use the healthcheck function instead of ping
 ```sh
 #Using A1-P healthcheck API here
 curl -i -X GET http://localhost:8000/a1mediator/A1-P/v2/healthcheck
+```
+
+Or from different machine
+```sh
+#Using A1-P healthcheck API here
+curl -i -X GET http://192.168.106.157:8000/a1mediator/A1-P/v2/healthcheck
 ```
 Output:
 ```

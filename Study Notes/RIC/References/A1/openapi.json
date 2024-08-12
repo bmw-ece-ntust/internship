@@ -1,0 +1,296 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "External Server for A1 simulator",
+    "version": "0.0.1",
+    "description": "External test server.\n© 2022, O-RAN Alliance.\nAll rights reserved.\n",
+    "license": {
+      "name": "Copyright (C) 2022 Nordix Foundation. Licensed under the Apache License.",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "externalDocs": {
+    "description": "An external server building CRUD RestFUL APIs which is provisioned by A1 simulator. It will be a refrence point for the callouts",
+    "url": "https://docs.o-ran-sc.org/projects/o-ran-sc-sim-a1-interface/en/latest/EXT_SRV_api.html"
+  },
+  "servers": [
+    {
+      "url": "{apiRoot}",
+      "variables": {
+        "apiRoot": {
+          "default": "http://www.example.com"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/a1policies": {
+      "get": {
+        "operationId": "server.get_all_a1_policies",
+        "description": "Get all a1 policies",
+        "tags": [
+          "All a1policies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of all a1 policies",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/A1PolicyObject"
+                  },
+                  "minItems": 0
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429-TooManyRequests"
+          },
+          "503": {
+            "$ref": "#/components/responses/503-ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/a1policy/{a1policyId}": {
+      "parameters": [
+        {
+          "name": "a1policyId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/A1PolicyId"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "server.get_a1_policy",
+        "description": "Query for an A1 policy",
+        "tags": [
+          "Single A1 Policy Object"
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested A1 policy object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/A1PolicyObject"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404-NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/409-Conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/429-TooManyRequests"
+          },
+          "503": {
+            "$ref": "#/components/responses/503-ServiceUnavailable"
+          }
+        }
+      },
+      "put": {
+        "operationId": "server.put_a1_policy",
+        "description": "Create an A1 policy",
+        "tags": [
+          "Individual A1 policy Object"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/A1PolicyObject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The A1 policy was updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/A1PolicyObject"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "The A1 policy was created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/A1PolicyObject"
+                }
+              }
+            },
+            "headers": {
+              "Location": {
+                "description": "Contains the URI of the created A1 policy",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400-BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/409-Conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/429-TooManyRequests"
+          },
+          "503": {
+            "$ref": "#/components/responses/503-ServiceUnavailable"
+          },
+          "507": {
+            "$ref": "#/components/responses/507-InsufficientStorage"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "server.delete_a1_policy",
+        "description": "Delete an A1 policy",
+        "tags": [
+          "Individual a1policy Object"
+        ],
+        "responses": {
+          "204": {
+            "description": "The A1 policy was deleted"
+          },
+          "404": {
+            "$ref": "#/components/responses/404-NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/429-TooManyRequests"
+          },
+          "503": {
+            "$ref": "#/components/responses/503-ServiceUnavailable"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "A1PolicyObject": {
+        "title": "Title",
+        "description": "A generic A1 policy object",
+        "type": "object"
+      },
+      "ProblemDetails": {
+        "description": "A problem detail to carry details in a HTTP response according to RFC 7807",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "number"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          }
+        }
+      },
+      "JsonSchema": {
+        "description": "A JSON schema following http://json-schema.org/draft-07/schema",
+        "type": "object"
+      },
+      "A1PolicyId": {
+        "description": "A1 policy identifier.",
+        "type": "string"
+      }
+    },
+    "responses": {
+      "400-BadRequest": {
+        "description": "A1 policy not properly formulated or not related to the method",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProblemDetails"
+            }
+          }
+        }
+      },
+      "404-NotFound": {
+        "description": "No resource found at the URI",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProblemDetails"
+            }
+          }
+        }
+      },
+      "405-MethodNotAllowed": {
+        "description": "Method not allowed for the URI",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProblemDetails"
+            }
+          }
+        }
+      },
+      "409-Conflict": {
+        "description": "Request could not be processed in the current state of the resource",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProblemDetails"
+            }
+          }
+        }
+      },
+      "429-TooManyRequests": {
+        "description": "Too many requests have been sent in a given amount of time",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProblemDetails"
+            }
+          }
+        }
+      },
+      "503-ServiceUnavailable": {
+        "description": "The provider is currently unable to handle the request due to a temporary overload",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProblemDetails"
+            }
+          }
+        }
+      },
+      "507-InsufficientStorage": {
+        "description": "The method could not be performed on the resource because the provider is unable to store the representation needed to successfully complete the request",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProblemDetails"
+            }
+          }
+        }
+      }
+    }
+  }
+}
