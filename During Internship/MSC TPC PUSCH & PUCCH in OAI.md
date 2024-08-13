@@ -1,6 +1,7 @@
 # PUSCH
-![image](https://github.com/user-attachments/assets/2d673e18-6223-4b90-b1f6-f6a82ba07d05)
-<br />
+
+<img width="320" alt="image" src="https://github.com/user-attachments/assets/25768174-e8d7-4673-ac7a-a952c1682b96">
+
 <br />
 <br />
 <br />
@@ -13,8 +14,8 @@
 
 
 
+<img width="908" alt="image" src="https://github.com/user-attachments/assets/6aa3ecd5-2313-4b2a-ae65-66843f11400b">
 
-![image](https://github.com/user-attachments/assets/d345b7f3-1571-46a1-bf9d-d3bd2638c9ac)
 <br />
 <br />
 <br />
@@ -26,19 +27,6 @@
 <br />
 <br />
 
-
-
-![image](https://github.com/user-attachments/assets/8915ac6f-9e6f-40d3-9c8b-d4d556ae799b)
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 
 
 
