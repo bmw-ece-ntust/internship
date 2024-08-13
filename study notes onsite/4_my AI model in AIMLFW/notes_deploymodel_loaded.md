@@ -22,3 +22,5 @@ example
 - The model uing 240 data from the past (4 hour) to forecast 60 data (1 hour) in the future. 
 - The model uses three input features: the first feature is RRU.PrbUsedDl, the second is RRC.ConnMean, and the third is DRB.UEThpDl.
 ![alt text](image3.png)
+
+## For file python aimlfw, [check this link github](https://github.com/bmw-ece-ntust/internship/tree/cb8087a95fc48c8599af9f946089a7b18927d8cd/jupyternotebook/aimlfw)
