@@ -1,3 +1,8 @@
+# Access SMO server
+```
+ssh ubuntu@192.168.8.6
+```
+
 # Access Influxdb in SMO: 
 ```
 ip: http://192.168.8.6:30001/
