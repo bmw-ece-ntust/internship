@@ -1,8 +1,3 @@
-# This example configuration outlines how to configure the srsRAN Project gNB to create a single TDD cell
-# transmitting in band 78, with 20 MHz bandwidth and 30 kHz sub-carrier-spacing. A USRP B200 is configured 
-# as the RF frontend using split 8. Note in this example an external clock source is not used, so the sync 
-# is not defined and the default is used. 
-
 amf:
   addr: ${AMF_ADDR}                  # The address or hostname of the AMF.
   bind_addr: ${AMF_BIND_ADDR}             # A local IP that the gNB binds to for traffic from the AMF.
@@ -31,13 +26,13 @@ cell_cfg:
   prach:
     prach_config_index: 1           # Sets PRACH config to match what is expected by srsUE      
 
-
+cu_cp:
+  inactivity_timer: 7200            # Sets the UE/PDU Session/DRB inactivity timer to 7200 seconds. Supported: [1 - 7200].
 
 slicing:
   {{- range .Values.config.slicing }}
     - {{- toYaml . | nindent 6 }}
     {{- end }}
-
 
 log:
   filename: ./gnb.log            # Path of the log file.
@@ -48,3 +43,11 @@ pcap:
   mac_filename: ./gnb_mac.pcap   # Path where the MAC PCAP is stored.
   ngap_enable: false                # Set to true to enable NGAP PCAPs.
   ngap_filename: ./gnb_ngap.pcap # Path where the NGAP PCAP is stored.
+
+e2:
+  enable_du_e2: true                # Enable DU E2 agent (one for each DU instance)
+  e2sm_kpm_enabled: true            # Enable KPM service module
+  e2sm_rc_enabled: true             # Enable KPM service module
+  addr: {{ .Values.config.e2.addr }}                  # RIC IP address
+  bind_addr: ${AMF_BIND_ADDR}                # A local IP that the E2 agent binds to for traffic from the RIC. ONLY required if running the RIC on a separate machine. 
+  port: {{ .Values.config.e2.port }}                       # RIC port

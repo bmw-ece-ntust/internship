@@ -8,10 +8,10 @@ dependencies:
   version: 1.x.x
 description: 'Helm chart to deploy srsRAN 5G gNB on Kubernetes. '
 maintainers:
-- email: avrodriguez@gradiant.org
-  name: avrodriguez
+- email: raflihadian24@gmail.com
+  name: raflihadiana
 name: srsran-5g-zmq
 sources:
 - https://github.com/gradiant/5g-charts
 - https://github.com/srsran/srsRAN_Project
-version: 1.0.1
+version: 1.0.0

@@ -63,7 +63,7 @@ extraDeploy: []
 image:
   srsran:
     registry: docker.io
-    repository: gradiant/srsran-5g
+    repository: openverso/srsran-5g
     tag: "23_10_1"
     digest: ""
     ## Specify a imagePullPolicy
@@ -106,6 +106,10 @@ config:
   slicing:
   - sst: 1
     sd: 0x111111
+  
+  e2:
+    addr: "10.233.102.172"
+    port: "36422" #32222
 
 ue:
   image:

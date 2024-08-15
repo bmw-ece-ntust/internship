@@ -1,0 +1,16 @@
+apiVersion: v2
+appVersion: 23.10.1
+dependencies:
+- name: common
+  repository: https://charts.bitnami.com/bitnami
+  tags:
+  - bitnami-common
+  version: 1.x.x
+description: 'Helm chart to deploy srs-ue on Kubernetes.'
+maintainers:
+- email: raflihadian24@gmail.com
+name: srs-ue
+sources:
+- https://github.com/gradiant/5g-charts
+- https://github.com/srsran/srsRAN_Project
+version: 1.0.0
