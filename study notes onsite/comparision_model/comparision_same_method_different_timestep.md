@@ -1,0 +1,8 @@
+| Information                                   | 120 Steps for Input                                | 120 Steps for Input with CNN Load Model              | 240 Steps for Input                                |
+|-----------------------------------------------|---------------------------------------------------|------------------------------------------------------|---------------------------------------------------|
+| **Description**                               | Model using 2 hours of data from the past to predict the next hour | Continue training each cell from the CNN average PRB model | Model using 4 hours of data from the past to predict the next hour |
+| **Training time per epoch**                   | 3 sec and 23 ms                                    | 3 sec and 23 ms                                       | 7 sec and 45 ms                                    |
+| **Maximum epochs for training each cell**     | 20                                                | 15                                                   | 10                                                |
+| **RMSE median**                               | 22.58 (train) <br> 22.82 (test)                    | 22.93 (train) <br> 23.11 (test)                       | 20.97 (train) <br> 21.54 (test)                    |
+| **MSE median**                                | 509.96 (train) <br> 520.85 (test)                  | 526.18 (train) <br> 534.35 (test)                     | 439.81 (train) <br> 464.07 (test)                  |
+| **MAE median**                                | 18.76 (train) <br> 18.91 (test)                    | 19.17 (train) <br> 19.25 (test)                       | 17.17 (train) <br> 17.44 (test)                    |
