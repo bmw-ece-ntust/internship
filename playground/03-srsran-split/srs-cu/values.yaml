@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: srsran-cu
+  tag: v1
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+config:
+  cuConfigMap: "cu-config"  # Name of the ConfigMap
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: []

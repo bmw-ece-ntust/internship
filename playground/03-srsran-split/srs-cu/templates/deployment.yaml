@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "srs-cu.fullname" . }}
+  labels:
+    app: {{ include "srs-cu.name" . }}
+    chart: {{ include "srs-cu.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "srs-cu.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "srs-cu.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          volumeMounts:
+            - name: cu-config-volume
+              mountPath: /apps/cu
+              subPath: cu.yml
+          command: ["srscu", "-c", "/apps/cu/cu.yml"]
+      volumes:
+        - name: cu-config-volume
+          configMap:
+            name: {{ .Values.config.cuConfigMap }}

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "srs-du.fullname" . }}
+  labels:
+    app: {{ include "srs-du.name" . }}
+    chart: {{ include "srs-du.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "srs-du.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "srs-du.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          volumeMounts:
+            - name: du-config-volume
+              mountPath: /apps/du
+              subPath: du.yml
+          command: ["srsdu", "-c", "/apps/du/du.yml"]
+      volumes:
+        - name: du-config-volume
+          configMap:
+            name: {{ .Values.config.duConfigMap }}

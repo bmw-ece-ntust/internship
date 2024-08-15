@@ -1,0 +1,7 @@
+apiVersion: v2
+name: srs-cu
+description: A Helm chart for srs-cu
+
+type: application
+version: 0.1.0
+appVersion: "v1"  # Match this to your Docker image tag

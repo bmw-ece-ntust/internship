@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: srsran-du
+  tag: v1
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+config:
+  duConfigMap: "du-config"  # Name of the ConfigMap containing DU config
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: []

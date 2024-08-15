@@ -1,0 +1,7 @@
+amf:
+  addr: 10.53.1.2
+  bind_addr: 10.53.1.1
+
+cu_cp:
+  f1ap:
+    bind_addr: 127.0.10.1
