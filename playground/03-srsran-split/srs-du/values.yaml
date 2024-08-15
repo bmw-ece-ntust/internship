@@ -10,6 +10,15 @@ service:
   port: 8080
 
 config:
+  f1ap:
+    cu_cp_addr: 127.0.10.1
+    bind_addr: 127.0.10.2
+
+  cell_cfg:
+    plmn: "00101"
+    tac: 7
+    pci: 1
+
   duConfigMap: "du-config"  # Name of the ConfigMap containing DU config
 
 resources: {}

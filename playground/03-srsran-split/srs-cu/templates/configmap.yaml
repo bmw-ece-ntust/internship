@@ -6,9 +6,9 @@ data:
   cu.yml: |
     # Your CU configuration content goes here
     amf:
-      addr: 127.0.1.100
-      bind_addr: 127.0.10.2
+      addr: {{ .Values.config.addr }}
+      bind_addr: {{ .Values.config.bind_addr }}
 
     cu_cp:
       f1ap:
-        bind_addr: 127.0.10.1
+        bind_addr: {{ .Values.config.cu_cp.f1ap.bind_addr }}

@@ -10,6 +10,13 @@ service:
   port: 8080
 
 config:
+  amf:
+    addr: open5gs-amf-ngap
+    bind_addr: eth0
+  cu_cp:
+    f1ap:
+      bind_addr: eth0
+
   cuConfigMap: "cu-config"  # Name of the ConfigMap
 
 resources: {}

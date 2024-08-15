@@ -6,11 +6,11 @@ data:
   du.yml: |
     # Your DU configuration content goes here
     f1ap:
-      cu_cp_addr: 127.0.10.1
-      bind_addr: 127.0.10.2
+      cu_cp_addr: {{ .Values.config.f1ap.cu_cp_addr }}
+      bind_addr: {{ .Values.config.f1ap.bind_addr }}
 
     ru_sdr:
-      device_driver: uhd
+      device_driver: zmq
       device_args: type=b200,num_recv_frames=64,num_send_frames=64
       srate: 23.04
       otw_format: sc12
@@ -22,6 +22,6 @@ data:
       band: 78
       channel_bandwidth_MHz: 20
       common_scs: 30
-      plmn: "00101"
-      tac: 7
-      pci: 1
+      plmn: {{ .Values.config.cell_cfg.plmn }}
+      tac: {{ .Values.config.cell_cfg.tac }}
+      pci: {{ .Values.config.cell_cfg.pci }}
