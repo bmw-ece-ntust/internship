@@ -24,8 +24,9 @@
 ## Periodic Coding
 ![alt text](image-1.png)
 
-$$ \text{periode}^{sin}= \sin \frac{2\pi n}{T}$$
-$$ \text{periode}^{cos}= \cos\frac{2\pi n}{T}$$
+$$ \text{period}^{sin}= \sin \frac{2\pi n}{T}$$
+
+$$ \text{period}^{cos}= \cos\frac{2\pi n}{T}$$
 
 
 ## TCMS-CNN Multi-step Architecture
