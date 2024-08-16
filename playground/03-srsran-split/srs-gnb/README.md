@@ -1,0 +1,122 @@
+# srs-gnb Helm Chart
+
+This Helm chart deploys the `srs-gnb` (gNodeB) component of the srsRAN project into a Kubernetes cluster.
+
+## Prerequisites
+
+Before deploying the Helm chart, ensure you have the following:
+
+- A Kubernetes cluster up and running
+- `kubectl` configured to interact with your cluster
+- Helm installed on your local machine
+
+## Chart Structure
+
+The Helm chart is organized as follows:
+
+```
+srs-gnb/
+├── Chart.yaml
+├── charts
+│   └── common
+│       ├── Chart.yaml
+│       ├── README.md
+│       ├── templates
+│       │   ├── _affinities.tpl
+│       │   ├── _capabilities.tpl
+│       │   ├── _errors.tpl
+│       │   ├── _images.tpl
+│       │   ├── _ingress.tpl
+│       │   ├── _labels.tpl
+│       │   ├── _names.tpl
+│       │   ├── _secrets.tpl
+│       │   ├── _storage.tpl
+│       │   ├── _tplvalues.tpl
+│       │   ├── _utils.tpl
+│       │   ├── _warnings.tpl
+│       │   └── validations
+│       │       ├── _cassandra.tpl
+│       │       ├── _mariadb.tpl
+│       │       ├── _mongodb.tpl
+│       │       ├── _mysql.tpl
+│       │       ├── _postgresql.tpl
+│       │       ├── _redis.tpl
+│       │       └── _validations.tpl
+│       └── values.yaml
+├── templates
+│   ├── configmap-entrypoint.yaml
+│   ├── configmap.yaml
+│   ├── deployment.yaml
+│   └── hpa.yaml
+└── values.yaml
+```
+
+### Key Files and Directories
+
+- **`Chart.yaml`**: Contains the metadata for the Helm chart, such as its name, version, and description.
+- **`charts/`**: Contains subcharts or common chart components. In this case, it includes a common chart used for various shared templates and functions.
+  - **`common/`**: A reusable chart with templates for affinities, capabilities, errors, images, ingress, labels, names, secrets, storage, validations, and warnings.
+    - **`templates/`**: Contains the reusable templates for these functions.
+    - **`validations/`**: Contains templates for database validation (Cassandra, MariaDB, MongoDB, MySQL, PostgreSQL, Redis) and general validation functions.
+- **`templates/`**: Contains Kubernetes manifests that are processed by Helm to deploy your application.
+  - **`configmap-entrypoint.yaml`**: ConfigMap that defines the entrypoint script for the gNodeB.
+  - **`configmap.yaml`**: ConfigMap for gNodeB configuration.
+  - **`deployment.yaml`**: Defines the Deployment resource for deploying the `srs-gnb` application.
+  - **`hpa.yaml`**: Defines the Horizontal Pod Autoscaler (HPA) for scaling the `srs-gnb` application.
+- **`values.yaml`**: Contains the default values for the Helm chart. You can override these values when installing the chart.
+
+## Deploying the Helm Chart
+
+### Step 1: Customize the Configuration
+
+Edit the `values.yaml` file to customize the deployment. The default values should work for a basic deployment, but you may want to adjust parameters like `replicaCount`, `image.repository`, `image.tag`, and `service.port`.
+
+### Step 2: Package the Helm Chart (Optional)
+
+If you want to package the Helm chart for distribution, run the following command in the directory containing the `Chart.yaml`:
+
+```bash
+helm package srs-gnb
+```
+
+This command will create a `srs-gnb-0.1.0.tgz` package file.
+
+### Step 3: Install the Helm Chart
+
+To deploy the chart to your Kubernetes cluster, run:
+
+```bash
+helm install my-srs-gnb ./srs-gnb
+```
+
+Replace `my-srs-gnb` with the desired release name. The chart will deploy the `srs-gnb` application using the provided or default configuration.
+
+### Step 4: Verify the Deployment
+
+After the chart is deployed, you can check the status of the deployment using:
+
+```bash
+kubectl get deployments
+kubectl get pods
+kubectl get services
+```
+
+These commands will list the status of your Deployment, Pods, and Services in the cluster.
+
+### Step 5: Access the `srs-gnb` Service
+
+If you have exposed the `srs-gnb` service via a LoadBalancer or NodePort, you can access it using the external IP or port provided by the service.
+
+### Step 6: Uninstall the Helm Chart
+
+To uninstall the chart and remove the associated resources from your Kubernetes cluster, run:
+
+```bash
+helm uninstall my-srs-gnb
+```
+
+Replace `my-srs-gnb` with the release name you used during installation.
+
+## Conclusion
+
+This Helm chart provides a convenient way to deploy and manage the `srs-gnb` component of the srsRAN project in a Kubernetes environment. By leveraging Helm, you can scale, update, and maintain your deployment with ease.
