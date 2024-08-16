@@ -6,6 +6,7 @@
 | **Kernel size**                | 8                                   | first: (length input/8), second: (length input/4), third: (length input) |
 | **Number of filters**          | 64                                  | 120                            |
 | **Dilation rate**              | 1, 2, and 4                         | 1                              |
+|**Dropout rate**                | 0.05 (5%)                           | 0.2 (20%)                      |
 | **Batch Size**                 | 128                                 | length input/2                 |
 | **Loss Function**              | Pinball Loss                        | MSE loss                       |
 | **Optimizer**                  | AMSGrad                             | Adam                           |
