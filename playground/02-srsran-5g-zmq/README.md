@@ -32,8 +32,6 @@ It is important to notice that the default values of MCC, MNC, TAC, SST and SD s
 
 In addition, take into account that the value given for amf.hostname must match the name of the correponding AMF service deployed by the open5gs chart. Therefore, in case you use a differente release name for the open5gs chart, make sure that this value is set accordingly.
 
+### Traffic Testing
 
-**Troubleshoot 1 - gNB Bind Address**
-![image](https://hackmd.io/_uploads/HkHYRhEYR.png)
-**Troubleshoot 2 - srsUE Pod**
-![image](https://hackmd.io/_uploads/BknTAhVYC.png)
+![Traffic Testing](https://hackmd.io/_uploads/HkrKxWmj0.png)
