@@ -8,15 +8,15 @@
 #### 1.1 Connect to the RU :
 SSH to the RU
 ```bash
-ssh user@192.168.8.80
+ssh user@192.168.*.**
 ```
 Password
 ```bash
-user
+******
 ```
 Enable password
 ```bash
-liteon168
+*******
 ```
 #### 1.2 Set the eAxC ID in RU (Need to do this after every reboot) :
 Set this settings in configuration mode (enable)
@@ -38,11 +38,11 @@ show oru-status
 #### 2.1 Connect to the server :
 SSH to the server
 ```bash
-ssh oai72@192.168.8.29
+ssh oai72@192.168.*.**
 ```
 Password
 ```bash
-bmwlab
+******
 ```
 #### 2.2 After every server reboot you need to do this step :
 To setup maximum performance, vf, and environment

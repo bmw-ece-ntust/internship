@@ -31,16 +31,16 @@ PersistentKeepalive = 25
 ### 1.5 | Check the connection
 #### 1.5.1 | Ping 192.168.8.9
 ```bash
-ping 192.168.8.9
+ping 192.168.*.**
 ```
 #### 1.5.2 | SSH to 192.168.8.60
 ```bash
-ssh oranadmin@192.168.8.60
+ssh oranadmin@192.168.*.**
 ```
 
 Password :
 ```bash
-bmwlab
+********
 ```
 
 ### Result
