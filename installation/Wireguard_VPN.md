@@ -12,15 +12,15 @@ Save this configuration as a conf. file :
 ```bash
 [Interface]
 PrivateKey = YOUR_PRIVATE_KEY
-Address = 10.1.0.101/32
-DNS = 192.168.8.72, 8.8.8.8, 8.8.4.4
-MTU = 1420
+Address = YOUR_PRIVATE_KEY
+DNS = YOUR_PRIVATE_KEY
+MTU = YOUR_PRIVATE_KEY
 
 [Peer]
 PublicKey = YOUR_PUBLIC_KEY
-AllowedIPs = 10.1.0.0/24, 192.168.8.0/24
-Endpoint = 140.118.162.82:54087
-PersistentKeepalive = 25
+AllowedIPs = YOUR_PRIVATE_KEY
+Endpoint = YOUR_PRIVATE_KEY
+PersistentKeepalive = YOUR_PRIVATE_KEY
 ```
 
 ![Conf](../assets/vpn_installation/Screenshot%202024-07-03%20112926.png)
