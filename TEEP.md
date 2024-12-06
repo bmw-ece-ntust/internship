@@ -24,6 +24,7 @@ This internship offers hands-on experience for **self-disciplined students** pas
 4. **Adaptability**  
 5. [**Time-management**](https://youtu.be/oTugjssqOT0)  
 
+> [!NOTE]
 > “Without a doubt, you will face many challenges during the internship. But with perseverance, you can achieve great things!” – Prof. Ray  
 
 ---
@@ -37,7 +38,7 @@ Our internship alumni have achieved remarkable milestones:
 - **Dec. 2021**: [Wilfrid](https://hackmd.io/_SpJwkihTDCy4f3eAgVI0g) received a scholarship for NTUST's Spring 2022 Master’s Program.  
 - **July 2021**: Nadhif Muhammad Rekoputra and Derni Ageng graduated with MS degrees from NTUST and found jobs at **Accton** and **Atayalan**, Taiwan, respectively.  
 
-[Explore more alumni success stories here](#detailed-news-highlights).  
+.  
 
 ---
 
