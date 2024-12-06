@@ -105,6 +105,7 @@ We are encouraging the talent students and partner professors among universities
 ### Selection Criteria:
 1. Good at programming C, C++, and Python;
 2. Intend to take [Master's/Ph.D.](#admission-and-scholarship-ntust) in NTUST
+
 ---
 ## Key Highlights  
 - Collaborate with international students and industry experts.  
@@ -118,19 +119,19 @@ We are encouraging the talent students and partner professors among universities
 5. [**Time-management**](https://youtu.be/oTugjssqOT0)  
 
 ## TOPICS:
-### -  Beyond 5G/6G:
+### -  🛜 Beyond 5G/6G:
 1. O-RAN Software Community (OSC) open source
 2. OpenAirInterface (OAI) open-source
 3. Digital Twin (open-souce + commercial)
 
-### - AI/ML
-1. Energy Saving
+### - 🤖 AI/ML on Open-RAN (O-RAN)
+1. Energy Saving on
 2. Auto-configuration
 
-### - Security
+### - ⚠️ Security
 1. C/U/S-plane attacker
 
-### - Internet of Things:
+### - 🌎 Internet of Things:
 1. WiFi
 2. Indoor Positioning (WiFi + BLE)
 
