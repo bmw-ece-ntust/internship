@@ -36,15 +36,26 @@
 > Click the link below to get their mail. And CC to the PIC as well.
 
 ### Supervisor
-- **[Prof. Ray Guang Cheng](mailto:crg@gapps.ntust.edu.tw)** - NTUST
+- **Prof. Ray Guang Cheng**.
+  - E-mail :crg@gapps.ntust.edu.tw
+  - [Faculty Profile](https://www.et.ntust.edu.tw/et/faculty.php?user=crg&lang=en)
+  - [Google Scholar](https://scholar.google.com/citations?user=Lg3GlmYAAAAJ)
 
 ### Points of Contact (PIC)
 - Universitas Indonesia
-  - [Ian Joseph Chandra, S.T., M.Sc.](mailto:d11202805@gapps.ntust.edu.tw)
+  1. [Ian Joseph Chandra, S.T., M.Sc.](https://www.linkedin.com/in/ian-joseph-chandra)
+       - E-mail: d11202805@gapps.ntust.edu.tw
+       - [LinkedIn](https://www.linkedin.com/in/ian-joseph-chandra)
+       - [Google Scholar](https://scholar.google.com/citations?user=noylQC0AAAAJ&hl=en)
 - Institut Teknologi Bandung
-  - [Wilfrid Azariah, S.T.](mailto:superwilfrid@gmail.com)
+  1. Wilfrid Azariah, S.T.
+       - E-mail: superwilfrid@gmail.com
+       - [LinkedIn](https://www.linkedin.com/in/wilfrid-azariah-22a554179)
 - **Telkom University**
-  - [Yosafat Marselino Agus, S.T.](mailto:ninoagus@protonmail.com)
+  1. Yosafat Marselino Agus, S.T.
+       - E-mail: ninoagus@protonmail.com
+       - [LinkedIn](https://www.linkedin.com/in/yosafat-marselino-739235a7)
+       - [Google Scholar](https://scholar.google.com/citations?user=pqn6fm0AAAAJ&hl=en)
 
 
 ---
@@ -103,8 +114,10 @@ We are encouraging the talent students and partner professors among universities
     - [AAEON Scholarship](https://ece.ntust.edu.tw/p/406-1017-83234,r2.php?Lang=en)
 
 ### Selection Criteria:
-1. Good at programming C, C++, and Python;
-2. Intend to take [Master's/Ph.D.](#admission-and-scholarship-ntust) in NTUST
+1. Min. passed the 5th semester of Undergraduate studies;
+2. Good at programming C, C++, and Python;
+3. Passionate in writing research paper journal;
+4. Intend to take [Master's/Ph.D.](#admission-and-scholarship-ntust) in NTUST;
 ---
 ## Key Highlights  
 - Collaborate with international students and industry experts.  
