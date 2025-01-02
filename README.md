@@ -120,21 +120,24 @@ We are encouraging the talent students and partner professors among universities
 
 ## TOPICS:
 ### Lab topics
+Our main topic in this year is about Network Digital Twin in Cellular and WiFi.
+
 -  Beyond 5G/6G:
    1. O-RAN Software Community (OSC) open source
    2. OpenAirInterface (OAI) open-source
    3. Digital Twin (open-souce + commercial)
 
-- AI/ML
+- AI/ML:
   1. Energy Saving
   2. Auto-configuration
-
+<!-- 
 - Security
-  1. C/U/S-plane attacker
+  1. C/U/S-plane attacker -->
 
-- Internet of Things:
-  1. WiFi
-  2. Indoor Positioning (WiFi + BLE)
+- [Internet of Things](./topics/wifi-digital-twin):
+  1. WiFi Optimization
+  2. Rogue AP Localization (Positioning)
+
 
 ## The 3-Stages of Internship
 Here you will find our guideline to prepare your internship in Taiwan. We have several stages to be done during the process:
