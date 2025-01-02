@@ -3,9 +3,9 @@
 
 # BMW Lab Internship
 - [BMW Lab Internship](#bmw-lab-internship)
-  - [📞 CONTACT](#-contact)
-    - [Supervisor](#supervisor)
-    - [Points of Contact (PIC)](#points-of-contact-pic)
+  - [📞 1. CONTACT](#-1-contact)
+    - [1.1 Supervisor](#11-supervisor)
+    - [1.2 Points of Contact (PIC)](#12-points-of-contact-pic)
   - [🌟 **ABOUT THE INTERNSHIP**](#-about-the-internship)
   - [🎯 PURPOSE](#-purpose)
   - [📝 INTERNSHIP APPLICATION](#-internship-application)
@@ -13,12 +13,8 @@
     - [Admission and Scholarship, NTUST](#admission-and-scholarship-ntust)
     - [Selection Criteria:](#selection-criteria)
   - [Key Highlights](#key-highlights)
-  - [Skills You Will Learn](#skills-you-will-learn)
   - [TOPICS:](#topics)
-    - [-  Beyond 5G/6G:](#---beyond-5g6g)
-    - [- AI/ML](#--aiml)
-    - [- Security](#--security)
-    - [- Internet of Things:](#--internet-of-things)
+    - [Lab topics](#lab-topics)
   - [The 3-Stages of Internship](#the-3-stages-of-internship)
     - [1. Probation](#1-probation)
       - [Steps to Follow:](#steps-to-follow)
@@ -31,21 +27,24 @@
 
 ![TEEP2024](./pictures/TEEP%202024.jpeg)
 
-## 📞 CONTACT
+## 📞 1. CONTACT
 > [!NOTE]
 > Click the link below to get their mail. And CC to the PIC as well.
 
-### Supervisor
-- **[Prof. Ray Guang Cheng](mailto:crg@gapps.ntust.edu.tw)** - NTUST
+### 1.1 Supervisor
+- **Prof. Ray Guang Cheng**.
+  - E-mail :crg@gapps.ntust.edu.tw
+  - [Faculty Profile](https://www.et.ntust.edu.tw/et/faculty.php?user=crg&lang=en)
+  - [Google Scholar](https://scholar.google.com/citations?user=Lg3GlmYAAAAJ)
 
-### Points of Contact (PIC)
+### 1.2 Points of Contact (PIC)
 - Universitas Indonesia
-  - [Ian Joseph Chandra, S.T., M.Sc.](mailto:d11202805@gapps.ntust.edu.tw)
+  1. [Ian Joseph Chandra, S.T., M.Sc.](https://www.linkedin.com/in/ian-joseph-chandra) - d11202805@gapps.ntust.edu.tw
+  2. Joshevan
 - Institut Teknologi Bandung
-  - [Wilfrid Azariah, S.T.](mailto:superwilfrid@gmail.com)
+  1. Wilfrid Azariah, S.T. - superwilfrid@gmail.com
 - **Telkom University**
-  - [Yosafat Marselino Agus, S.T.](mailto:ninoagus@protonmail.com)
-
+  1. Yosafat Marselino Agus, S.T. - ninoagus@protonmail.com
 
 ---
 ## 🌟 **ABOUT THE INTERNSHIP**
@@ -103,37 +102,42 @@ We are encouraging the talent students and partner professors among universities
     - [AAEON Scholarship](https://ece.ntust.edu.tw/p/406-1017-83234,r2.php?Lang=en)
 
 ### Selection Criteria:
-1. Good at programming C, C++, and Python;
-2. Intend to take [Master's/Ph.D.](#admission-and-scholarship-ntust) in NTUST
-
+1. Min. passed the 5th semester of Undergraduate (Bachelor's) studies;
+2. Good at programming C, C++, and Python;
+3. Passionate in writing research paper journal;
+4. Intend to take [Master's/Ph.D.](#admission-and-scholarship-ntust) in NTUST;
 ---
 ## Key Highlights  
 - Collaborate with international students and industry experts.  
 - Opportunity to transition into MS or PhD programs at NTUST.  
 
-## Skills You Will Learn  
+<!-- ## Skills You Will Learn  
 1. **Teamwork**  
 2. **Self-learning**  
 3. **Decision-making**  
 4. **Adaptability**  
-5. [**Time-management**](https://youtu.be/oTugjssqOT0)  
+5. [**Time-management**](https://youtu.be/oTugjssqOT0)   -->
 
 ## TOPICS:
-### -  🛜 Beyond 5G/6G:
-1. O-RAN Software Community (OSC) open source
-2. OpenAirInterface (OAI) open-source
-3. Digital Twin (open-souce + commercial)
+### Lab topics
+Our main topic in this year is about Network Digital Twin in Cellular and WiFi.
 
-### - 🤖 AI/ML on Open-RAN (O-RAN)
-1. Energy Saving on
-2. Auto-configuration
+-  Beyond 5G/6G:
+   1. O-RAN Software Community (OSC) open source
+   2. OpenAirInterface (OAI) open-source
+   3. Digital Twin (open-souce + commercial)
 
-### - ⚠️ Security
-1. C/U/S-plane attacker
+- AI/ML:
+  1. Energy Saving
+  2. Auto-configuration
+<!-- 
+- Security
+  1. C/U/S-plane attacker -->
 
-### - 🌎 Internet of Things:
-1. WiFi
-2. Indoor Positioning (WiFi + BLE)
+- [Internet of Things](./topics/wifi-digital-twin):
+  1. WiFi Optimization
+  2. Rogue AP Localization (Positioning)
+
 
 ## The 3-Stages of Internship
 Here you will find our guideline to prepare your internship in Taiwan. We have several stages to be done during the process:
