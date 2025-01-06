@@ -14,3 +14,7 @@ https://openreview.net/pdf?id=zfLf2qniFH
     - Execution: The modified code is executed, and the output from the print statements is collected as logs.
     - Analysis and Correction: LLMs analyze the logs and explain test cases to identify inconsistencies indicating bugs, then correct the code based on that analysis.
 - Performance Metrics: Accuracy is used as the evaluation metric, representing the percentage of problems that successfully pass all test cases.
+## 4.  How They Use the Results to Ensure the Goal is Achieved
+- Iterative Debugging: The debugging process is conducted iteratively until all test cases are passed or a predetermined stopping criterion is reached. If the LLM fails on a specific test case, it is prompted to add print statements, run the code, and analyze the output to find the bug.
+- Ablation Study: The authors conducted an ablation study to analyze the effectiveness of different components in their method. Results showed that removing parts of the analysis process led to a decrease in performance, emphasizing the importance of both test case explanations and logs in effective debugging.
+- Experimental Results: Experimental results indicate that the print debugging method significantly enhances the performance of LLMs in solving Leetcode problems, particularly at the easy and medium levels, compared to other debugging methods.
