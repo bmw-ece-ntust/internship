@@ -10,7 +10,7 @@ https://openreview.net/pdf?id=zfLf2qniFH
 - Dataset and Evaluation: The authors collected a dataset of Leetcode problems and evaluated their method using the Leetcode online judging system. Experimental results demonstrate that this approach outperforms other debugging techniques, such as rubber duck debugging, with significant accuracy improvements.
 ## 3. System Architecture & Basic Concept of the Proposed Method & Performance Metrics
 - System Architecture: The proposed method involves three main steps:
--   Adding Print Statements: LLMs insert print statements into the problematic code to track variable values and execution flow.
--    Execution: The modified code is executed, and the output from the print statements is collected as logs.
--    Analysis and Correction: LLMs analyze the logs and explain test cases to identify inconsistencies indicating bugs, then correct the code based on that analysis.
-Performance Metrics: Accuracy is used as the evaluation metric, representing the percentage of problems that successfully pass all test cases.
+    - Adding Print Statements: LLMs insert print statements into the problematic code to track variable values and execution flow.
+    - Execution: The modified code is executed, and the output from the print statements is collected as logs.
+    - Analysis and Correction: LLMs analyze the logs and explain test cases to identify inconsistencies indicating bugs, then correct the code based on that analysis.
+- Performance Metrics: Accuracy is used as the evaluation metric, representing the percentage of problems that successfully pass all test cases.
