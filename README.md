@@ -14,7 +14,7 @@
     - [Selection Criteria:](#selection-criteria)
   - [Key Highlights](#key-highlights)
   - [TOPICS:](#topics)
-    - [Lab topics](#lab-topics)
+    - [Lab Research Topics](#lab-research-topics)
   - [The 3-Stages of Internship](#the-3-stages-of-internship)
     - [1. Probation](#1-probation)
       - [Steps to Follow:](#steps-to-follow)
@@ -119,7 +119,7 @@ We are encouraging the talent students and partner professors among universities
 5. [**Time-management**](https://youtu.be/oTugjssqOT0)   -->
 
 ## TOPICS:
-### Lab topics
+### Lab Research Topics
 Our main topic in this year is about Network Digital Twin in Cellular and WiFi.
 
 -  Beyond 5G/6G:
@@ -141,12 +141,14 @@ Our main topic in this year is about Network Digital Twin in Cellular and WiFi.
 
 ## The 3-Stages of Internship
 Here you will find our guideline to prepare your internship in Taiwan. We have several stages to be done during the process:
-1. [**Probation**](#3-probation): A simulation stage for the working style in BMW Lab or our partner companies.
-2. [**Internship**](#4-internship): Rules to be followed after you passed the `probation stage`.
-3. [**End of Internship**](#5-end-of-internship): Output delivarance (documentation, slides, demo, paper draft, etc.) to BMW Lab or our partner companies.
+1. [**Probation**](#1-probation): A simulation stage for the working style in BMW Lab or our partner companies.
+2. [**Internship**](#2-internship): Rules to be followed after you passed the `probation stage`.
+3. [**End of Internship**](#3-end-of-internship): Output delivarance (documentation, slides, demo, paper draft, etc.) to BMW Lab or our partner companies.
 
 > [!WARNING]
-> “Without a doubt, you will face many challenges during the internship. But with perseverance, you can achieve great things!” – Prof. Ray  
+> “Without a doubt, you will face many challenges during the internship. But with perseverance, you can achieve great things!” 
+> 
+> – Prof. Ray-Guang Cheng
 
 ---
 
