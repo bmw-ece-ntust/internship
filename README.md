@@ -130,11 +130,12 @@ Our main topic in this year is about Network Digital Twin in Cellular and WiFi.
 - AI/ML:
   1. Energy Saving
   2. Auto-configuration
+  3. LLM for PCAP analysis
 <!-- 
 - Security
   1. C/U/S-plane attacker -->
 
-- [Internet of Things](./topics/wifi-digital-twin):
+- [Internet of Things](./topics/wifi-digital-twin.md):
   1. WiFi Optimization
   2. Rogue AP Localization (Positioning)
 
