@@ -18,7 +18,7 @@ The OAI (Open Air Interface) logging facility is an essential component of the O
 
   ### 3. Configuration
   The logging behavior can be configured through various means:
-    - Log Level Configuration: Set globally or per module to control verbosity.
-    - Log Output: Logs can be directed to console, files, or remote logging services.
-    - Log Formatting: Customize the format to include timestamps, context, and message details.
+      - Log Level Configuration: Set globally or per module to control verbosity.
+      - Log Output: Logs can be directed to console, files, or remote logging services.
+      - Log Formatting: Customize the format to include timestamps, context, and message details.
 
