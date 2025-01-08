@@ -13,12 +13,12 @@ The OAI (Open Air Interface) logging facility is an essential component of the O
   * FATAL: Severe errors leading to application termination.
 
   ### 2. Loggers and Contexts
-  Loggers: Each component or module in OAI has its own logger, which can be independently configured.
-  Contexts: Log messages often include context information, such as function names, file names, and line numbers, to help pinpoint the source of an issue.
+  - Loggers: Each component or module in OAI has its own logger, which can be independently configured.
+  - Contexts: Log messages often include context information, such as function names, file names, and line numbers, to help pinpoint the source of an issue.
 
   ### 3. Configuration
   The logging behavior can be configured through various means:
-    Log Level Configuration: Set globally or per module to control verbosity.
-    Log Output: Logs can be directed to console, files, or remote logging services.
-    Log Formatting: Customize the format to include timestamps, context, and message details.
+    - Log Level Configuration: Set globally or per module to control verbosity.
+    - Log Output: Logs can be directed to console, files, or remote logging services.
+    - Log Formatting: Customize the format to include timestamps, context, and message details.
 
