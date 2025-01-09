@@ -1,3 +1,5 @@
+
+
 The article titled "Streamlining Logs with Open Source, Local LLMs" discusses how to utilize open-source, Apache 2.0 licensed local Large Language Models (LLMs) to streamline log lines.
 
 ## 1. Problem
@@ -14,9 +16,5 @@ The article contributes by introducing the use of open-source, local Large Langu
 ## 4. How They Use the Results to Ensure the Goal is Achieved
 The results are used by demonstrating tangible reductions in log sizes and associated costs in log management solutions. The streamlined logs still maintain enough context for effective debugging and monitoring. Additionally, the article emphasizes the importance of balancing verbosity reduction with the retention of critical log information to ensure the streamlined logs remain useful for diagnostic and operational purposes.
 
-
-
-
-
-
-
+## Source
+https://www.cncf.io/blog/2024/04/12/streamlining-logs-with-open-source-local-llms/
