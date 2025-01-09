@@ -6,7 +6,7 @@ The main problem addressed in the article is the challenge of managing and analy
 ## 2. Contribution
 The article contributes by introducing the use of open-source, local Large Language Models (LLMs) to streamline log lines. The method proposed reduces the verbosity of logs while preserving essential context, thereby improving readability and reducing storage costs.
 
-## 3. 3. System Architecture & Basic Concept of the Proposed Method & Performance Metrics
+## 3. System Architecture & Basic Concept of the Proposed Method & Performance Metrics
   -  System Architecture: The approach uses local LLMs that are integrated into the logging pipeline. These models process the log data in real-time or batch mode to condense verbose log entries.
   -  Basic Concept: The core idea is to apply natural language processing (NLP) techniques via LLMs to summarize and streamline log entries, reducing unnecessary details while keeping the critical information intact.
   -  Performance Metrics: Key performance metrics include the reduction in log size, the preservation of essential information, cost savings in log management tools, and improvements in log readability and utility for engineers.
