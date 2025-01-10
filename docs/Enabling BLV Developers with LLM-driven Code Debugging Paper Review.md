@@ -1,5 +1,7 @@
 # Enabling BLV Developers with LLM-driven Code Debugging Paper Review
 
+https://arxiv.org/pdf/2401.16654
+
 BLVRUN is a command line shell script designed to assist developers in the blind low vision (BLV) community by providing a concise and informative summary of traceback errors that occur when running Python code.
 
 ## 1. Problem
@@ -24,3 +26,4 @@ Development of BLVRUN: This paper introduces BLVRUN, a command-line application 
 ## 4. 4. How They Use the Results to Ensure the Goal is Achieved?
 - Evaluation and Testing: The research includes an evaluation of BLVRUN's performance by comparing the generated summaries with those from larger models. Results indicate that BLVRUN can produce accurate and informative summaries, helping BLV developers understand errors more quickly.
 - User Study Plans: The study also outlines plans for conducting user studies to measure the impact of using BLVRUN on the development process for BLV developers, including task performance metrics and psychological impacts such as stress and frustration. The results from these studies will be used to improve the design and functionality of BLVRUN in the future.
+
