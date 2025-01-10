@@ -28,8 +28,8 @@ The article discusses how Generative AI, particularly Large Language Models (LLM
 
 ## 4. How They Use the Results to Ensure the Goal is Achieved:
     The results from using Generative AI in log analytics ensure the goal of efficient, accurate, and automated log analysis is achieved by:
-    - Automating the log analysis process, reducing the need for manual intervention.
-    - Providing real-time insights and anomaly detection, which speeds up the resolution of issues.
-    - Continuously learning from log data to improve predictive maintenance, thereby preventing potential future issues.
-    - Delivering actionable insights that help IT teams optimize system performance and reliability.
+    Automating the log analysis process, reducing the need for manual intervention.
+    Providing real-time insights and anomaly detection, which speeds up the resolution of issues.
+    Continuously learning from log data to improve predictive maintenance, thereby preventing potential future issues.
+    Delivering actionable insights that help IT teams optimize system performance and reliability.
     
