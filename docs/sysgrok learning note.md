@@ -34,3 +34,11 @@ Sysgrok is an open-source tool designed to streamline the process of analyzing s
 
 # Conclusion
 Sysgrok represents a significant step forward in the automation of log analysis, leveraging the power of local LLMs to deliver real-time, intelligent insights. Its integration with the Elastic stack and open-source nature makes it an attractive option for organizations looking to enhance their log management capabilities.
+
+
+# References
+
+https://github.com/elastic/sysgrokhttps://www.elastic.co/search-labs/blog/open-sourcing-sysgrok-ai-assistant
+https://www.elastic.co/search-labs/blog/open-sourcing-sysgrok-ai-assistant
+https://medium.com/squareshift/open-sourcing-sysgrok-an-ai-assistant-for-analyzing-understanding-and-optimizing-systems-73f2600e4786
+
