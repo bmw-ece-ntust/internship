@@ -1,5 +1,7 @@
 # Sysgrok Learning Note
 
+![images (1)](https://github.com/user-attachments/assets/1d7cbe64-951e-4d9b-8392-46daa1cec761)
+
 # Introduction
 Sysgrok is an open-source tool designed to streamline the process of analyzing system logs using advanced machine learning techniques. Developed as part of the Elastic stack, Sysgrok leverages local large language models (LLMs) to provide efficient and intelligent log analysis, making it easier to identify and resolve issues in complex system environments.
 
