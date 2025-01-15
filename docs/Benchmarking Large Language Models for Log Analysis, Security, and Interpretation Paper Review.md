@@ -25,4 +25,6 @@ The system architecture proposed in the paper revolves around the use of Large L
   - The system uses tools like t-SNE (t-Distributed Stochastic Neighbor Embedding) for visualizing the clusters of log events, showing how logs are grouped based on their characteristics.
   - SHAP (SHapley Additive exPlanations) is used to explain the decisions made by the LLMs, providing transparency into how the models interpret log data.
     
-  
+  ## Reference
+
+https://arxiv.org/pdf/2311.14519
