@@ -13,5 +13,5 @@ The results demonstrate the effectiveness of LLMs in log analysis by significant
 ## System Architecture
 The system architecture proposed in the paper revolves around the use of Large Language Models (LLMs) for analyzing log data.
   - Data Ingestion
-Logs from various sources are collected and fed into the system. These logs are typically unstructured and come from different systems or applications.
+  Logs from various sources are collected and fed into the system. These logs are typically unstructured and come from different systems or applications.
   
