@@ -12,6 +12,17 @@ The results demonstrate the effectiveness of LLMs in log analysis by significant
 
 ## System Architecture
 The system architecture proposed in the paper revolves around the use of Large Language Models (LLMs) for analyzing log data.
-  - Data Ingestion
-      Logs from various sources are collected and fed into the system. These logs are typically unstructured and come from different systems or applications.
+- Data Ingestion:
+-   Logs from various sources are collected and fed into the system. These logs are typically unstructured and come from different systems or applications.
+2. Preprocessing:
+The logs undergo preprocessing to prepare them for analysis. This step includes tokenization, normalization, and potentially filtering out irrelevant data to ensure that the logs are in a format suitable for input into the LLMs.
+3. LLM Integration:
+The preprocessed logs are fed into fine-tuned LLMs (such as BERT, RoBERTa, DistilRoBERTa, GPT-2, GPT-Neo). These models are used to extract semantic features from the logs.
+Fine-tuning involves training the LLMs on domain-specific log data to improve their performance in identifying and interpreting log events.
+4. Log Analysis:
+The LLMs analyze the logs to classify them as normal or anomalous. This involves extracting meaningful patterns and insights from the log data.
+5. Visualization and Explanation:
+The system uses tools like t-SNE (t-Distributed Stochastic Neighbor Embedding) for visualizing the clusters of log events, showing how logs are grouped based on their characteristics.
+SHAP (SHapley Additive exPlanations) is used to explain the decisions made by the LLMs, providing transparency into how the models interpret log data.
+    
   
