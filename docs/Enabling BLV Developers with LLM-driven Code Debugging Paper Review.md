@@ -23,7 +23,7 @@ Development of BLVRUN: This paper introduces BLVRUN, a command-line application 
 - Performance Metrics:
   -   The model's performance is evaluated using metrics such as cosine similarity and ROUGE-1 to compare the generated summaries against gold standard summaries of errors.
 
-## 4. 4. How They Use the Results to Ensure the Goal is Achieved?
+## 4. How They Use the Results to Ensure the Goal is Achieved?
 - Evaluation and Testing: The research includes an evaluation of BLVRUN's performance by comparing the generated summaries with those from larger models. Results indicate that BLVRUN can produce accurate and informative summaries, helping BLV developers understand errors more quickly.
 - User Study Plans: The study also outlines plans for conducting user studies to measure the impact of using BLVRUN on the development process for BLV developers, including task performance metrics and psychological impacts such as stress and frustration. The results from these studies will be used to improve the design and functionality of BLVRUN in the future.
 
