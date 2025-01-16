@@ -80,3 +80,7 @@ The paper uses the results from their experiments to ensure the goal of improvin
    - The authors also propose exploring alternative evaluation metrics that can more accurately reflect the semantic correctness of logging statements.
 6. Public Release of Resources:
    - The datasets, tools, and results are made publicly available, allowing other researchers to build on the study's findings and further improve LLM-based logging generation.
+
+
+## Reference
+https://arxiv.org/pdf/2307.05950
