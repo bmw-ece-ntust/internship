@@ -12,10 +12,10 @@ The paper suggests focusing on enhancing the generalization abilities of LLMs an
 
 ## Problem
 The main problem identified in the paper is the challenge of generating accurate and complete logging statements using Large Language Models (LLMs). Despite their potential, LLMs currently face several limitations:
-  1. Incomplete Logging Statement Generation: Existing LLMs struggle to generate logging statements that include all necessary components (logging levels, variables, and text) accurately. While they perform decently in predicting logging levels, they show significant shortcomings in predicting logging variables and generating meaningful logging texts.
-  2. Generalization to Unseen Code: LLMs exhibit a noticeable performance drop when applied to unseen code (transformed code that has not been part of the training data), highlighting their limited ability to generalize beyond the data they were trained on.
-  3. Dependence on Prompt Construction and External Contexts: The effectiveness of LLMs is heavily influenced by the design of prompts and the availability of external information such as code comments and file-level contexts. Without these, their performance in generating logging statements decreases.
-  4. Evaluation Metric Challenges: The study also points out the inadequacy of current evaluation metrics like BLEU and ROUGE, which do not effectively capture the semantic correctness of logging statements, thereby complicating the assessment of LLM performance.
+  1. **Incomplete Logging Statement Generation:** Existing LLMs struggle to generate logging statements that include all necessary components (logging levels, variables, and text) accurately. While they perform decently in predicting logging levels, they show significant shortcomings in predicting logging variables and generating meaningful logging texts.
+  2. **Generalization to Unseen Code:** LLMs exhibit a noticeable performance drop when applied to unseen code (transformed code that has not been part of the training data), highlighting their limited ability to generalize beyond the data they were trained on.
+  3. **Dependence on Prompt Construction and External Contexts:** The effectiveness of LLMs is heavily influenced by the design of prompts and the availability of external information such as code comments and file-level contexts. Without these, their performance in generating logging statements decreases.
+  4. **Evaluation Metric Challenges:** The study also points out the inadequacy of current evaluation metrics like BLEU and ROUGE, which do not effectively capture the semantic correctness of logging statements, thereby complicating the assessment of LLM performance.
 
 These issues collectively indicate that while LLMs hold promise for automating logging statement generation, significant improvements are necessary for their practical and reliable application in real-world software development.
 
@@ -40,3 +40,25 @@ These contributions collectively advance the understanding of the role of LLMs i
   3. Prompt Construction and Contextual Information:
       - The framework explores the impact of different prompts and the inclusion of external programming contexts (e.g., code comments and file-level contexts) on LLM performance.
       - This is to determine how these factors influence the accuracy and completeness of generated logging statements.
+
+## Basic Concept
+The basic concept involves leveraging the natural language generation and programming language comprehension capabilities of LLMs to automatically generate logging statements. These statements are crucial for documenting software runtime behavior. The method emphasizes:
+- Generating complete logging statements (including logging levels, variables, and texts)
+- Evaluating the generalization capabilities of LLMs when exposed to unseen code.
+
+
+## Performance Metrics
+The paper uses several performance metrics to evaluate the effectiveness and generalization capabilities of the LLMs:
+1. Logging Levels:
+   - Level Accuracy (L-ACC): Measures the percentage of correctly predicted logging levels.
+   - Average Ordinal Distance Score (AOD): Considers the ordinal distance between predicted and actual logging levels, penalizing predictions that are further from the actual level.
+2. Logging Variables:
+   - Precision: The proportion of correctly predicted variables out of all predicted variables.
+   - Recall: The proportion of actual variables correctly predicted.
+   - F1 Score: The harmonic mean of precision and recall, providing a balanced measure.
+3. Logging Texts:
+   - BLEU (Bilingual Evaluation Understudy Score): Evaluates the n-gram similarity between generated and actual logging texts.
+   - ROUGE (Recall-Oriented Understudy for Gisting Evaluation): Measures the overlap of n-grams and longest common subsequences between generated and actual texts.
+   - Semantic Similarity: Uses code embedding models (like UniXcoder and OpenAI embedding) to calculate the semantic similarity between generated and actual logging texts.
+  
+These metrics collectively provide a comprehensive evaluation of the LLMs' ability to generate accurate and meaningful logging statements, as well as their robustness when dealing with unseen code.
