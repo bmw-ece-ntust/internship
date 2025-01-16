@@ -62,3 +62,21 @@ The paper uses several performance metrics to evaluate the effectiveness and gen
    - Semantic Similarity: Uses code embedding models (like UniXcoder and OpenAI embedding) to calculate the semantic similarity between generated and actual logging texts.
   
 These metrics collectively provide a comprehensive evaluation of the LLMs' ability to generate accurate and meaningful logging statements, as well as their robustness when dealing with unseen code.
+
+## The result to ensure the goal is achieved
+The paper uses the results from their experiments to ensure the goal of improving automated logging statement generation with LLMs is achieved by following these key steps:
+1. Comprehensive Performance Evaluation:
+   - Effectiveness of LLMs: By evaluating LLMs on both seen (LogBench-O) and unseen (LogBench-T) datasets, the study assesses the accuracy of generated logging statements. Metrics like BLEU, ROUGE, and semantic similarity are used to measure how closely the generated logging statements match actual ones.
+   - Comparison with Baselines: The study compares LLM performance with traditional retrieval-based and machine learning-based methods, demonstrating that LLMs outperform these baselines, especially in generating complete logging statements.
+2. Identification of Strengths and Weaknesses:
+   - The study identifies that LLMs perform well in predicting logging levels but struggle with generating accurate logging variables and texts, particularly when dealing with unseen code.
+   - The findings highlight areas where LLMs need improvement, such as their generalization capabilities and the ability to generate semantically correct logging texts.
+3. Impact of Prompt Construction and Context:
+   - The study explores the effect of different prompts and contextual information (e.g., comments, file-level context) on LLM performance. It finds that prompts significantly affect performance and that including external programming contexts enhances the quality of generated logging statements.
+4. Generalization to Unseen Code:
+   - By using the transformed LogBench-T dataset, the study assesses how well LLMs can generalize to unseen code. The results show a notable performance drop, underscoring the need for better generalization techniques.
+5. Actionable Insights and Recommendations:
+   - The study provides practical advice based on the findings. For example, it suggests focusing future research on improving the generalization capabilities of LLMs and refining prompt-based learning techniques to better capture code logic.
+   - The authors also propose exploring alternative evaluation metrics that can more accurately reflect the semantic correctness of logging statements.
+6. Public Release of Resources:
+   - The datasets, tools, and results are made publicly available, allowing other researchers to build on the study's findings and further improve LLM-based logging generation.
