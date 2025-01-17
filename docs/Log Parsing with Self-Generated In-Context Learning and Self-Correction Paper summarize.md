@@ -65,3 +65,6 @@ Similar to FGA, FTA focuses on the template level, measuring the proportion of c
 
 ## Paper Result to ensure the goal is achieved
 The paper ensures that the goal is achieved by conducting extensive experiments using a large-scale log dataset. They compare AdaParser with state-of-the-art methods using performance metrics such as Grouping Accuracy (GA), Parsing Accuracy (PA), and F1 Score. The results show that AdaParser excels in accuracy and efficiency, even in zero-shot scenarios, confirming that the framework is capable of adapting and providing accurate parsing results on evolving logs.
+
+## Reference
+https://arxiv.org/pdf/2406.03376
