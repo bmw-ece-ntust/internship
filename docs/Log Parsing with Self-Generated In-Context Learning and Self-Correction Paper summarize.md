@@ -17,3 +17,6 @@ This paper identifies two major problems in log parsing, especially using large 
    - LLMs have strong text understanding and generation capabilities, but often produce inaccurate parsing templates. This problem occurs in two forms:
        - **Plausible Template:** The generated template does not fully match the input log message, for example breaking important information into incorrect variables.
        - **Broad Template:** The template includes information that should be an important part of the log as variables, thus reducing accuracy for further analysis such as troubleshooting.
+
+2. Inability to Adapt to Growing Logs:
+  Many LLM-based parsers rely on historical log data to select candidates for demonstration. However, due to frequent software updates, logs grow, making sufficient historical data unavailable. In extreme cases, such as launching a new service, no historical log data is available, resulting in a significant decrease in parsing accuracy.
