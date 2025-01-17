@@ -1,14 +1,13 @@
 # Log Parsing with Self-Generated In-Context Learning and Self-Correction
 
 
-
-this paper introduces introduces AdaParser, an adaptive log parsing framework leveraging large language models (LLMs). It addresses the limitations of existing log parsers by utilizing self-generated in-context learning (SG-ICL) and a self-correction mechanism to enhance accuracy and adaptability to evolving log data.
+This paper introduces introduces AdaParser, an adaptive log parsing framework leveraging large language models (LLMs). It addresses the limitations of existing log parsers by utilizing self-generated in-context learning (SG-ICL) and a self-correction mechanism to enhance accuracy and adaptability to evolving log data.
 
 Key contributions include:
+1. A tree-based parser for efficiency.
+2. SG-ICL, which maintains a dynamic candidate set to guide the LLM in parsing evolving log data.
+3. A template corrector that refines LLM-generated templates to reduce parsing errors.
 
-A tree-based parser for efficiency.
-SG-ICL, which maintains a dynamic candidate set to guide the LLM in parsing evolving log data.
-A template corrector that refines LLM-generated templates to reduce parsing errors.
 Extensive experiments on large-scale datasets demonstrate AdaParser's superior performance and robustness compared to state-of-the-art methods, even in zero-shot scenarios. The framework also proves generalizable across various LLMs, significantly improving their log parsing capabilities.
 
 ## Problem
